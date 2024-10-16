@@ -1,7 +1,14 @@
+body {
+  height: 100vh;
+  display: flex;
+  margin: 0px;
+  font-family: "Inter", sans-serif;
+}
+
 .center-bigtext {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Full viewport height */
-    text-align: center;
+    text-align: justify;
+    margin: 80px;
   }
