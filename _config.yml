@@ -1,3 +1,24 @@
-theme: jekyll-theme-minimal
-title: Emran's Homepage
-description: Bookmark this to keep an eye on my project updates!
+# Site settings
+title: Emran - UX Researcher
+email: your-email@example.com
+description: >-
+  Personal website of Emran, a UX Researcher, Designer, and Coder based in Singapore.
+baseurl: ""
+url: "https://emranpoh.github.io"
+github_username: emranpoh
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path/
+  publications:
+    output: true
+    permalink: /publications/:path/

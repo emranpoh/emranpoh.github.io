@@ -1,4 +1,13 @@
-- name: Home
-  link: /
-- name: About
-  link: /about.html
+- name: Projects
+  link: /projects/
+- name: Publications
+  link: /publications/
+- name: CV
+  link: /cv/
+
+# Footer navigation
+footer:
+  - name: CV
+    link: /cv/
+  - name: GS
+    link: https://scholar.google.com/citations?user=YOUR_ID
