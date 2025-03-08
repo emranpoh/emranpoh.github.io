@@ -1,0 +1,55 @@
+<section class="publications-list-section">
+  <h2 class="section-title">{{ include.title | default: "my work" }}</h2>
+  
+  <div class="publications-list-scrollable">
+    {% if site.data.pubs %}
+      {% assign sorted_publications = site.data.pubs | sort: 'year' | reverse %}
+      {% if include.limit %}
+        {% assign publications = sorted_publications | slice: 0, include.limit %}
+      {% else %}
+        {% assign publications = sorted_publications %}
+      {% endif %}
+      
+      {% for pub in publications %}
+      <div class="pub-compact-item">
+        <div class="pub-compact-image">
+          {% if pub.image %}
+            <img src="{{ '/assets/images/projects/' | append: pub.image | relative_url }}" alt="{{ pub.title }}">
+          {% else %}
+            <div class="placeholder-image"></div>
+          {% endif %}
+        </div>
+        <div class="pub-compact-content">
+          <h3 class="pub-compact-title">{{ pub.title }}</h3>
+          <p class="pub-compact-meta">
+            {{ pub.authors | replace: 'Emran Poh', '<strong>Emran Poh</strong>' }} ({{ pub.year }})
+            {% if pub.venue_short %} · {{ pub.venue_short }}{% endif %}
+          </p>
+          <div class="pub-compact-tags">
+            {% for tag in pub.tags %}
+            <a href="{{ tag.url | relative_url }}" class="tag-link">
+              <span class="tag" data-tag="{{ tag.name }}">
+                {% if tag.name == "pdf" %}
+                <svg class="tag-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                {% elsif tag.name == "repo" %}
+                <svg class="tag-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                {% endif %}
+                {{ tag.name }}
+              </span>
+            </a>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    {% else %}
+      <p>No publications available.</p>
+    {% endif %}
+  </div>
+  
+  {% if include.limit and sorted_publications.size > include.limit %}
+  <div class="view-all-link">
+    <a href="{{ '/publications' | relative_url }}" class="compact-link">View all publications</a>
+  </div>
+  {% endif %}
+</section>

@@ -6,13 +6,12 @@ permalink: /projects/
 
 # Projects
 
-<div class="filter-controls">
+<!-- <div class="filter-controls">
   <button class="filter-btn active" data-filter="all">All</button>
   <button class="filter-btn" data-filter="2023">2023</button>
   <button class="filter-btn" data-filter="2022">2022</button>
   <button class="filter-btn" data-filter="2021">2021</button>
-  <!-- Add more filter buttons as needed -->
-</div>
+</div> -->
 
 <div class="projects-grid">
   {% assign sorted_projects = site.data.projects | sort: 'year' | reverse %}

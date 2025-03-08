@@ -2,10 +2,12 @@
 layout: default
 ---
 
-# Hi! I'm Emran, a UX Researcher, Designer, and Coder based in Singapore!
+<h1 class="hello-text">hi! i'm emran, a ux researcher, designer, and coder based in singapore!</h1>
 
-i'm a ux + interaction researcher at working on human-ai and collaborative interactions with HCI crew at SMU.
+<p>i'm a ux + interaction researcher at working on human-ai and collaborative interactions with HCI crew at SMU.</p>
 
-i did a little research at NUS and SIT
+<p>i did a little research at NUS and SIT</p>
 
-i enjoy building — and occasionally crashing — interplanetary rockets. and playing insanely complicated games
+<p>also enjoys building — and occasionally crashing — interplanetary rockets. and playing insanely complicated games</p>
+
+{% include publications-gallery.html %}
