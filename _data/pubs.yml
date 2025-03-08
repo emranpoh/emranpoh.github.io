@@ -1,0 +1,71 @@
+- title: "Supporting Artefact Awareness for Partially-Replicated Workspaces"
+  authors: "Emran Poh, Anthony Tang, Jeannie Lee, and Shengdong Zhao"
+  venue: "2023 IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct)"
+  location: "Sydney, Australia"
+  year: 2023
+  image: "artefact-awareness.png"
+  tags:
+    - name: "repo"
+      url: "https://github.com/emranpoh/artefact-awareness"
+    - name: "pdf"
+      url: "https://ieeexplore.ieee.org/abstract/document/10322229/"
+
+- title: "IntVRsection: Virtual Reality Environment for Evaluating Signalized and Unsignalized Intersection Scenarios"
+  authors: "Jeannie Lee, Adriel Yeo, B. Kwok, Z. F. Wong, Emran Poh, and R. Chan"
+  venue: "International ACM SIGCHI Conference on Automotive User Interfaces and Interactive Vehicular Applications"
+  location: "Ingolstadt, Germany"
+  year: 2023
+  image: "intvr.png"
+  tags:
+    - name: "repo"
+      url: "https://github.com/emranpoh/intVRsection"
+    - name: "pdf"
+      url: "https://dl.acm.org/doi/abs/10.1145/3581961.3610373"
+
+- title: "Mixed Reality for Engineering Design Review Using Finite Element Analysis"
+  authors: "Emran Poh, Kyrin Liong, and Jeannie Lee"
+  venue: "2022 IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct)"
+  location: "Singapore"
+  year: 2022
+  image: "loadtable_fea.PNG"
+  tags:
+    - name: "repo"
+      url: "https://github.com/emranpoh/mr-engineering"
+    - name: "pdf"
+      url: "https://ieeexplore.ieee.org/abstract/document/9974521"
+
+- title: "Mixed Reality for Mechanical Design and Assembly Planning"
+  authors: "Emran Poh, Kyrin Liong, and Jeannie Lee"
+  venue: "HCI International 2022–Late Breaking Posters: 24th International Conference on Human-Computer Interaction"
+  location: ""
+  year: 2022
+  image: "mr4assembly.jpg"
+  tags:
+    - name: "repo"
+      url: "https://github.com/emranpoh/mr-mechanical"
+    - name: "pdf"
+      url: "https://link.springer.com/chapter/10.1007/978-3-031-19679-9_72"
+
+- title: "Mixed Reality Interface for Load Application in Finite Element Analysis"
+  authors: "Emran Poh, Kyrin Liong, and Jeannie Lee"
+  venue: "Innovations in Social Computing and Digital Transformation, International Conference on Human-Computer Interaction 2021"
+  location: ""
+  year: 2021
+  image: "mr4fea.png"
+  tags:
+    - name: "repo"
+      url: "https://github.com/emranpoh/mr-load-application"
+    - name: "pdf"
+      url: "https://link.springer.com/chapter/10.1007/978-3-030-77626-8_32"
+
+- title: "Designing with Holograms – A Preliminary Study on Improving Design Visualisation Through Holographic Display"
+  authors: "Emran Poh, A. Tan, V. Balachandran, Jeannie Lee, and Kyrin Liong"
+  venue: "NewRIIS Research Conference (NewRIIS 2021)"
+  location: ""
+  year: 2021
+  image: "newriis.png"
+  tags:
+    - name: "repo"
+      url: "https://github.com/emranpoh/holograms-design"
+    - name: "pdf"
+      url: "https://irr.singaporetech.edu.sg/articles/conference_contribution/Designing_with_Holograms_A_Preliminary_Study_On_Improving_Design_Visualisation_Through_Holographic_Display/23651547/1/files/41505537.pdf"

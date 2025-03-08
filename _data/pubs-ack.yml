@@ -1,0 +1,23 @@
+- title: "Heads-Up Multitasker: Simulating Attention Switching on Optical Head-Mounted Displays"
+  authors: "Y. Bai, A. Ikkala, A. Oulasvirta, S. Zhao, L. J. Wang, P. Yang, and P. Xu"
+  venue: "Proceedings of the CHI Conference on Human Factors in Computing Systems"
+  location: ""
+  year: 2024
+  image: "hud-multitasker.png"
+  tags:
+    - name: "repo"
+      url: "https://github.com/emranpoh/heads-up-multitasker"
+    - name: "pdf"
+      url: "https://dl.acm.org/doi/10.1145/3613904.3642043"
+
+- title: "Investigation of Two Double Throws and Three Single Throws Square Surgical Knots – A Preliminary Experimental & Computational Study on Knot Integrity"
+  authors: "A. Chow, K. Liong, and S. Lee"
+  venue: "7th World Congress on Electrical Engineering and Computer Systems and Science (EECSS'21)"
+  location: "Virtual Conference"
+  year: 2021
+  image: "knot.png"
+  tags:
+    - name: "repo"
+      url: "https://github.com/emranpoh/surgical-knots"
+    - name: "pdf"
+      url: "https://irr.singaporetech.edu.sg/articles/conference_contribution/Investigation_of_Two_Double_Throws_and_Three_Single_Throws_Square_Surgical_Knots_A_Preliminary_Experimental_Computational_Study_on_Knot_Integrity/24151791"

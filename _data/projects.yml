@@ -1,0 +1,35 @@
+- title: "Supporting Artefact Awareness in Partially-Replicated Workspaces"
+  image: "sample.png"
+  year: 2024
+  tags:
+    - name: "repo"
+      url: "https://github.com/emranpoh/project1"
+    - name: "pdf"
+      url: "/assets/pdfs/sample.pdf"
+
+- title: "Supporting Artefact Awareness in Partially-Replicated Workspaces"
+  image: "sample.png"
+  year: 2023
+  tags:
+    - name: "repo"
+      url: "https://github.com/emranpoh/project2"
+    - name: "pdf"
+      url: "/assets/pdfs/sample.pdf"
+
+- title: "Human-AI Collaborative Design for Complex Systems"
+  image: "sample.png"
+  year: 2022
+  tags:
+    - name: "repo"
+      url: "https://github.com/emranpoh/project3"
+    - name: "pdf"
+      url: "/assets/pdfs/sample.pdf"
+
+- title: "Multimodal Interaction Patterns in Remote Collaboration"
+  image: "sample.png"
+  year: 2021
+  tags:
+    - name: "repo"
+      url: "https://github.com/emranpoh/project4"
+    - name: "pdf"
+      url: "/assets/pdfs/sample.pdf"
