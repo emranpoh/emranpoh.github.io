@@ -1,44 +1,41 @@
-<section class="publications-list-section">
+<section class="projects-list-section">
 <div class="section-header">
-  <h2 class="section-title">papers</h2>
-  <div class="pub-pagination-indicators">
+  <h2 class="section-title">my work</h2>
+  <div class="proj-pagination-indicators">
     {% if site.data.pubs %}
-      {% assign sorted_publications = site.data.pubs | sort: 'year' | reverse %}
-      {% for pub in sorted_publications %}
-        <span class="pub-indicator"></span>
+      {% assign sorted_projects = site.data.projects | sort: 'year' | reverse %}
+      {% for proj in sorted_projects %}
+        <span class="proj-indicator"></span>
       {% endfor %}
     {% endif %}
   </div>
 </div>
   
-  <div class="publications-list-scrollable">
-    {% if site.data.pubs %}
-      {% assign sorted_publications = site.data.pubs | sort: 'year' | reverse %}
+  <div class="projects-list-scrollable">
+    {% if site.data.projects %}
+      {% assign sorted_projects = site.data.projects | sort: 'year' | reverse %}
       {% if include.limit %}
-        {% assign publications = sorted_publications | slice: 0, include.limit %}
+        {% assign projects = sorted_projects | slice: 0, include.limit %}
       {% else %}
-        {% assign publications = sorted_publications %}
+        {% assign projects = sorted_projects %}
       {% endif %}
       
-      {% for pub in publications %}
-      <div class="pub-compact-item">
-        <div class="pub-compact-image">
-          {% if pub.image %}
-            <img src="{{ '/assets/images/projects/' | append: pub.image | relative_url }}" alt="{{ pub.title }}">
+      {% for proj in projects %}
+      <div class="proj-compact-item">
+        <div class="proj-compact-image">
+          {% if proj.image %}
+            <img src="{{ '/assets/images/projects/' | append: proj.image | relative_url }}" alt="{{ proj.title }}">
           {% else %}
             <div class="placeholder-image"></div>
           {% endif %}
         </div>
-        <div class="pub-compact-content">
-          <div>
-            <h3 class="pub-compact-title">{{ pub.title }}</h3>
-            <p class="pub-compact-meta">
-              {{ pub.authors | replace: 'Emran Poh', '<strong>Emran Poh</strong>' }} ({{ pub.year }})
-              {% if pub.venue_short %} · {{ pub.venue_short }}{% endif %}
-            </p>
-          </div>
-          <div class="pub-compact-tags">
-            {% for tag in pub.tags %}
+        <div class="proj-compact-content">
+          <h3 class="proj-compact-title">{{ proj.title }}</h3>
+          <p class="proj-compact-meta tag">
+            {% if proj.type %}{{ proj.type }}{% endif %}
+          </p>
+          <div class="proj-compact-tags">
+            {% for tag in proj.tags %}
             <a href="{{ tag.url | relative_url }}" class="tag-link">
               <span class="tag" data-tag="{{ tag.name }}">
                 {% if tag.name == "pdf" %}
@@ -55,39 +52,38 @@
       </div>
       {% endfor %}
     {% else %}
-      <p>No publications available.</p>
+      <p>No projects available.</p>
     {% endif %}
   </div>
   
-  {% if include.limit and sorted_publications.size > include.limit %}
+  {% if include.limit and sorted_projects.size > include.limit %}
   <div class="view-all-link">
-    <a href="{{ '/publications' | relative_url }}" class="compact-link">View all publications</a>
+    <a href="{{ '/projects' | relative_url }}" class="compact-link">View all projects</a>
   </div>
   {% endif %}
 </section>
 
-
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-  const pubItems = document.querySelectorAll('.pub-compact-item');
-  const pubIndicators = document.querySelectorAll('.pub-indicator');
-  const pubScrollContainer = document.querySelector('.publications-list-scrollable');
+  const projItems = document.querySelectorAll('.proj-compact-item');
+  const projIndicators = document.querySelectorAll('.proj-indicator');
+  const projScrollContainer = document.querySelector('.projects-list-scrollable');
   
-  if (pubItems.length > 0 && pubIndicators.length > 0 && pubScrollContainer) {
-    // Initialize by checking which publications are visible
-    updatePubVisibleIndicators();
+  if (projItems.length > 0 && projIndicators.length > 0 && projScrollContainer) {
+    // Initialize by checking which projects are visible
+    updateProjVisibleIndicators();
     
     // Add scroll event listener to the scrollable container
-    pubScrollContainer.addEventListener('scroll', function() {
-      updatePubVisibleIndicators();
+    projScrollContainer.addEventListener('scroll', function() {
+      updateProjVisibleIndicators();
     });
     
-    function updatePubVisibleIndicators() {
+    function updateProjVisibleIndicators() {
       // Get the container's visible boundaries
-      const containerRect = pubScrollContainer.getBoundingClientRect();
+      const containerRect = projScrollContainer.getBoundingClientRect();
       
-      // Check each publication's visibility and update pubIndicators
-      pubItems.forEach((item, index) => {
+      // Check each publication's visibility and update indicators
+      projItems.forEach((item, index) => {
         const rect = item.getBoundingClientRect();
         
         // Determine if the item is substantially visible in the viewport
@@ -99,9 +95,9 @@
         
         // Update the corresponding indicator
         if (isVisible) {
-          pubIndicators[index].classList.add('active');
+          projIndicators[index].classList.add('active');
         } else {
-          pubIndicators[index].classList.remove('active');
+          projIndicators[index].classList.remove('active');
         }
       });
     }

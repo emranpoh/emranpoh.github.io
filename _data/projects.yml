@@ -1,35 +1,39 @@
-- title: "Supporting Artefact Awareness in Partially-Replicated Workspaces"
-  image: "sample.png"
+- title: "Emptiness, Isolation, Death: Parallels from Kojima’s Death Stranding for Human Connection"
+  subtitle: "NUS-HCI CHciE (Continuing HCI Education) Presentation, NUS School of Computing, NUS"
+  image: "ds.jpg"
+  type: "Talk"
   year: 2024
-  tags:
-    - name: "repo"
-      url: "https://github.com/emranpoh/project1"
-    - name: "pdf"
-      url: "/assets/pdfs/sample.pdf"
+  # tags:
+  #   - name: "repo"
+  #     url: "https://github.com/emranpoh/project1"
 
-- title: "Supporting Artefact Awareness in Partially-Replicated Workspaces"
-  image: "sample.png"
+- title: "How to Use XR (Extended Reality) for Physical Assault: A Less-than-Optimistic Commentary on `The Ethics of Realism in Virtual and Augmented Reality' through Netflix’s Black Mirror"
+  subtitle: "NUS-HCI CHciE (Continuing HCI Education) Presentation, NUS School of Computing, NUS"
+  image: "xr-assault.jpg"
+  type: "Talk"
   year: 2023
-  tags:
-    - name: "repo"
-      url: "https://github.com/emranpoh/project2"
-    - name: "pdf"
-      url: "/assets/pdfs/sample.pdf"
+  # tags:
+  #   - name: "repo"
+  #     url: "https://github.com/emranpoh/project1"
 
-- title: "Human-AI Collaborative Design for Complex Systems"
-  image: "sample.png"
-  year: 2022
-  tags:
-    - name: "repo"
-      url: "https://github.com/emranpoh/project3"
-    - name: "pdf"
-      url: "/assets/pdfs/sample.pdf"
+# - title: "Supporting Artefact Awareness in Partially-Replicated Workspaces"
+#   subtitle: "NUS Continu"
+#   image: "sample.png"
+#   year: 2023
+#   tags:
+#     - name: "repo"
+#       url: "https://github.com/emranpoh/project2"
 
-- title: "Multimodal Interaction Patterns in Remote Collaboration"
-  image: "sample.png"
-  year: 2021
-  tags:
-    - name: "repo"
-      url: "https://github.com/emranpoh/project4"
-    - name: "pdf"
-      url: "/assets/pdfs/sample.pdf"
+# - title: "Human-AI Collaborative Design for Complex Systems"
+#   image: "sample.png"
+#   year: 2022
+#   tags:
+#     - name: "repo"
+#       url: "https://github.com/emranpoh/project3"
+
+# - title: "Multimodal Interaction Patterns in Remote Collaboration"
+#   image: "sample.png"
+#   year: 2021
+#   tags:
+#     - name: "repo"
+#       url: "https://github.com/emranpoh/project4"
