@@ -1,0 +1,74 @@
+# personal_news.yml
+# This file contains news entries about yourself to be displayed on your website or other platforms
+
+# Global settings
+settings:
+  max_display: 5  # Number of news items to display on the main page
+  archive_enabled: true  # Whether to enable an archive page for older news
+  sort_order: "newest_first"  # Options: newest_first, oldest_first
+
+# News items collection
+news:
+  - id: news-001
+    title: "Launched My New Website"
+    date: 2025-03-09
+    category: "Website"
+    tags: ["web", "personal", "launch"]
+    featured: true
+    image: "path/to/image.jpg"  # Optional
+    summary: "Excited to announce the launch of my personal website showcasing my portfolio and achievements."
+    content: |
+      Today marks the official launch of my personal website where I'll be sharing my work, 
+      research, and thoughts. The site features sections for my portfolio, publications, 
+      and this news feed to keep everyone updated on my latest activities.
+
+  - id: news-002
+    title: "Presented at Industry Conference"
+    date: 2025-02-15
+    category: "Professional"
+    tags: ["conference", "speaking", "industry"]
+    featured: false
+    image: "path/to/conference-image.jpg"  # Optional
+    summary: "Delivered a keynote speech on emerging trends in my field at the annual industry conference."
+    content: |
+      I had the honor of presenting my latest research findings at this year's industry conference.
+      My talk focused on emerging trends and future directions in the field, and was well-received
+      by the audience of industry professionals and academics. The presentation slides are now 
+      available on my publications page.
+
+  - id: news-003
+    title: "Published New Research Paper"
+    date: 2025-01-20
+    category: "Research"
+    tags: ["publication", "research", "academic"]
+    featured: true
+    image: "path/to/research-image.jpg"  # Optional
+    summary: "My latest research paper on innovative approaches has been published in a leading journal."
+    content: |
+      I'm pleased to announce that my paper titled "Innovative Approaches to Contemporary Challenges" 
+      has been published in the Journal of Advanced Studies. This work represents months of
+      dedicated research and collaboration with esteemed colleagues. The paper explores novel
+      methodologies that could potentially transform how we address key challenges in our field.
+      
+      You can access the full paper through the link on my publications page.
+
+# You can add as many news items as you want following the same structure
+
+# Optional sections
+upcoming_events:
+  - title: "Guest Lecture at University"
+    date: 2025-04-15
+    location: "University Auditorium"
+    description: "Delivering a guest lecture on advanced topics in my field."
+
+  - title: "Industry Workshop"
+    date: 2025-05-22
+    location: "Tech Innovation Center"
+    description: "Leading a hands-on workshop showcasing practical applications."
+
+# Social media links for sharing news
+social_sharing:
+  twitter: true
+  linkedin: true
+  facebook: false
+  email: true
