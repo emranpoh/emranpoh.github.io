@@ -31,35 +31,35 @@ permalink: /projects/
           {% endif %}
         </span>
       </div>
-      {% if project.tags %}
-        <div class="project-tags">
-          {% for tag in project.tags %}
-            {% unless tag.name == 'talk' or tag.type == 'talk' %}
-              <a href="{{ tag.url | relative_url }}" class="tag-link">
-                <span class="tag" data-tag="{{ tag.name }}">
-                  {% if tag.name == 'pub' or tag.type == 'pub' %}
-                    📄
-                  {% elsif tag.name == 'web' or tag.type == 'web' %}
-                    🌐
-                  {% elsif tag.name == 'project' or tag.type == 'project' %}
-                    <i class="fa fa-code"></i>
-                  {% elsif tag.name == 'workshop' or tag.type == 'workshop' %}
-                    <i class="fa fa-users"></i>
-                  {% elsif tag.name == 'blog' or tag.type == 'blog' %}
-                    <i class="fa fa-pencil"></i>
-                  {% else %}
-                    {{ tag.name }}
-                  {% endif %}
-                </span>
-              </a>
-            {% endunless %}
-          {% endfor %}
-        </div>
-      {% else %}
-      <div style="height:16px;"></div>
-      {% endif %}
-      <h3 class="project-title">{{ project.title }}</h3>
-      <p class="project-subtitle">{{ project.subtitle }}</p>
+      <div>
+        {% if project.tags %}
+          <div class="project-tags">
+            {% for tag in project.tags %}
+              {% unless tag.name == 'talk' or tag.type == 'talk' %}
+                <a href="{{ tag.url | relative_url }}" class="tag-link">
+                  <span class="tag" data-tag="{{ tag.name }}">
+                    {% if tag.name == 'pub' or tag.type == 'pub' %}
+                      📄
+                    {% elsif tag.name == 'web' or tag.type == 'web' %}
+                      🌐
+                    {% elsif tag.name == 'project' or tag.type == 'project' %}
+                      <i class="fa fa-code"></i>
+                    {% elsif tag.name == 'workshop' or tag.type == 'workshop' %}
+                      <i class="fa fa-users"></i>
+                    {% elsif tag.name == 'blog' or tag.type == 'blog' %}
+                      <i class="fa fa-pencil"></i>
+                    {% else %}
+                      {{ tag.name }}
+                    {% endif %}
+                  </span>
+                </a>
+              {% endunless %}
+            {% endfor %}
+          </div>
+        {% endif %}
+        <h3 class="project-title">{{ project.title }}</h3>
+        <p class="project-subtitle">{{ project.subtitle }}</p>
+      </div>
       <!-- {% if project.year %}
       <div class="project-year">{{ project.year }}</div>
       {% endif %} -->

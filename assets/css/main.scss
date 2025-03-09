@@ -304,6 +304,17 @@ mark{
   transition: background-color 0.2s;
 }
 
+// on mobile
+@media (max-width: 768px) {
+  .tag {
+    font-size: 10px;
+  }
+
+  .projtype-tag {
+    display: none;
+  }
+}
+
 .tag:hover {
   background-color: #e0e0e0;
 }
@@ -353,10 +364,13 @@ mark{
   border-radius: 8px;
   overflow: hidden;
   max-height: 320px;
-  // transition: transform 0.3s ease, box-shadow 0.3s ease;
-  // background-color: #fff;
-  // box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  // border: 1px solid #f0f0f0;
+  
+  // on mobile
+  @media (max-width: 768px) {
+    flex-direction: row;
+    gap: 4px;
+  }
+
 }
 
 // .project-card:hover {
@@ -370,6 +384,13 @@ mark{
   background-color: #e0e0e0; /* Light gray placeholder */
   border-radius: 8px;
   position: relative;
+
+  @media (max-width: 768px) {
+    min-width: 48px;
+    width: 48px !important;
+    height: 100%;
+  }
+
 }
 
 
@@ -378,6 +399,12 @@ mark{
   gap: 8px;
   margin: 16px 0 4px 0;
   padding: 0 8px;
+
+  
+  @media (max-width: 768px) {
+    display: none;
+  }
+
 }
 
 .project-title {
