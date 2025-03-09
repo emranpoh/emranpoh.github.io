@@ -1,14 +1,14 @@
 <section class="projects-list-section">
 <div class="section-header">
   <h2 class="section-title">my work</h2>
-  <div class="proj-pagination-indicators">
-    {% if site.data.pubs %}
+  <!-- <div class="proj-pagination-indicators">
+    {% if site.data.projects %}
       {% assign sorted_projects = site.data.projects | sort: 'year' | reverse %}
       {% for proj in sorted_projects %}
         <span class="proj-indicator"></span>
       {% endfor %}
     {% endif %}
-  </div>
+  </div> -->
 </div>
   
   <div class="projects-list-scrollable">
@@ -63,7 +63,7 @@
   {% endif %}
 </section>
 
-<script>
+<!-- <script>
   document.addEventListener('DOMContentLoaded', function() {
   const projItems = document.querySelectorAll('.proj-compact-item');
   const projIndicators = document.querySelectorAll('.proj-indicator');
@@ -103,4 +103,4 @@
     }
   }
 });
-</script>
+</script> -->
