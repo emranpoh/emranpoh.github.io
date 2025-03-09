@@ -6,7 +6,6 @@ permalink: /projects/
 
 <div class="content-gallery">
   <div class="projects-grid">
-    <!-- {% assign sorted_projects = site.data.projects | sort: 'year' | reverse %} -->
     {% for project in site.data.projects %}
     <div class="project-card" data-year="{{ project.year }}" title="{{ project.description }}">
       <div class="project-image" 
