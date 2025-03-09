@@ -1,39 +1,97 @@
 - title: "Emptiness, Isolation, Death: Parallels from Kojima’s Death Stranding for Human Connection"
-  subtitle: "NUS-HCI CHciE (Continuing HCI Education) Presentation, NUS School of Computing, NUS"
-  image: "ds.jpg"
-  type: "Talk"
+  # subtitle: "NUS-HCI CHciE (Continuing HCI Education) Presentation, NUS School of Computing, NUS"
+  image: "ds.png"
   year: 2024
-  # tags:
-  #   - name: "repo"
-  #     url: "https://github.com/emranpoh/project1"
+  projtype: "presentation"
 
-- title: "How to Use XR (Extended Reality) for Physical Assault: A Less-than-Optimistic Commentary on `The Ethics of Realism in Virtual and Augmented Reality' through Netflix’s Black Mirror"
-  subtitle: "NUS-HCI CHciE (Continuing HCI Education) Presentation, NUS School of Computing, NUS"
+- title: "How to Use XR for Physical Assault"
+  subtitle: "A Less-than-Optimistic Commentary on `The Ethics of Realism in Virtual and Augmented Reality' through Netflix’s Black Mirror"
   image: "xr-assault.jpg"
-  type: "Talk"
   year: 2023
+  projtype: "presentation"
+
+- title: "Supporting Artefact Awareness in Partially-Replicated Workspaces"
+  subtitle: "Master's Thesis, NUS School of Computing, NUS"
+  image: "artefact-awareness.png"
+  projtype: "🧪"
+  year: 2023
+  tags:
+    - name: "pub"
+      type: "pub"
+      url: "https://ieeexplore.ieee.org/abstract/document/10322229/"
+
+- title: "MR4DFMA: Mixed Reality for Design for Manufacturing Assembly"
+  image: "airshow.jpg"
+  year: 2020-2022
+  projtype: "🧪"
+  tags:
+    - name: "pub"
+      type: "pub"
+      url: "https://doi.org/10.1145/1122445.1122456"
+    - name: "pub"
+      type: "pub"
+      url: "https://doi.org/10.1145/1122445.1122456"
+    - name: "pub"
+      type: "pub"
+      url: "https://doi.org/10.1145/1122445.1122456"
+    - name: "pub"
+      type: "pub"
+      url: "https://doi.org/10.1145/1122445.1122456"
+
+- title: "Be-Longing"
+  image: "belonging.png"
+  subtitle: "A site-specific, augmented reality (AR) experiential artwork"
+  year: 2023
+  projtype: "art"
+  description: "Be-Longing is a site-specific, augmented reality (AR) experiential artwork on UTown Green that invites you to slow down and enjoy life as a community. This interactive experience lets participants 'light' AR sparklers using their mobile phones. As more AR sparklers are lighted, more AR balloons are floated in the sky – personifying the beauty of humanity, lifting and supporting each other in times of uncertainty."
+  tags:
+    - name: "web"
+      type: "web"
+      url: "https://nus.edu.sg/cfa/NAF_2023/event/be-longing/index.html"
+    - name: "code"
+      type: "code"
+      url: "https://github.com/ianfromdover/utown-green-ar/releases"
+
+- title: "Developing Intelligent Agents that Assist with Human Situational Difficulties"
+  # subtitle: "NUS-HCI CHciE (Continuing HCI Education) Presentation, NUS School of Computing, NUS"
+  image: "mmguide-image.png"
+  year: Ongoing
+  projtype: "research"
   # tags:
   #   - name: "repo"
   #     url: "https://github.com/emranpoh/project1"
 
-# - title: "Supporting Artefact Awareness in Partially-Replicated Workspaces"
-#   subtitle: "NUS Continu"
-#   image: "sample.png"
-#   year: 2023
-#   tags:
-#     - name: "repo"
-#       url: "https://github.com/emranpoh/project2"
+- title: "Geylang Drip City Brand"
+  subtitle: "Freelance Creative Consultant"
+  image: "gdc.png"
+  year: 2023
+  projtype: "art"
+  # tags:
+  #   - name: "repo"
+  #     url: "https://github.com/emranpoh/project1"
 
-# - title: "Human-AI Collaborative Design for Complex Systems"
-#   image: "sample.png"
-#   year: 2022
-#   tags:
-#     - name: "repo"
-#       url: "https://github.com/emranpoh/project3"
+- title: "AVHMI: External Human-Machine Interfaces for Autonomous Vehicles to Pedestrian"
+  subtitle: "Collaborator"
+  image: "intvr.png"
+  year: 2023
+  is-collab: true
+  projtype: "🧪"
 
-# - title: "Multimodal Interaction Patterns in Remote Collaboration"
-#   image: "sample.png"
-#   year: 2021
-#   tags:
-#     - name: "repo"
-#       url: "https://github.com/emranpoh/project4"
+- title: "Notifications: Reimagined"
+  module: "CS4249 Phenomena and Theories of Human-Computer Interaction"
+  subtitle: "CS4249 Phenomena and Theories of Human-Computer Interaction. with Yash Gajaria, Ng Yu Zhong, Jasper Mai, Hyeyeon Yun"
+  image: "notifs.png"
+  year: 2019
+  projtype: "research"
+
+- title: "A Decentralised Swarm-Based Mapping Algorithm for Search and Rescue Operations in a Disaster Relief Scenario"
+  subtitle: "with Muhd Hazeeq, Saw Ye Kai, Marcus Tay Kai Yan"
+  image: "parasite.png"
+  year: 2019
+  projtype: "code"
+
+- title: "Front Office System (FOS) for Hotel Management Mobile App"
+  subtitle: "UX Lead for a collective project of 20 students"
+  image: "fos.png"
+  year: 2018
+  projtype: "code"

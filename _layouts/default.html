@@ -9,19 +9,19 @@
 <body>
   <div class="container">
     <header class="navbar">
-      <h1><a href="{{ '/' | relative_url }}">
+      <a href="{{ '/' | relative_url }}">
         <img src="{{ '/assets/icons/bench.svg' | relative_url }}" alt="Projects icon" class="icon icon-xl">
         <!-- {{ site.title }} -->
-      </a></h1>
-      
+      </a>
+      <h1>{{ page.title }}</h1>
       <nav class="main-nav">
         <ul>
           <li>
             <div class="icon-container">
-              <!-- <a href="{{ '/projects' | relative_url }}"> -->
+              <a href="{{ '/projects' | relative_url }}">
                 <!-- Projects -->
-                <img src="{{ '/assets/icons/bush.svg' | relative_url }}" alt="Projects icon" class="icon icon-xl">
-              <!-- </a> -->
+                <img src="{{ '/assets/icons/bush.svg' | relative_url }}" alt="Projects icon" class="icon icon-xl icon-grey">
+              </a>
             </div>
           </li>
           <!-- <li><a href="{{ '/publications' | relative_url }}">Publications</a></li>
@@ -30,14 +30,21 @@
       </nav>
     </header>
 
-    <main class="content">
+    <main class="content content-{{ page.title }}">
       {{ content }}
     </main>
 
     <footer>
       <div class="footer-links">
-        <!-- <a href="{{ '/cv' | relative_url }}">CV</a>
-        <a href="https://scholar.google.com">GS</a> -->
+        <a href="{{ '/cv' | relative_url }}">
+          <img src="{{ '/assets/icons/person.svg' | relative_url }}" alt="CV icon" class="icon icon-lg">
+        </a>
+        <a href="https://scholar.google.com">
+          <img src="{{ '/assets/icons/scholar.svg' | relative_url }}" alt="Google Scholar icon" class="icon icon-lg">
+        </a>
+      </div>
+      <div>
+        <p class="powered-by-text">Powered by Jekyll and <b>my own da*n</b> theme. &copy; {{ site.author }} {{ site.year }}</p>
       </div>
     </footer>
   </div>
