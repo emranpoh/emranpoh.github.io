@@ -43,6 +43,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const container = document.querySelector('.mobile-publications > div');
             const indicator = document.querySelector('.scroll-indicator-pubs');
+            let scrollTimeout;
             
             function updateIndicatorDots() {
                 const pubCards = container.querySelectorAll('[style*="width: 40vw"]');
@@ -75,22 +76,35 @@
                 });
             }
             
-            function updateIndicator() {
-                if (container.scrollWidth > container.clientWidth) {
+            function showIndicator() {
+                if (container.scrollWidth > container.clientWidth && container.scrollLeft > 0) {
                     indicator.style.opacity = '1';
                     updateIndicatorHighlight();
-                } else {
-                    indicator.style.opacity = '0';
                 }
+            }
+
+            function hideIndicator() {
+                indicator.style.opacity = '0';
+            }
+            
+            function handleScroll() {
+                showIndicator();
+                
+                // Clear the existing timeout
+                clearTimeout(scrollTimeout);
+                
+                // Set a new timeout to hide the indicator
+                scrollTimeout = setTimeout(() => {
+                    hideIndicator();
+                }, 1000); // Hide after 1 second of no scrolling
             }
             
             updateIndicatorDots();
-            container.addEventListener('scroll', updateIndicator);
+            container.addEventListener('scroll', handleScroll);
             window.addEventListener('resize', () => {
                 updateIndicatorDots();
-                updateIndicator();
+                handleScroll();
             });
-            updateIndicator();
         });
     </script>
 </div>
