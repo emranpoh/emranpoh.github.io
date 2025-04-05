@@ -1,12 +1,25 @@
 <div class="mobile-projects">
-    <h2 style="font-size: 1rem; margin-bottom: .5rem; font-weight: normal; text-transform: lowercase;">projects</h2>
-    <ul style="list-style: none; padding-left: 0; display: flex; flex-wrap: wrap; gap: 2vw; margin: 0;">
-        {% for project in site.data.projects %}
-        <li style="width: 12vw; height: 12vw; background-color: #f3f4f6; border-radius: 0.5rem; padding: 0.5rem; text-align: center; margin: 0; display: flex; align-items: center; justify-content: center;">
-            <a href="{{ '/projects/' | append: project.title | slugify | relative_url }}" style="text-decoration: none; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;">
-                <span style="font-size: calc(6vw);">{{ project.emoji | default: "📁" }}</span>
-            </a>
-        </li>
+    <h2 style="font-size: 1rem; margin-bottom: .25rem; font-weight: normal; text-transform: lowercase;">projects</h2>
+    {% assign grouped_projects = site.data.projects | group_by: "year" | sort: "name" | reverse %}
+    <div style="display: flex; gap: 1rem; overflow-x: auto; padding-bottom: 1rem; -webkit-overflow-scrolling: touch;">
+        {% for year_group in grouped_projects %}
+        <div style="display: flex; flex-direction: column; gap: 0.25rem; min-width: max-content;">
+            <p style="font-size: 0.75rem; color: #666; margin: 0; font-weight: 500;">{% if year_group.name.size == 4 %}{{ year_group.name | slice: -2, 2 }}{% else %}{{ year_group.name }}{% endif %}</p>
+            <div style="border: 1px solid #e5e7eb; border-radius: 0.75rem; padding: 0.25rem;">
+                <ul style="list-style: none; padding-left: 0; display: flex; flex-wrap: wrap; gap: 2vw; margin: 0;">
+                    {% for project in year_group.items %}
+                    <li style="width: {% if project.is-collab %}16vw{% else %}12vw{% endif %}; height: 12vw; background-color: #f3f4f6; border-radius: 0.5rem; padding: 0.5rem; text-align: center; margin: 0; display: flex; align-items: center; justify-content: flex-start; position: relative;">
+                        <span style="position: absolute; bottom: 0.25rem; right: 0.25rem; font-size: 0.75rem;">
+                            {% if project.is-collab %}👥{% endif %}
+                        </span>
+                        <a href="{{ '/projects/' | append: project.title | slugify | relative_url }}" style="text-decoration: none; display: flex; align-items: center; justify-content: flex-start; width: 100%; height: 100%;">
+                            <span style="font-size: calc(6vw);">{{ project.emoji | default: "📁" }}</span>
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
         {% endfor %}
-    </ul>
+    </div>
 </div> 

@@ -1,8 +1,16 @@
+- title: "Exploring Creative Agency in Human-AI Collaboration"
+  subtitle: "Understanding and Enhancing Creative Expression in Human-AI Partnerships"
+  image: "ai-creativity.png"
+  year: Ongoing
+  projtype: "research"
+  emoji: "🎨"
+
 - title: "Emptiness, Isolation, Death, Hope"
   subtitle: "Parallels from Kojima's Death Stranding for Human Connection"
   image: "ds.png"
   year: 2024
   projtype: "talk"
+  is-collab: false
   emoji: "🎮"
 
 - title: "How to Use XR for Physical Assault"
@@ -47,6 +55,7 @@
   subtitle: "A site-specific, augmented reality (AR) experiential artwork"
   year: 2023
   projtype: "art"
+  is-collab: true
   emoji: "✨"
   description: "Be-Longing is a site-specific, augmented reality (AR) experiential artwork on UTown Green that invites you to slow down and enjoy life as a community. This interactive experience lets participants 'light' AR sparklers using their mobile phones. As more AR sparklers are lighted, more AR balloons are floated in the sky – personifying the beauty of humanity, lifting and supporting each other in times of uncertainty."
   tags:

@@ -125,24 +125,23 @@ body {
 /* Container */
 .container {
   display: grid;
-  // grid-template-columns: .6fr 3.4fr;
   grid-template-rows: 48px auto 48px;
   grid-gap: 20px;
   margin: 0 auto;
-  // max-width: 1200px;
   width: 100%;
   padding: 40px;
-  height: 100vh; /* Set height to 100% of viewport height */
-  height: calc(var(--vh, 1vh) * 100); /* Fallback for mobile browsers */
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   min-height: 100%;
   box-sizing: border-box;
+  overflow: hidden; /* Prevent container overflow */
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto;
     height: auto;
     min-height: 100vh;
-    padding: 20px; /* Reduced padding for mobile */
+    padding: 20px;
   }
 }
 
@@ -198,12 +197,24 @@ body {
 
 /*#region Main Content */
 .content {
-  max-width: 1200px; /* Increased from 1600px */
-  // padding: 20px 0; // Enable when using the filter controls
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  // align-items: flex-start;
   align-items: center;
+
+  @media (max-width: 768px) {
+    overflow: hidden;
+    width: 100%;
+    padding: 0;
+
+    .mobile-projects-section,
+    .mobile-publications-section {
+      overflow-x: auto;
+      width: 100%;
+      padding-bottom: 1rem;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
 
   h1 {
     font-size: 28px;
