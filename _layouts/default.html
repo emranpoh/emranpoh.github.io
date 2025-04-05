@@ -17,6 +17,9 @@
         align-items: center;
         gap: 0.5rem;
       }
+      .footer-links {
+        display: none;
+      }
       .navbar h1 {
         font-size: 1rem;
         font-weight: 500;
@@ -28,8 +31,12 @@
         color: #666;
         display: none;
       }
-      .navbar .roles.mobile {
+      .navbar .mobile-scholar {
         display: block;
+      }
+      .navbar .mobile-scholar .icon {
+        width: 20px;
+        height: 20px;
       }
       .icon-xl {
         width: 24px;
@@ -37,7 +44,7 @@
       }
     }
     @media (min-width: 769px) {
-      .navbar .roles.mobile {
+      .navbar .mobile-scholar {
         display: none;
       }
     }
@@ -59,7 +66,11 @@
         </a>
         <h1>{{ page.title }}</h1>
       </div>
-      <div class="roles mobile">ux researcher + designer + developer</div>
+      <div class="mobile-scholar">
+        <a href="https://scholar.google.com/citations?user=wYcrORkAAAAJ&hl=en">
+          <img src="{{ '/assets/icons/scholar.svg' | relative_url }}" alt="Google Scholar icon" class="icon">
+        </a>
+      </div>
       <nav class="main-nav">
         <ul>
           <li>
