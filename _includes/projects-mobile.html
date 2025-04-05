@@ -1,10 +1,10 @@
 <div class="mobile-projects">
-    <h2 style="font-size: 1rem; margin-bottom: .25rem; font-weight: normal; text-transform: lowercase;">projects</h2>
+    <!-- <h2 style="font-size: 1rem; margin-bottom: .25rem; font-weight: normal; text-transform: lowercase;">projects</h2> -->
     {% assign grouped_projects = site.data.projects | group_by: "year" | sort: "name" | reverse %}
     <div style="display: flex; gap: 1rem; overflow-x: auto; padding-bottom: 1rem; -webkit-overflow-scrolling: touch;">
         {% for year_group in grouped_projects %}
         <div style="display: flex; flex-direction: column; gap: 0.25rem; min-width: max-content;">
-            <p style="font-size: 0.75rem; color: #666; margin: 0; font-weight: 500;">{% if year_group.name.size == 4 %}{{ year_group.name | slice: -2, 2 }}{% else %}{{ year_group.name }}{% endif %}</p>
+            <p style="font-size: 0.75rem; color: #666; margin: 0; font-weight: 500;">{% if year_group.name.size == 4 %}{{ year_group.name | slice: -2, 2 }}{% else %}{% if year_group.name == "Ongoing" %}Ongoing Projects{% else %}{{ year_group.name }}{% endif %}{% endif %}</p>
             <div style="border: 1px solid #e5e7eb; border-radius: 0.75rem; padding: 0.25rem;">
                 <ul style="list-style: none; padding-left: 0; display: flex; flex-wrap: wrap; gap: 2vw; margin: 0;">
                     {% for project in year_group.items %}

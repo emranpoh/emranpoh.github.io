@@ -10,7 +10,7 @@ title: emran poh
     }
     .introduction .mobile-hello-text {
         display: block;
-        padding-left: 0.5rem;
+        /* padding-left: 0.5rem; */
     }
     .introduction .mobile-title {
         display: block;
