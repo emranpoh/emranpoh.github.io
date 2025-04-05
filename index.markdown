@@ -23,7 +23,8 @@ title: emran poh
     }
     .mobile-projects-section,
     .mobile-publications-section,
-    .mobile-experience-section {
+    .mobile-experience-section,
+    .mobile-sections{
         display: block;
         width: 100%;
         /* margin-bottom: 1rem; */
@@ -82,4 +83,4 @@ title: emran poh
 
 <section class="mobile-publications-section">
     {% include publications-mobile.html %}
-</section> 
+</section>

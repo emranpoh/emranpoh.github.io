@@ -1,7 +1,7 @@
 <div class="mobile-publications">
     <!-- <h2 style="font-size: 1rem; margin-bottom: .25rem; font-weight: normal; text-transform: lowercase;">publications</h2> -->
     {% assign grouped_pubs = site.data.pubs | group_by: "year" | sort: "name" | reverse %}
-    <div style="display: flex; flex-direction: row; gap: 0;">
+    <div style="display: flex; gap: 0; overflow-x: auto; padding-bottom: 1rem; -webkit-overflow-scrolling: touch;">
         {% for year_group in grouped_pubs %}
         <div style="display: flex; flex-direction: column; gap: 0.25rem; {% unless forloop.last %}border-right: 1px solid #e5e7eb; margin-right: 1rem; padding-right: 1rem;{% endunless %}">
             <p style="font-size: 0.75rem; color: #aaa; margin: 0; font-weight: 500;">{% if year_group.name.size == 4 %}{{ year_group.name | slice: -2, 2 }}{% else %}{{ year_group.name }}{% endif %}</p>

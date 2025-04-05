@@ -1,0 +1,252 @@
+<!-- mobile-sections.html -->
+<div class="mobile-sections" style="max-width: 100%; padding: 0 1rem; box-sizing: border-box;">
+    <!-- Year Filter -->
+    <div style="display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 0.5rem; margin-bottom: 0.5rem; -webkit-overflow-scrolling: touch; width: 100%;">
+        <button class="year-filter-btn active" data-year="all" style="padding: 0.25rem 0.75rem; background-color: #f3f4f6; border: none; border-radius: 0.375rem; font-size: 0.75rem; color: #666; white-space: nowrap;">All</button>
+        
+        <!-- Get all years from start and end years -->
+        {% assign all_years = "" | split: "" %}
+        
+        <!-- Add experience years -->
+        {% for exp in site.data.experience %}
+            {% if exp.start-year %}
+                {% assign all_years = all_years | push: exp.start-year %}
+            {% endif %}
+            {% if exp.end-year %}
+                {% assign all_years = all_years | push: exp.end-year %}
+            {% endif %}
+        {% endfor %}
+        
+        <!-- Add project years -->
+        {% for project in site.data.projects %}
+            {% if project.start-year %}
+                {% assign all_years = all_years | push: project.start-year %}
+            {% endif %}
+            {% if project.end-year %}
+                {% assign all_years = all_years | push: project.end-year %}
+            {% endif %}
+        {% endfor %}
+        
+        <!-- Add publication years -->
+        {% for pub in site.data.pubs %}
+            {% if pub.year %}
+                {% assign all_years = all_years | push: pub.year %}
+            {% endif %}
+        {% endfor %}
+        
+        <!-- Sort and deduplicate years -->
+        {% assign unique_years = all_years | uniq | sort | reverse %}
+        
+        <!-- Add Present/Ongoing button if there are current items -->
+        {% assign has_current = site.data.experience | where: "is-current", true | size %}
+        {% assign has_ongoing = site.data.projects | where: "is-ongoing", true | size %}
+        {% if has_current > 0 or has_ongoing > 0 %}
+        <button class="year-filter-btn" data-year="Present" style="padding: 0.25rem 0.75rem; background-color: #f3f4f6; border: none; border-radius: 0.375rem; font-size: 0.75rem; color: #666; white-space: nowrap;">Present</button>
+        {% endif %}
+        
+        <!-- Add year buttons -->
+        {% for year in unique_years %}
+        <button class="year-filter-btn" data-year="{{ year }}" style="padding: 0.25rem 0.75rem; background-color: #f3f4f6; border: none; border-radius: 0.375rem; font-size: 0.75rem; color: #666; white-space: nowrap;">
+            {{ year | slice: -2, 2 }}
+        </button>
+        {% endfor %}
+    </div>
+
+    <!-- Section Headers -->
+    <div style="display: flex; flex-direction: column; gap: 1.5rem; width: 100%;">
+        
+        <!-- Experience Section -->
+        <div class="section-content experience-section">
+            {% assign all_experience = site.data.experience | sort: "start-year" | reverse %}
+            {% assign grouped_experience = all_experience | group_by_exp: "exp", "exp.is-current | default: false | string" %}
+            <div class="year-groups" style="display: flex; flex-direction: row; gap: 1rem; width: 100%;">
+                <!-- Current Experience -->
+                {% assign current_experience = grouped_experience | where: "name", "true" | first %}
+                {% if current_experience %}
+                <div class="year-group" data-year="Present" style="display: flex; flex-direction: column; gap: 0.25rem;">
+                    <p style="font-size: 0.75rem; color: #666; margin: 0; font-weight: 500;">Present Experience</p>
+                    <div style="display: flex; flex-direction: row; gap: 0.5rem; overflow-x: auto; padding-bottom: 0.5rem; -webkit-overflow-scrolling: touch; width: 100%; margin: 0 -0.25rem;">
+                        {% for exp in current_experience.items %}
+                        <div class="item-card" style="width: 40vw; height: auto; background-color: #f3f4f6; border-radius: 0.5rem; padding: 0.75rem; display: flex; flex-direction: column; position: relative;">
+                            <span style="position: absolute; top: 0.25rem; right: 0.25rem;">
+                                <span style="color: #2563eb; position: relative; margin-left: 0.2rem;">*</span>
+                            </span>
+                            <a href="{{ exp.url }}" style="text-decoration: none; color: inherit;" title="{{ exp.company }} - {{ exp.role }}">
+                                <div style="font-size: 0.875rem; font-weight: 500;">{{ exp.role }}</div>
+                                <div style="font-size: 0.75rem; color: #666;">{{ exp.company }}</div>
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+
+                <!-- Past Experience -->
+                {% assign past_experience = grouped_experience | where: "name", "false" | first %}
+                {% if past_experience %}
+                {% assign experience_by_year = past_experience.items | group_by: "end-year" | sort: "name" | reverse %}
+                {% for year_group in experience_by_year %}
+                <div class="year-group" data-year="{{ year_group.name }}" style="display: flex; flex-direction: column; gap: 0.25rem;">
+                    <p style="font-size: 0.75rem; color: #666; margin: 0; font-weight: 500;">{{ year_group.name | slice: -2, 2 }}</p>
+                    <div style="display: flex; flex-direction: row; gap: 0.5rem; overflow-x: auto; padding-bottom: 0.5rem; -webkit-overflow-scrolling: touch; width: 100%; margin: 0 -0.25rem;">
+                        {% for exp in year_group.items %}
+                        <div class="item-card" style="width: 40vw; height: auto; background-color: #f3f4f6; border-radius: 0.5rem; padding: 0.75rem; display: flex; flex-direction: column; position: relative;">
+                            <a href="{{ exp.url }}" style="text-decoration: none; color: inherit;" title="{{ exp.company }} - {{ exp.role }}">
+                                <div style="font-size: 0.875rem; font-weight: 500;">{{ exp.role }}</div>
+                                <div style="font-size: 0.75rem; color: #666;">{{ exp.company }}</div>
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+
+
+        <!-- Projects Section -->
+        <div class="section-content projects-section">
+            {% assign all_projects = site.data.projects | sort: "start-year" | reverse %}
+            {% assign grouped_projects = all_projects | group_by_exp: "project", "project.is-ongoing | default: false | string" %}
+            <div class="year-groups" style="display: flex; flex-direction: row; gap: 1rem; width: 100%;">
+                <!-- Ongoing Projects -->
+                {% assign ongoing_projects = grouped_projects | where: "name", "true" | first %}
+                {% if ongoing_projects %}
+                <div class="year-group" data-year="Ongoing" style="display: flex; flex-direction: column; gap: 0.25rem;">
+                    <p style="font-size: 0.75rem; color: #666; margin: 0; font-weight: 500;">Ongoing</p>
+                    <div style="display: flex; flex-direction: row; gap: 0.5rem; overflow-x: auto; padding-bottom: 0.5rem; -webkit-overflow-scrolling: touch; width: 100%; margin: 0 -0.25rem;">
+                        {% for project in ongoing_projects.items %}
+                        <div class="item-card" style="width: {% if project.is-collab or project.institution %}16vw{% else %}12vw{% endif %}; height: 12vw; background-color: #f3f4f6; border-radius: 0.5rem; padding: 0.5rem; text-align: center; display: flex; align-items: center; justify-content: {% if project.is-collab or project.institution %}flex-start{% else %}center{% endif %}; position: relative;">
+                            <span style="position: absolute; top: 0.25rem; right: 0.25rem;">
+                                {% if project.institution == "smu-hai" %}<span style="position: relative; margin-left: 0.2rem;">*</span>{% endif %}
+                                {% if project.institution == "nus-hci" %}<span style="color: #dc2626; position: relative; margin-left: 0.2rem;">†</span>{% endif %}
+                                {% if project.institution == "immersification" %}<span style="color: #2563eb; position: relative; margin-left: 0.2rem;">‡</span>{% endif %}
+                            </span>
+                            <span style="position: absolute; bottom: 0.25rem; right: 0.25rem; font-size: 0.75rem;">
+                                {% if project.is-collab %}👥{% endif %}
+                            </span>
+                            <a href="{{ '/projects/' | append: project.title | slugify | relative_url }}" style="text-decoration: none; display: flex; align-items: center; justify-content: {% if project.is-collab or project.institution %}flex-start{% else %}center{% endif %}; width: 100%; height: 100%;">
+                                <span style="font-size: calc(6vw);">{{ project.emoji | default: "📁" }}</span>
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+
+                <!-- Completed Projects -->
+                {% assign completed_projects = grouped_projects | where: "name", "false" | first %}
+                {% if completed_projects %}
+                {% assign projects_by_year = completed_projects.items | group_by: "end-year" | sort: "name" | reverse %}
+                {% for year_group in projects_by_year %}
+                <div class="year-group" data-year="{{ year_group.name }}" style="display: flex; flex-direction: column; gap: 0.25rem;">
+                    <p style="font-size: 0.75rem; color: #666; margin: 0; font-weight: 500;">{{ year_group.name | slice: -2, 2 }}</p>
+                    <div style="display: flex; flex-direction: row; gap: 0.5rem; overflow-x: auto; padding-bottom: 0.5rem; -webkit-overflow-scrolling: touch; width: 100%; margin: 0 -0.25rem;">
+                        {% for project in year_group.items %}
+                        <div class="item-card" style="width: {% if project.is-collab or project.institution %}16vw{% else %}12vw{% endif %}; height: 12vw; background-color: #f3f4f6; border-radius: 0.5rem; padding: 0.5rem; text-align: center; display: flex; align-items: center; justify-content: {% if project.is-collab or project.institution %}flex-start{% else %}center{% endif %}; position: relative;">
+                            <span style="position: absolute; top: 0.25rem; right: 0.25rem;">
+                                {% if project.institution == "smu-hai" %}<span style="position: relative; margin-left: 0.2rem;">*</span>{% endif %}
+                                {% if project.institution == "nus-hci" %}<span style="color: #dc2626; position: relative; margin-left: 0.2rem;">†</span>{% endif %}
+                                {% if project.institution == "immersification" %}<span style="color: #2563eb; position: relative; margin-left: 0.2rem;">‡</span>{% endif %}
+                            </span>
+                            <span style="position: absolute; bottom: 0.25rem; right: 0.25rem; font-size: 0.75rem;">
+                                {% if project.is-collab %}👥{% endif %}
+                            </span>
+                            <a href="{{ '/projects/' | append: project.title | slugify | relative_url }}" style="text-decoration: none; display: flex; align-items: center; justify-content: {% if project.is-collab or project.institution %}flex-start{% else %}center{% endif %}; width: 100%; height: 100%;">
+                                <span style="font-size: calc(6vw);">{{ project.emoji | default: "📁" }}</span>
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Publications Section -->
+        <div class="section-content publications-section">
+            {% assign grouped_pubs = site.data.pubs | group_by: "year" | sort: "name" | reverse %}
+            <div class="year-groups" style="display: flex; flex-direction: row; gap: 1rem; width: 100%;">
+                {% for year_group in grouped_pubs %}
+                <div class="year-group" data-year="{{ year_group.name }}" style="display: flex; flex-direction: column; gap: 0.25rem;">
+                    <p style="font-size: 0.75rem; color: #666; margin: 0; font-weight: 500;">{% if year_group.name.size == 4 %}{{ year_group.name | slice: -2, 2 }}{% else %}{{ year_group.name }}{% endif %}</p>
+                    <div style="display: flex; flex-direction: row; gap: 0.5rem; overflow-x: auto; padding-bottom: 0.5rem; -webkit-overflow-scrolling: touch; width: 100%; margin: 0 -0.25rem;">
+                        {% for pub in year_group.items %}
+                        <div class="item-card" style="min-width: max-content; width: 40vw; height: 37vw; background-color: #f3f4f6; border-radius: 0.5rem; padding: 0.5rem; text-align: center; display: flex; align-items: flex-start; justify-content: flex-start; position: relative;">
+                            <span style="position: absolute; bottom: 0.5rem; right: 0.75rem;">
+                                {% if pub.is-collab %}👥{% endif %}
+                                {% if pub.institution == "nus-hci" %}<span style="color: #dc2626; position: relative;">†</span>{% endif %}
+                                {% if pub.institution == "immersification" %}<span style="color: #2563eb; position: relative;">‡</span>{% endif %}
+                            </span>
+                            {% assign pub_url = pub.tags[0].url %}
+                            <a href="{{ pub_url }}" style="text-decoration: none; display: flex; align-items: flex-start; justify-content: space-between; gap: 0.75rem; width: 100%; height: 100%; position: relative;">
+                                <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 0.25rem; min-width: 0; text-align: left; flex: 1;">
+                                    <span lang="en" style="font-size: 0.75rem; color: #666; overflow-wrap: break-word; word-wrap: break-word; word-break: break-all; -webkit-hyphens: auto; -ms-hyphens: auto; -moz-hyphens: auto; hyphens: auto; max-width: 30vw; text-align: left;">{{ pub.title }}</span>
+                                </div>
+                                <div style="position: absolute; bottom: 0.25rem; left: 0; display: flex; flex-direction: column; gap: 0.125rem;">
+                                    {% if pub.status != "submitted" %}
+                                    {% if pub.venue_short %}<span lang="en" style="font-size: 0.625rem; color: #aaa; text-align: left; overflow-wrap: break-word; word-wrap: break-word; word-break: break-all; -webkit-hyphens: auto; -ms-hyphens: auto; -moz-hyphens: auto; hyphens: auto; max-width: 30vw;">{{ pub.venue_short }} {{ pub.year }}</span>{% endif %}
+                                    {% else %}
+                                        <span style="font-size: 0.625rem; color: #aaa; text-transform: capitalize;">({{ pub.status }})</span>
+                                    {% endif %}
+                                </div>
+                                <span style="font-size: calc(3vw);">📄</span>
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.year-filter-btn.active {
+    background-color: #2563eb !important;
+    color: white !important;
+}
+
+.section-content {
+    display: block;
+}
+
+.section-content:empty {
+    display: none;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const yearButtons = document.querySelectorAll('.year-filter-btn');
+    const yearGroups = document.querySelectorAll('.year-group');
+    
+    // Year filtering
+    yearButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const year = this.getAttribute('data-year');
+            
+            // Update buttons
+            yearButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Filter year groups
+            yearGroups.forEach(group => {
+                const groupYear = group.getAttribute('data-year');
+                if (year === 'all') {
+                    group.style.display = 'flex';
+                } else if (year === 'Present' && (groupYear === 'Present' || groupYear === 'Ongoing')) {
+                    group.style.display = 'flex';
+                } else if (groupYear === year) {
+                    group.style.display = 'flex';
+                } else {
+                    group.style.display = 'none';
+                }
+            });
+        });
+    });
+});
+</script> 

@@ -1,9 +1,9 @@
 <!-- experience-mobile.html -->
 <div class="mobile-experience">
     {% assign grouped_experience = site.data.experience | group_by: "year" | sort: "name" | reverse %}
-    <div style="display: flex; gap: 0; overflow-x: auto; padding-bottom: 1rem; -webkit-overflow-scrolling: touch;">
+    <div class="exp-years" style="display: flex; gap: 0; overflow-x: auto; padding-bottom: 1rem; -webkit-overflow-scrolling: touch;">
         {% for year_group in grouped_experience %}
-        <div style="display: flex; flex-direction: column; gap: 0.25rem; min-width: max-content; {% unless forloop.last %}border-right: 1px solid #e5e7eb; margin-right: 1rem; padding-right: 1rem;{% endunless %}">
+        <div class="exp-year-group" data-year="{{ year_group.name }}" style="display: flex; flex-direction: column; gap: 0.25rem; min-width: max-content; {% unless forloop.last %}border-right: 1px solid #e5e7eb; margin-right: 1rem; padding-right: 1rem;{% endunless %}">
             <p style="font-size: 0.75rem; color: #666; margin: 0; font-weight: 500;">{% if year_group.name.size == 4 %}{{ year_group.name | slice: -2, 2 }}{% else %}{% if year_group.name == "Present" %}Present Experience{% else %}{{ year_group.name }}{% endif %}{% endif %}</p>
             <div style="display: flex; flex-direction: row; gap: 0.5rem;">
                 {% for exp in year_group.items %}
@@ -21,4 +21,4 @@
         </div>
         {% endfor %}
     </div>
-</div> 
+</div>

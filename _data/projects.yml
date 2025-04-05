@@ -2,6 +2,7 @@
   subtitle: "Understanding and Enhancing Creative Expression in Human-AI Partnerships"
   image: "ai-creativity.png"
   year: Ongoing
+  start-year: 2025
   projtype: "research"
   institution: "smu-hai"
   emoji: "🎨"
@@ -10,6 +11,8 @@
   subtitle: "Parallels from Kojima's Death Stranding for Human Connection"
   image: "ds.png"
   year: 2024
+  start-year: 2024
+  end-year: 2024
   projtype: "talk"
   institution: "nus-hci"
   is-collab: false
@@ -19,6 +22,8 @@
   subtitle: "A Less-than-Optimistic Commentary on `The Ethics of Realism in Virtual and Augmented Reality' through Netflix's Black Mirror"
   image: "xr-assault.jpg"
   year: 2023
+  start-year: 2023
+  end-year: 2023
   projtype: "talk"
   institution: "nus-hci"
   emoji: "🕶️"
@@ -29,6 +34,8 @@
   image: "artefact-awareness.png"
   projtype: "🧪"
   year: 2023
+  start-year: 2024
+  end-year: 2023
   emoji: "🔬"
   institution: "nus-hci"
   tags:
@@ -38,7 +45,9 @@
 
 - title: "MR4DFMA: Mixed Reality for Design for Manufacturing Assembly"
   image: "airshow.jpg"
-  year: 2020-2022
+  year: 2020
+  start-year: 2020
+  end-year: 2022
   projtype: "🧪"
   emoji: "🏭"
   institution: "immersification"
@@ -60,6 +69,8 @@
   image: "belonging.png"
   subtitle: "A site-specific, augmented reality (AR) experiential artwork"
   year: 2023
+  start-year: 2023
+  end-year: 2023
   projtype: "art"
   is-collab: true
   emoji: "✨"
@@ -75,7 +86,9 @@
 - title: "Developing Intelligent Agents that Assist with Human Situational Difficulties"
   # subtitle: "NUS-HCI CHciE (Continuing HCI Education) Presentation, NUS School of Computing, NUS"
   image: "mmguide-image.png"
-  year: Ongoing
+  is-current: true
+  start-year: 2024
+  end-year: 2025
   projtype: "research"
   institution: "smu-hai"
   # tags:
@@ -87,6 +100,8 @@
   subtitle: "Freelance Creative Consultant"
   image: "gdc.png"
   year: 2023
+  start-year: 2023
+  end-year: 2023
   projtype: "art"
   # tags:
   #   - name: "repo"
@@ -97,6 +112,8 @@
   subtitle: "Collaborator"
   image: "intvr.png"
   year: 2023
+  start-year: 2023
+  end-year: 2023
   is-collab: true
   institution: "immersification"
   projtype: "🧪"
@@ -107,6 +124,8 @@
   subtitle: "CS4249 Phenomena and Theories of Human-Computer Interaction. with Yash Gajaria, Ng Yu Zhong, Jasper Mai, Hyeyeon Yun"
   image: "notifs.png"
   year: 2019
+  start-year: 2019
+  end-year: 2019
   projtype: "research"
   emoji: "🔔"
 
@@ -114,6 +133,8 @@
   subtitle: "with Muhd Hazeeq, Saw Ye Kai, Marcus Tay Kai Yan"
   image: "parasite.png"
   year: 2019
+  start-year: 2019
+  end-year: 2019
   projtype: "code"
   emoji: "🚁"
 
@@ -121,5 +142,7 @@
   subtitle: "UX Lead for a collective project of 20 students"
   image: "fos.png"
   year: 2018
+  start-year: 2018
+  end-year: 2018
   projtype: "code"
   emoji: "🏨"
