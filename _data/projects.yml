@@ -3,6 +3,7 @@
   image: "ai-creativity.png"
   year: Ongoing
   projtype: "research"
+  institution: "smu-hai"
   emoji: "🎨"
 
 - title: "Emptiness, Isolation, Death, Hope"
@@ -10,6 +11,7 @@
   image: "ds.png"
   year: 2024
   projtype: "talk"
+  institution: "nus-hci"
   is-collab: false
   emoji: "🎮"
 
@@ -18,7 +20,9 @@
   image: "xr-assault.jpg"
   year: 2023
   projtype: "talk"
+  institution: "nus-hci"
   emoji: "🕶️"
+  institution: "immersification"
 
 - title: "Supporting Artefact Awareness in Partially-Replicated Workspaces"
   subtitle: "Master's Thesis, NUS School of Computing, NUS"
@@ -26,6 +30,7 @@
   projtype: "🧪"
   year: 2023
   emoji: "🔬"
+  institution: "nus-hci"
   tags:
     - name: "pub"
       type: "pub"
@@ -36,6 +41,7 @@
   year: 2020-2022
   projtype: "🧪"
   emoji: "🏭"
+  institution: "immersification"
   tags:
     - name: "pub"
       type: "pub"
@@ -71,6 +77,7 @@
   image: "mmguide-image.png"
   year: Ongoing
   projtype: "research"
+  institution: "smu-hai"
   # tags:
   #   - name: "repo"
   #     url: "https://github.com/emranpoh/project1"
@@ -91,6 +98,7 @@
   image: "intvr.png"
   year: 2023
   is-collab: true
+  institution: "immersification"
   projtype: "🧪"
   emoji: "🚗"
 
