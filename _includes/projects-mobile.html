@@ -1,10 +1,10 @@
 <div class="mobile-projects">
-    <h2 style="font-size: 1.5rem; margin-bottom: 1rem; font-weight: bold;">Projects</h2>
-    <ul style="list-style: none; padding-left: 0; display: flex; flex-wrap: wrap; gap: 1rem; margin: 0;">
+    <h2 style="font-size: 1rem; margin-bottom: .5rem; font-weight: normal; text-transform: lowercase;">projects</h2>
+    <ul style="list-style: none; padding-left: 0; display: flex; flex-wrap: wrap; gap: 2vw; margin: 0;">
         {% for project in site.data.projects %}
-        <li style="width: 36px; height: 36px; background-color: #f3f4f6; border-radius: 0.5rem; padding: .5rem; text-align: center; margin: 0;">
-            <a href="{{ '/projects/' | append: project.title | slugify | relative_url }}" style="text-decoration: none;">
-                <span style="font-size: 2rem;">{{ project.emoji | default: "📁" }}</span>
+        <li style="width: 12vw; height: 12vw; background-color: #f3f4f6; border-radius: 0.5rem; padding: 0.5rem; text-align: center; margin: 0; display: flex; align-items: center; justify-content: center;">
+            <a href="{{ '/projects/' | append: project.title | slugify | relative_url }}" style="text-decoration: none; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;">
+                <span style="font-size: calc(6vw);">{{ project.emoji | default: "📁" }}</span>
             </a>
         </li>
         {% endfor %}

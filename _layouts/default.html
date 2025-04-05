@@ -6,6 +6,42 @@
   <title>{{ site.title }}{% if page.title %} | {{ page.title }}{% endif %}</title>
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/research-theme.css' | relative_url }}">
+  <style>
+    @media (max-width: 768px) {
+      .navbar {
+        justify-content: space-between;
+        align-items: center;
+      }
+      .navbar .left-section {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .navbar h1 {
+        font-size: 1rem;
+        font-weight: 500;
+        margin: 0;
+      }
+      .navbar .roles {
+        font-size: 0.875rem;
+        font-weight: normal;
+        color: #666;
+        display: none;
+      }
+      .navbar .roles.mobile {
+        display: block;
+      }
+      .icon-xl {
+        width: 24px;
+        height: 24px;
+      }
+    }
+    @media (min-width: 769px) {
+      .navbar .roles.mobile {
+        display: none;
+      }
+    }
+  </style>
   <script>
     // Check for saved theme preference
     const savedTheme = localStorage.getItem('viewMode');
@@ -17,10 +53,13 @@
 <body>
   <div class="container">
     <header class="navbar">
-      <a href="{{ '/' | relative_url }}">
-        <img src="{{ '/assets/icons/bench.svg' | relative_url }}" alt="Projects icon" class="icon icon-xl">
-      </a>
-      <h1>{{ page.title }}</h1>
+      <div class="left-section">
+        <a href="{{ '/' | relative_url }}">
+          <img src="{{ '/assets/icons/bench.svg' | relative_url }}" alt="Projects icon" class="icon icon-xl">
+        </a>
+        <h1>{{ page.title }}</h1>
+      </div>
+      <div class="roles mobile">ux researcher, designer, developer</div>
       <nav class="main-nav">
         <ul>
           <li>
