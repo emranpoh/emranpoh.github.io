@@ -1,6 +1,6 @@
 <div class="mobile-publications">
     {% assign grouped_pubs = site.data.pubs | group_by: "year" | sort: "name" | reverse %}
-    <div style="display: flex; gap: 0; overflow-x: auto; padding-bottom: 1rem; -webkit-overflow-scrolling: touch;">
+    <div style="display: flex; gap: 0; overflow-x: auto; padding-bottom: 0.5rem; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none;">
         {% for year_group in grouped_pubs %}
         <div style="display: flex; flex-direction: column; gap: 0.25rem; {% unless forloop.last %}border-right: 1px solid #e5e7eb; margin-right: 1rem; padding-right: 1rem;{% endunless %}">
             <p style="font-size: 0.75rem; color: #aaa; margin: 0; font-weight: 500;">{% if year_group.name.size == 4 %}{{ year_group.name | slice: -2, 2 }}{% else %}{{ year_group.name }}{% endif %}</p>
@@ -32,4 +32,65 @@
         </div>
         {% endfor %}
     </div>
+    <div class="scroll-indicator-pubs" style="display: flex; justify-content: right; gap: 0.125rem; padding: 0.5rem 0; opacity: 0; transition: opacity 0.3s ease;">
+    </div>
+    <style>
+        .mobile-publications > div::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.querySelector('.mobile-publications > div');
+            const indicator = document.querySelector('.scroll-indicator-pubs');
+            
+            function updateIndicatorDots() {
+                const pubCards = container.querySelectorAll('[style*="width: 40vw"]');
+                const visibleWidth = container.clientWidth;
+                const numVisiblePubs = Math.floor(visibleWidth / (0.4 * window.innerWidth));
+                
+                // Clear existing dots
+                indicator.innerHTML = '';
+                
+                // Create dots for each publication
+                pubCards.forEach(() => {
+                    const dot = document.createElement('div');
+                    dot.style.cssText = 'width: 0.5rem; height: 0.25rem; background-color: #9ca3af; border-radius: 1rem; transition: background-color 0.3s ease;';
+                    indicator.appendChild(dot);
+                });
+            }
+            
+            function updateIndicatorHighlight() {
+                const dots = indicator.children;
+                const scrollPercentage = container.scrollLeft / (container.scrollWidth - container.clientWidth);
+                const totalDots = dots.length;
+                const activeIndex = Math.min(Math.floor(scrollPercentage * totalDots), totalDots - 1);
+                
+                Array.from(dots).forEach((dot, index) => {
+                    if (index <= activeIndex) {
+                        dot.style.backgroundColor = '#4b5563';  // Darker gray for active dots
+                    } else {
+                        dot.style.backgroundColor = '#9ca3af';  // Light gray for inactive dots
+                    }
+                });
+            }
+            
+            function updateIndicator() {
+                if (container.scrollWidth > container.clientWidth) {
+                    indicator.style.opacity = '1';
+                    updateIndicatorHighlight();
+                } else {
+                    indicator.style.opacity = '0';
+                }
+            }
+            
+            updateIndicatorDots();
+            container.addEventListener('scroll', updateIndicator);
+            window.addEventListener('resize', () => {
+                updateIndicatorDots();
+                updateIndicator();
+            });
+            updateIndicator();
+        });
+    </script>
 </div>
