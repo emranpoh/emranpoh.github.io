@@ -1,7 +1,7 @@
 - title: "Supporting Artefact Awareness for Partially-Replicated Workspaces"
   authors: "Emran Poh, Anthony Tang, Jeannie Lee, and Shengdong Zhao"
   venue: "2023 IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct)"
-  venue_short: "ISMAR-Adjunct 2023"
+  venue_short: "ISMAR-ADJ"
   location: "Sydney, Australia"
   year: 2023
   image: "artefact-awareness.png"
@@ -12,7 +12,7 @@
 - title: "IntVRsection: Virtual Reality Environment for Evaluating Signalized and Unsignalized Intersection Scenarios"
   authors: "Jeannie Lee, Adriel Yeo, B. Kwok, Z. F. Wong, Emran Poh, and R. Chan"
   venue: "International ACM SIGCHI Conference on Automotive User Interfaces and Interactive Vehicular Applications"
-  venue_short: "AutomotiveUI 2023"
+  venue_short: "AutoUI"
   location: "Ingolstadt, Germany"
   year: 2023
   image: "intvr.png"
@@ -23,7 +23,7 @@
 - title: "Mixed Reality for Engineering Design Review Using Finite Element Analysis"
   authors: "Emran Poh, Kyrin Liong, and Jeannie Lee"
   venue: "2022 IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct)"
-  venue_short: "ISMAR-Adjunct 2022"
+  venue_short: "ISMAR-ADJ"
   location: "Singapore"
   year: 2022
   image: "loadtable_fea.png"
@@ -34,7 +34,7 @@
 - title: "Mixed Reality for Mechanical Design and Assembly Planning"
   authors: "Emran Poh, Kyrin Liong, and Jeannie Lee"
   venue: "HCI International 2022–Late Breaking Posters: 24th International Conference on Human-Computer Interaction"
-  venue_short: "HCI International 2022"
+  venue_short: "HCII"
   location: ""
   year: 2022
   image: "mr4assembly.jpg"
@@ -45,7 +45,7 @@
 - title: "Mixed Reality Interface for Load Application in Finite Element Analysis"
   authors: "Emran Poh, Kyrin Liong, and Jeannie Lee"
   venue: "Innovations in Social Computing and Digital Transformation, International Conference on Human-Computer Interaction 2021"
-  venue: "HCI International 2021"
+  venue_short: "HCII"
   location: ""
   year: 2021
   image: "mr4fea.PNG"
@@ -56,7 +56,7 @@
 - title: "Designing with Holograms – A Preliminary Study on Improving Design Visualisation Through Holographic Display"
   authors: "Emran Poh, A. Tan, V. Balachandran, Jeannie Lee, and Kyrin Liong"
   venue: "NewRIIS Research Conference (NewRIIS 2021)"
-  venue_short: "NewRIIS 2021"
+  venue_short: "NewRIIS"
   location: ""
   year: 2021
   image: "newriis.png"
