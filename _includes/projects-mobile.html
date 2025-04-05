@@ -8,7 +8,7 @@
             <div style="border: 1px solid #e5e7eb; border-radius: 0.75rem; padding: 0.25rem;">
                 <ul style="list-style: none; padding-left: 0; display: flex; flex-wrap: wrap; gap: 2vw; margin: 0;">
                     {% for project in year_group.items %}
-                    <li style="width: {% if project.is-collab or project.institution %}16vw{% else %}12vw{% endif %}; height: 12vw; background-color: #f3f4f6; border-radius: 0.5rem; padding: 0.5rem; text-align: center; margin: 0; display: flex; align-items: center; justify-content: flex-start; position: relative;">
+                    <li style="width: {% if project.is-collab or project.institution %}16vw{% else %}12vw{% endif %}; height: 12vw; background-color: #f3f4f6; border-radius: 0.5rem; padding: 0.5rem; text-align: center; margin: 0; display: flex; align-items: center; justify-content: {% if project.is-collab or project.institution %}flex-start{% else %}center{% endif %}; position: relative;">
                         <span style="position: absolute; top: 0.25rem; right: 0.25rem; ">
                             {% if project.institution == "smu-hai" %}<span style=" position: relative; margin-left: 0.2rem;">*</span>{% endif %}
                             {% if project.institution == "nus-hci" %}<span style="color: #dc2626; position: relative; margin-left: 0.2rem;">†</span>{% endif %}
@@ -17,7 +17,7 @@
                         <span style="position: absolute; bottom: 0.25rem; right: 0.25rem; font-size: 0.75rem;">
                             {% if project.is-collab %}👥{% endif %}
                         </span>
-                        <a href="{{ '/projects/' | append: project.title | slugify | relative_url }}" style="text-decoration: none; display: flex; align-items: center; justify-content: flex-start; width: 100%; height: 100%;">
+                        <a href="{{ '/projects/' | append: project.title | slugify | relative_url }}" style="text-decoration: none; display: flex; align-items: center; justify-content: {% if project.is-collab or project.institution %}flex-start{% else %}center{% endif %}; width: 100%; height: 100%;">
                             <span style="font-size: calc(6vw);">{{ project.emoji | default: "📁" }}</span>
                         </a>
                     </li>
