@@ -64,7 +64,7 @@ title: emran poh
             working on <mark>human-agent interaction</mark> and <mark>creativity-centric research</mark>. phd student at smu hai-lab<sup style="cursor: pointer;" onclick="this.textContent = this.textContent === '*' ? 'SMU' : '*'">*</sup> under <a href="https://jchrisli.github.io/">Li Jiannan</a>
         </p>
         <p class="mobile-hello-text" style="font-size: 1rem; font-weight: 500;">
-            prev: @ <a href="https://synteraction.org/">nus-hci lab<sup style="color: #dc2626; position: relative;">†</sup></a> and <a href="https://www.immersification.org/">center for immersification<sup style="color: #2563eb; position: relative;">‡</sup></a>
+            preiously at <a href="https://synteraction.org/">nus-hci lab<sup style="color: #dc2626; position: relative;">†</sup></a> and <a href="https://www.immersification.org/">center for immersification<sup style="color: #2563eb; position: relative;">‡</sup></a>
         </p>
     </div>
 </section>
