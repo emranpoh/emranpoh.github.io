@@ -1,20 +1,23 @@
-- title: "Emptiness, Isolation, Death: Parallels from Kojima’s Death Stranding for Human Connection"
-  # subtitle: "NUS-HCI CHciE (Continuing HCI Education) Presentation, NUS School of Computing, NUS"
+- title: "Emptiness, Isolation, Death, Hope"
+  subtitle: "Parallels from Kojima's Death Stranding for Human Connection"
   image: "ds.png"
   year: 2024
-  projtype: "presentation"
+  projtype: "talk"
+  emoji: "🎮"
 
 - title: "How to Use XR for Physical Assault"
-  subtitle: "A Less-than-Optimistic Commentary on `The Ethics of Realism in Virtual and Augmented Reality' through Netflix’s Black Mirror"
+  subtitle: "A Less-than-Optimistic Commentary on `The Ethics of Realism in Virtual and Augmented Reality' through Netflix's Black Mirror"
   image: "xr-assault.jpg"
   year: 2023
-  projtype: "presentation"
+  projtype: "talk"
+  emoji: "🕶️"
 
 - title: "Supporting Artefact Awareness in Partially-Replicated Workspaces"
   subtitle: "Master's Thesis, NUS School of Computing, NUS"
   image: "artefact-awareness.png"
   projtype: "🧪"
   year: 2023
+  emoji: "🔬"
   tags:
     - name: "pub"
       type: "pub"
@@ -24,6 +27,7 @@
   image: "airshow.jpg"
   year: 2020-2022
   projtype: "🧪"
+  emoji: "🏭"
   tags:
     - name: "pub"
       type: "pub"
@@ -43,6 +47,7 @@
   subtitle: "A site-specific, augmented reality (AR) experiential artwork"
   year: 2023
   projtype: "art"
+  emoji: "✨"
   description: "Be-Longing is a site-specific, augmented reality (AR) experiential artwork on UTown Green that invites you to slow down and enjoy life as a community. This interactive experience lets participants 'light' AR sparklers using their mobile phones. As more AR sparklers are lighted, more AR balloons are floated in the sky – personifying the beauty of humanity, lifting and supporting each other in times of uncertainty."
   tags:
     - name: "web"
@@ -60,6 +65,7 @@
   # tags:
   #   - name: "repo"
   #     url: "https://github.com/emranpoh/project1"
+  emoji: "🤖"
 
 - title: "Geylang Drip City Brand"
   subtitle: "Freelance Creative Consultant"
@@ -69,6 +75,7 @@
   # tags:
   #   - name: "repo"
   #     url: "https://github.com/emranpoh/project1"
+  emoji: "🎨"
 
 - title: "AVHMI: External Human-Machine Interfaces for Autonomous Vehicles to Pedestrian"
   subtitle: "Collaborator"
@@ -76,6 +83,7 @@
   year: 2023
   is-collab: true
   projtype: "🧪"
+  emoji: "🚗"
 
 - title: "Notifications: Reimagined"
   module: "CS4249 Phenomena and Theories of Human-Computer Interaction"
@@ -83,15 +91,18 @@
   image: "notifs.png"
   year: 2019
   projtype: "research"
+  emoji: "🔔"
 
 - title: "A Decentralised Swarm-Based Mapping Algorithm for Search and Rescue Operations in a Disaster Relief Scenario"
   subtitle: "with Muhd Hazeeq, Saw Ye Kai, Marcus Tay Kai Yan"
   image: "parasite.png"
   year: 2019
   projtype: "code"
+  emoji: "🚁"
 
 - title: "Front Office System (FOS) for Hotel Management Mobile App"
   subtitle: "UX Lead for a collective project of 20 students"
   image: "fos.png"
   year: 2018
   projtype: "code"
+  emoji: "🏨"
