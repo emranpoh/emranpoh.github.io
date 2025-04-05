@@ -3,7 +3,7 @@
     <ul style="list-style: none; padding-left: 0; display: flex; flex-wrap: wrap; gap: 1rem; margin: 0;">
         {% assign sorted_projects = site.data.projects | sort: 'year' | reverse %}
         {% for project in sorted_projects %}
-        <li style="flex: 1; background-color: #f3f4f6; border-radius: 0.5rem; padding: .5rem; text-align: center; margin: 0;">
+        <li style="width: 36px; height: 36px; background-color: #f3f4f6; border-radius: 0.5rem; padding: .5rem; text-align: center; margin: 0;">
             <a href="{{ '/projects/' | append: project.title | slugify | relative_url }}" style="text-decoration: none;">
                 <span style="font-size: 2rem;">{{ project.emoji | default: "📁" }}</span>
             </a>
