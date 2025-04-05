@@ -73,10 +73,6 @@ title: emran poh
     {% include projects-selected.html %}
 </section>
 
-<section class="mobile-experience-section">
-    {% include experience-mobile.html %}
-</section>
-
 <section class="mobile-projects-section">
     {% include projects-mobile.html %}
 </section>

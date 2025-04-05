@@ -1,13 +1,12 @@
 <div class="mobile-publications">
-    <!-- <h2 style="font-size: 1rem; margin-bottom: .25rem; font-weight: normal; text-transform: lowercase;">publications</h2> -->
     {% assign grouped_pubs = site.data.pubs | group_by: "year" | sort: "name" | reverse %}
     <div style="display: flex; gap: 0; overflow-x: auto; padding-bottom: 1rem; -webkit-overflow-scrolling: touch;">
         {% for year_group in grouped_pubs %}
         <div style="display: flex; flex-direction: column; gap: 0.25rem; {% unless forloop.last %}border-right: 1px solid #e5e7eb; margin-right: 1rem; padding-right: 1rem;{% endunless %}">
             <p style="font-size: 0.75rem; color: #aaa; margin: 0; font-weight: 500;">{% if year_group.name.size == 4 %}{{ year_group.name | slice: -2, 2 }}{% else %}{{ year_group.name }}{% endif %}</p>
-            <div style="display: flex; flex-direction: row; gap: 2vw; margin: 0; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+            <div style="display: flex; flex-direction: row; gap: 2vw; margin: 0; width: max-content;">
                 {% for pub in year_group.items %}
-                <div style="min-width: max-content; width: 40vw; height: 37vw; background-color: #f3f4f6; border-radius: 0.5rem; padding: 0.5rem; text-align: center; margin: 0; display: flex; align-items: flex-start; justify-content: flex-start; position: relative;">
+                <div style="width: 40vw; height: 37vw; background-color: #f3f4f6; border-radius: 0.5rem; padding: 0.5rem; text-align: center; margin: 0; display: flex; align-items: flex-start; justify-content: flex-start; position: relative;">
                     <span style="position: absolute; bottom: 0.5rem; right: 0.75rem;">
                         {% if pub.is-collab %}👥{% endif %}
                         {% if pub.institution == "nus-hci" %}<span style="color: #dc2626; position: relative;">†</span>{% endif %}
@@ -33,4 +32,4 @@
         </div>
         {% endfor %}
     </div>
-</div> 
+</div>
