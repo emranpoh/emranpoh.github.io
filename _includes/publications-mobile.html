@@ -1,36 +1,34 @@
 <div class="mobile-publications">
     <!-- <h2 style="font-size: 1rem; margin-bottom: .25rem; font-weight: normal; text-transform: lowercase;">publications</h2> -->
     {% assign grouped_pubs = site.data.pubs | group_by: "year" | sort: "name" | reverse %}
-    <div style="display: flex; flex-direction: row; gap: 1rem;">
+    <div style="display: flex; flex-direction: row; gap: 0;">
         {% for year_group in grouped_pubs %}
-        <div style="display: flex; flex-direction: column; gap: 0.25rem;">
+        <div style="display: flex; flex-direction: column; gap: 0.25rem; {% unless forloop.last %}border-right: 1px solid #e5e7eb; margin-right: 1rem; padding-right: 1rem;{% endunless %}">
             <p style="font-size: 0.75rem; color: #aaa; margin: 0; font-weight: 500;">{% if year_group.name.size == 4 %}{{ year_group.name | slice: -2, 2 }}{% else %}{{ year_group.name }}{% endif %}</p>
-            <div style="border: 1px solid #e5e7eb; border-radius: 0.75rem; padding: 0.25rem;">
-                <div style="display: flex; flex-direction: row; gap: 2vw; margin: 0; overflow-x: auto; -webkit-overflow-scrolling: touch;">
-                    {% for pub in year_group.items %}
-                    <div style="min-width: max-content; width: 40vw; height: 37vw; background-color: #f3f4f6; border-radius: 0.5rem; padding: 0.5rem; text-align: center; margin: 0; display: flex; align-items: flex-start; justify-content: flex-start; position: relative;">
-                        <span style="position: absolute; bottom: 0.5rem; right: 0.75rem;">
-                            {% if pub.is-collab %}👥{% endif %}
-                            {% if pub.institution == "nus-hci" %}<span style="color: #dc2626; position: relative;">†</span>{% endif %}
-                            {% if pub.institution == "immersification" %}<span style="color: #2563eb; position: relative;">‡</span>{% endif %}
-                        </span>
-                        {% assign pub_url = pub.tags[0].url %}
-                        <a href="{{ pub_url }}" style="text-decoration: none; display: flex; align-items: flex-start; justify-content: space-between; gap: 0.75rem; width: 100%; height: 100%; position: relative;">
-                            <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 0.25rem; min-width: 0; text-align: left; flex: 1;">
-                                <span lang="en" style="font-size: 0.75rem; color: #666; overflow-wrap: break-word; word-wrap: break-word; word-break: break-all; -webkit-hyphens: auto; -ms-hyphens: auto; -moz-hyphens: auto; hyphens: auto; max-width: 30vw; text-align: left;">{{ pub.title }}</span>
-                            </div>
-                            <div style="position: absolute; bottom: 0.25rem; left: 0; display: flex; flex-direction: column; gap: 0.125rem;">
-                                {% if pub.status != "submitted" %}
-                                {% if pub.venue_short %}<span lang="en" style="font-size: 0.625rem; color: #aaa; text-align: left; overflow-wrap: break-word; word-wrap: break-word; word-break: break-all; -webkit-hyphens: auto; -ms-hyphens: auto; -moz-hyphens: auto; hyphens: auto; max-width: 30vw;">{{ pub.venue_short }} {{ pub.year }}</span>{% endif %}
-                                {% else %}
-                                    <span style="font-size: 0.625rem; color: #aaa; text-transform: capitalize;">({{ pub.status }})</span>
-                                {% endif %}
-                            </div>
-                            <span style="font-size: calc(3vw);">📄</span>
-                        </a>
-                    </div>
-                    {% endfor %}
+            <div style="display: flex; flex-direction: row; gap: 2vw; margin: 0; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+                {% for pub in year_group.items %}
+                <div style="min-width: max-content; width: 40vw; height: 37vw; background-color: #f3f4f6; border-radius: 0.5rem; padding: 0.5rem; text-align: center; margin: 0; display: flex; align-items: flex-start; justify-content: flex-start; position: relative;">
+                    <span style="position: absolute; bottom: 0.5rem; right: 0.75rem;">
+                        {% if pub.is-collab %}👥{% endif %}
+                        {% if pub.institution == "nus-hci" %}<span style="color: #dc2626; position: relative;">†</span>{% endif %}
+                        {% if pub.institution == "immersification" %}<span style="color: #2563eb; position: relative;">‡</span>{% endif %}
+                    </span>
+                    {% assign pub_url = pub.tags[0].url %}
+                    <a href="{{ pub_url }}" style="text-decoration: none; display: flex; align-items: flex-start; justify-content: space-between; gap: 0.75rem; width: 100%; height: 100%; position: relative;">
+                        <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 0.25rem; min-width: 0; text-align: left; flex: 1;">
+                            <span lang="en" style="font-size: 0.75rem; color: #666; overflow-wrap: break-word; word-wrap: break-word; word-break: break-all; -webkit-hyphens: auto; -ms-hyphens: auto; -moz-hyphens: auto; hyphens: auto; max-width: 30vw; text-align: left;">{{ pub.title }}</span>
+                        </div>
+                        <div style="position: absolute; bottom: 0.25rem; left: 0; display: flex; flex-direction: column; gap: 0.125rem;">
+                            {% if pub.status != "submitted" %}
+                            {% if pub.venue_short %}<span lang="en" style="font-size: 0.625rem; color: #aaa; text-align: left; overflow-wrap: break-word; word-wrap: break-word; word-break: break-all; -webkit-hyphens: auto; -ms-hyphens: auto; -moz-hyphens: auto; hyphens: auto; max-width: 30vw;">{{ pub.venue_short }} {{ pub.year }}</span>{% endif %}
+                            {% else %}
+                                <span style="font-size: 0.625rem; color: #aaa; text-transform: capitalize;">({{ pub.status }})</span>
+                            {% endif %}
+                        </div>
+                        <span style="font-size: calc(3vw);">📄</span>
+                    </a>
                 </div>
+                {% endfor %}
             </div>
         </div>
         {% endfor %}

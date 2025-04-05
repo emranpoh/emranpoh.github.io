@@ -1,0 +1,29 @@
+- company: "Singapore Management University"
+  role: "Research Assistant & Incoming PhD Student"
+  year: "Present"
+  emoji: "🧪"
+  is-current: true
+  url: "https://smu.edu.sg"
+
+- company: "LinguaSpark"
+  role: "Minecraft Education Coding Instructor"
+  year: "2025"
+  url: "#"
+
+- company: "NUS-HCI Lab"
+  role: "Project Manager & Master's Student"
+  year: "2023"
+  emoji: "🔬"
+  url: "https://synteraction.org"
+
+- company: "Center for Immersification"
+  role: "Research Assistant"
+  year: "2022"
+  emoji: "🎮"
+  url: "https://immersification.org"
+
+- company: "Geylang Drip City"
+  role: "Creative Consultant"
+  year: "2023"
+  emoji: "🎨"
+  url: "#" 

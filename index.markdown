@@ -22,7 +22,8 @@ title: emran poh
         display: none;
     }
     .mobile-projects-section,
-    .mobile-publications-section {
+    .mobile-publications-section,
+    .mobile-experience-section {
         display: block;
         width: 100%;
         /* margin-bottom: 1rem; */
@@ -33,14 +34,16 @@ title: emran poh
         margin-bottom: 1rem;
     }
     .mobile-projects-section h2,
-    .mobile-publications-section h2 {
+    .mobile-publications-section h2,
+    .mobile-experience-section h2 {
         margin-bottom: 0.5rem;
     }
 }
 
 @media (min-width: 769px) {
     .mobile-projects-section,
-    .mobile-publications-section {
+    .mobile-publications-section,
+    .mobile-experience-section {
         display: none;
     }
     .introduction .mobile-hello-text,
@@ -67,6 +70,10 @@ title: emran poh
 
 <section class="projects-section">
     {% include projects-selected.html %}
+</section>
+
+<section class="mobile-experience-section">
+    {% include experience-mobile.html %}
 </section>
 
 <section class="mobile-projects-section">
