@@ -5,6 +5,7 @@
   start-year: 2025
   projtype: "research"
   institution: "smu-hai"
+  is-selected: true
   emoji: "🎨"
 
 - title: "Emptiness, Isolation, Death, Hope"
@@ -26,6 +27,7 @@
   end-year: 2023
   projtype: "talk"
   institution: "nus-hci"
+  is-selected: true
   emoji: "🕶️"
   institution: "immersification"
 
@@ -38,6 +40,7 @@
   end-year: 2023
   emoji: "🔬"
   institution: "nus-hci"
+  is-selected: true
   tags:
     - name: "pub"
       type: "pub"

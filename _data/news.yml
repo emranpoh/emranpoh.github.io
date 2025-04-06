@@ -1,72 +1,101 @@
 # personal_news.yml
 # This file contains news entries about yourself to be displayed on your website or other platforms
 
-# Global settings
 settings:
   max_display: 5  # Number of news items to display on the main page
   archive_enabled: true  # Whether to enable an archive page for older news
   sort_order: "newest_first"  # Options: newest_first, oldest_first
 
-# News items collection
-news:
-  - id: news-001
-    title: "Launched My New Website"
-    date: 2025-03-09
-    category: "Website"
-    tags: ["web", "personal", "launch"]
-    featured: true
-    image: "path/to/image.jpg"  # Optional
-    summary: "Excited to announce the launch of my personal website showcasing my portfolio and achievements."
-    content: |
-      Today marks the official launch of my personal website where I'll be sharing my work, 
-      research, and thoughts. The site features sections for my portfolio, publications, 
-      and this news feed to keep everyone updated on my latest activities.
-
+news_items:
   - id: news-002
-    title: "Presented at Industry Conference"
-    date: 2025-02-15
-    category: "Professional"
-    tags: ["conference", "speaking", "industry"]
-    featured: false
-    image: "path/to/conference-image.jpg"  # Optional
-    summary: "Delivered a keynote speech on emerging trends in my field at the annual industry conference."
-    content: |
-      I had the honor of presenting my latest research findings at this year's industry conference.
-      My talk focused on emerging trends and future directions in the field, and was well-received
-      by the audience of industry professionals and academics. The presentation slides are now 
-      available on my publications page.
-
-  - id: news-003
-    title: "Published New Research Paper"
-    date: 2025-01-20
-    category: "Research"
-    tags: ["publication", "research", "academic"]
+    title: "Just submitted my latest research paper to DIS 2025! 🎉"
+    date: "2025-01-21"
+    category: "Publication"
+    tags: ["dis", "conference", "hci"]
     featured: true
-    image: "path/to/research-image.jpg"  # Optional
-    summary: "My latest research paper on innovative approaches has been published in a leading journal."
+    type: "publication"
+    conference: "DIS 2025"
+    conference_link: "https://dis.acm.org/2025/"
+    institution: "acm"
+    summary: "Submitted a research paper to the ACM Designing Interactive Systems Conference 2025."
     content: |
-      I'm pleased to announce that my paper titled "Innovative Approaches to Contemporary Challenges" 
-      has been published in the Journal of Advanced Studies. This work represents months of
-      dedicated research and collaboration with esteemed colleagues. The paper explores novel
-      methodologies that could potentially transform how we address key challenges in our field.
-      
-      You can access the full paper through the link on my publications page.
+      I have submitted a research paper to the ACM Designing Interactive Systems Conference (DIS) 2025. The paper presents our work on [brief description of the paper]. DIS is a premier international conference that brings together researchers and practitioners in the field of interactive systems design.
 
-# You can add as many news items as you want following the same structure
+  - id: news-000
+    title: "Accepted into SMU PhD in Computer Science with Full Scholarship! 🎉"
+    date: "2025-03-18"
+    category: "Education"
+    tags: ["phd", "smu", "scholarship"]
+    featured: true
+    type: "education"
+    institution: "smu"
+    link: "https://www.linkedin.com/posts/emranpoh_excited-to-share-that-ill-be-starting-activity-7307219143819214848-ANHC?utm_source=share&utm_medium=member_desktop&rcm=ACoAABbmkKQB4nh6DS1TgnvUQUXD3ibMufiETSo"
+    summary: "Accepted into the PhD program at Singapore Management University's School of Computing and Information Systems with a full scholarship."
+    content: |
+      I am thrilled to announce that I have been accepted into the PhD program in Computer Science at Singapore Management University (SMU) with a full scholarship. I will be joining the School of Computing and Information Systems (SCIS) in August 2025, working under the supervision of Assistant Professor Li Jiannan. This marks an exciting new chapter in my academic journey, where I will continue my research in human-agent interaction and creativity-centric studies.
 
-# Optional sections
+  - id: news-001
+    title: "Heading to CHI 2025 in Yokohama! 🇯🇵"
+    date: "2025-04-20"
+    category: "Conference"
+    tags: ["chi", "conference", "hci"]
+    featured: true
+    type: "conference"
+    conference: "CHI 2025"
+    conference_link: "https://chi2025.acm.org/"
+    institution: "acm"
+    summary: "Attending the ACM CHI Conference on Human Factors in Computing Systems 2025 in Yokohama, Japan."
+    content: |
+      I am excited to be attending the ACM CHI Conference on Human Factors in Computing Systems (CHI 2025) in Yokohama, Japan. This will be my first time attending CHI, the premier international conference in Human-Computer Interaction. I look forward to engaging with the HCI community, learning about cutting-edge research, and networking with fellow researchers and practitioners in the field.
+
+  - title: "Sharing my research at NUS-HCI Lab Seminar 🎤"
+    date: "2023-12-01"
+    type: "talk"
+    link: "https://synteraction.org/"
+    institution: "nus-hci"
+    summary: "Presented our latest research findings on artefact awareness in collaborative workspaces."
+
+  - title: "Exploring human connection through Death Stranding 🎮"
+    date: "2024-01-01"
+    type: "talk"
+    link: "https://synteraction.org/"
+    institution: "nus-hci"
+
+  - title: "Discussing XR ethics in Black Mirror's context 🕶️"
+    date: "2023-12-01"
+    type: "talk"
+    link: "https://www.immersification.org/"
+    institution: "immersification"
+
+  - title: "Our paper on artefact awareness got published! 📝"
+    date: "2023-10-01"
+    type: "publication"
+    link: "https://ieeexplore.ieee.org/abstract/document/10322229/"
+    institution: "nus-hci"
+
+  - title: "Mixed Reality for manufacturing assembly - our latest work! 🏭"
+    date: "2022-12-01"
+    type: "publication"
+    link: "https://doi.org/10.1145/1122445.1122456"
+    institution: "immersification"
+
+  - title: "Be-Longing: My AR art installation is live! ✨"
+    date: "2023-09-01"
+    type: "art"
+    link: "https://nus.edu.sg/cfa/NAF_2023/event/be-longing/index.html"
+    institution: "nus-hci"
+
 upcoming_events:
   - title: "Guest Lecture at University"
-    date: 2025-04-15
+    date: "15-04-2025"
     location: "University Auditorium"
     description: "Delivering a guest lecture on advanced topics in my field."
 
   - title: "Industry Workshop"
-    date: 2025-05-22
+    date: "22-05-2025"
     location: "Tech Innovation Center"
     description: "Leading a hands-on workshop showcasing practical applications."
 
-# Social media links for sharing news
 social_sharing:
   twitter: true
   linkedin: true

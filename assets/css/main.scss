@@ -208,7 +208,8 @@ body {
     padding: 0;
 
     .mobile-projects-section,
-    .mobile-publications-section {
+    .mobile-publications-section,
+    .mobile-news-section {
       overflow-x: auto;
       width: 100%;
       padding-bottom: 1rem;
@@ -479,6 +480,7 @@ mark {
   border-radius: 8px;
   overflow: hidden;
   max-height: 320px;
+  align-items: flex-start;
   
   // on mobile
   @media (max-width: 768px) {
@@ -547,14 +549,15 @@ mark {
   }
 
   &-title {
-    // background: rgba(0, 0, 0, 0.6);
-    // color: white;
     padding: 8px;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     background: #f7f7f7;
     overflow: hidden;
     text-overflow: ellipsis;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
@@ -572,9 +575,12 @@ mark {
 .project-title {
   font-size: 16px;
   font-weight: 600;
-  // margin: 4px 0 16px 0;
   padding: 0 8px;
   line-height: 1.4;
+  text-align: left;
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
 }
 
 .project-subtitle {

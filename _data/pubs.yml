@@ -8,6 +8,7 @@
   status: "published"
   institution: "nus-hci"
   image: "artefact-awareness.png"
+  is-selected: true
   tags:
     - name: "pdf"
       url: "https://ieeexplore.ieee.org/abstract/document/10322229/"
@@ -36,6 +37,7 @@
   status: "published"
   image: "loadtable_fea.png"
   institution: "immersification"
+  is-selected: true
   tags:
     - name: "pdf"
       url: "https://ieeexplore.ieee.org/abstract/document/9974521"
@@ -91,3 +93,4 @@
   image: "dis.png"
   status: "submitted"
   institution: "smu-hai"
+  is-selected: true

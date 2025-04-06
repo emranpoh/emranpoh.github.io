@@ -57,8 +57,10 @@ permalink: /projects/
             {% endfor %}
           </div>
         {% endif %}
-        <h3 class="project-title">{{ project.title }}</h3>
-        <p class="project-subtitle">{{ project.subtitle }}</p>
+        <div style="display: flex; flex-direction: column; align-items: flex-start;">
+          <h3 class="project-title">{{ project.title }}</h3>
+          <p class="project-subtitle">{{ project.subtitle }}</p>
+        </div>
       </div>
       <!-- {% if project.year %}
       <div class="project-year">{{ project.year }}</div>

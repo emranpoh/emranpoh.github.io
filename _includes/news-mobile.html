@@ -1,0 +1,47 @@
+<div class="mobile-news-section">
+    <h2 style="font-size: 1.25rem; margin-bottom: .5rem; font-weight: 500; color: #333;">what's new? <span style="font-size: 1rem; color: #666;">✨</span></h2>
+    <div style="display: flex; flex-direction: column; gap: 0.5rem; max-height: 400px; overflow-y: auto;">
+        {% assign sorted_news = site.data.news.news_items | sort: "date" | reverse %}
+        {% for item in sorted_news limit:3 %}
+        {% if item.link %}
+        <a href="{{ item.link }}" style="text-decoration: none; color: inherit;">
+        {% endif %}
+        <div style="background-color: #f3f4f6; border-radius: 0.5rem; padding: 0.75rem; display: flex; flex-direction: column; gap: 0.25rem;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <span style="font-size: 0.75rem; color: #4b5563; width: 60px; display: block;">{{ item.date | date: "%b %y" }}</span>
+                <div style="display: flex; align-items: flex-start; gap: 0.5rem; flex: 1;">
+                    <p style="font-size: 0.75rem; margin: 0; color: #111827; flex: 1;">
+                        {% if item.type == "publication" or item.type == "conference" %}
+                            {% if item.conference and item.conference_link %}
+                                {% assign title_parts = item.title | split: item.conference %}
+                                {{ title_parts[0] }}<a href="{{ item.conference_link }}" style="color: #2563eb; text-decoration: none;">{{ item.conference }}</a>{{ title_parts[1] }}
+                            {% else %}
+                                {{ item.title }}
+                            {% endif %}
+                        {% else %}
+                            {{ item.title }}
+                        {% endif %}
+                        {% if item.type == "award" %}
+                        <span style="font-size: 0.75rem; color: #2563eb;">🏆</span>
+                        {% elsif item.type == "publication" %}
+                        <span style="font-size: 0.75rem; color: #dc2626;">📝</span>
+                        {% elsif item.type == "talk" %}
+                        <span style="font-size: 0.75rem; color: #059669;">🎤</span>
+                        {% elsif item.type == "education" %}
+                        <span style="font-size: 0.75rem; color: #7c3aed;">🎓</span>
+                        {% elsif item.type == "art" %}
+                        <span style="font-size: 0.75rem; color: #9333ea;">✨</span>
+                        {% endif %}
+                    </p>
+                    {% if item.link %}
+                    <span style="font-size: 0.75rem; color: #2563eb;"><i class="fas fa-link"></i></span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% if item.link %}
+        </a>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div> 

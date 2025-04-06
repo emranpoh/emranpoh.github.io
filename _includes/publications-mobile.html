@@ -1,9 +1,10 @@
 <div class="mobile-publications">
-    <h2 style="font-size: 1rem; margin-bottom: .25rem; font-weight: normal; text-transform: lowercase;">publications</h2>
-    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; padding-bottom: 0.5rem;">
+    <h2 style="font-size: 1rem; margin-bottom: .25rem; font-weight: normal; text-transform: lowercase;">selected publications</h2>
+    <div style="display: flex; overflow-x: auto; gap: 0.5rem; padding-bottom: 0.5rem; scrollbar-width: none; -ms-overflow-style: none;">
         {% assign sorted_pubs = site.data.pubs | sort: "year" | reverse %}
         {% for pub in sorted_pubs %}
-        <div style="width: calc(50% - 0.25rem); height: 37vw; background-color: #f3f4f6; border-radius: 0.5rem; padding: 0.5rem; text-align: center; margin: 0; display: flex; align-items: flex-start; justify-content: flex-start; position: relative; background-image: url('{{ site.baseurl }}/assets/images/projects/{{ pub.image }}'); background-size: cover; background-position: center;">
+        {% if pub.is-selected %}
+        <div style="width: 36vw; height: 40vw; flex-shrink: 0; background-color: #f3f4f6; border-radius: 0.5rem; padding: 0.5rem; text-align: center; margin: 0; display: flex; align-items: flex-start; justify-content: flex-start; position: relative; background-image: url('{{ site.baseurl }}/assets/images/projects/{{ pub.image }}'); background-size: cover; background-position: center;">
             <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(243, 244, 246, 0.85); border-radius: 0.5rem;"></div>
             <span style="position: absolute; bottom: 0.5rem; right: 0.75rem; z-index: 1;">
                 {% if pub.is-collab %}👥{% endif %}
@@ -25,6 +26,7 @@
                 <span style="font-size: calc(3vw);">📄</span>
             </a>
         </div>
+        {% endif %}
         {% endfor %}
     </div>
     <div class="scroll-indicator-pubs" style="display: flex; justify-content: right; gap: 0.125rem; padding: 0.5rem 0; opacity: 0; transition: opacity 0.3s ease;">

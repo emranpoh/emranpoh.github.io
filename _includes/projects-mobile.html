@@ -1,20 +1,20 @@
 <div class="mobile-projects">
     <h2 style="font-size: 1rem; margin-bottom: .25rem; font-weight: normal; text-transform: lowercase;">projects</h2>
-    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; padding-bottom: 0.5rem;">
+    <div style="display: flex; overflow-x: auto; gap: 0.5rem; padding-bottom: 0.5rem; scrollbar-width: none; -ms-overflow-style: none;">
         {% assign sorted_projects = site.data.projects | sort: "start-year" | reverse %}
         {% for project in sorted_projects %}
-        <div style="width: calc(50% - 0.25rem); height: 24vw; background-color: #f3f4f6; border-radius: 0.5rem; padding: 0.75rem 0.5rem; text-align: center; display: flex; align-items: center; justify-content: {% if project.is-collab or project.institution %}flex-start{% else %}center{% endif %}; position: relative; background-image: url('{{ site.baseurl }}/assets/images/projects/{{ project.image }}'); background-size: cover; background-position: center;">
-            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(243, 244, 246, 0.85); border-radius: 0.5rem; z-index: 0;"></div>
-            <span style="position: absolute; top: 0.25rem; right: 0.25rem; z-index: 2;">
-                {% if project.institution == "smu-hai" %}<span style="position: relative; margin-left: 0.2rem;">*</span>{% endif %}
-                {% if project.institution == "nus-hci" %}<span style="color: #dc2626; position: relative; margin-left: 0.2rem;">†</span>{% endif %}
-                {% if project.institution == "immersification" %}<span style="color: #2563eb; position: relative; margin-left: 0.2rem;">‡</span>{% endif %}
-            </span>
-            <span style="position: absolute; bottom: 0.25rem; right: 0.25rem; font-size: 0.75rem; z-index: 2;">
-                {% if project.is-collab %}👥{% endif %}
-            </span>
-            <a href="{{ '/projects/' | append: project.title | slugify | relative_url }}" style="text-decoration: none; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; width: 100%; height: 100%; padding: 0rem; z-index: 1;">
-                <span style="font-size: calc(3vw); line-height: 1.3; max-width: 100%; white-space: normal; word-wrap: break-word; color: #111827; text-align: left;">{{ project.title }}</span>
+        <div style="width: 30vw; flex-shrink: 0; display: flex; flex-direction: column; gap: 0rem">
+            <div style="width: 100%; aspect-ratio: 1; background-color: #f3f4f6; border-radius: 0.5rem 0.5rem 0rem 0rem; position: relative; background-image: url('{{ site.baseurl }}/assets/images/projects/{{ project.image }}'); background-size: cover; background-position: center;">
+                <span style="position: absolute; bottom: 0.25rem; left: 0.25rem; font-size: 0.75rem; z-index: 2; background-color: #ffffff; padding: 0.125rem 0.5rem; border-radius: 0.25rem; display: flex; gap: 0.25rem;">
+                    {% if project.is-selected %}<span>⭐</span>{% endif %}
+                    {% if project.institution == "smu-hai" %}<span>*</span>{% endif %}
+                    {% if project.institution == "nus-hci" %}<span style="color: #dc2626;">†</span>{% endif %}
+                    {% if project.institution == "immersification" %}<span style="color: #2563eb;">‡</span>{% endif %}
+                    {% if project.is-collab %}<span>👥</span>{% endif %}
+                </span>
+            </div>
+            <a href="{{ '/projects/' | append: project.title | slugify | relative_url }}" style="text-decoration: none;">
+                <span style="font-size: calc(2.5vw); line-height: 1.3; color: #111827; text-align: left; display: block; padding: 0.5rem 0.5rem; border-radius: 0rem 0rem 0.5rem 0.5rem; background-color: #f3f7f6;">{{ project.title }}</span>
             </a>
         </div>
         {% endfor %}
