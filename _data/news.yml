@@ -7,6 +7,20 @@ settings:
   sort_order: "newest_first"  # Options: newest_first, oldest_first
 
 news_items:
+  - id: news-003
+    title: "Attending Singapore HCI Meetup 2025 at SMU! 🤝"
+    date: "2025-04-15"
+    category: "Conference"
+    tags: ["sghci", "conference", "hci"]
+    featured: true
+    type: "conference"
+    conference: "SG-HCI Meetup 2025"
+    conference_link: "https://sghcimeetup25.notion.site/#1a91bd1704258010bc6afdf73378c1d1"
+    institution: "smu"
+    summary: "Participating in the Singapore HCI Meetup 2025, a gathering of HCI researchers across Singapore."
+    content: |
+      Looking forward to joining the Singapore HCI Meetup 2025 at SMU, where HCI researchers across the island will share ideas, celebrate achievements, and connect with old and new friends. The event will feature research presentations, posters, and demos from our community members.
+
   - id: news-002
     title: "Just submitted my latest research paper to DIS 2025! 🎉"
     date: "2025-01-21"
