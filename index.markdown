@@ -108,15 +108,6 @@ title: emran poh
     .header-icons i {
         font-size: 1.1rem;
     }
-    .mobile-hello-text {
-        font-size: 1rem;
-        font-weight: 500;
-        text-align: justify;
-    }
-    .mobile-hello-text span {
-        font-weight: 400;
-        color: #666;
-    }
 }
 
 @media (min-width: 769px) {
