@@ -1,33 +1,28 @@
 <div class="mobile-publications" id="publications">
     <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
-        <h2 style="margin-bottom: 0; font-size: 1rem; font-weight: normal; text-transform: lowercase;">selected publications</h2>
+        <h2 style="margin-bottom: 0; font-size: 1rem; font-weight: normal; text-transform: lowercase;">publications</h2>
         <div style="display: flex; gap: 0.5rem;">
-            {% assign sorted_pubs = site.data.pubs | sort: "year" | reverse %}
+            {% assign sorted_pubs = site.data.publications | sort: "year" | reverse %}
             {% for pub in sorted_pubs %}
                 <div style="width: 0.75rem; height: 0.75rem; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; opacity: {% if forloop.index > 3 %}0.2{% else %}1{% endif %};">{{ pub.emoji }}</div>
             {% endfor %}
         </div>
     </div>
     <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-        {% assign sorted_pubs = site.data.pubs | sort: "year" | reverse %}
+        {% assign sorted_pubs = site.data.publications | sort: "year" | reverse %}
         {% for pub in sorted_pubs limit:3 %}
         <div style="display: flex; flex-direction: column; gap: 0.75rem; background-color: #f1f3f5; padding: 0.75rem; border-radius: 1rem;">
-            <div style="background-color: white; padding: 0.5rem; border-radius: 0.5rem;">
-                <img src="{{ site.baseurl }}/assets/images/projects/{{ pub.image }}" alt="{{ pub.title }}" style="width: 100%; height: auto; border-radius: 0.5rem; object-fit: cover;">
+            {% if pub.image %}
+            <div style="background-color: white; padding: 0; border-radius: 0.5rem; overflow: hidden; height: 80px;">
+                <img src="{{ site.baseurl }}/assets/images/publications/{{ pub.image }}" alt="{{ pub.title }}" style="width: 100%; height: 100%; object-fit: cover; display: block;">
             </div>
+            {% endif %}
             <div style="display: flex; flex-direction: column; gap: 0.125rem;">
-                {% assign pub_url = pub.tags[0].url %}
-                <a href="{{ pub_url }}" style="text-decoration: none; color: inherit;">
-                    <span lang="en" style="font-size: 0.875rem; color: #111827; font-weight: 500;">{{ pub.emoji }} {{ pub.title }}</span>
+                <a href="{{ pub.url }}" style="text-decoration: none; color: inherit;">
+                    <span lang="en" style="font-size: 0.875rem; color: #111827; font-weight: 500;">{{ pub.emoji }} {{ pub.title }}<sup style="font-size: 0.75rem;">{% if pub.institution == "smu-hai" %}*{% endif %}{% if pub.institution == "nus-hci" %}<span style="color: #dc2626;">†</span>{% endif %}{% if pub.institution == "immersification" %}<span style="color: #2563eb;">‡</span>{% endif %}{% if pub.is-collab %}👥{% endif %}</sup></span>
                 </a>
-                <span lang="en" style="font-size: 0.75rem; color: #666; font-style: italic;">{{ pub.authors | replace: "Emran Poh", "<strong>Emran Poh</strong>" }}</span>
-                {% if pub.status != "submitted" %}
-                    {% if pub.venue_short %}
-                    <span lang="en" style="font-size: 0.75rem; color: #666;">{{ pub.venue_short }} {{ pub.year }}</span>
-                    {% endif %}
-                {% else %}
-                    <span style="font-size: 0.75rem; color: #666;">({{ pub.status }})</span>
-                {% endif %}
+                <span style="font-size: 0.75rem; color: #666;">{{ pub.authors }}</span>
+                <span style="font-size: 0.75rem; color: #666;">{{ pub.venue }} {{ pub.year }}</span>
             </div>
         </div>
         {% endfor %}

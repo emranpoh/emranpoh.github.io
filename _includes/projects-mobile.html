@@ -22,17 +22,12 @@
                 {% endif %}
                 <div style="display: flex; flex-direction: column; gap: 0.125rem;">
                     <a href="{{ '/projects/' | append: project.title | slugify | relative_url }}" style="text-decoration: none; color: inherit;">
-                        <span lang="en" style="font-size: 0.875rem; color: #111827; font-weight: 500;">{{ project.emoji }} {{ project.title }}</span>
+                        <span lang="en" style="font-size: 0.875rem; color: #111827; font-weight: 500;">{{ project.emoji }} {{ project.title }}<sup style="font-size: 0.75rem;">{% if project.institution == "smu-hai" %}*{% endif %}{% if project.institution == "nus-hci" %}<span style="color: #dc2626;">†</span>{% endif %}{% if project.institution == "immersification" %}<span style="color: #2563eb;">‡</span>{% endif %}{% if project.is-collab %}👥{% endif %}</sup></span>
                     </a>
                     {% if project.subtitle %}
                     <span style="font-size: 0.75rem; color: #666;">{{ project.subtitle }}</span>
                     {% endif %}
-                    <span style="font-size: 0.75rem; color: #666; display: flex; gap: 0.25rem;">
-                        {% if project.institution == "smu-hai" %}<span>*</span>{% endif %}
-                        {% if project.institution == "nus-hci" %}<span style="color: #dc2626;">†</span>{% endif %}
-                        {% if project.institution == "immersification" %}<span style="color: #2563eb;">‡</span>{% endif %}
-                        {% if project.is-collab %}<span>👥</span>{% endif %}
-                    </span>
+                    <span style="font-size: 0.75rem; color: #666;">{% if project.start-year == project.end-year %}{{ project.start-year }}{% else %}{{ project.start-year }} - {% if project.end-year %}{{ project.end-year }}{% else %}present{% endif %}{% endif %}</span>
                 </div>
             </div>
             {% endif %}
