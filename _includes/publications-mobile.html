@@ -11,19 +11,24 @@
     <div style="display: flex; flex-direction: column; gap: 0.75rem;">
         {% assign sorted_pubs = site.data.pubs | sort: "year" | reverse %}
         {% for pub in sorted_pubs limit:3 %}
-        <div style="display: flex; flex-direction: column; gap: 0.125rem; background-color: #f1f3f5; padding: 0.75rem; border-radius: 0.5rem;">
-            {% assign pub_url = pub.tags[0].url %}
-            <a href="{{ pub_url }}" style="text-decoration: none; color: inherit;">
-                <span lang="en" style="font-size: 0.875rem; color: #111827; font-weight: 500;">{{ pub.emoji }} {{ pub.title }}</span>
-            </a>
-            <span lang="en" style="font-size: 0.75rem; color: #666; font-style: italic;">{{ pub.authors | replace: "Emran Poh", "<strong>Emran Poh</strong>" }}</span>
-            {% if pub.status != "submitted" %}
-                {% if pub.venue_short %}
-                <span lang="en" style="font-size: 0.75rem; color: #666;">{{ pub.venue_short }} {{ pub.year }}</span>
+        <div style="display: flex; flex-direction: column; gap: 0.75rem; background-color: #f1f3f5; padding: 0.75rem; border-radius: 1rem;">
+            <div style="background-color: white; padding: 0.5rem; border-radius: 0.5rem;">
+                <img src="{{ site.baseurl }}/assets/images/projects/{{ pub.image }}" alt="{{ pub.title }}" style="width: 100%; height: auto; border-radius: 0.5rem; object-fit: cover;">
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.125rem;">
+                {% assign pub_url = pub.tags[0].url %}
+                <a href="{{ pub_url }}" style="text-decoration: none; color: inherit;">
+                    <span lang="en" style="font-size: 0.875rem; color: #111827; font-weight: 500;">{{ pub.emoji }} {{ pub.title }}</span>
+                </a>
+                <span lang="en" style="font-size: 0.75rem; color: #666; font-style: italic;">{{ pub.authors | replace: "Emran Poh", "<strong>Emran Poh</strong>" }}</span>
+                {% if pub.status != "submitted" %}
+                    {% if pub.venue_short %}
+                    <span lang="en" style="font-size: 0.75rem; color: #666;">{{ pub.venue_short }} {{ pub.year }}</span>
+                    {% endif %}
+                {% else %}
+                    <span style="font-size: 0.75rem; color: #666;">({{ pub.status }})</span>
                 {% endif %}
-            {% else %}
-                <span style="font-size: 0.75rem; color: #666;">({{ pub.status }})</span>
-            {% endif %}
+            </div>
         </div>
         {% endfor %}
     </div>

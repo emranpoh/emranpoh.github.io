@@ -1,6 +1,6 @@
 - title: "Exploring Creative Agency in Human-AI Collaboration"
   subtitle: "Understanding and Enhancing Creative Expression in Human-AI Partnerships"
-  image: "ai-creativity.png"
+  # image: "ai-creativity.png"
   year: Ongoing
   start-year: 2025
   projtype: "research"
@@ -17,6 +17,7 @@
   projtype: "talk"
   institution: "nus-hci"
   is-collab: false
+  is-selected: true
   emoji: "🎮"
 
 - title: "How to Use XR for Physical Assault"
@@ -40,7 +41,6 @@
   end-year: 2023
   emoji: "🔬"
   institution: "nus-hci"
-  is-selected: true
   tags:
     - name: "pub"
       type: "pub"
