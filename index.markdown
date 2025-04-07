@@ -177,6 +177,16 @@ title: emran poh
                 </div>
             </div>
         </div>
+        <div style="display: flex; gap: 0.75rem; margin-bottom: 1rem;">
+            <button onclick="document.getElementById('publications').scrollIntoView({behavior: 'smooth'})" style="flex: 1; background: none; border: none; color: #666; font-size: 1rem; cursor: pointer; padding: 0.75rem; display: flex; align-items: center; gap: 0.5rem; justify-content: center; background-color: #f1f3f5; border-radius: 1rem;">
+                <span>📚</span>
+                <span>publications</span>
+            </button>
+            <button onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})" style="flex: 1; background: none; border: none; color: #666; font-size: 1rem; cursor: pointer; padding: 0.75rem; display: flex; align-items: center; gap: 0.5rem; justify-content: center; background-color: #f1f3f5; border-radius: 1rem;">
+                <span>🎨</span>
+                <span>projects</span>
+            </button>
+        </div>
         <p class="hello-text"><b>Hi! I'm Emran, a <a href="{{ '/projects' | relative_url }}">UX Researcher</a> <span class="emoji">🧪</span> + Designer <span class="emoji">🎨</span> + Developer <span class="emoji">🧑🏻‍💻</span></b> from <span class="emoji">🇸🇬</span> working on <mark>human-agent and collaborative interactions</mark> advised by <a href="https://jchrisli.github.io/">Li Jiannan</a> along with HCI crew <span class="emoji">🥂</span> at Singapore Management University. Earned my masters <span class="emoji">🎓</span> from NUS, where I also did research at the <a href="https://synteraction.org/">synteraction lab (formerly nus-hci lab) <sup style="color: #dc2626; font-size: 1rem; position: relative;">†</sup></a>, and spent time at <a href="https://www.immersification.org/">Center for Immersification<sup style="color: #2563eb; font-size: 1rem; position: relative;">‡</sup></a>. I too enjoy building — and occasionally crashing <span class="emoji">💥</span> — interplanetary rockets <span class="emoji">🚀</span> and playing insanely complicated games. Fancy collaborating or just a chat? Let's talk! <span class="emoji">👋🏻</span></p>
         <p class="mobile-hello-text" style="font-size: 1rem; font-weight: 500;">
             <span style="font-weight: 400; color: #666;">[current + next]</span> i am a research engineer at <a href="https://smuhci.com/">SMU-HCI</a> + incoming phd student at smu hai-lab (sup. <a href="https://jchrisli.github.io/">Li Jiannan</a>)
@@ -200,15 +210,8 @@ title: emran poh
     {% include projects-selected.html %}
 </section>
 
-<div style="display: flex; justify-content: right; margin-bottom: 1rem; gap: 0.5rem; font-size: 0.75rem; color: #6b7280; margin-top: 0.25rem;">
-    <span>⭐ selected</span>
-    <span>👥 collaborator</span>
-    <span>* SMU-HAI</span>
-    <span style="color: #dc2626;">† NUS-HCI</span>
-    <span style="color: #2563eb;">‡ Immersification</span>
-</div>
-
 <section class="mobile-projects-section">
     {% include projects-mobile.html %}
+    <div style="margin-top: 2rem;"></div>
     {% include publications-mobile.html %}
 </section>
