@@ -9,6 +9,7 @@
   institution: "nus-hci"
   image: "artefact-awareness.png"
   is-selected: true
+  emoji: "👥"
   tags:
     - name: "pdf"
       url: "https://ieeexplore.ieee.org/abstract/document/10322229/"
@@ -23,6 +24,7 @@
   status: "published"
   image: "intvr.png"
   institution: "immersification"
+  emoji: "🚗"
   tags:
     - name: "doi"
       url: "https://dl.acm.org/doi/abs/10.1145/3581961.3610373"
@@ -38,6 +40,7 @@
   image: "loadtable_fea.png"
   institution: "immersification"
   is-selected: true
+  emoji: "🔍"
   tags:
     - name: "pdf"
       url: "https://ieeexplore.ieee.org/abstract/document/9974521"
@@ -52,6 +55,7 @@
   status: "published"
   institution: "immersification"
   image: "mr4assembly.jpg"
+  emoji: "⚙️"
   tags:
     - name: "pdf"
       url: "https://link.springer.com/chapter/10.1007/978-3-031-19679-9_72"
@@ -66,6 +70,7 @@
   status: "published"
   image: "mr4fea.PNG"
   institution: "immersification"
+  emoji: "📊"
   tags:
     - name: "pdf"
       url: "https://link.springer.com/chapter/10.1007/978-3-030-77626-8_32"
@@ -79,6 +84,7 @@
   year: 2021
   image: "newriis.png"
   institution: "immersification"
+  emoji: "🖼️"
   tags:
     - name: "pdf"
       url: "https://irr.singaporetech.edu.sg/articles/conference_contribution/Designing_with_Holograms_A_Preliminary_Study_On_Improving_Design_Visualisation_Through_Holographic_Display/23651547/1/files/41505537.pdf"
@@ -94,3 +100,4 @@
   status: "submitted"
   institution: "smu-hai"
   is-selected: true
+  emoji: "💡"

@@ -1,106 +1,30 @@
 <div class="mobile-publications">
-    <h2 style="font-size: 1rem; margin-bottom: .25rem; font-weight: normal; text-transform: lowercase;">selected publications</h2>
-    <div style="display: flex; overflow-x: auto; gap: 0.5rem; padding-bottom: 0.5rem; scrollbar-width: none; -ms-overflow-style: none;">
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+        <h2 style="margin-bottom: 0; font-size: 1rem; font-weight: normal; text-transform: lowercase;">selected publications</h2>
+        <div style="display: flex; gap: 0.25rem;">
+            {% assign sorted_pubs = site.data.pubs | sort: "year" | reverse %}
+            {% for pub in sorted_pubs %}
+                <div style="width: 0.75rem; height: 0.75rem; display: flex; align-items: center; justify-content: center; background-color: #f1f3f5; border-radius: 0.125rem; font-size: 0.75rem; opacity: {% if forloop.index > 3 %}0.3{% else %}1{% endif %};">{{ pub.emoji }}</div>
+            {% endfor %}
+        </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
         {% assign sorted_pubs = site.data.pubs | sort: "year" | reverse %}
-        {% for pub in sorted_pubs %}
-        <div style="width: 30vw; height: 40vw; flex-shrink: 0; background-color: #f3f4f6; border-radius: 0.5rem; padding: 0.5rem; text-align: center; margin: 0; display: flex; align-items: flex-start; justify-content: flex-start; position: relative; background-image: url('{{ site.baseurl }}/assets/images/projects/{{ pub.image }}'); background-size: cover; background-position: center; border: 1px solid #e5e7eb;">
-            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(255, 255, 255, 0.9); border-radius: 0.5rem;"></div>
-            <span style="position: absolute; bottom: 0.5rem; right: 0.75rem; z-index: 1;">
-                {% if pub.is-collab %}👥{% endif %}
-                {% if pub.institution == "nus-hci" %}<span style="color: #dc2626; position: relative;">†</span>{% endif %}
-                {% if pub.institution == "immersification" %}<span style="color: #2563eb; position: relative;">‡</span>{% endif %}
-            </span>
+        {% for pub in sorted_pubs limit:3 %}
+        <div style="display: flex; flex-direction: column; gap: 0.125rem; background-color: #f1f3f5; padding: 0.75rem; border-radius: 0.5rem;">
             {% assign pub_url = pub.tags[0].url %}
-            <a href="{{ pub_url }}" style="text-decoration: none; display: flex; align-items: flex-start; justify-content: space-between; gap: 0.75rem; width: 100%; height: 100%; position: relative; z-index: 1;">
-                <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 0.25rem; min-width: 0; text-align: left; flex: 1;">
-                    <span lang="en" style="font-size: 0.75rem; color: #111827; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; max-width: 100%; text-align: left;">{{ pub.title }}</span>
-                    <span lang="en" style="font-size: 0.625rem; color: #666; font-style: italic; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; max-width: 100%; text-align: left;">{{ pub.authors }}</span>
-                </div>
-                <div style="position: absolute; bottom: 0.25rem; left: 0; display: flex; flex-direction: column; gap: 0.125rem;">
-                    {% if pub.status != "submitted" %}
-                    {% if pub.venue_short %}<span lang="en" style="padding: 0.25rem 0.5rem; background-color: #f2f2f2; border-radius: .25rem; font-size: 0.625rem; color: #656565; text-align: left; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 100%;">{{ pub.venue_short }} {{ pub.year }}</span>{% endif %}
-                    {% else %}
-                        <span style="font-size: 0.625rem; color: #aaa; text-transform: capitalize;">({{ pub.status }})</span>
-                    {% endif %}
-                </div>
-                <!-- <span style="font-size: calc(3vw);">📄</span>    -->
+            <a href="{{ pub_url }}" style="text-decoration: none; color: inherit;">
+                <span lang="en" style="font-size: 0.875rem; color: #111827; font-weight: 500;">{{ pub.emoji }} {{ pub.title }}</span>
             </a>
+            <span lang="en" style="font-size: 0.75rem; color: #666; font-style: italic;">{{ pub.authors | replace: "Emran Poh", "<strong>Emran Poh</strong>" }}</span>
+            {% if pub.status != "submitted" %}
+                {% if pub.venue_short %}
+                <span lang="en" style="font-size: 0.75rem; color: #666;">{{ pub.venue_short }} {{ pub.year }}</span>
+                {% endif %}
+            {% else %}
+                <span style="font-size: 0.75rem; color: #666;">({{ pub.status }})</span>
+            {% endif %}
         </div>
         {% endfor %}
     </div>
-    <div class="scroll-indicator-pubs" style="display: flex; justify-content: right; gap: 0.125rem; padding: 0.5rem 0; opacity: 0; transition: opacity 0.3s ease;">
-    </div>
-    <style>
-        .mobile-publications > div::-webkit-scrollbar {
-            display: none;
-        }
-    </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const container = document.querySelector('.mobile-publications > div');
-            const indicator = document.querySelector('.scroll-indicator-pubs');
-            let scrollTimeout;
-            
-            function updateIndicatorDots() {
-                const pubCards = container.querySelectorAll('[style*="width: calc(50% - 0.25rem)"]');
-                const visibleWidth = container.clientWidth;
-                const numVisiblePubs = Math.floor(visibleWidth / (0.5 * window.innerWidth));
-                
-                // Clear existing dots
-                indicator.innerHTML = '';
-                
-                // Create dots for each publication
-                pubCards.forEach(() => {
-                    const dot = document.createElement('div');
-                    dot.style.cssText = 'width: 0.5rem; height: 0.25rem; background-color: #9ca3af; border-radius: 1rem; transition: background-color 0.3s ease;';
-                    indicator.appendChild(dot);
-                });
-            }
-            
-            function updateIndicatorHighlight() {
-                const dots = indicator.children;
-                const scrollPercentage = container.scrollLeft / (container.scrollWidth - container.clientWidth);
-                const totalDots = dots.length;
-                const activeIndex = Math.min(Math.floor(scrollPercentage * totalDots), totalDots - 1);
-                
-                Array.from(dots).forEach((dot, index) => {
-                    if (index <= activeIndex) {
-                        dot.style.backgroundColor = '#4b5563';  // Darker gray for active dots
-                    } else {
-                        dot.style.backgroundColor = '#9ca3af';  // Light gray for inactive dots
-                    }
-                });
-            }
-            
-            function showIndicator() {
-                if (container.scrollWidth > container.clientWidth && container.scrollLeft > 0) {
-                    indicator.style.opacity = '1';
-                    updateIndicatorHighlight();
-                }
-            }
-
-            function hideIndicator() {
-                indicator.style.opacity = '0';
-            }
-            
-            function handleScroll() {
-                showIndicator();
-                
-                // Clear the existing timeout
-                clearTimeout(scrollTimeout);
-                
-                // Set a new timeout to hide the indicator
-                scrollTimeout = setTimeout(() => {
-                    hideIndicator();
-                }, 1000); // Hide after 1 second of no scrolling
-            }
-            
-            updateIndicatorDots();
-            container.addEventListener('scroll', handleScroll);
-            window.addEventListener('resize', () => {
-                updateIndicatorDots();
-                handleScroll();
-            });
-        });
-    </script>
 </div>
