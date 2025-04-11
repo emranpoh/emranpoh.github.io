@@ -1,0 +1,53 @@
+<div class="news-desktop-section">
+    <div class="section-header">
+        <h2 class="section-title">what's new? <span class="emoji">✨</span></h2>
+    </div>
+    <div class="news-grid">
+        {% assign sorted_news = site.data.news.news_items | sort: "date" | reverse %}
+        {% for item in sorted_news limit:4 %}
+        {% if item.link %}
+        <a href="{{ item.link }}" class="news-item-link">
+        {% endif %}
+        <div class="news-item">
+            <div class="news-item-content">
+                <span class="news-date">{{ item.date | date: "%b %d" }}</span>
+                <div class="news-title-container">
+                    <p class="news-title">
+                        {% if item.type == "publication" or item.type == "conference" %}
+                            {% if item.conference and item.conference_link %}
+                                {% assign title_parts = item.title | split: item.conference %}
+                                {{ title_parts[0] }}<a href="{{ item.conference_link }}" class="conference-link">{{ item.conference }}</a>{{ title_parts[1] }}
+                            {% else %}
+                                {{ item.title }}
+                            {% endif %}
+                        {% else %}
+                            {{ item.title }}
+                        {% endif %}
+                    </p>
+                </div>
+                <div class="news-footer">
+                    <div class="news-type">
+                        {% if item.type == "award" %}
+                        <span class="news-icon award">🏆</span>
+                        {% elsif item.type == "publication" %}
+                        <span class="news-icon publication">📝</span>
+                        {% elsif item.type == "talk" %}
+                        <span class="news-icon talk">🎤</span>
+                        {% elsif item.type == "education" %}
+                        <span class="news-icon education">🎓</span>
+                        {% elsif item.type == "art" %}
+                        <span class="news-icon art">✨</span>
+                        {% endif %}
+                    </div>
+                    {% if item.link %}
+                    <span class="news-link-icon">→</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% if item.link %}
+        </a>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div> 

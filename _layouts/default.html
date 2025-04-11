@@ -5,51 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ site.title }}{% if page.title %} | {{ page.title }}{% endif %}</title>
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-  <link rel="stylesheet" href="{{ '/assets/css/research-theme.css' | relative_url }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    @media (max-width: 768px) {
-      .navbar {
-        justify-content: space-between;
-        align-items: center;
-      }
-      .navbar .left-section {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-      .footer-links {
-        display: none;
-      }
-      .navbar h1 {
-        font-size: 1rem;
-        font-weight: 500;
-        margin: 0;
-      }
-      .navbar .roles {
-        font-size: 0.875rem;
-        font-weight: normal;
-        color: #666;
-        display: none;
-      }
-      .navbar .mobile-scholar {
-        display: block;
-      }
-      .navbar .mobile-scholar .icon {
-        width: 20px;
-        height: 20px;
-      }
-      .icon-xl {
-        width: 24px;
-        height: 24px;
-      }
-    }
-    @media (min-width: 769px) {
-      .navbar .mobile-scholar {
-        display: none;
-      }
-    }
-  </style>
   <script>
     // Check for saved theme preference
     const savedTheme = localStorage.getItem('viewMode');
@@ -60,48 +16,11 @@
 </head>
 <body>
   <div class="container">
-    <header class="navbar">
-      <div class="left-section">
-        <a href="{{ '/' | relative_url }}">
-          <img src="{{ '/assets/icons/bench.svg' | relative_url }}" alt="Projects icon" class="icon icon-xl">
-        </a>
-        <h1>{{ page.title }}</h1>
-      </div>
-      <div class="mobile-scholar">
-        <div style="display: flex; gap: 0.75rem; align-items: center;">
-          <a href="https://scholar.google.com/citations?user=wYcrORkAAAAJ&hl=en">
-            <img src="{{ '/assets/icons/scholar.svg' | relative_url }}" alt="Google Scholar icon" class="icon">
-          </a>
-          <a href="https://www.linkedin.com/in/emranpoh/">
-            <img src="{{ '/assets/icons/linkedin.svg' | relative_url }}" alt="LinkedIn icon" class="icon">
-          </a>
-          <a href="{{ '/assets/cv.pdf' | relative_url }}" style="text-decoration: none;">
-            <span style="font-size: 0.875rem; color: #666; background-color: #f3f4f6; padding: 0.25rem 0.5rem; border-radius: 0.375rem;">CV</span>
-          </a>
-          <div style="display: flex; align-items: center; gap: 0.25rem;">
-            <img src="{{ '/assets/icons/map-pin.svg' | relative_url }}" alt="Location icon" class="icon">
-            <span style="font-size: 0.875rem; color: #666;">SG</span>
-          </div>
-        </div>
-      </div>
-      <nav class="main-nav">
-        <ul>
-          <li>
-            <div class="icon-container">
-              <a href="{{ '/projects' | relative_url }}">
-                <img src="{{ '/assets/icons/bush.svg' | relative_url }}" alt="Projects icon" class="icon icon-xl icon-grey">
-              </a>
-            </div>
-          </li>
-        </ul>
-      </nav>
-    </header>
-
     <main class="content content-{{ page.title }}">
       {{ content }}
     </main>
 
-    <footer>
+    <!-- <footer>
       <div class="footer-links">
         <a href="https://scholar.google.com/citations?user=wYcrORkAAAAJ&hl=en">
           <img src="{{ '/assets/icons/scholar.svg' | relative_url }}" alt="Google Scholar icon" class="icon icon-lg">
@@ -110,7 +29,7 @@
       <div>
         <p class="powered-by-text">Powered by Jekyll and <b>my own da*n</b> theme. &copy; {{ site.author }} {{ site.year }}</p>
       </div>
-    </footer>
+    </footer> -->
   </div>
 </body>
 </html>

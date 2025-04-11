@@ -14,20 +14,31 @@
         {% assign sorted_projects = site.data.projects | sort: "start-year" | reverse %}
         {% for project in sorted_projects %}
             {% if project.is-selected %}
-            <div style="display: flex; flex-direction: column; gap: 0.75rem; background-color: #f1f3f5; padding: 0.75rem; border-radius: 1rem;">
+            <div style="display: flex; flex-direction: column; background-color: #f7f7f7; border-radius: 0.5rem; border: 1px solid #e9ecef;">
                 {% if project.image %}
-                <div style="background-color: white; padding: 0; border-radius: 0.5rem; overflow: hidden; height: 80px;">
-                    <img src="{{ site.baseurl }}/assets/images/projects/{{ project.image }}" alt="{{ project.title }}" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <div style="border-radius: 0.5rem 0.5rem 0 0; overflow: hidden; height: 160px; border-bottom: 1px solid #e9ecef;">
+                    <img class="project-image" src="{{ site.baseurl }}/assets/images/projects/{{ project.image }}" alt="{{ project.title }}" style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 0.5rem 0.5rem 0 0;">
                 </div>
                 {% endif %}
-                <div style="display: flex; flex-direction: column; gap: 0.125rem;">
+                <div style="display: flex; flex-direction: column; padding: 1rem;">
                     <a href="{{ '/projects/' | append: project.title | slugify | relative_url }}" style="text-decoration: none; color: inherit;">
-                        <span lang="en" style="font-size: 0.875rem; color: #111827; font-weight: 500;">{{ project.emoji }} {{ project.title }}<sup style="font-size: 0.75rem;">{% if project.institution == "smu-hai" %}*{% endif %}{% if project.institution == "nus-hci" %}<span style="color: #dc2626;">†</span>{% endif %}{% if project.institution == "immersification" %}<span style="color: #2563eb;">‡</span>{% endif %}{% if project.is-collab %}👥{% endif %}</sup></span>
+                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
+                            <p style="font-size: 0.75rem; color: #495057; margin: 0; display: inline-block; background-color: #e9ecef; padding: 0.125rem 0.375rem 0.025rem 0.375rem; border-radius: 0.25rem;">{{ project.start-year }}</p>
+                            {% if project.projtype %}
+                            <span style="font-size: 0.75rem; color: white; margin: 0; display: inline-block; background-color: #ff8787; padding: 0.125rem 0.375rem 0.025rem 0.375rem; border-radius: 0.25rem;">{{ project.projtype }}</span>
+                            {% endif %}
+                            {% if project.type %}
+                            <span style="font-size: 0.75rem; color: white; margin: 0; display: inline-block; background-color: #ff8787; padding: 0.125rem 0.375rem 0.025rem 0.375rem; border-radius: 0.25rem;">{{ project.type }}</span>
+                            {% endif %}
+                            {% if project.status %}
+                            <span style="font-size: 0.75rem; color: #495057; margin: 0; display: inline-block; background-color: #e9ecef; padding: 0.125rem 0.375rem 0.025rem 0.375rem; border-radius: 0.25rem;">{{ project.status }}</span>
+                            {% endif %}
+                        </div>
+                        <h3 style="font-size: 1rem; font-weight: 600; color: #111827; margin: 0;">{{ project.title }}</h3>
                     </a>
                     {% if project.subtitle %}
-                    <span style="font-size: 0.75rem; color: #666;">{{ project.subtitle }}</span>
+                    <p style="font-size: 0.75rem; color: #495057; margin: 0; line-height: 1.5;">{{ project.subtitle }}</p>
                     {% endif %}
-                    <span style="font-size: 0.75rem; color: #666;">{% if project.start-year == project.end-year %}{{ project.start-year }}{% else %}{{ project.start-year }} - {% if project.end-year %}{{ project.end-year }}{% else %}present{% endif %}{% endif %}</span>
                 </div>
             </div>
             {% endif %}

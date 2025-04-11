@@ -1,0 +1,55 @@
+// Research theme styles
+:root {
+  --research-primary: #2563eb;
+  --research-secondary: #1e40af;
+  --research-accent: #3b82f6;
+  --research-text: #1f2937;
+  --research-background: #ffffff;
+}
+
+// Research-specific styles
+.research-section {
+  background-color: var(--research-background);
+  color: var(--research-text);
+  padding: 2rem 0;
+}
+
+.research-title {
+  color: var(--research-primary);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.research-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+}
+
+.research-link {
+  color: var(--research-primary);
+  text-decoration: none;
+  
+  &:hover {
+    color: var(--research-secondary);
+    text-decoration: underline;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .research-section {
+    padding: 1rem 0;
+  }
+  
+  .research-card {
+    padding: 1rem;
+  }
+} 

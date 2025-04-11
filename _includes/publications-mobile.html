@@ -11,18 +11,33 @@
     <div style="display: flex; flex-direction: column; gap: 0.75rem;">
         {% assign sorted_pubs = site.data.pubs | sort: "year" | reverse %}
         {% for pub in sorted_pubs limit:3 %}
-        <div style="display: flex; flex-direction: column; gap: 0.75rem; background-color: #f1f3f5; padding: 0.75rem; border-radius: 1rem;">
+        <div style="display: flex; flex-direction: column; background-color: #f7f7f7; border-radius: 0.5rem; border: 1px solid #e9ecef;">
             {% if pub.image %}
-            <div style="background-color: white; padding: 0; border-radius: 0.5rem; overflow: hidden; height: 80px;">
-                <img src="{{ site.baseurl }}/assets/images/projects/{{ pub.image }}" alt="{{ pub.title }}" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            <div style="border-radius: 0.5rem 0.5rem 0 0; overflow: hidden; height: 160px; border-bottom: 1px solid #e9ecef;">
+                <img class="publication-image" src="{{ site.baseurl }}/assets/images/projects/{{ pub.image }}" alt="{{ pub.title }}" style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 0.5rem 0.5rem 0 0;">
             </div>
             {% endif %}
-            <div style="display: flex; flex-direction: column; gap: 0.125rem;">
+            <div style="display: flex; flex-direction: column; padding: 1rem;">
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
+                    <p style="font-size: 0.75rem; color: #495057; margin: 0; display: inline-block; background-color: #e9ecef; padding: 0.125rem 0.375rem 0.025rem 0.375rem; border-radius: 0.25rem;">{{ pub.year }}</p>
+                    <span style="font-size: 0.75rem; color: #495057; margin: 0; display: inline-block; background-color: #e9ecef; padding: 0.125rem 0.375rem 0.025rem 0.375rem; border-radius: 0.25rem;">{{ pub.venue_short }}</span>
+                    {% if pub.institution == "smu-hai" %}
+                    <span style="font-size: 0.75rem; color: #495057; margin: 0; display: inline-block; background-color: #e9ecef; padding: 0.125rem 0.375rem 0.025rem 0.375rem; border-radius: 0.25rem;">SMU HAI</span>
+                    {% endif %}
+                    {% if pub.institution == "nus-hci" %}
+                    <span style="font-size: 0.75rem; color: white; margin: 0; display: inline-block; background-color: #dc2626; padding: 0.125rem 0.375rem 0.025rem 0.375rem; border-radius: 0.25rem;">NUS HCI</span>
+                    {% endif %}
+                    {% if pub.institution == "immersification" %}
+                    <span style="font-size: 0.75rem; color: white; margin: 0; display: inline-block; background-color: #2563eb; padding: 0.125rem 0.375rem 0.025rem 0.375rem; border-radius: 0.25rem;">Immersification</span>
+                    {% endif %}
+                    {% if pub.is-collab %}
+                    <span style="font-size: 0.75rem; color: white; margin: 0; display: inline-block; background-color: #ff8787; padding: 0.125rem 0.375rem 0.025rem 0.375rem; border-radius: 0.25rem;">Collaboration</span>
+                    {% endif %}
+                </div>
                 <a href="{{ pub.url }}" style="text-decoration: none; color: inherit;">
-                    <span lang="en" style="font-size: 0.875rem; color: #111827; font-weight: 500;">{{ pub.emoji }} {{ pub.title }}<sup style="font-size: 0.75rem;">{% if pub.institution == "smu-hai" %}*{% endif %}{% if pub.institution == "nus-hci" %}<span style="color: #dc2626;">†</span>{% endif %}{% if pub.institution == "immersification" %}<span style="color: #2563eb;">‡</span>{% endif %}{% if pub.is-collab %}👥{% endif %}</sup></span>
+                    <h3 style="font-size: 1rem; font-weight: 600; color: #111827; margin: 0;">{{ pub.title }}</h3>
                 </a>
-                <span style="font-size: 0.75rem; color: #666;">{{ pub.authors }}</span>
-                <span style="font-size: 0.75rem; color: #666;">{{ pub.venue }} {{ pub.year }}</span>
+                <p style="font-size: 0.75rem; color: #495057; margin: 0; line-height: 1.5;">{{ pub.authors }}</p>
             </div>
         </div>
         {% endfor %}

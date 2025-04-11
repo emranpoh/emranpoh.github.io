@@ -1,11 +1,11 @@
 <section class="projects-list-section">
 
   <!-- title -->
-  <h2 class="section-title">Selected Projects</h2>
+  <h2 class="section-title">Projects</h2>
   
   <div class="w-full mt-4">
     <div class="projects-grid">
-      {% for project in site.data.projects limit:3 %}
+      {% for project in site.data.projects %}
       <div class="project-card" data-year="{{ project.year }}" title="{{ project.description }}">
         <div class="selected-project-card-bg-image w-full h-64 bg-cover bg-center" 
           {% if project.image contains 'placeholder' %}
@@ -61,4 +61,4 @@
       <a href="{{ '/projects' | relative_url }}" class="view-all-btn">View All Projects →</a>
     </div>
   </div>
-</section>
+</section> 

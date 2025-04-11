@@ -112,6 +112,50 @@ title: emran poh
     .header-icons i {
         font-size: 1.1rem;
     }
+    .desktop-buttons {
+        display: none !important;
+    }
+    .mobile-buttons {
+        display: flex !important;
+    }
+    .profile-content {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 1rem;
+        width: 100%;
+    }
+    .publications-desktop {
+        display: none !important;
+    }
+    .publications-section {
+        display: none !important;
+    }
+    footer {
+        margin-top: 2rem;
+        padding: 1rem 0;
+        border-top: 1px solid #eee;
+        width: 100%;
+    }
+    .footer-links {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        margin-bottom: 0.5rem;
+    }
+    .footer-links a {
+        color: #666;
+        text-decoration: none;
+        transition: all 0.2s ease;
+    }
+    .footer-links a:hover {
+        color: #333;
+    }
+    .powered-by-text {
+        font-size: 0.875rem;
+        color: #666;
+        margin: 0;
+    }
 }
 
 @media (min-width: 769px) {
@@ -155,29 +199,149 @@ title: emran poh
         object-fit: cover;
         border: 2px solid #f3f4f6;
     }
+    .desktop-buttons {
+        display: flex !important;
+        height: 100%;
+        align-items: stretch;
+        gap: 1rem;
+        margin-top: 0;
+    }
+    .desktop-icons-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 0.5rem;
+        width: 120px;
+        height: 100%;
+    }
+    .desktop-icons-grid a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f1f3f5;
+        border-radius: 1rem;
+        height: 100%;
+        color: #666;
+        text-decoration: none;
+        transition: all 0.2s ease;
+    }
+    .desktop-icons-grid a:hover {
+        background-color: #e5e7eb;
+        transform: translateY(-1px);
+    }
+    .desktop-icons-grid img {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+    .desktop-buttons button {
+        flex: 1;
+        background: none;
+        border: none;
+        color: #666;
+        font-size: 1rem;
+        cursor: pointer;
+        padding: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        justify-content: center;
+        background-color: #f1f3f5;
+        border-radius: 1rem;
+        height: 100%;
+    }
+    .mobile-buttons {
+        display: none !important;
+    }
+    .profile-content {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 1.5rem;
+        width: 100%;
+    }
+    .header-icons {
+        display: none !important;
+    }
+    .mobile-only {
+        display: none !important;
+    }
+    footer {
+        position: static;
+        width: 100%;
+        background-color: #f8f9fa;
+        padding: 1rem 0;
+        border-top: 1px solid #eee;
+        text-align: center;
+    }
+    .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        align-items: center;
+        margin-bottom: 0.5rem;
+    }
+    .footer-links a {
+        color: #666;
+        text-decoration: none;
+        transition: all 0.2s ease;
+    }
+    .footer-links a:hover {
+        color: #333;
+    }
+    .powered-by-text {
+        font-size: 0.875rem;
+        color: #666;
+        margin: 0;
+    }
 }
 </style>
 
 <section class="w-full">
     <div class="h-64 mb-4 introduction">
         <div class="profile-container">
-            <img src="{{ '/assets/images/profile.jpg' | relative_url }}" alt="Emran Poh" class="profile-image">
-            <div class="profile-info">
-                <div class="profile-text">
-                    <div class="profile-name">emran poh</div>
-                    <div class="profile-title">smu hai+hci phd student</div>
-                    <!-- <div class="profile-location">currently at : 🇸🇬</div> -->
-                    <div class="profile-email">emranpoh [at] smu.edu.sg</div>
-                </div>
-                <div class="header-icons">
-                    <a href="https://scholar.google.com/citations?user=wYcrORkAAAAJ&hl=en" target="_blank" title="Google Scholar"><img src="{{ '/assets/icons/scholar.svg' | relative_url }}" alt="Google Scholar" style="width: 1.1rem; height: 1.1rem;"></a>
-                    <a href="https://github.com/emranpoh" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/emranpoh/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="mailto:emranpoh@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+            <div class="profile-content">
+                <img src="{{ '/assets/images/profile.jpg' | relative_url }}" alt="Emran Poh" class="profile-image">
+                <div class="profile-info">
+                    <div class="profile-text">
+                        <div class="profile-name">emran poh</div>
+                        <div class="profile-title">smu hai+hci phd student</div>
+                        <!-- <div class="profile-location">currently at : 🇸🇬</div> -->
+                        <div class="profile-email">emranpoh [at] smu.edu.sg</div>
+                    </div>
+                    <div class="header-icons mobile-only">
+                        <a href="https://scholar.google.com/citations?user=wYcrORkAAAAJ&hl=en" target="_blank" title="Google Scholar"><img src="{{ '/assets/icons/scholar.svg' | relative_url }}" alt="Google Scholar" style="width: 1.1rem; height: 1.1rem;"></a>
+                        <a href="https://github.com/emranpoh" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/emranpoh/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:emranpoh@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
                 </div>
             </div>
+            <div class="desktop-buttons h-64" style="display: flex; gap: 0.75rem; margin-top: 1rem;height: 100%">
+                <div class="desktop-icons-grid">
+                    <a href="https://scholar.google.com/citations?user=wYcrORkAAAAJ&hl=en" target="_blank" title="Google Scholar">
+                        <img src="{{ '/assets/icons/scholar.svg' | relative_url }}" alt="Google Scholar">
+                    </a>
+                    <a href="https://github.com/emranpoh" target="_blank" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/emranpoh/" target="_blank" title="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:emranpoh@gmail.com" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+                <button onclick="document.getElementById('publications').scrollIntoView({behavior: 'smooth'})" style="flex: 1; background: none; border: none; color: #666; font-size: 1rem; cursor: pointer; padding: 0.75rem; display: flex; align-items: center; gap: 0.5rem; justify-content: center; background-color: #f1f3f5; border-radius: 1rem;">
+                    <span>📚</span>
+                    <span>publications</span>
+                </button>
+                <button onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})" style="flex: 1; background: none; border: none; color: #666; font-size: 1rem; cursor: pointer; padding: 0.75rem; display: flex; align-items: center; gap: 0.5rem; justify-content: center; background-color: #f1f3f5; border-radius: 1rem;">
+                    <span>🎨</span>
+                    <span>projects</span>
+                </button>
+            </div>
         </div>
-        <div style="display: flex; gap: 0.75rem; margin-bottom: 1rem;">
+        <div class="mobile-buttons" style="display: flex; gap: 0.75rem; margin-bottom: 1rem;">
             <button onclick="document.getElementById('publications').scrollIntoView({behavior: 'smooth'})" style="flex: 1; background: none; border: none; color: #666; font-size: 1rem; cursor: pointer; padding: 0.75rem; display: flex; align-items: center; gap: 0.5rem; justify-content: center; background-color: #f1f3f5; border-radius: 1rem;">
                 <span>📚</span>
                 <span>publications</span>
@@ -203,11 +367,15 @@ title: emran poh
     </div>
 </section>
 
-
+{% include news-desktop.html %}
 {% include news-mobile.html %}
 
 <section class="projects-section">
-    {% include projects-selected.html %}
+    {% include projects-desktop.html %}
+</section>
+
+<section class="publications-section">
+    {% include publications-desktop.html %}
 </section>
 
 <section class="mobile-projects-section">
