@@ -10,7 +10,7 @@
         {% endif %}
         <div class="news-item">
             <div class="news-item-content">
-                <span class="news-date">{{ item.date | date: "%b %d" }}</span>
+                <span class="news-date">{{ item.date | date: "%b %y" }}</span>
                 <div class="news-title-container">
                     <p class="news-title">
                         {% if item.type == "publication" or item.type == "conference" %}

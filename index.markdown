@@ -9,10 +9,11 @@ title: emran poh
         display: none;
     }
     .introduction .hello-text {
-        display: none;
+        display: block;
+        margin-bottom: 1rem;
     }
     .introduction .mobile-hello-text {
-        display: block;
+        display: none;
     }
     .introduction .mobile-title {
         display: block;
@@ -173,15 +174,32 @@ title: emran poh
         height: auto;
         min-height: 0;
     }
+    .profile-name {
+        font-size: 2.5rem;
+        font-weight: 800;
+        text-transform: lowercase;
+        margin-bottom: 0.5rem;
+    }
+    .profile-title {
+        font-size: 1rem;
+        color: #666;
+        margin-bottom: 0.5rem;
+    }
+    .profile-email {
+        font-size: 0.875rem;
+        color: #666;
+        margin-bottom: 0.5rem;
+    }
     .introduction .hello-text {
         font-size: 0.875rem;
         line-height: 1.5;
+        margin-bottom: 1rem;
     }
     .profile-container {
         display: flex;
         align-items: flex-start;
         gap: 1rem;
-        margin-bottom: 1rem;
+        margin-bottom: 4rem;
     }
     .profile-info {
         display: flex;
@@ -201,7 +219,7 @@ title: emran poh
     }
     .desktop-buttons {
         display: flex !important;
-        height: 100%;
+        height: 128px;
         align-items: stretch;
         gap: 1rem;
         margin-top: 0;
@@ -211,8 +229,8 @@ title: emran poh
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(2, 1fr);
         gap: 0.5rem;
-        width: 120px;
-        height: 100%;
+        width: 140px;
+        height: 128px;
     }
     .desktop-icons-grid a {
         display: flex;
@@ -230,8 +248,11 @@ title: emran poh
         transform: translateY(-1px);
     }
     .desktop-icons-grid img {
-        width: 1.25rem;
-        height: 1.25rem;
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    .desktop-icons-grid i {
+        font-size: 1.5rem;
     }
     .desktop-buttons button {
         flex: 1;
@@ -240,14 +261,19 @@ title: emran poh
         color: #666;
         font-size: 1rem;
         cursor: pointer;
-        padding: 0.75rem;
+        padding: 0.75rem 1.5rem;
         display: flex;
         align-items: center;
         gap: 0.5rem;
         justify-content: center;
         background-color: #f1f3f5;
         border-radius: 1rem;
-        height: 100%;
+        height: 128px;
+        transition: all 0.2s ease;
+    }
+    .desktop-buttons button:hover {
+        background-color: #e5e7eb;
+        transform: translateY(-1px);
     }
     .mobile-buttons {
         display: none !important;
@@ -311,12 +337,11 @@ title: emran poh
                     <div class="header-icons mobile-only">
                         <a href="https://scholar.google.com/citations?user=wYcrORkAAAAJ&hl=en" target="_blank" title="Google Scholar"><img src="{{ '/assets/icons/scholar.svg' | relative_url }}" alt="Google Scholar" style="width: 1.1rem; height: 1.1rem;"></a>
                         <a href="https://github.com/emranpoh" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/emranpoh/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
                         <a href="mailto:emranpoh@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="desktop-buttons h-64" style="display: flex; gap: 0.75rem; margin-top: 1rem;height: 100%">
+            <div class="desktop-buttons">
                 <div class="desktop-icons-grid">
                     <a href="https://scholar.google.com/citations?user=wYcrORkAAAAJ&hl=en" target="_blank" title="Google Scholar">
                         <img src="{{ '/assets/icons/scholar.svg' | relative_url }}" alt="Google Scholar">
@@ -331,35 +356,31 @@ title: emran poh
                         <i class="fas fa-envelope"></i>
                     </a>
                 </div>
-                <button onclick="document.getElementById('publications').scrollIntoView({behavior: 'smooth'})" style="flex: 1; background: none; border: none; color: #666; font-size: 1rem; cursor: pointer; padding: 0.75rem; display: flex; align-items: center; gap: 0.5rem; justify-content: center; background-color: #f1f3f5; border-radius: 1rem;">
-                    <span>📚</span>
-                    <span>publications</span>
-                </button>
-                <button onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})" style="flex: 1; background: none; border: none; color: #666; font-size: 1rem; cursor: pointer; padding: 0.75rem; display: flex; align-items: center; gap: 0.5rem; justify-content: center; background-color: #f1f3f5; border-radius: 1rem;">
-                    <span>🎨</span>
-                    <span>projects</span>
-                </button>
             </div>
         </div>
         <div class="mobile-buttons" style="display: flex; gap: 0.75rem; margin-bottom: 1rem;">
-            <button onclick="document.getElementById('publications').scrollIntoView({behavior: 'smooth'})" style="flex: 1; background: none; border: none; color: #666; font-size: 1rem; cursor: pointer; padding: 0.75rem; display: flex; align-items: center; gap: 0.5rem; justify-content: center; background-color: #f1f3f5; border-radius: 1rem;">
-                <span>📚</span>
+            <button onclick="document.getElementById('publications').scrollIntoView({behavior: 'smooth'})" style="flex: 1; background: none; border: none; color: #666; font-size: 1rem; cursor: pointer; padding: 0.5rem; display: flex; align-items: center; gap: 0.5rem; justify-content: center; background-color: #f1f3f5; border-radius: 1rem;">
                 <span>publications</span>
             </button>
-            <button onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})" style="flex: 1; background: none; border: none; color: #666; font-size: 1rem; cursor: pointer; padding: 0.75rem; display: flex; align-items: center; gap: 0.5rem; justify-content: center; background-color: #f1f3f5; border-radius: 1rem;">
-                <span>🎨</span>
+            <button onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})" style="flex: 1; background: none; border: none; color: #666; font-size: 1rem; cursor: pointer; padding: 0.5rem; display: flex; align-items: center; gap: 0.5rem; justify-content: center; background-color: #f1f3f5; border-radius: 1rem;">
                 <span>projects</span>
             </button>
+            <a href="https://www.linkedin.com/in/emranpoh/" target="_blank" style="flex: 1; background: none; border: none; color: #666; font-size: 1rem; cursor: pointer; padding: 0.5rem; display: flex; align-items: center; gap: 0.5rem; justify-content: center; background-color: #f1f3f5; border-radius: 1rem; text-decoration: none;">
+                <i class="fab fa-linkedin"></i>
+                <span>linkedin</span>
+            </a>
         </div>
-        <p class="hello-text"><b>Hi! I'm Emran, a <a href="{{ '/projects' | relative_url }}">UX Researcher</a> <span class="emoji">🧪</span> + Designer <span class="emoji">🎨</span> + Developer <span class="emoji">🧑🏻‍💻</span></b> from <span class="emoji">🇸🇬</span> working on <mark>human-agent and collaborative interactions</mark> advised by <a href="https://jchrisli.github.io/">Li Jiannan</a> along with HCI crew <span class="emoji">🥂</span> at Singapore Management University. Earned my masters <span class="emoji">🎓</span> from NUS, where I also did research at the <a href="https://synteraction.org/">synteraction lab (formerly nus-hci lab) <sup style="color: #dc2626; font-size: 1rem; position: relative;">†</sup></a>, and spent time at <a href="https://www.immersification.org/">Center for Immersification<sup style="color: #2563eb; font-size: 1rem; position: relative;">‡</sup></a>. I too enjoy building — and occasionally crashing <span class="emoji">💥</span> — interplanetary rockets <span class="emoji">🚀</span> and playing insanely complicated games. Fancy collaborating or just a chat? Let's talk! <span class="emoji">👋🏻</span></p>
-        <p class="mobile-hello-text" style="font-size: 1rem; font-weight: 500;">
+        <p class="hello-text">
             <span style="font-weight: 400; color: #666;">[current + next]</span> i am a research engineer at <a href="https://smuhci.com/">SMU-HCI</a> + incoming phd student at smu hai-lab (sup. <a href="https://jchrisli.github.io/">Li Jiannan</a>)
         </p>
-        <p class="mobile-hello-text" style="font-size: 1rem; font-weight: 500;">
+        <p class="hello-text">
             <span style="font-weight: 400; color: #666;">[research]</span> interested in <mark>how hci, ai, and creativity interact</mark>. i <mark>design computational tools</mark> that help novices develop domain expertise, particularly in creative domains.
         </p>
-        <p class="mobile-hello-text" style="font-size: 1rem; font-weight: 500;">
-        <span style="font-weight: 400; color: #666;">[past]</span> master in computing at <a href="https://synteraction.org/">synteraction lab (prev: nus-hci lab) <sup style="color: #dc2626; position: relative;">†</sup></a> (sup. <a href="https://shengdongzhao.com/">Zhao Shengdong</a>, <a href="https://hcitang.github.io/">Tony Tang</a>), research engineer at <a href="https://www.immersification.org/">Center for Immersification<sup style="color: #2563eb; position: relative;">‡</sup></a> (sup. <a href="https://www.singaporetech.edu.sg/directory/faculty/kyrin-liong-yushan">Kyrin Liong</a>), bsc computer science (1st class) at <a href="https://www.gla.ac.uk/schools/computing/">uni. of glasgow</a> (sup. <a href="https://www.singaporetech.edu.sg/directory/faculty/jeannie-lee">Jeannie Lee</a>)
+        <p class="hello-text">
+            <span style="font-weight: 400; color: #666;">[past]</span> master in computing at <a href="https://synteraction.org/">synteraction lab (prev: nus-hci lab) <sup style="color: #dc2626; position: relative;">†</sup></a> (sup. <a href="https://shengdongzhao.com/">Zhao Shengdong</a>, <a href="https://hcitang.github.io/">Tony Tang</a>), research engineer at <a href="https://www.immersification.org/">Center for Immersification<sup style="color: #2563eb; position: relative;">‡</sup></a> (sup. <a href="https://www.singaporetech.edu.sg/directory/faculty/kyrin-liong-yushan">Kyrin Liong</a>), bsc computer science (1st class) at <a href="https://www.gla.ac.uk/schools/computing/">uni. of glasgow</a> (sup. <a href="https://www.singaporetech.edu.sg/directory/faculty/jeannie-lee">Jeannie Lee</a>)
+        </p>
+        <p class="hello-text">
+            <span style="font-weight: 400; color: #666;">[others]</span> enjoy building and occasionally crashing interplanetary rockets in Kerbal Space Program 🚀
         </p>
         <!-- <p class="mobile-hello-text" style="font-size: 1rem; font-weight: 500;">
             <span style="font-weight: 400; color: #666;">[other]</span> masters at <a href="https://synteraction.org/">synteraction lab (prev: nus-hci lab) <sup style="color: #dc2626; position: relative;">†</sup></a> and research engineer <a href="https://www.immersification.org/">center for immersification<sup style="color: #2563eb; position: relative;">‡</sup></a>
