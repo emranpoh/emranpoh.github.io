@@ -315,12 +315,21 @@ section {
     font-size: 24px;
   }
 
-  // if smaller screen
+  ul {
+    font-size: 16px;
+  }
+
   @media (max-width: 768px) {
     font-size: 16px !important;
 
     .emoji {
       font-size: 16px;
+    }
+  }
+
+  @media (min-width: 769px) {
+    ul {
+      font-size: 24px;
     }
   }
 }
