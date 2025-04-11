@@ -1,64 +1,13 @@
-<section class="projects-list-section">
-
-  <!-- title -->
-  <h2 class="section-title">Projects</h2>
-  
-  <div class="w-full mt-4">
-    <div class="projects-grid">
+<section class="projects-section">
+  <section class="projects-list-section">
+    <h2 class="section-title">Projects</h2>
+    <div class="w-full mt-4 projects-grid">
       {% for project in site.data.projects %}
-      <div class="project-card" data-year="{{ project.year }}" title="{{ project.description }}">
-        <div class="selected-project-card-bg-image w-full h-64 bg-cover bg-center" 
-          {% if project.image contains 'placeholder' %}
-            style="background-image: url('https://via.placeholder.com/400x300?text=Project+Image'); background-size: cover; background-position: center;"
-          {% else %}
-            style="background-image: url('{{ '/assets/images/projects/' | append: project.image | relative_url }}'); background-size: cover; background-position: center;"
-          {% endif %}
-        >
-        </div>
-        <div class="selected-project-card-title h-32">
-          <div class="tag-container flex flex-row items-center justify-start">
-            <span class="project-type-tag project-tag text-xs px-2 py-1 ">
-              {{ project.projtype }}
-            </span>
-            <span class="project-year-tag project-tag text-xs px-2 py-1 ml-2">
-              {{ project.year }}
-            </span>
-            {% if project.tags %}
-            <div class="project-tags">
-              {% for tag in project.tags %}
-                {% unless tag.name == 'talk' or tag.type == 'talk' %}
-                  <a href="{{ tag.url | relative_url }}" class="tag-link">
-                    <span class="tag" data-tag="{{ tag.name }}">
-                      {% if tag.name == 'pub' or tag.type == 'pub' %}
-                        📄
-                      {% elsif tag.name == 'web' or tag.type == 'web' %}
-                        🌐
-                      {% elsif tag.name == 'project' or tag.type == 'project' %}
-                        <i class="fa fa-code"></i>
-                      {% elsif tag.name == 'workshop' or tag.type == 'workshop' %}
-                        <i class="fa fa-users"></i>
-                      {% elsif tag.name == 'blog' or tag.type == 'blog' %}
-                        <i class="fa fa-pencil"></i>
-                      {% else %}
-                        {{ tag.name }}
-                      {% endif %}
-                    </span>
-                  </a>
-                {% endunless %}
-              {% endfor %}
-            </div>
-          {% endif %}
-          </div>
-          <div>
-            <h3 class="project-title">{{ project.title }}</h3>
-            <p class="project-subtitle">{{ project.subtitle }}</p>
-          </div>
-        </div>
-      </div>
+        {% include project-card.html %}
       {% endfor %}
     </div>
     <div class="view-all-projects">
       <a href="{{ '/projects' | relative_url }}" class="view-all-btn">View All Projects →</a>
     </div>
-  </div>
+  </section>
 </section> 

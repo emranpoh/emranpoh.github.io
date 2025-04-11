@@ -504,10 +504,9 @@ mark {
   flex-direction: column;
   border-radius: 8px;
   overflow: hidden;
-  max-height: 320px;
   align-items: flex-start;
-  
-  // on mobile
+  border: 1px solid #e0e0e0;
+
   @media (max-width: 768px) {
     flex-direction: row;
     gap: 4px;

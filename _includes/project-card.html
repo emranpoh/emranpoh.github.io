@@ -1,0 +1,65 @@
+<style>
+  .project-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .selected-project-card-title {
+    flex-grow: 1;
+  }
+</style>
+
+<div class="project-card flex flex-col" data-year="{{ project.year }}" title="{{ project.description }}">
+  {% if project.image %}
+  <div class="selected-project-card-bg-image w-full bg-cover bg-center flex-none" 
+    {% if project.image contains 'placeholder' %}
+      style="background-image: url('https://via.placeholder.com/400x300?text=Project+Image'); background-size: cover; background-position: center;"
+    {% else %}
+      style="background-image: url('{{ '/assets/images/projects/' | append: project.image | relative_url }}'); background-size: cover; background-position: center;"
+    {% endif %}
+  >
+  </div>
+  {% endif %}
+  <div class="selected-project-card-title flex-1 p-4">
+    <div class="tag-container flex flex-row items-center justify-start">
+      <span class="project-type-tag project-tag text-xs px-2 py-1 ">
+        {{ project.projtype }}
+      </span>
+      <span class="project-year-tag project-tag text-xs px-2 py-1 ml-2">
+        {{ project.year }}
+      </span>
+      {% if project.tags %}
+      <div class="project-tags">
+        {% for tag in project.tags %}
+          {% unless tag.name == 'talk' or tag.type == 'talk' %}
+            <a href="{{ tag.url | relative_url }}" class="tag-link">
+              <span class="tag" data-tag="{{ tag.name }}">
+                {% if tag.name == 'pub' or tag.type == 'pub' %}
+                  📄
+                {% elsif tag.name == 'web' or tag.type == 'web' %}
+                  🌐
+                {% elsif tag.name == 'project' or tag.type == 'project' %}
+                  <i class="fa fa-code"></i>
+                {% elsif tag.name == 'workshop' or tag.type == 'workshop' %}
+                  <i class="fa fa-users"></i>
+                {% elsif tag.name == 'blog' or tag.type == 'blog' %}
+                  <i class="fa fa-pencil"></i>
+                {% else %}
+                  {{ tag.name }}
+                {% endif %}
+              </span>
+            </a>
+          {% endunless %}
+        {% endfor %}
+      </div>
+    {% endif %}
+    </div>
+    <div>
+      <h3 class="project-title">{{ project.title }}</h3>
+      <p class="project-subtitle">{{ project.subtitle }}</p>
+    </div>
+  </div>
+</div> 
