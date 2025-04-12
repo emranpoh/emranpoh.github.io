@@ -1,0 +1,34 @@
+/* Responsive Text Component */
+.responsive-text {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.responsive-text-list {
+  list-style-type: none;
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+.responsive-text-list li {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.responsive-text-list li::before {
+  content: "•";
+  position: absolute;
+  left: -1.5rem;
+  color: #666;
+}
+
+@media (min-width: 769px) {
+  .responsive-text {
+    font-size: 24px;
+  }
+  
+  .hello-text {
+    display: none;
+  }
+} 

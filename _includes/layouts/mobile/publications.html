@@ -1,4 +1,4 @@
-<div class="mobile-publications" id="publications">
+<div class="mobile-publications mobile-section" id="publications">
     <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
         <h2 style="margin-bottom: 0; font-size: 1rem; font-weight: normal; text-transform: lowercase;">publications</h2>
         <div style="display: flex; gap: 0.5rem;">
@@ -36,8 +36,8 @@
                 </div>
                 <a href="{{ pub.url }}" style="text-decoration: none; color: inherit;">
                     <h3 style="font-size: 1rem; font-weight: 600; color: #111827; margin: 0;">{{ pub.title }}</h3>
+                    <p style="font-size: 0.75rem; color: #495057; margin: 0; line-height: 1.5;">{{ pub.authors }}</p>
                 </a>
-                <p style="font-size: 0.75rem; color: #495057; margin: 0; line-height: 1.5;">{{ pub.authors }}</p>
             </div>
         </div>
         {% endfor %}

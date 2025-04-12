@@ -66,7 +66,6 @@ title: emran poh
     .profile-title {
         font-size: 0.875rem;
         color: #666;
-        /* margin-bottom: 0.5rem; */
     }
     .profile-location{
         font-size: 0.875rem;
@@ -190,7 +189,7 @@ title: emran poh
         margin-bottom: 0.5rem;
     }
     .profile-email {
-        font-size: 0.875rem;
+        font-size: 1rem;
         color: #666;
         margin-bottom: 0.5rem;
     }
@@ -203,7 +202,7 @@ title: emran poh
         display: flex;
         align-items: flex-start;
         gap: 1rem;
-        margin-bottom: 4rem;
+        margin: 2rem 0 0 0;
     }
     .profile-info {
         display: flex;
@@ -330,20 +329,13 @@ title: emran poh
 </style>
 
 <section class="w-full">
-    {% include desktop-profile.html %}
-    {% include mobile-profile.html %}
+    {% include layouts/desktop/profile.html %}
+    {% include layouts/mobile/profile.html %}
 </section>
 
-{% include introductory-text.html %}
+<!-- Intro Section -->
+{% include layouts/desktop/intro.html %}
+{% include layouts/mobile/intro.html %}
 
-{% include news-desktop.html %}
-{% include news-mobile.html %}
-
-{% include projects-desktop.html %}
-{% include publications-desktop.html %}
-
-<section class="mobile-projects-section">
-    {% include projects-mobile.html %}
-    <div style="margin-top: 2rem;"></div>
-    {% include publications-mobile.html %}
-</section>
+{% include layouts/desktop/main.html %}
+{% include layouts/mobile/main.html %}

@@ -1,0 +1,19 @@
+/* if mobile, hide desktop sections */
+@media (max-width: 768px) {
+  .desktop-section {
+    display: none !important;
+  }
+  .mobile-section {
+    display: block !important;
+  }
+}
+
+/* if desktop, hide mobile sections */
+@media (min-width: 769px) {
+  .mobile-section {
+    display: none !important;
+  }
+  .desktop-section {
+    display: block !important;
+  }
+}

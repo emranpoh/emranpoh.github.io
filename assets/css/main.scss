@@ -1159,3 +1159,46 @@ mark {
   }
 }
 /*#endregion*/
+
+/*#region Responsive Text Component */
+.responsive-text {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+.responsive-text-list {
+  list-style-type: none;
+  padding-left: 1.5rem;
+  margin: 0;
+  margin-top: -0.75rem;
+  margin-bottom: 1rem;
+}
+
+.responsive-text-list li {
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.responsive-text-list li:last-child {
+  margin-bottom: 0;
+}
+
+.responsive-text-list li::before {
+  content: "•";
+  position: absolute;
+  left: -1.5rem;
+  color: #666;
+}
+
+@media screen and (min-width: 769px) {
+  .responsive-text {
+    font-size: 24px;
+  }
+}
+/*#endregion*/
+
+.desktop-section {
+  display: none;
+}

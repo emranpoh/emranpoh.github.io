@@ -1,29 +1,62 @@
 - company: "Singapore Management University"
-  role: "Research Assistant & Incoming PhD Student"
-  year: "Present"
-  emoji: "🧪"
+  role: "Research Engineer"
+  start: "2024"
+  end: "Present"
   is-current: true
+  url: "https://smu.edu.sg"
+
+- company: "Center for Immersification"
+  role: "Research Engineer"
+  start: "2024"
+  end: "Present"
+  is-current: true
+  url: "https://immersification.org"
+
+- company: "Singapore Management University"
+  role: "PhD Student"
+  start: "2024"
+  end: ""
+  is-current: true
+  is-student: true
+  thesis:
+    title: "Designing AI Tools for Creative Learning"
+    supervisor: "Li Jiannan"
   url: "https://smu.edu.sg"
 
 - company: "LinguaSpark"
   role: "Minecraft Education Coding Instructor"
-  year: "2025"
+  start: "2025"
+  end: "2025"
   url: "#"
 
 - company: "NUS-HCI Lab"
-  role: "Project Manager & Master's Student"
-  year: "2023"
-  emoji: "🔬"
+  role: "Project Manager"
+  start: "2023"
+  end: "2023"
   url: "https://synteraction.org"
 
-- company: "Center for Immersification"
-  role: "Research Assistant"
-  year: "2022"
-  emoji: "🎮"
-  url: "https://immersification.org"
+- company: "NUS-HCI Lab"
+  role: "Master's Student"
+  start: "2022"
+  end: "2023"
+  is-student: true
+  thesis:
+    title: "Understanding Artefact Awareness for Partially-Replicated Workspace"
+    supervisor: "Zhao Shengdong, Tony Tang, Jeannie Lee"
+  url: "https://synteraction.org"
 
 - company: "Geylang Drip City"
   role: "Creative Consultant"
-  year: "2023"
-  emoji: "🎨"
-  url: "#" 
+  start: "2023"
+  end: "2023"
+  url: "#"
+
+- company: "University of Glasgow"
+  role: "Bachelor's Student"
+  start: "2018"
+  end: "2022"
+  is-student: true
+  thesis:
+    title: "3D User Interface in Mixed Reality for Engineering Design Finite Element Analysis"
+    supervisor: "Jeannie Lee"
+  url: "https://www.gla.ac.uk/schools/computing/" 

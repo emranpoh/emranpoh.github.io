@@ -39,7 +39,7 @@ news_items:
     title: "Accepted into SMU PhD in Computer Science with Full Scholarship! 🎉"
     date: "2025-03-18"
     category: "Education"
-    tags: ["phd", "smu", "scholarship"]
+    tags: ["PhD", "smu", "scholarship"]
     featured: true
     type: "education"
     institution: "smu"
