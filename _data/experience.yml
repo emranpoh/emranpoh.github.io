@@ -18,9 +18,6 @@
   end: ""
   is-current: true
   is-student: true
-  thesis:
-    title: "Designing AI Tools for Creative Learning"
-    supervisor: "Li Jiannan"
   url: "https://smu.edu.sg"
 
 - company: "LinguaSpark"
@@ -42,14 +39,8 @@
   is-student: true
   thesis:
     title: "Understanding Artefact Awareness for Partially-Replicated Workspace"
-    supervisor: "Zhao Shengdong, Tony Tang, Jeannie Lee"
+    supervisor: "Zhao Shengdong, Anthony (Tony) Tang, Jeannie Lee"
   url: "https://synteraction.org"
-
-- company: "Geylang Drip City"
-  role: "Creative Consultant"
-  start: "2023"
-  end: "2023"
-  url: "#"
 
 - company: "University of Glasgow"
   role: "Bachelor's Student"

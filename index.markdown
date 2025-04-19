@@ -85,32 +85,17 @@ title: emran poh
         border: 2px solid #f3f4f6;
     }
     .header-icons {
-        margin-top: auto;
         display: flex;
-        flex-direction: row;
-        /* gap: 0.25rem; */
-    }
-    .header-icons a {
-        color: #000;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
+        gap: 1rem;
         justify-content: center;
-        width: 36px;
-        height: 36px;
-        /* background-color: #f3f4f6; */
-        /* border-radius: 0.5rem; */
-        /* transition: all 0.2s ease; */
-        /* box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); */
+        margin: 0;
+        padding: 0;
     }
-    .header-icons a:hover {
+    .icon-link {
+        border-radius: 8px;
         color: #666;
-        background-color: #e5e7eb;
-        transform: translateY(-1px);
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    .header-icons i {
-        font-size: 1.1rem;
+        text-decoration: none;
+        transition: none;
     }
     .desktop-buttons {
         display: none !important;
@@ -157,7 +142,10 @@ title: emran poh
         margin: 0;
     }
     .desktop-profile {
-        display: none;
+        display: none !important;
+    }
+    .mobile-profile {
+        display: flex !important;
     }
 }
 
@@ -220,63 +208,34 @@ title: emran poh
         object-fit: cover;
         border: 2px solid #f3f4f6;
     }
-    .desktop-buttons {
+    .header-icons {
         display: flex !important;
-        height: 128px;
-        align-items: stretch;
-        gap: 1rem;
-        margin-top: 0;
-    }
-    .desktop-icons-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 1fr);
+        flex-direction: row;
         gap: 0.5rem;
-        width: 140px;
-        height: 128px;
+        margin-left: 1rem;
     }
-    .desktop-icons-grid a {
+    .header-icons a {
+        color: #000;
+        text-decoration: none;
         display: flex;
         align-items: center;
         justify-content: center;
+        width: 48px;
+        height: 48px;
         background-color: #f1f3f5;
         border-radius: 1rem;
-        height: 100%;
-        color: #666;
-        text-decoration: none;
         transition: all 0.2s ease;
     }
-    .desktop-icons-grid a:hover {
+    .header-icons a:hover {
         background-color: #e5e7eb;
-        transform: translateY(-1px);
+        text-decoration: none;
     }
-    .desktop-icons-grid img {
+    .header-icons img {
         width: 1.5rem;
         height: 1.5rem;
     }
-    .desktop-icons-grid i {
+    .header-icons i {
         font-size: 1.5rem;
-    }
-    .desktop-buttons button {
-        flex: 1;
-        background: none;
-        border: none;
-        color: #666;
-        font-size: 1rem;
-        cursor: pointer;
-        padding: 0.75rem 1.5rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        justify-content: center;
-        background-color: #f1f3f5;
-        border-radius: 1rem;
-        height: 128px;
-        transition: all 0.2s ease;
-    }
-    .desktop-buttons button:hover {
-        background-color: #e5e7eb;
-        transform: translateY(-1px);
     }
     .mobile-buttons {
         display: none !important;
@@ -287,9 +246,6 @@ title: emran poh
         align-items: flex-start;
         gap: 1.5rem;
         width: 100%;
-    }
-    .header-icons {
-        display: none !important;
     }
     .mobile-only {
         display: none !important;
@@ -323,19 +279,24 @@ title: emran poh
         margin: 0;
     }
     .mobile-profile {
-        display: none;
+        display: none !important;
+    }
+    .desktop-profile {
+        display: flex !important;
     }
 }
 </style>
 
-<section class="w-full">
-    {% include layouts/desktop/profile.html %}
-    {% include layouts/mobile/profile.html %}
-</section>
+<div class="desktop-container">
+    <section class="w-full">
+        {% include layouts/desktop/profile.html %}
+        {% include layouts/mobile/profile.html %}
+    </section>
 
-<!-- Intro Section -->
-{% include layouts/desktop/intro.html %}
-{% include layouts/mobile/intro.html %}
+    <!-- Intro Section -->
+    {% include layouts/desktop/intro.html %}
+    {% include layouts/mobile/intro.html %}
 
-{% include layouts/desktop/main.html %}
-{% include layouts/mobile/main.html %}
+    {% include layouts/desktop/main.html %}
+    {% include layouts/mobile/main.html %}
+</div>

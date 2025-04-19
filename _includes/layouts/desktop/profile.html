@@ -1,28 +1,30 @@
 <div class="profile-container desktop-profile">
-    <div class="profile-content">
-        <img src="{{ '/assets/images/profile.jpg' | relative_url }}" alt="Emran Poh" class="profile-image">
-        <div class="profile-info">
-            <div class="profile-text">
-                <div class="profile-name">emran poh</div>
-                <div class="profile-title">Designer + UX (Human-Agent Interaction) PhD student</div>
-                <div class="profile-email">emranpoh [at] smu.edu.sg</div>
+    <div>
+        <div class="profile-content">
+            <img src="{{ '/assets/images/profile.jpg' | relative_url }}" alt="Emran Poh" class="profile-image">
+            <div class="profile-info" style="display: flex; align-items: flex-start;">
+                <div class="profile-text" style="margin-top: 0; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div class="profile-name" style="line-height: 1; margin-bottom: 1rem;">emran poh</div>
+                    <div>
+                        <div class="profile-title" style="line-height: 1.2;">HAI Researcher + Designer</div>
+                        <div class="profile-email" style="line-height: 1;">emranpoh [at] gmail [dot] com</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="desktop-buttons">
-        <div class="desktop-icons-grid">
-            <a href="https://scholar.google.com/citations?user=wYcrORkAAAAJ&hl=en" target="_blank" title="Google Scholar">
-                <img src="{{ '/assets/icons/scholar.svg' | relative_url }}" alt="Google Scholar">
-            </a>
-            <a href="https://github.com/emranpoh" target="_blank" title="GitHub">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/emranpoh/" target="_blank" title="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="mailto:emranpoh@gmail.com" title="Email">
-                <i class="fas fa-envelope"></i>
-            </a>
-        </div>
+    <div class="header-icons">
+        <a href="https://scholar.google.com/citations?user=wYcrORkAAAAJ&hl=en" target="_blank" title="Google Scholar" class="icon-link">
+            <img src="{{ '/assets/icons/scholar.svg' | relative_url }}" alt="Google Scholar">
+        </a>
+        <a href="https://github.com/emranpoh" target="_blank" title="GitHub" class="icon-link">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/emranpoh/" target="_blank" title="LinkedIn" class="icon-link">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="mailto:emranpoh@gmail.com" title="Email" class="icon-link">
+            <i class="fas fa-envelope"></i>
+        </a>
     </div>
 </div> 

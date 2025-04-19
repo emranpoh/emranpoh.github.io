@@ -1,17 +1,24 @@
-<div class="profile-container mobile-profile">
-    <div class="profile-content">
+<div class="profile-container mobile-profile" style="display: flex; flex-direction: column; gap: 1rem;">
+    <div class="profile-content" style="display: flex; gap: 1rem;">
         <img src="{{ '/assets/images/profile.jpg' | relative_url }}" alt="Emran Poh" class="profile-image">
         <div class="profile-info">
-            <div class="profile-text">
-                <div class="profile-name">emran poh</div>
-                <div class="profile-title">hai+hci PhD student</div>
-                <div class="profile-email">emranpoh [at] smu.edu.sg</div>
-            </div>
-            <div class="header-icons mobile-only">
-                <a href="https://scholar.google.com/citations?user=wYcrORkAAAAJ&hl=en" target="_blank" title="Google Scholar"><img src="{{ '/assets/icons/scholar.svg' | relative_url }}" alt="Google Scholar" style="width: 1.1rem; height: 1.1rem;"></a>
-                <a href="https://github.com/emranpoh" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="mailto:emranpoh@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-            </div>
+            <div class="profile-name" style="line-height: 1; margin-bottom: 1rem;">emran poh</div>
+            <div class="profile-title" style="line-height: 1.2;">HAI Researcher + Designer</div>
+            <div class="profile-email" style="line-height: 1;">emranpoh [at] gmail [dot] com</div>
         </div>
+    </div>
+    <div class="header-icons" style="display: flex; gap: 1rem; justify-content: flex-start;">
+        <a href="https://scholar.google.com/citations?user=wYcrORkAAAAJ&hl=en" target="_blank" title="Google Scholar" class="icon-link" style="background: #f1f3f5; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 12px;">
+            <img src="{{ '/assets/icons/scholar.svg' | relative_url }}" alt="Google Scholar" style="width: 24px; height: 24px;">
+        </a>
+        <a href="https://github.com/emranpoh" target="_blank" title="GitHub" class="icon-link" style="background: #f1f3f5; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 12px;">
+            <i class="fab fa-github" style="font-size: 24px;"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/emranpoh/" target="_blank" title="LinkedIn" class="icon-link" style="background: #f1f3f5; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 12px;">
+            <i class="fab fa-linkedin" style="font-size: 24px;"></i>
+        </a>
+        <a href="mailto:emranpoh@gmail.com" title="Email" class="icon-link" style="background: #f1f3f5; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 12px;">
+            <i class="fas fa-envelope" style="font-size: 24px;"></i>
+        </a>
     </div>
 </div> 
