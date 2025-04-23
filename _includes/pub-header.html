@@ -1,0 +1,15 @@
+<header class="pub-header">
+    <h1 class="pub-title" style="font-size: 2.5rem; line-height: 1.2; margin-bottom: 1.5rem; font-weight: 700;">{{ page.title }}</h1>
+    <div class="pub-meta">
+        <p class="pub-authors" style="font-size: 1.25rem; color: #4a5568; margin-bottom: 0.75rem;">{{ page.authors }}</p>
+        <p class="pub-venue" style="font-size: 1.125rem; color: #718096; margin-bottom: 0.5rem;">{{ page.venue }}</p>
+        <p class="pub-year" style="font-size: 1rem; color: #718096; margin-bottom: 1rem;">{{ page.year }}</p>
+        {% if page.doi %}
+        <p class="pub-doi">
+            <a href="https://doi.org/{{ page.doi }}" target="_blank" style="text-decoration: none; color: #2563eb; font-size: 1rem;">
+                DOI: {{ page.doi }}
+            </a>
+        </p>
+        {% endif %}
+    </div>
+</header> 

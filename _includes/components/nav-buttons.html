@@ -1,0 +1,80 @@
+<div class="nav-buttons" style="margin-left: 0; justify-content: flex-start; display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
+    <span class="nav-group" style="display: inline-flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+        <a href="https://scholar.google.com/citations?user=wYcrORkAAAAJ&hl=en" target="_blank" title="Google Scholar" class="icon-link" style="width: 36px; height: 36px; border-radius: 8px;">
+            <img src="{{ '/assets/icons/scholar.svg' | relative_url }}" alt="Google Scholar" style="filter: brightness(0) saturate(100%) invert(41%) sepia(0%) saturate(0%) hue-rotate(153deg) brightness(95%) contrast(92%);">
+        </a>
+        <a href="https://github.com/emranpoh" target="_blank" title="GitHub" class="icon-link" style="width: 36px; height: 36px; border-radius: 8px; color: #666;">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/emranpoh/" target="_blank" title="LinkedIn" class="icon-link" style="width: 36px; height: 36px; border-radius: 8px; color: #666;">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="mailto:emranpoh@gmail.com" title="Email" class="icon-link" style="width: 36px; height: 36px; border-radius: 8px; color: #666;">
+            <i class="fas fa-envelope"></i>
+        </a>
+        {% include components/expandable-button-group.html 
+            group_name=site.data.button_groups.publications.name 
+            group_items=site.data.button_groups.publications.items %}
+    </span>
+</div>
+
+<style>
+.nav-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.nav-buttons .icon-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+}
+
+.nav-buttons .icon-link.text-link {
+    width: auto !important;
+    min-width: 36px;
+    height: 36px;
+    padding: 0 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.nav-buttons .icon-link.text-link span {
+    white-space: nowrap;
+}
+
+@media (min-width: 769px) {
+    .nav-buttons .icon-link.text-link {
+        width: auto !important;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const expandButton = document.querySelector('.expand-button');
+    const expandedButtons = document.querySelectorAll('.expanded-button');
+    
+    expandButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        expandedButtons.forEach(button => {
+            button.style.display = button.style.display === 'none' ? 'flex' : 'none';
+        });
+    });
+
+    // Close the expanded buttons when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.nav-buttons')) {
+            expandedButtons.forEach(button => {
+                button.style.display = 'none';
+            });
+        }
+    });
+});
+</script> 

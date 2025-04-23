@@ -2,6 +2,7 @@
 layout: default
 title: CV
 permalink: /cv/
+id: cv
 ---
 
 # Curriculum Vitae

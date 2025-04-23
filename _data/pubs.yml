@@ -10,6 +10,7 @@
   image: "artefact-awareness.png"
   is-selected: true
   emoji: "👥"
+  url: "/publications/supporting-artefact-awareness"
   tags:
     - name: "pdf"
       url: "https://ieeexplore.ieee.org/abstract/document/10322229/"
@@ -25,6 +26,7 @@
   image: "intvr.png"
   institution: "immersification"
   emoji: "🚗"
+  url: "/publications/intvrsection"
   tags:
     - name: "doi"
       url: "https://dl.acm.org/doi/abs/10.1145/3581961.3610373"
@@ -41,6 +43,7 @@
   institution: "immersification"
   is-selected: true
   emoji: "🔍"
+  url: "/publications/mixed-reality-for-engineering-design"
   tags:
     - name: "pdf"
       url: "https://ieeexplore.ieee.org/abstract/document/9974521"
@@ -56,6 +59,7 @@
   institution: "immersification"
   image: "mr4assembly.jpg"
   emoji: "⚙️"
+  url: "/publications/mixed-reality-for-mechanical-design"
   tags:
     - name: "pdf"
       url: "https://link.springer.com/chapter/10.1007/978-3-031-19679-9_72"
@@ -71,6 +75,7 @@
   image: "mr4fea.PNG"
   institution: "immersification"
   emoji: "📊"
+  url: "/publications/mixed-reality-interface-for-load-application"
   tags:
     - name: "pdf"
       url: "https://link.springer.com/chapter/10.1007/978-3-030-77626-8_32"
@@ -85,6 +90,7 @@
   image: "newriis.png"
   institution: "immersification"
   emoji: "🖼️"
+  url: "/publications/designing-with-holograms"
   tags:
     - name: "pdf"
       url: "https://irr.singaporetech.edu.sg/articles/conference_contribution/Designing_with_Holograms_A_Preliminary_Study_On_Improving_Design_Visualisation_Through_Holographic_Display/23651547/1/files/41505537.pdf"
@@ -101,3 +107,4 @@
   institution: "smu-hai"
   is-selected: true
   emoji: "💡"
+  url: "/publications/ai-creativity"

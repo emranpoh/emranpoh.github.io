@@ -57,26 +57,40 @@ body {
   line-height: 1;
 }
 
-.desktop-profile-container .header-icons {
+.desktop-profile-container .nav-buttons {
   display: flex;
   gap: 1rem;
-  justify-content: center;
+  justify-content: flex-start;
   margin: 0;
   padding: 0;
+}
 
-  a {
-    border-radius: 8px;
-    color: #666;
-    text-decoration: none;
-    transition: none;
+.desktop-profile-container .icon-link {
+  border-radius: 8px;
+  color: #666;
+  text-decoration: none;
+  transition: none;
+}
 
-    &:hover {
-      text-decoration: none;
-      color: #333;
-      background-color: #e5e7eb;
-      transform: translateY(-1px);
-    }
-  }
+.desktop-profile-container .text-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  height: 48px;
+  background-color: #f1f3f5;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.desktop-profile-container .text-link:hover {
+  background-color: #e5e7eb;
+  transform: translateY(-1px);
+}
+
+.desktop-profile-container .text-link span {
+  font-size: 1rem;
+  color: #666;
 }
 
 /*#region Globals */
@@ -207,101 +221,11 @@ section {
 .content {
   max-width: 1200px;
   margin: 0 auto;
-  display: flex;
-  align-items: center;
   width: 100%;
-}
 
-.content-projects {
-  margin: 0;
-  max-width: 100%;
-  align-items: flex-start;
-  width: 100%;
-}
-
-.projects-list-section {
-  width: 100%;
-  margin: 32px 0;
-}
-
-.publications-section {
-  width: 100%;
-  margin: 40px 0;
-}
-
-.publications-gallery {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 24px;
-}
-/*#endregion*/
-
-/*#region Navbar */
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  // padding: 1rem;
-  // background-color: #f8f9fa;
-  // padding-right: 20px;
-
-  h1 {
-    font-size: 24px;
-    // margin-bottom: 20px;
-
-    a {
-      color: #333;
-      text-decoration: none;
-    }
-  }
-}
-
-.main-nav {
-  ul {
+  @media (max-width: 768px) {
     display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-
-    li a {
-      color: #333;
-      text-decoration: none;
-      font-size: 16px;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
-
-  @media (max-width: 768px) {
-    display: none;
-  }
-}
-/*#endregion*/
-
-/*#region Main Content */
-.content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  width: 100%;
-
-  @media (max-width: 768px) {
-    overflow: hidden;
-    width: 100%;
-    padding: 0;
-
-    .mobile-projects-section,
-    .mobile-publications-section,
-    .mobile-news-section {
-      overflow-x: auto;
-      width: 100%;
-      padding-bottom: 1rem;
-      -webkit-overflow-scrolling: touch;
-    }
+    align-items: center;
   }
 
   h1 {
@@ -344,13 +268,8 @@ section {
 }
 
 .content-emran {
-  // margin: 0px;
-  // max-width: 100%;
-  // align-items: flex-start;
   flex-direction: column;
 }
-
-// make all text in hello-text not selectable except allow links to be selectable
 
 .hello-text {
   user-select: none;
@@ -393,7 +312,6 @@ section {
 .powered-by-text {
   font-size: 12px;
   color: #333;
-  // Disable text selection
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -433,7 +351,7 @@ footer {
   display: inline-block;
   width: 24px;
   height: 24px;
-  fill: currentColor; /* Takes the current text color */
+  fill: currentColor;
   vertical-align: middle;
 
   &-sm {
@@ -533,7 +451,6 @@ mark {
   }
 }
 
-// on mobile
 @media (max-width: 768px) {
   .tag {
     font-size: 10px;
@@ -556,7 +473,7 @@ mark {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
   position: relative;
-  padding-right: 30px; /* Make room for the peeking card */
+  padding-right: 30px;
 }
 
 .project-card-link {
@@ -587,7 +504,6 @@ mark {
   background-color: #f7f7f7;
   text-decoration: none;
   color: inherit;
-  /* Make it appear to be peeking in from the side */
   transform: translateX(40%);
 }
 
@@ -622,12 +538,9 @@ mark {
 .selected-project-card {
   &-bg-image {
     height: 200px;
-    background-color: #e0e0e0; /* Light gray placeholder */
-    // border-radius: 8px;
-
+    background-color: #e0e0e0;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-
     position: relative;
 
     @media (max-width: 768px) {
@@ -698,7 +611,6 @@ mark {
 .filter-btn {
   padding: 8px 16px;
   background-color: #dad7d7;
-  // border: 1px solid #ddd;
   border: none;
   border-radius: 4px;
   font-size: 14px;
@@ -801,7 +713,6 @@ mark {
   flex-wrap: wrap;
 }
 
-// Hide image on small screens
 @media (max-width: 600px) {
   .proj-compact-image {
     display: none;
@@ -1143,7 +1054,6 @@ mark {
 .news-item-content {
   display: flex;
   flex-direction: column;
-  // gap: 0.75rem;
   height: 100%;
 }
 
@@ -1202,7 +1112,6 @@ mark {
   }
 }
 
-// Responsive adjustments for news grid
 @media (max-width: 1200px) {
   .news-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -1270,10 +1179,10 @@ mark {
   }
 }
 
-.header-icons {
+.nav-buttons {
   display: flex;
   gap: 1rem;
-  justify-content: center;
+  justify-content: flex-start;
   margin: 0;
   padding: 0;
 }
@@ -1283,4 +1192,115 @@ mark {
   color: #666;
   text-decoration: none;
   transition: none;
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  height: 48px;
+  background-color: #f1f3f5;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.text-link:hover {
+  background-color: #e5e7eb;
+  transform: translateY(-1px);
+}
+
+.text-link span {
+  font-size: 1rem;
+  color: #666;
+}
+
+@media (min-width: 769px) {
+    .mobile-projects-section,
+    .mobile-publications-section,
+    .mobile-experience-section {
+        display: none;
+    }
+    .introduction .mobile-hello-text,
+    .introduction .mobile-title {
+        display: none;
+    }
+    .introduction {
+        padding-top: 2rem;
+        margin-top: 0.5rem;
+        height: auto;
+        min-height: 0;
+    }
+    .profile-name {
+        font-size: 2.5rem;
+        font-weight: 800;
+        text-transform: lowercase;
+        margin-bottom: 0.5rem;
+    }
+    .profile-title {
+        font-size: 1rem;
+        color: #666;
+        margin-bottom: 0.5rem;
+    }
+    .profile-email {
+        font-size: 1rem;
+        color: #666;
+        margin-bottom: 0.5rem;
+    }
+    .introduction .hello-text {
+        font-size: 0.875rem;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+    }
+    .profile-container {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        margin: 2rem 0 0 0;
+    }
+    .profile-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+    .profile-text {
+        margin-bottom: auto;
+    }
+    .profile-image {
+        width: 128px;
+        height: 128px;
+        border-radius: 0.5rem;
+        object-fit: cover;
+        border: 2px solid #f3f4f6;
+    }
+    .nav-buttons {
+        display: flex !important;
+        flex-direction: row;
+        gap: 0.5rem;
+        margin-left: 1rem;
+    }
+    .nav-buttons a {
+        color: #000;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        background-color: #f1f3f5;
+        border-radius: 1rem;
+        transition: all 0.2s ease;
+    }
+    .nav-buttons a:hover {
+        background-color: #e5e7eb;
+        text-decoration: none;
+    }
+    .nav-buttons img {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    .nav-buttons i {
+        font-size: 1.5rem;
+    }
 }

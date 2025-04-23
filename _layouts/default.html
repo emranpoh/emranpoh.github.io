@@ -20,7 +20,7 @@
 </head>
 <body>
   <div class="container">
-    <main class="content content-{{ page.title }}">
+    <main class="content content-{{ page.id | default: page.title | replace: ' ', '-' | slice: 0, 5 }}" style="display: block;">
       {{ content }}
     </main>
 

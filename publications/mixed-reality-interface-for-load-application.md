@@ -1,0 +1,38 @@
+---
+layout: publication
+title: "Mixed Reality Interface for Load Application in Finite Element Analysis"
+authors: "Emran Poh, Kyrin Liong, and Jeannie Lee"
+venue: "Innovations in Social Computing and Digital Transformation, HCI International 2021"
+year: 2021
+doi: "10.1007/978-3-030-77626-8_32"
+image: "mr4fea.PNG"
+tags:
+  - name: "XR"
+    url: "/research/#xr"
+  - name: "Engineering"
+    url: "/research/#engineering"
+---
+
+## Abstract
+
+This paper presents a novel mixed reality interface for load application in finite element analysis. We explore how mixed reality can enhance the process of applying and visualizing loads in engineering simulations.
+
+## Introduction
+
+Finite element analysis is a critical tool in engineering design, but the process of applying loads can be complex and error-prone. This paper examines how mixed reality can improve this process by providing intuitive ways to specify and visualize loads.
+
+## Methodology
+
+Our research combines user-centered design methods with technical implementation to develop and evaluate a mixed reality interface for load application. We conducted user studies with engineering professionals to assess the effectiveness of our approach.
+
+## Results
+
+Our findings demonstrate that mixed reality can significantly improve the efficiency and accuracy of load application in finite element analysis. We present several key insights and design recommendations for mixed reality applications in engineering simulation.
+
+## Discussion
+
+The implications of our research extend beyond load application in finite element analysis. We discuss broader applications of mixed reality in engineering simulation and the future of human-computer interaction in technical domains.
+
+## Conclusion
+
+Mixed reality shows great promise for enhancing the process of load application in finite element analysis. Our research provides a foundation for future work in this area and highlights the potential of mixed reality in engineering applications. 

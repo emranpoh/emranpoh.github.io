@@ -2,6 +2,7 @@
 layout: default
 title: projects
 permalink: /projects/
+id: projs
 ---
 
 <div class="content-gallery">

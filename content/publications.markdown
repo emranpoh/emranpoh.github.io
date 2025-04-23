@@ -2,6 +2,7 @@
 layout: default
 title: publications
 permalink: /publications/
+id: pubs
 ---
 
 <div class="content-block">

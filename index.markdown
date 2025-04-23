@@ -1,6 +1,7 @@
 ---
 layout: default
 title: emran poh
+id: emran
 ---
 
 <style>
@@ -83,13 +84,6 @@ title: emran poh
         border-radius: 0.5rem;
         object-fit: cover;
         border: 2px solid #f3f4f6;
-    }
-    .header-icons {
-        display: flex;
-        gap: 1rem;
-        justify-content: center;
-        margin: 0;
-        padding: 0;
     }
     .icon-link {
         border-radius: 8px;
@@ -208,34 +202,14 @@ title: emran poh
         object-fit: cover;
         border: 2px solid #f3f4f6;
     }
-    .header-icons {
-        display: flex !important;
-        flex-direction: row;
-        gap: 0.5rem;
-        margin-left: 1rem;
-    }
-    .header-icons a {
-        color: #000;
+    .icon-link {
+        border-radius: 8px;
+        color: #666;
         text-decoration: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 48px;
-        height: 48px;
-        background-color: #f1f3f5;
-        border-radius: 1rem;
-        transition: all 0.2s ease;
+        transition: none;
     }
-    .header-icons a:hover {
-        background-color: #e5e7eb;
-        text-decoration: none;
-    }
-    .header-icons img {
-        width: 1.5rem;
-        height: 1.5rem;
-    }
-    .header-icons i {
-        font-size: 1.5rem;
+    .desktop-buttons {
+        display: none !important;
     }
     .mobile-buttons {
         display: none !important;

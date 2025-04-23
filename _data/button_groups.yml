@@ -1,0 +1,44 @@
+projects:
+  name: "Projects"
+  items:
+    - title: "AI Creativity"
+      url: "/projects/#ai-creativity"
+      icon: "🎨"
+    - title: "Death Stranding"
+      url: "/projects/#death-stranding"
+      icon: "🎮"
+    - title: "Be-Longing"
+      url: "/projects/#be-longing"
+      icon: "✨"
+
+publications:
+  name: "Publications"
+  items:
+    - title: "Supporting Artefact Awareness"
+      url: "/publications/supporting-artefact-awareness"
+      icon: "👥"
+    - title: "Mixed Reality for Engineering Design"
+      url: "/publications/mixed-reality-for-engineering-design"
+      icon: "🔍"
+    - title: "Mixed Reality for Mechanical Design"
+      url: "/publications/mixed-reality-for-mechanical-design"
+      icon: "⚙️"
+    - title: "Mixed Reality Interface for Load Application"
+      url: "/publications/mixed-reality-interface-for-load-application"
+      icon: "📊"
+    - title: "Designing with Holograms"
+      url: "/publications/designing-with-holograms"
+      icon: "🖼️"
+
+research:
+  name: "Research"
+  items:
+    - title: "HCI"
+      url: "/research/#hci"
+      icon: "🔬"
+    - title: "AI"
+      url: "/research/#ai"
+      icon: "🤖"
+    - title: "XR"
+      url: "/research/#xr"
+      icon: "🕶️" 
