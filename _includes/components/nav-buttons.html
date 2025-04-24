@@ -1,7 +1,7 @@
 <div class="nav-buttons" style="margin-left: 0; justify-content: flex-start; display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
     <span class="nav-group" style="display: inline-flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
         <a href="https://scholar.google.com/citations?user=wYcrORkAAAAJ&hl=en" target="_blank" title="Google Scholar" class="icon-link" style="width: 36px; height: 36px; border-radius: 8px;">
-            <img src="{{ '/assets/icons/scholar.svg' | relative_url }}" alt="Google Scholar" style="filter: brightness(0) saturate(100%) invert(41%) sepia(0%) saturate(0%) hue-rotate(153deg) brightness(95%) contrast(92%);">
+            <img src="{{ '/assets/images/scholar.svg' | relative_url }}" alt="Google Scholar" style="filter: brightness(0) saturate(100%) invert(41%) sepia(0%) saturate(0%) hue-rotate(153deg) brightness(95%) contrast(92%);">
         </a>
         <a href="https://github.com/emranpoh" target="_blank" title="GitHub" class="icon-link" style="width: 36px; height: 36px; border-radius: 8px; color: #666;">
             <i class="fab fa-github"></i>
@@ -56,25 +56,5 @@
 </style>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const expandButton = document.querySelector('.expand-button');
-    const expandedButtons = document.querySelectorAll('.expanded-button');
-    
-    expandButton.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        expandedButtons.forEach(button => {
-            button.style.display = button.style.display === 'none' ? 'flex' : 'none';
-        });
-    });
-
-    // Close the expanded buttons when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!e.target.closest('.nav-buttons')) {
-            expandedButtons.forEach(button => {
-                button.style.display = 'none';
-            });
-        }
-    });
-});
+// All button group functionality is now handled in expandable-button-group.html
 </script> 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: pages/default
 title: emran poh
 id: emran
 ---

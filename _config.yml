@@ -34,10 +34,15 @@ plugins:
 
 # Collections
 collections:
+  posts:
+    output: true
+    permalink: /posts/:title/
   projects:
     output: true
+    permalink: /projects/:title/
   publications:
     output: true
+    permalink: /publications/:title/
 
 # Default Front Matter
 defaults:
@@ -45,31 +50,31 @@ defaults:
     scope:
       path: ""
     values:
-      layout: "default"
+      layout: "pages/default"
   -
     scope:
       path: "index.markdown"
     values:
-      layout: "default"
+      layout: "pages/default"
       permalink: /
   -
     scope:
-      path: ""
+      path: "_content/posts"
       type: "posts"
     values:
-      layout: "post"
+      layout: "posts/post"
   -
     scope:
-      path: ""
+      path: "_content/projects"
       type: "projects"
     values:
-      layout: "project"
+      layout: "pages/project"
   -
     scope:
-      path: ""
+      path: "_content/publications"
       type: "publications"
     values:
-      layout: "publication"
+      layout: "pages/publication"
 
 # Exclude from processing
 exclude:

@@ -29,69 +29,71 @@ Parameters:
 document.addEventListener('DOMContentLoaded', function() {
     try {
         console.log('Initializing expandable button group...');
-        const container = document.currentScript.previousElementSibling;
-        const expandButton = container.querySelector('.expand-button');
-        const closeButton = container.querySelector('.close-button');
-        const expandedButtons = container.querySelectorAll('.expanded-button');
+        const buttonGroups = document.querySelectorAll('.expandable-button-group');
         
-        if (!expandButton || !closeButton || expandedButtons.length === 0) {
-            console.error('Missing required elements:', {
-                expandButton: !!expandButton,
-                closeButton: !!closeButton,
-                expandedButtonsCount: expandedButtons.length
-            });
-            return;
-        }
+        buttonGroups.forEach(group => {
+            const expandButton = group.querySelector('.expand-button');
+            const closeButton = group.querySelector('.close-button');
+            const expandedButtons = group.querySelectorAll('.expanded-button');
+            
+            if (!expandButton || !closeButton || expandedButtons.length === 0) {
+                console.error('Missing required elements:', {
+                    expandButton: !!expandButton,
+                    closeButton: !!closeButton,
+                    expandedButtonsCount: expandedButtons.length
+                });
+                return;
+            }
 
-        console.log('Found all required elements:', {
-            expandButton: !!expandButton,
-            closeButton: !!closeButton,
-            expandedButtonsCount: expandedButtons.length
+            function showExpanded() {
+                expandButton.style.display = 'none';
+                closeButton.style.display = 'inline-flex';
+                expandedButtons.forEach(button => {
+                    button.style.display = 'inline-flex';
+                });
+            }
+
+            function hideExpanded() {
+                expandButton.style.display = 'inline-flex';
+                closeButton.style.display = 'none';
+                expandedButtons.forEach(button => {
+                    button.style.display = 'none';
+                });
+            }
+
+            expandButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                showExpanded();
+            });
+
+            closeButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                hideExpanded();
+            });
         });
 
-        function showExpanded() {
-            console.log('Showing expanded state...');
-            expandButton.style.display = 'none';
-            closeButton.style.display = 'inline-flex';
-            expandedButtons.forEach(button => {
-                button.style.display = 'inline-flex';
-            });
-            console.log('Expanded state shown successfully');
-        }
-
-        function hideExpanded() {
-            console.log('Hiding expanded state...');
-            expandButton.style.display = 'inline-flex';
-            closeButton.style.display = 'none';
-            expandedButtons.forEach(button => {
-                button.style.display = 'none';
-            });
-            console.log('Expanded state hidden successfully');
-        }
-
-        expandButton.addEventListener('click', function(e) {
-            console.log('Expand button clicked');
-            e.preventDefault();
-            e.stopPropagation();
-            showExpanded();
-        });
-
-        closeButton.addEventListener('click', function(e) {
-            console.log('Close button clicked');
-            e.preventDefault();
-            e.stopPropagation();
-            hideExpanded();
-        });
-
-        // Close the expanded buttons when clicking outside
+        // Close all expanded buttons when clicking outside
         document.addEventListener('click', function(e) {
             if (!e.target.closest('.nav-buttons')) {
-                console.log('Clicked outside nav-buttons');
-                hideExpanded();
+                buttonGroups.forEach(group => {
+                    const expandButton = group.querySelector('.expand-button');
+                    const closeButton = group.querySelector('.close-button');
+                    const expandedButtons = group.querySelectorAll('.expanded-button');
+                    
+                    if (expandButton && closeButton) {
+                        expandButton.style.display = 'inline-flex';
+                        closeButton.style.display = 'none';
+                        expandedButtons.forEach(button => {
+                            button.style.display = 'none';
+                        });
+                    }
+                });
             }
         });
 
-        console.log('Expandable button group initialized successfully');
+        console.log('Expandable button groups initialized successfully');
     } catch (error) {
         console.error('Error in expandable button group:', error);
     }

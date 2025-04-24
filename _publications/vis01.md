@@ -1,12 +1,16 @@
 ---
-layout: publication
-title: "AI Creativity: Exploring the Intersection of Artificial Intelligence and Human Creativity"
-authors: "Emran Poh, et al."
-venue: "CHI 2023"
-year: 2023
-doi: "10.1145/3544548.3581234"
-image: "ai-creativity.jpg"
+layout: pages/publication
+title: "In-Situ Visual Guidance for Software Task Assistance and Learning"
+authors: "Emran Poh, Hou Yueyue, and Jiannan Li"
+venue: "Designing Interactive Systems Conference"
+venue_short: "DIS"
+year: 2025
+status: "submitted"
+image: "mmguide-image.png"
+permalink: /publications/vis01/
 tags:
+  - name: "HCI"
+    url: "/research/#hci"
   - name: "AI"
     url: "/research/#ai"
   - name: "Creativity"
