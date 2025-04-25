@@ -1,5 +1,5 @@
 ---
-layout: pages/project
+layout: default
 title: "Geylang Drip City Brand"
 subtitle: "Freelance Creative Consultant"
 image: "gdc.png"

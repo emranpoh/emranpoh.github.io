@@ -1,5 +1,5 @@
 ---
-layout: pages/project
+layout: default
 title: "Be-Longing"
 subtitle: "A site-specific, augmented reality (AR) experiential artwork"
 image: "belonging.png"

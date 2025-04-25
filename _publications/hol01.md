@@ -3,6 +3,7 @@ layout: pages/publication
 title: "Designing with Holograms – A Preliminary Study on Improving Design Visualisation Through Holographic Display"
 authors: "Emran Poh, A. Tan, V. Balachandran, Jeannie Lee, and Kyrin Liong"
 venue: "NewRIIS Research Conference (NewRIIS 2021)"
+venue_short: "NewRIIS"
 year: 2021
 image: "newriis.png"
 permalink: /publications/hol01/

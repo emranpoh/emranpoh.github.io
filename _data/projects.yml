@@ -1,13 +1,3 @@
-- title: "Exploring Creative Agency in Human-AI Collaboration"
-  subtitle: "Understanding and Enhancing Creative Expression in Human-AI Partnerships"
-  # image: "ai-creativity.png"
-  year: Ongoing
-  start-year: 2025
-  projtype: "research"
-  institution: "smu-hai"
-  is-selected: true
-  emoji: "🎨"
-
 - title: "Emptiness, Isolation, Death, Hope"
   subtitle: "Parallels from Kojima's Death Stranding for Human Connection"
   image: "ds-1.png"
@@ -19,6 +9,10 @@
   is-collab: false
   is-selected: true
   emoji: "🎮"
+  tags:
+    - name: "project"
+      type: "project"
+      url: "/projects/death-stranding"
 
 - title: "How to Use XR for Physical Assault"
   subtitle: "A Less-than-Optimistic Commentary on `The Ethics of Realism in Virtual and Augmented Reality' through Netflix's Black Mirror"
@@ -31,42 +25,6 @@
   is-selected: true
   emoji: "🕶️"
   institution: "immersification"
-
-- title: "Supporting Artefact Awareness in Partially-Replicated Workspaces"
-  subtitle: "Master's Thesis, NUS School of Computing, NUS"
-  image: "artefact-awareness.png"
-  projtype: "🧪"
-  year: 2023
-  start-year: 2024
-  end-year: 2023
-  emoji: "🔬"
-  institution: "nus-hci"
-  tags:
-    - name: "pub"
-      type: "pub"
-      url: "https://ieeexplore.ieee.org/abstract/document/10322229/"
-
-- title: "MR4DFMA: Mixed Reality for Design for Manufacturing Assembly"
-  image: "airshow.jpg"
-  year: 2020
-  start-year: 2020
-  end-year: 2022
-  projtype: "🧪"
-  emoji: "🏭"
-  institution: "immersification"
-  tags:
-    - name: "pub"
-      type: "pub"
-      url: "https://doi.org/10.1145/1122445.1122456"
-    - name: "pub"
-      type: "pub"
-      url: "https://doi.org/10.1145/1122445.1122456"
-    - name: "pub"
-      type: "pub"
-      url: "https://doi.org/10.1145/1122445.1122456"
-    - name: "pub"
-      type: "pub"
-      url: "https://doi.org/10.1145/1122445.1122456"
 
 - title: "Be-Longing"
   image: "belonging.png"
@@ -86,20 +44,6 @@
       type: "code"
       url: "https://github.com/ianfromdover/utown-green-ar/releases"
 
-- title: "Developing Intelligent Agents that Assist with Human Situational Difficulties"
-  # subtitle: "NUS-HCI CHciE (Continuing HCI Education) Presentation, NUS School of Computing, NUS"
-  image: "mmguide-image.png"
-  is-current: true
-  year: Ongoing
-  start-year: 2024
-  end-year: 2025
-  projtype: "research"
-  institution: "smu-hai"
-  # tags:
-  #   - name: "repo"
-  #     url: "https://github.com/emranpoh/project1"
-  emoji: "🤖"
-
 - title: "Geylang Drip City Brand"
   subtitle: "Freelance Creative Consultant"
   image: "gdc.png"
@@ -107,21 +51,11 @@
   start-year: 2023
   end-year: 2023
   projtype: "art"
-  # tags:
-  #   - name: "repo"
-  #     url: "https://github.com/emranpoh/project1"
   emoji: "🎨"
-
-- title: "AVHMI: External Human-Machine Interfaces for Autonomous Vehicles to Pedestrian"
-  subtitle: "Collaborator"
-  image: "intvr.png"
-  year: 2023
-  start-year: 2023
-  end-year: 2023
-  is-collab: true
-  institution: "immersification"
-  projtype: "🧪"
-  emoji: "🚗"
+  tags:
+    - name: "project"
+      type: "project"
+      url: "/projects/geylang-drip-city"
 
 - title: "Notifications: Reimagined"
   module: "CS4249 Phenomena and Theories of Human-Computer Interaction"
@@ -132,6 +66,10 @@
   end-year: 2019
   projtype: "research"
   emoji: "🔔"
+  tags:
+    - name: "project"
+      type: "project"
+      url: "/projects/notifications-reimagined"
 
 - title: "A Decentralised Swarm-Based Mapping Algorithm for Search and Rescue Operations in a Disaster Relief Scenario"
   subtitle: "with Muhd Hazeeq, Saw Ye Kai, Marcus Tay Kai Yan"
@@ -141,6 +79,10 @@
   end-year: 2019
   projtype: "code"
   emoji: "🚁"
+  tags:
+    - name: "project"
+      type: "project"
+      url: "/projects/swarm-mapping"
 
 - title: "Front Office System (FOS) for Hotel Management Mobile App"
   subtitle: "UX Lead for a collective project of 20 students"
@@ -150,3 +92,7 @@
   end-year: 2018
   projtype: "code"
   emoji: "🏨"
+  tags:
+    - name: "project"
+      type: "project"
+      url: "/projects/front-office-system"

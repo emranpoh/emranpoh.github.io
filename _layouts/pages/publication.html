@@ -10,16 +10,16 @@ layout: pages/default
         {% include partials/pub-header.html %}
 
         {% if page.image %}
-        <div class="publication-image" style="margin: 2rem 0;">
+        <div class="publication-image">
             <img src="{{ '/assets/images/projects/' | append: page.image | relative_url }}" 
                  alt="{{ page.title }}" 
-                 style="width: 100%; max-height: 300px; object-fit: contain; border-radius: 8px;">
+                 class="publication-image__img">
         </div>
         {% endif %}
 
         {% if page.abstract %}
-        <div class="publication-abstract" style="margin: 2rem 0; padding: 1.5rem; background-color: #f8f9fa; border-radius: 8px;">
-            <p style="margin: 0; line-height: 1.6; color: #4b5563;">{{ page.abstract }}</p>
+        <div class="publication-abstract">
+            <p class="publication-abstract__text">{{ page.abstract }}</p>
         </div>
         {% endif %}
 
@@ -27,15 +27,6 @@ layout: pages/default
             {{ content }}
         </div>
 
-        {% if page.tags %}
-        <div class="publication-tags" style="margin-top: 2rem;">
-            {% for tag in page.tags %}
-            <a href="{{ tag.url | relative_url }}" class="tag-link">
-                <span class="tag" data-tag="{{ tag.name }}">{{ tag.name }}</span>
-            </a>
-            {% endfor %}
-        </div>
-        {% endif %}
     </article>
 </div>
 
@@ -69,6 +60,30 @@ layout: pages/default
     margin: 0.5rem 0;
 }
 
+.publication-image {
+    margin: 2rem 0;
+}
+
+.publication-image__img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.publication-abstract {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.publication-abstract__text {
+    margin: 0;
+    line-height: 1.6;
+    color: #4b5563;
+}
+
 .publication-content {
     line-height: 1.6;
     font-size: 1.125rem;
@@ -97,6 +112,10 @@ layout: pages/default
 
 .publication-content li {
     margin-bottom: 0.5rem;
+}
+
+.publication-tags {
+    margin-top: 2rem;
 }
 
 .tag {

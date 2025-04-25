@@ -3,6 +3,7 @@ layout: pages/publication
 title: "Supporting Artefact Awareness for Partially-Replicated Workspaces"
 authors: "Emran Poh, Anthony Tang, Jeannie Lee, and Shengdong Zhao"
 venue: "2023 IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct)"
+venue_short: "ISMAR-Adjunct"
 year: 2023
 doi: "10.1109/ISMAR-Adjunct60711.2023.00085"
 image: "artefact-awareness.png"

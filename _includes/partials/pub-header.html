@@ -1,15 +1,65 @@
 <header class="pub-header">
-    <h1 class="pub-title" style="font-size: 2.5rem; line-height: 1.2; margin-bottom: 1.5rem; font-weight: 700;">{{ page.title }}</h1>
+    <h1 class="pub-title">{{ page.title }}</h1>
     <div class="pub-meta">
-        <p class="pub-authors" style="font-size: 1.25rem; color: #4a5568; margin-bottom: 0.75rem;">{{ page.authors }}</p>
-        <p class="pub-venue" style="font-size: 1.125rem; color: #718096; margin-bottom: 0.5rem;">{{ page.venue }}</p>
-        <p class="pub-year" style="font-size: 1rem; color: #718096; margin-bottom: 1rem;">{{ page.year }}</p>
-        {% if page.doi %}
-        <p class="pub-doi">
-            <a href="https://doi.org/{{ page.doi }}" target="_blank" style="text-decoration: none; color: #2563eb; font-size: 1rem;">
-                DOI: {{ page.doi }}
+        <p class="pub-authors">{{ page.authors }}</p>
+        <p class="pub-venue">{{ page.venue }}</p>
+        <div class="pub-tags">
+            <span class="pub-tag">{{ page.year }}</span>
+            {% if page.venue_short %}
+            <span class="pub-tag">{{ page.venue_short }}</span>
+            {% endif %}
+            {% if page.doi %}
+            <a href="https://doi.org/{{ page.doi }}" target="_blank" class="pub-tag pub-tag-link">
+                <i class="fas fa-file-alt"></i>
+                DOI
             </a>
-        </p>
-        {% endif %}
+            {% endif %}
+        </div>
     </div>
-</header> 
+</header>
+
+<style>
+.pub-title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.pub-authors {
+    font-size: 1.25rem;
+    color: #4a5568;
+    margin-bottom: 0.75rem;
+}
+
+.pub-venue {
+    font-size: 1.125rem;
+    color: #718096;
+    margin-bottom: 0.5rem;
+}
+
+.pub-tags {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.pub-tag {
+    display: inline-flex;
+    align-items: center;
+    background-color: #f3f4f6;
+    color: #718096;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+}
+
+.pub-tag-link {
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.pub-tag-link i {
+    margin-right: 0.5rem;
+}
+</style> 

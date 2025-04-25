@@ -1,5 +1,5 @@
 ---
-layout: pages/project
+layout: default
 title: "Emptiness, Isolation, Death, Hope"
 subtitle: "Parallels from Kojima's Death Stranding for Human Connection"
 image: "ds-1.png"
