@@ -15,26 +15,4 @@ tags:
     url: "/research/#design"
 ---
 
-## Abstract
-
-This paper presents a preliminary study on using holographic displays for design visualization. We explore how holographic technology can enhance the process of visualizing and interacting with 3D designs.
-
-## Introduction
-
-Design visualization is a critical aspect of the design process, but traditional 2D displays often fail to fully represent 3D designs. This paper examines how holographic displays can improve design visualization by providing true 3D representation.
-
-## Methodology
-
-Our research combines user-centered design methods with technical implementation to develop and evaluate a holographic display system for design visualization. We conducted user studies with designers to assess the effectiveness of our approach.
-
-## Results
-
-Our findings suggest that holographic displays can significantly improve the quality and effectiveness of design visualization. We present several key insights and design recommendations for holographic applications in design contexts.
-
-## Discussion
-
-The implications of our research extend beyond design visualization. We discuss broader applications of holographic technology in professional contexts and the future of human-computer interaction in design domains.
-
-## Conclusion
-
-Holographic displays show great promise for enhancing design visualization processes. Our research provides a foundation for future work in this area and highlights the potential of holographic technology in design applications. 
+An intuitive ability to realistically visualize and manipulate a 3D model of an engineering assembly prior to physical prototyping is key to an efficient design process. The current project aims to assess the feasibility of using an internally developed mixed reality (MR) application to improve design visualization through holographic representation of engineering components. In this way, design engineers may through the design process more efficiently and effectively.

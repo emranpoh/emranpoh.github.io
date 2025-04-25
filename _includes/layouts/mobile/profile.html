@@ -1,24 +1,30 @@
 <div class="profile-container mobile-profile" style="display: flex; flex-direction: column; gap: 1rem;">
+    <div class="nav-buttons" style="display: flex; gap: 0.5rem; justify-content: flex-start; margin-bottom: 0.5rem;">
+        <a href="https://linktr.ee/emranpoh" target="_blank" title="Links" class="icon-link text-link" style="background: #f1f3f5; width: auto; min-width: 2.25rem; height: 2.25rem; padding: 0 1rem; display: inline-flex; align-items: center; justify-content: center; border-radius: 0.5rem;">
+            <i class="fas fa-link" style="font-size: 1rem; margin-right: 0.5rem;"></i>
+            <span>Links</span>
+        </a>
+        <a href="mailto:emranpoh@gmail.com" title="Email" class="icon-link" style="background: #f1f3f5; width: 2.25rem; height: 2.25rem; display: flex; align-items: center; justify-content: center; border-radius: 0.5rem;">
+            <i class="fas fa-envelope" style="font-size: 1.25rem;"></i>
+        </a>
+        <a href="/publications/art01" title="Latest Article" class="icon-link text-link" style="background: #f1f3f5; width: auto; min-width: 2.25rem; height: 2.25rem; padding: 0 1rem; display: inline-flex; align-items: center; justify-content: center; border-radius: 0.5rem;">
+            <i class="fas fa-file-alt" style="font-size: 1rem; margin-right: 0.5rem;"></i>
+            <span>Latest Article</span>
+        </a>
+    </div>
     <div class="profile-content" style="display: flex; gap: 1rem;">
         <img src="{{ '/assets/images/profile.jpg' | relative_url }}" alt="Emran Poh" class="profile-image">
         <div class="profile-info">
-            <div class="profile-name" style="line-height: 1; margin-bottom: 1rem;">emran poh</div>
-            <div class="profile-title" style="line-height: 1.2;">HAI Researcher + Designer</div>
-            <div class="profile-email" style="line-height: 1;">emranpoh [at] gmail [dot] com</div>
+            <div class="profile-name" style="line-height: 1; margin-bottom: 1rem;">Emran Poh</div>
+            <div>
+                <div class="profile-location" style="line-height: 1.2; margin-bottom: 0.5rem; color: #666; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-map-marker-alt" style="font-size: 0.875rem;"></i>
+                    <span>{{ site.location }}</span>
+                </div>
+                <div class="profile-title" style="line-height: 1.2; margin-bottom: 0.75rem;">HAI Researcher + Designer</div>
+                <div class="profile-email" style="line-height: 1; margin-bottom: 0.25rem;">emranpoh [at] gmail [dot] com</div>
+                <div class="profile-email" style="line-height: 1;">emranpoh [at] smu [dot] edu [dot] sg</div>
+            </div>
         </div>
-    </div>
-    <div class="nav-buttons" style="display: flex; gap: 1rem; justify-content: flex-start;">
-        <a href="https://scholar.google.com/citations?user=wYcrORkAAAAJ&hl=en" target="_blank" title="Google Scholar" class="icon-link" style="background: #f1f3f5; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 12px;">
-            <img src="{{ '/assets/images/scholar.svg' | relative_url }}" alt="Google Scholar" style="width: 24px; height: 24px;">
-        </a>
-        <a href="https://github.com/emranpoh" target="_blank" title="GitHub" class="icon-link" style="background: #f1f3f5; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 12px;">
-            <i class="fab fa-github" style="font-size: 24px;"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/emranpoh/" target="_blank" title="LinkedIn" class="icon-link" style="background: #f1f3f5; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 12px;">
-            <i class="fab fa-linkedin" style="font-size: 24px;"></i>
-        </a>
-        <a href="mailto:emranpoh@gmail.com" title="Email" class="icon-link" style="background: #f1f3f5; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 12px;">
-            <i class="fas fa-envelope" style="font-size: 24px;"></i>
-        </a>
     </div>
 </div> 

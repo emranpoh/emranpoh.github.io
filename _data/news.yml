@@ -21,20 +21,6 @@ news_items:
     content: |
       Looking forward to joining the Singapore HCI Meetup 2025 at SMU, where HCI researchers across the island will share ideas, celebrate achievements, and connect with old and new friends. The event will feature research presentations, posters, and demos from our community members.
 
-  - id: news-002
-    title: "Just submitted my latest research paper to DIS 2025! 🎉"
-    date: "2025-01-21"
-    category: "Publication"
-    tags: ["dis", "conference", "hci"]
-    featured: true
-    type: "publication"
-    conference: "DIS 2025"
-    conference_link: "https://dis.acm.org/2025/"
-    institution: "acm"
-    summary: "Submitted a research paper to the ACM Designing Interactive Systems Conference 2025."
-    content: |
-      I have submitted a research paper to the ACM Designing Interactive Systems Conference (DIS) 2025. The paper presents our work on [brief description of the paper]. DIS is a premier international conference that brings together researchers and practitioners in the field of interactive systems design.
-
   - id: news-000
     title: "Accepted into SMU PhD in Computer Science with Full Scholarship! 🎉"
     date: "2025-03-18"

@@ -1,29 +1,42 @@
-<div class="nav-buttons" style="margin-left: 0; justify-content: flex-start; display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
-    <span class="nav-group" style="display: inline-flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
-        <a href="https://scholar.google.com/citations?user=wYcrORkAAAAJ&hl=en" target="_blank" title="Google Scholar" class="icon-link" style="width: 36px; height: 36px; border-radius: 8px;">
-            <img src="{{ '/assets/images/scholar.svg' | relative_url }}" alt="Google Scholar" style="filter: brightness(0) saturate(100%) invert(41%) sepia(0%) saturate(0%) hue-rotate(153deg) brightness(95%) contrast(92%);">
+<div class="nav-buttons">
+    <span class="nav-group">
+        <a href="https://scholar.google.com/citations?user=wYcrORkAAAAJ&hl=en" target="_blank" title="Google Scholar" class="icon-link scholar-link">
+            <img src="{{ '/assets/images/scholar.svg' | relative_url }}" alt="Google Scholar" class="scholar-icon">
         </a>
-        <a href="https://github.com/emranpoh" target="_blank" title="GitHub" class="icon-link" style="width: 36px; height: 36px; border-radius: 8px; color: #666;">
+        <a href="https://github.com/emranpoh" target="_blank" title="GitHub" class="icon-link">
             <i class="fab fa-github"></i>
         </a>
-        <a href="https://www.linkedin.com/in/emranpoh/" target="_blank" title="LinkedIn" class="icon-link" style="width: 36px; height: 36px; border-radius: 8px; color: #666;">
+        <a href="https://www.linkedin.com/in/emranpoh/" target="_blank" title="LinkedIn" class="icon-link">
             <i class="fab fa-linkedin"></i>
         </a>
-        <a href="mailto:emranpoh@gmail.com" title="Email" class="icon-link" style="width: 36px; height: 36px; border-radius: 8px; color: #666;">
+        <a href="mailto:emranpoh@gmail.com" title="Email" class="icon-link">
             <i class="fas fa-envelope"></i>
         </a>
-        {% include components/expandable-button-group.html 
+        <!-- {% include components/expandable-button-group.html 
             group_name=site.data.button_groups.publications.name 
-            group_items=site.data.button_groups.publications.items %}
+            group_items=site.data.button_groups.publications.items %} -->
+        <a href="/publications/art01" title="Latest Article" class="icon-link text-link">
+            <i class="fas fa-file-alt"></i>
+            <span>Latest Article</span>
+        </a>
     </span>
 </div>
 
 <style>
 .nav-buttons {
+    margin-left: 0;
+    justify-content: flex-start;
     display: flex;
+    gap: 0.5rem;
     flex-wrap: wrap;
+    align-items: center;
+}
+
+.nav-group {
+    display: inline-flex;
     gap: 0.5rem;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .nav-buttons .icon-link {
@@ -31,6 +44,28 @@
     align-items: center;
     justify-content: center;
     color: #666;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    text-decoration: none !important;
+    text-transform: none !important;
+    transform: none !important;
+    transition: background-color 0.2s ease;
+}
+
+.nav-buttons .icon-link:hover,
+.nav-buttons .icon-link:focus,
+.nav-buttons .icon-link:active {
+    text-decoration: none !important;
+    text-transform: none !important;
+    transform: none !important;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.nav-buttons .icon-link:visited {
+    text-decoration: none !important;
+    text-transform: none !important;
+    transform: none !important;
 }
 
 .nav-buttons .icon-link.text-link {
@@ -46,6 +81,15 @@
 
 .nav-buttons .icon-link.text-link span {
     white-space: nowrap;
+}
+
+.nav-buttons .icon-link.text-link i {
+    font-size: 1rem;
+    margin-right: 0.5rem;
+}
+
+.scholar-icon {
+    filter: brightness(0) saturate(100%) invert(41%) sepia(0%) saturate(0%) hue-rotate(153deg) brightness(95%) contrast(92%);
 }
 
 @media (min-width: 769px) {

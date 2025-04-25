@@ -11,6 +11,7 @@
   is-selected: true
   emoji: "👥"
   url: "/publications/art01"
+  abstract: "We present a system that supports artefact awareness in partially-replicated workspaces, enabling users to maintain awareness of shared objects and their states across different physical locations."
   tags:
     - name: "pdf"
       url: "https://ieeexplore.ieee.org/abstract/document/10322229/"
@@ -27,6 +28,7 @@
   institution: "immersification"
   emoji: "🚗"
   url: "/publications/int01"
+  abstract: "IntVRsection is a virtual reality environment designed for evaluating and testing intersection scenarios, providing a safe and controlled environment for studying driver behavior and interaction patterns."
   tags:
     - name: "doi"
       url: "https://dl.acm.org/doi/abs/10.1145/3581961.3610373"
@@ -44,6 +46,7 @@
   is-selected: true
   emoji: "🔍"
   url: "/publications/mr01"
+  abstract: "This work explores the use of mixed reality for engineering design review, specifically focusing on the visualization and interaction with finite element analysis results in an immersive environment."
   tags:
     - name: "pdf"
       url: "https://ieeexplore.ieee.org/abstract/document/9974521"
@@ -60,6 +63,7 @@
   image: "mr4assembly.jpg"
   emoji: "⚙️"
   url: "/publications/mr02"
+  abstract: "We present a mixed reality system for mechanical design and assembly planning, enabling users to visualize and interact with 3D models in a physical space for improved assembly understanding."
   tags:
     - name: "pdf"
       url: "https://link.springer.com/chapter/10.1007/978-3-031-19679-9_72"
@@ -76,6 +80,7 @@
   institution: "immersification"
   emoji: "📊"
   url: "/publications/mr03"
+  abstract: "This work introduces a mixed reality interface for applying loads in finite element analysis, providing an intuitive way to interact with and visualize load applications in 3D space."
   tags:
     - name: "pdf"
       url: "https://link.springer.com/chapter/10.1007/978-3-030-77626-8_32"
@@ -91,6 +96,7 @@
   institution: "immersification"
   emoji: "🖼️"
   url: "/publications/hol01"
+  abstract: "We investigate the potential of holographic displays for improving design visualization, exploring how holographic technology can enhance the understanding and communication of design concepts."
   tags:
     - name: "pdf"
       url: "https://irr.singaporetech.edu.sg/articles/conference_contribution/Designing_with_Holograms_A_Preliminary_Study_On_Improving_Design_Visualisation_Through_Holographic_Display/23651547/1/files/41505537.pdf"
@@ -98,8 +104,8 @@
 - title: "In-Situ Visual Guidance for Software Task Assistance and Learning"
   title_short: "In-Situ Visual Guidance"
   authors: "Emran Poh, Hou Yueyue, and Jiannan Li"
-  venue_short: "DIS"
-  venue: "Designing Interactive Systems Conference"
+  venue_short: "in-progress"
+  venue: "in-progress"
   location: "Singapore"
   year: 2025
   image: "mmguide-image.png"
@@ -108,3 +114,4 @@
   is-selected: true
   emoji: "💡"
   url: "/publications/vis01"
+  abstract: "This work explores the use of in-situ visual guidance for software task assistance and learning, providing contextual help and instructions directly within the software interface."

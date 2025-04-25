@@ -268,8 +268,7 @@ id: emran
     </section>
 
     <!-- Intro Section -->
-    {% include layouts/desktop/intro.html %}
-    {% include layouts/mobile/intro.html %}
+    {% include components/intro.html %}
 
     {% include layouts/desktop/main.html %}
     {% include layouts/mobile/main.html %}
