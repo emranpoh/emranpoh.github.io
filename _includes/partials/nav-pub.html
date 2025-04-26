@@ -1,7 +1,10 @@
 <div class="nav-buttons">
     <span class="nav-group">
-        <a href="{{ '/' | relative_url }}" class="icon-link text-link home-link">
+        <a href="{{ '/' | relative_url }}" class="icon-link text-link home-link {% if page.url == '/' %}active{% endif %}">
             <i class="fas fa-home"></i>
+        </a>
+        <a href="/publications" class="icon-link text-link pub-icon-link {% if page.url contains '/publications' %}active{% endif %}">
+            <i class="fas fa-file-alt"></i>
         </a>
         {% for pub in site.data.pubs %}
             {% assign is_first_author = false %}
@@ -79,6 +82,24 @@
 
 .nav-buttons .icon-link.text-link i {
     font-size: 0.9rem;
+}
+
+.nav-buttons .icon-link.text-link.pub-icon-link {
+    width: 36px;
+    padding: 0;
+}
+
+.nav-buttons .icon-link.active {
+    background: transparent;
+    border: 2px dotted #666;
+    color: #666;
+    opacity: 0.5;
+}
+
+.nav-buttons .icon-link.active:hover {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: #666;
+    opacity: 0.7;
 }
 
 @media (min-width: 769px) {
