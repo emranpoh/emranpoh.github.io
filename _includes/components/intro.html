@@ -1,26 +1,26 @@
 <section class="w-full intro-section">
   <div class="h-64 mb-4 introduction">
-    <div style="margin-bottom: 1.5rem;">
-        <p style="font-size: 0.875rem; font-weight: 600; margin-bottom: 0.25rem; text-transform: lowercase;">research</p>
-        <p style="font-size: 1.125rem;">I'm a <strong>Human-Agent Interaction researcher</strong> focused on <mark>amplifying human creativity</mark>. I design, build, and study tools that help novices develop domain expertise — with an emphasis on empowering humans to be more… human (authentic + expressive).</p>
+    <div class="intro-block">
+        <p class="intro-label">research</p>
+        <p class="intro-text">I'm a <strong>Human-Agent Interaction researcher</strong> focused on <mark>amplifying human creativity</mark>. I design, build, and study tools that help novices develop domain expertise — with an emphasis on empowering humans to be more… human (authentic + expressive). Here are some of my publications <a href="/publications/" class="intro-link"><i class="fas fa-file-alt"></i></a>.</p>
     </div>
-    <div style="margin-bottom: 1.5rem;">
-        <p style="font-size: 0.875rem; font-weight: 600; margin-bottom: 0.25rem; text-transform: lowercase;">position</p>
-        <p style="font-size: 1.125rem;">Currently part of the amazing <a href="https://smuhci.com/">SMU-HCI</a> community at the School of Computing and Information Systems, Singapore Management University. I'm also with the SMU HAI-Lab, advised by <a href="https://jchrisli.github.io/">Li Jiannan</a>.</p>
+    <div class="intro-block">
+        <p class="intro-label">position</p>
+        <p class="intro-text">Currently part of the amazing <a href="https://smuhci.com/">SMU-HCI</a> community at the School of Computing and Information Systems, Singapore Management University. I'm also with the SMU HAI-Lab, advised by <a href="https://jchrisli.github.io/">Li Jiannan</a>.</p>
     </div>
-    <div style="margin-bottom: 1.5rem;">
-        <p style="font-size: 0.875rem; font-weight: 600; margin-bottom: 0.25rem; text-transform: lowercase;">education</p>
-        <p style="font-size: 1.125rem;">
-            <ul style="margin: 0; margin-bottom: 1rem; padding-left: 1.5rem; line-height: 1.5; list-style-type: square;">
-                <li style="margin-bottom: 0.5rem; font-size: 1.125rem;">Ph.D. in Computer Science, Singapore Management University [2025-2029]</li>
-                <li style="margin-bottom: 0.5rem; font-size: 1.125rem;">Master of Computing, National University of Singapore [2022-2024]</li>
-                <li style="margin-bottom: 0.5rem; font-size: 1.125rem;">B.Sc. in Computing Science (First Class Honours), University of Glasgow [2018-2020]</li>
+    <div class="intro-block">
+        <p class="intro-label">education</p>
+        <p class="intro-text">
+            <ul class="intro-list">
+                <li class="intro-list-item">Ph.D. in Computer Science, Singapore Management University [2025-2029]</li>
+                <li class="intro-list-item">Master of Computing, National University of Singapore [2022-2024]</li>
+                <li class="intro-list-item">B.Sc. in Computing Science (First Class Honours), University of Glasgow [2018-2020]</li>
             </ul>
         </p>
     </div>
-    <div style="margin-bottom: 1.5rem;">
-        <p style="font-size: 0.875rem; font-weight: 600; margin-bottom: 0.25rem; text-transform: lowercase;">others</p>
-        <p style="font-size: 1.125rem;">Enjoy building and occasionally crashing interplanetary rockets in Kerbal Space Program 🚀</p>
+    <div class="intro-block">
+        <p class="intro-label">others</p>
+        <p class="intro-text">Enjoy building and occasionally crashing interplanetary rockets in Kerbal Space Program 🚀</p>
     </div>
   </div>
 </section>
@@ -38,6 +38,81 @@
   text-decoration: none;
 }
 
+/* Content styles specific to intro section */
+.intro-section p {
+  margin-bottom: 0.5rem;
+  font-size: 1.125rem;
+}
+
+.intro-section .hello-text {
+  font-size: 1.5rem !important;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.intro-section .hello-text a {
+  user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  cursor: pointer;
+}
+
+/* Intro block styles */
+.intro-block {
+  margin-bottom: 1.5rem;
+}
+
+.intro-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  text-transform: lowercase;
+}
+
+.intro-text {
+  font-size: 1.125rem;
+}
+
+.intro-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.0125rem 0.5rem;
+  background-color: #f1f3f5;
+  border-radius: 0.375rem;
+  color: #666 !important;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.intro-link i {
+  font-size: 0.875rem;
+}
+
+.intro-link:hover {
+  background-color: #e5e7eb;
+  transform: translateY(-1px);
+}
+
+.intro-list {
+  margin: 0;
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  line-height: 1.5;
+  list-style-type: square;
+}
+
+.intro-list-item {
+  margin-bottom: 0.5rem;
+  font-size: 1.125rem;
+}
+
 @media (max-width: 768px) {
   .intro-section {
     display: block;
@@ -53,18 +128,19 @@
   .intro-buttons {
     display: flex !important;
   }
+  .intro-section .hello-text {
+    font-size: 1rem !important;
+  }
 }
 
 @media (min-width: 769px) {
   .intro-section {
     display: block;
-    /* padding-top: 2rem; */
     margin-top: 0.5rem;
     height: auto;
     min-height: 0;
   }
   .introduction {
-    /* padding-top: 2rem; */
     height: auto;
     min-height: 0;
   }

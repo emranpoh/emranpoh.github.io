@@ -79,8 +79,8 @@ id: emran
         margin-bottom: 0.25rem;
     }
     .profile-image {
-        width: 120px;
-        height: 120px;
+        width: 100%;
+        aspect-ratio: 1;
         border-radius: 0.5rem;
         object-fit: cover;
         border: 2px solid #f3f4f6;
@@ -99,7 +99,7 @@ id: emran
     }
     .profile-content {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: flex-start;
         gap: 1rem;
         width: 100%;
@@ -262,16 +262,15 @@ id: emran
 </style>
 
 <div class="desktop-container">
-    <section class="w-full">
-        <div class="nav-buttons">
-            {% include components/nav-buttons.html %}
-        </div>
-        {% include layouts/profile.html %}
-    </section>
 
-    <!-- Intro Section -->
+    {% include components/nav-buttons.html %}
+
+    {% include layouts/profile.html %}
+
     {% include components/intro.html %}
 
     {% include layouts/desktop/main.html %}
+    
     {% include layouts/mobile/main.html %}
+
 </div>

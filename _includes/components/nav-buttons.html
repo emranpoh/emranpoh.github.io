@@ -1,5 +1,8 @@
 <div class="nav-buttons">
     <span class="nav-group">
+        <a href="{{ '/' | relative_url }}" title="Home" class="icon-link {% if page.url == '/' %}active{% endif %}">
+            <i class="fas fa-home"></i>
+        </a>
         <a href="mailto:{{ site.email }}" title="Email" class="icon-link">
             <i class="fas fa-envelope"></i>
             <span class="email-label long-label">{{ site.email | replace: '@', ' [at] ' }}</span>
@@ -28,8 +31,9 @@
 
 <style>
 .nav-buttons {
-    margin-left: 0;
-    justify-content: flex-start;
+    width: 100%;
+    margin-left: auto;
+    justify-content: flex-end;
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
@@ -90,8 +94,8 @@
 }
 
 .scholar-icon {
-    height: 24px;
-    width: 24px;
+    height: 1.5rem;
+    width: 1.5rem;
     display: block;
     object-fit: contain;
     filter: brightness(0) saturate(100%) invert(41%) sepia(0%) saturate(0%) hue-rotate(153deg) brightness(95%) contrast(92%);
@@ -105,11 +109,21 @@
     .short-label { display: inline; }
     .nav-buttons { margin-bottom: 1.5rem; }
     .icon-link.text-link .fas.fa-file-alt { margin-right: 0; }
+    .scholar-icon {
+        height: 1.5rem;
+        width: 1.5rem;
+    }
 }
 @media (min-width: 769px) {
     .long-label { display: inline; }
     .short-label { display: none; }
-    .icon-link .fa-envelope { font-size: 24px; }
+    .nav-buttons .icon-link i {
+        font-size: 1rem;
+    }
+    .scholar-icon {
+        height: 1rem;
+        width: 1rem;
+    }
 }
 
 .icon-link .email-label {
@@ -131,6 +145,19 @@
 .icon-link.text-link, .icon-link:has(.email-label) {
     width: auto !important;
     padding: 0 1rem;
+}
+
+.nav-buttons .icon-link.active {
+    background: transparent;
+    border: 2px dotted #666;
+    color: #666;
+    opacity: 0.5;
+}
+
+.nav-buttons .icon-link.active:hover {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: #666;
+    opacity: 0.7;
 }
 </style>
 

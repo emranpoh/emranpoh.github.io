@@ -1,5 +1,8 @@
 <div class="profile-container">
     <div class="profile-content">
+        <div class="profile-image">
+            <img src="{{ site.profile_image | relative_url }}" alt="{{ site.author }}">
+        </div>
         <div class="profile-info">
             <div class="profile-name">{{ site.author }}</div>
             <div class="profile-details">
@@ -21,15 +24,38 @@
 
 .profile-content {
     display: flex;
-    gap: 1.5rem;
+    flex-direction: column;
+    gap: 1rem;
     align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.profile-image {
+    aspect-ratio: 1/1;
+    max-width: 128px;
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    border: none;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .profile-info {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0.5rem;
 }
 
 .profile-name {
@@ -37,12 +63,14 @@
     font-weight: 800;
     text-transform: capitalize;
     line-height: 1;
+    text-align: left;
 }
 
 .profile-details {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    align-items: flex-start;
 }
 
 .profile-location {
@@ -51,6 +79,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    justify-content: flex-start;
 }
 
 .profile-location i {
@@ -65,6 +94,11 @@
 
     .profile-content {
         gap: 1rem;
+    }
+
+    .profile-image {
+        max-width: 100%;
+        width: 100%;
     }
 
     .profile-name {

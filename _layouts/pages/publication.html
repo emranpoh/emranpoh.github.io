@@ -2,33 +2,29 @@
 layout: pages/default
 ---
 
-<div class="content-block">
     
-    {% include partials/nav-pub.html %}
+{% include partials/nav-pub.html %}
 
-    <article class="publication-detail">
-        {% include partials/pub-header.html %}
+{% include partials/pub-header.html %}
 
-        {% if page.image %}
-        <div class="publication-image">
-            <img src="{{ '/assets/images/projects/' | append: page.image | relative_url }}" 
-                 alt="{{ page.title }}" 
-                 class="publication-image__img">
-        </div>
-        {% endif %}
-
-        {% if page.abstract %}
-        <div class="publication-abstract">
-            <p class="publication-abstract__text">{{ page.abstract }}</p>
-        </div>
-        {% endif %}
-
-        <div class="publication-content">
-            {{ content }}
-        </div>
-
-    </article>
+{% if page.image %}
+<div class="publication-image">
+    <img src="{{ '/assets/images/projects/' | append: page.image | relative_url }}" 
+            alt="{{ page.title }}" 
+            class="publication-image__img">
 </div>
+{% endif %}
+
+{% if page.abstract %}
+<div class="publication-abstract">
+    <p class="publication-abstract__text">{{ page.abstract }}</p>
+</div>
+{% endif %}
+
+<div class="publication-content">
+    {{ content }}
+</div>
+
 
 <style>
 .content-block {
