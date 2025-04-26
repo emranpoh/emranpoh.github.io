@@ -19,17 +19,16 @@ layout: pages/default
         </header>
 
         {% if page.image %}
-        <div class="project-image" style="margin: 2rem 0;">
+        <div class="project-image">
             <img src="{{ '/assets/images/projects/' | append: page.image | relative_url }}" 
-                 alt="{{ page.title }}" 
-                 style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 8px;">
+                 alt="{{ page.title }}">
         </div>
         {% endif %}
 
         {% if page.overview %}
-        <div class="project-overview" style="margin: 2rem 0; padding: 1.5rem; background-color: #f8f9fa; border-radius: 8px;">
+        <div class="project-overview">
             <h2>Overview</h2>
-            <p style="margin: 0; line-height: 1.6; color: #4b5563;">{{ page.overview }}</p>
+            <p>{{ page.overview }}</p>
         </div>
         {% endif %}
 
@@ -38,7 +37,7 @@ layout: pages/default
         </div>
 
         {% if page.technologies %}
-        <div class="project-technologies" style="margin-top: 2rem;">
+        <div class="project-technologies">
             <h3>Technologies Used</h3>
             <div class="tech-tags">
                 {% for tech in page.technologies %}
@@ -49,7 +48,7 @@ layout: pages/default
         {% endif %}
 
         {% if page.links %}
-        <div class="project-links" style="margin-top: 2rem;">
+        <div class="project-links">
             <h3>Project Links</h3>
             <div class="link-buttons">
                 {% for link in page.links %}
@@ -94,6 +93,30 @@ layout: pages/default
     margin: 0.5rem 0;
 }
 
+.project-image {
+    margin: 2rem 0;
+}
+
+.project-image img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.project-overview {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.project-overview p {
+    margin: 0;
+    line-height: 1.6;
+    color: #4b5563;
+}
+
 .project-content {
     line-height: 1.6;
     font-size: 1.125rem;
@@ -124,6 +147,10 @@ layout: pages/default
     margin-bottom: 0.5rem;
 }
 
+.project-technologies {
+    margin-top: 2rem;
+}
+
 .tech-tag {
     display: inline-block;
     padding: 0.25rem 0.75rem;
@@ -133,6 +160,10 @@ layout: pages/default
     color: #374151;
     margin-right: 0.5rem;
     margin-bottom: 0.5rem;
+}
+
+.project-links {
+    margin-top: 2rem;
 }
 
 .link-buttons {

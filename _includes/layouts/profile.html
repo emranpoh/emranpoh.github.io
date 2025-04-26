@@ -1,0 +1,81 @@
+<div class="profile-container">
+    <div class="profile-content">
+        <div class="profile-info">
+            <div class="profile-name">{{ site.author }}</div>
+            <div class="profile-details">
+                <div class="profile-location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>{{ site.location }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.profile-content {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.profile-name {
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-transform: capitalize;
+    line-height: 1;
+}
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.profile-location {
+    line-height: 1.2;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.profile-location i {
+    font-size: 0.875rem;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .profile-container {
+        gap: 1rem;
+    }
+
+    .profile-content {
+        gap: 1rem;
+    }
+
+    .profile-name {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 0.25rem;
+    }
+
+    .profile-location {
+        font-size: 0.875rem;
+        margin-bottom: 0.75rem;
+    }
+}
+</style> 

@@ -263,8 +263,10 @@ id: emran
 
 <div class="desktop-container">
     <section class="w-full">
-        {% include layouts/desktop/profile.html %}
-        {% include layouts/mobile/profile.html %}
+        <div class="nav-buttons">
+            {% include components/nav-buttons.html %}
+        </div>
+        {% include layouts/profile.html %}
     </section>
 
     <!-- Intro Section -->

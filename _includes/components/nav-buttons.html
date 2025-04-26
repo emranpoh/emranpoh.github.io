@@ -1,5 +1,19 @@
 <div class="nav-buttons">
     <span class="nav-group">
+        <a href="mailto:{{ site.email }}" title="Email" class="icon-link">
+            <i class="fas fa-envelope"></i>
+            <span class="email-label long-label">{{ site.email | replace: '@', ' [at] ' }}</span>
+        </a>
+        <a href="/publications/art01" title="Pubs" class="icon-link text-link">
+            <i class="fas fa-file-alt"></i>
+            <span class="long-label">Pubs</span>
+            <span class="short-label"></span>
+        </a>
+        <a href="/projects/xr-physical-assault" title="How to use XR for Physical Assault" class="icon-link text-link">
+            <i class="fas fa-vr-cardboard"></i>
+            <span class="long-label">XR for Physical Assault</span>
+            <span class="short-label">XR for Assault</span>
+        </a>
         <a href="https://scholar.google.com/citations?user=wYcrORkAAAAJ&hl=en" target="_blank" title="Google Scholar" class="icon-link scholar-link">
             <img src="{{ '/assets/images/scholar.svg' | relative_url }}" alt="Google Scholar" class="scholar-icon">
         </a>
@@ -8,20 +22,6 @@
         </a>
         <a href="https://www.linkedin.com/in/emranpoh/" target="_blank" title="LinkedIn" class="icon-link">
             <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="mailto:emranpoh@gmail.com" title="Email" class="icon-link">
-            <i class="fas fa-envelope"></i>
-        </a>
-        <!-- {% include components/expandable-button-group.html 
-            group_name=site.data.button_groups.publications.name 
-            group_items=site.data.button_groups.publications.items %} -->
-        <a href="/publications/art01" title="Pubs" class="icon-link text-link">
-            <i class="fas fa-file-alt"></i>
-            <span>Pubs</span>
-        </a>
-        <a href="/projects/xr-physical-assault" title="How to use XR for Physical Assault" class="icon-link text-link">
-            <i class="fas fa-vr-cardboard"></i>
-            <span>How to use XR for Physical Assault</span>
         </a>
     </span>
 </div>
@@ -34,6 +34,7 @@
     gap: 0.5rem;
     flex-wrap: wrap;
     align-items: center;
+    margin-bottom: 1.5rem;
 }
 
 .nav-group {
@@ -55,6 +56,7 @@
     text-transform: none !important;
     transform: none !important;
     transition: background-color 0.2s ease;
+    background: #f1f3f5;
 }
 
 .nav-buttons .icon-link:hover,
@@ -74,7 +76,6 @@
 
 .nav-buttons .icon-link.text-link {
     width: auto !important;
-    min-width: 36px;
     height: 36px;
     padding: 0 1rem;
     display: inline-flex;
@@ -83,23 +84,53 @@
     border-radius: 8px;
 }
 
-.nav-buttons .icon-link.text-link span {
-    white-space: nowrap;
-}
-
 .nav-buttons .icon-link.text-link i {
     font-size: 1rem;
     margin-right: 0.5rem;
 }
 
 .scholar-icon {
+    height: 24px;
+    width: 24px;
+    display: block;
+    object-fit: contain;
     filter: brightness(0) saturate(100%) invert(41%) sepia(0%) saturate(0%) hue-rotate(153deg) brightness(95%) contrast(92%);
 }
 
+.long-label { display: inline; }
+.short-label { display: none; }
+
+@media (max-width: 768px) {
+    .long-label { display: none; }
+    .short-label { display: inline; }
+    .nav-buttons { margin-bottom: 1.5rem; }
+    .icon-link.text-link .fas.fa-file-alt { margin-right: 0; }
+}
 @media (min-width: 769px) {
-    .nav-buttons .icon-link.text-link {
-        width: auto !important;
-    }
+    .long-label { display: inline; }
+    .short-label { display: none; }
+    .icon-link .fa-envelope { font-size: 24px; }
+}
+
+.icon-link .email-label {
+    margin-left: 0.5rem;
+    font-size: 1rem;
+    color: #666;
+    white-space: nowrap;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+}
+.icon-link {
+    width: 36px;
+}
+.icon-link .email-label {
+    width: auto;
+}
+.icon-link.text-link, .icon-link:has(.email-label) {
+    width: auto !important;
+    padding: 0 1rem;
 }
 </style>
 

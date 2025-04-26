@@ -13,12 +13,13 @@
 # https://learnxinyminutes.com/docs/yaml/
 #
 # Site Information
-title: emran poh
+title: Emran Poh
 email: emranpoh@gmail.com
+work_email: emranpoh@smu.edu.sg
 description: >-
-  UX Researcher, Designer, and Coder based in Singapore
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+  HAI Researcher + Designer
+baseurl: ""
+url: ""
 author: Emran Poh
 year: 2025
 location: Singapore
@@ -47,31 +48,26 @@ collections:
 
 # Default Front Matter
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
     values:
       layout: "pages/default"
-  -
-    scope:
+  - scope:
       path: "index.markdown"
     values:
       layout: "pages/default"
       permalink: /
-  -
-    scope:
+  - scope:
       path: "_content/posts"
       type: "posts"
     values:
       layout: "posts/post"
-  -
-    scope:
+  - scope:
       path: "_content/projects"
       type: "projects"
     values:
       layout: "pages/project"
-  -
-    scope:
+  - scope:
       path: "_content/publications"
       type: "publications"
     values:

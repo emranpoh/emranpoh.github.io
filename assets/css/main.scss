@@ -8,6 +8,25 @@
   font-display: swap;
 }
 
+/* Section Visibility Rules */
+@media (max-width: 768px) {
+  .desktop-section {
+    display: none !important;
+  }
+  .mobile-section {
+    display: block !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-section {
+    display: none !important;
+  }
+  .desktop-section {
+    display: block !important;
+  }
+}
+
 /*#region Reset & Base Styles */
 * {
   margin: 0;
