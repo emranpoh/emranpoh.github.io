@@ -21,16 +21,13 @@ layout: pages/default
 </div>
 {% endif %}
 
-<div class="publication-content">
-    {{ content }}
-</div>
-
+{{ content }}
 
 <style>
 .content-block {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem 1rem;
+    /* padding: 2rem 1rem; */
 }
 
 .publication-detail {
@@ -62,8 +59,8 @@ layout: pages/default
 
 .publication-image__img {
     width: 100%;
-    max-height: 300px;
-    object-fit: contain;
+    height: auto;
+    object-fit: cover;
     border-radius: 8px;
 }
 

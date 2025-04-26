@@ -3,28 +3,34 @@
         <a href="{{ '/' | relative_url }}" title="Home" class="icon-link {% if page.url == '/' %}active{% endif %}">
             <i class="fas fa-home"></i>
         </a>
+        <a href="https://scholar.google.com/citations?user={{ site.scholar_id }}&hl=en" target="_blank" title="Google Scholar" class="icon-link scholar-link">
+            <img src="{{ '/assets/images/scholar.svg' | relative_url }}" alt="Google Scholar" class="scholar-icon">
+        </a>
+        <a href="https://github.com/{{ site.github_username }}" target="_blank" title="GitHub" class="icon-link">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}/" target="_blank" title="LinkedIn" class="icon-link">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://instagram.com/{{ site.instagram_username }}" target="_blank" title="Instagram" class="icon-link">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://t.me/{{ site.telegram_username }}" target="_blank" title="Telegram" class="icon-link">
+            <i class="fab fa-telegram"></i>
+        </a>
         <a href="mailto:{{ site.email }}" title="Email" class="icon-link">
             <i class="fas fa-envelope"></i>
             <span class="email-label long-label">{{ site.email | replace: '@', ' [at] ' }}</span>
         </a>
-        <a href="/publications/art01" title="Pubs" class="icon-link text-link">
+        <a href="/publications/art01" title="Cross-Reality Artefact Awareness" class="icon-link text-link">
             <i class="fas fa-file-alt"></i>
-            <span class="long-label">Pubs</span>
-            <span class="short-label"></span>
+            <span class="long-label">Cross-Reality Artefact Awareness</span>
+            <span class="short-label">Cross-Reality Artefact Awareness</span>
         </a>
         <a href="/projects/xr-physical-assault" title="How to use XR for Physical Assault" class="icon-link text-link">
-            <i class="fas fa-vr-cardboard"></i>
-            <span class="long-label">XR for Physical Assault</span>
-            <span class="short-label">XR for Assault</span>
-        </a>
-        <a href="https://scholar.google.com/citations?user=wYcrORkAAAAJ&hl=en" target="_blank" title="Google Scholar" class="icon-link scholar-link">
-            <img src="{{ '/assets/images/scholar.svg' | relative_url }}" alt="Google Scholar" class="scholar-icon">
-        </a>
-        <a href="https://github.com/emranpoh" target="_blank" title="GitHub" class="icon-link">
-            <i class="fab fa-github"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/emranpoh/" target="_blank" title="LinkedIn" class="icon-link">
-            <i class="fab fa-linkedin"></i>
+            <i class="fas fa-microphone"></i>
+            <span class="long-label">How to use XR for Physical Assault</span>
+            <span class="short-label">How to use XR for Physical Assault</span>
         </a>
     </span>
 </div>
@@ -108,11 +114,11 @@
     .long-label { display: none; }
     .short-label { display: inline; }
     .nav-buttons { margin-bottom: 1.5rem; }
-    .icon-link.text-link .fas.fa-file-alt { margin-right: 0; }
     .scholar-icon {
         height: 1.5rem;
         width: 1.5rem;
     }
+    .icon-link .email-label.long-label { display: none; }
 }
 @media (min-width: 769px) {
     .long-label { display: inline; }

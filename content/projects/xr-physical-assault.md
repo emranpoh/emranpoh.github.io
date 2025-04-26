@@ -3,9 +3,10 @@ layout: pages/project
 title: How to use XR for Physical Assault
 subtitle: A Less-than-Optimistic Commentary of 'The Ethics of Realism in Virtual and Augmented Reality' through Netflix's Black Mirror
 permalink: /projects/xr-physical-assault
+image: xr-assault.jpg
 ---
 
-This article examines the ethical implications of Extended Reality (XR) technologies through the lens of Black Mirror's narratives. We analyze the intersection of immersive technologies and moral considerations presented in the series.
+This presentation examines the ethical implications of Extended Reality (XR) technologies through the lens of Black Mirror's narratives. I analyze the intersection of immersive technologies and moral considerations presented in the series.
 
 ## The Intersection of Ethics and Technology in Black Mirror
 

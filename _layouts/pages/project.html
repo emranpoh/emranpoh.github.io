@@ -2,39 +2,35 @@
 layout: pages/default
 ---
 
-<div class="content-block">
-    {% include partials/nav-proj.html %}
+{% include partials/nav-proj.html %}
     
-    <article class="project-detail">
-        <header class="project-header">
-            <h1>{{ page.title }}</h1>
-            {% if page.subtitle %}
-            <h2 class="project-subtitle">{{ page.subtitle }}</h2>
-            {% endif %}
-            {% if page.date %}
-            <div class="project-meta">
-                <p>Date: {{ page.date | date: "%B %Y" }}</p>
-            </div>
-            {% endif %}
-        </header>
+<header class="project-header">
+    <h1>{{ page.title }}</h1>
+    {% if page.subtitle %}
+    <h2 class="project-subtitle">{{ page.subtitle }}</h2>
+    {% endif %}
+    {% if page.date %}
+    <div class="project-meta">
+        <p>Date: {{ page.date | date: "%B %Y" }}</p>
+    </div>
+    {% endif %}
+</header>
 
-        {% if page.image %}
-        <div class="project-image">
-            <img src="{{ '/assets/images/projects/' | append: page.image | relative_url }}" 
-                 alt="{{ page.title }}">
-        </div>
-        {% endif %}
+{% if page.image %}
+<div class="project-image">
+    <img src="{{ '/assets/images/projects/' | append: page.image | relative_url }}" 
+            alt="{{ page.title }}">
+</div>
+{% endif %}
 
-        {% if page.overview %}
-        <div class="project-overview">
-            <h2>Overview</h2>
-            <p>{{ page.overview }}</p>
-        </div>
-        {% endif %}
+{% if page.overview %}
+<div class="project-overview">
+    <h2>Overview</h2>
+    <p>{{ page.overview }}</p>
+</div>
+{% endif %}
 
-        <div class="project-content">
-            {{ content }}
-        </div>
+        {{ content }}
 
         {% if page.technologies %}
         <div class="project-technologies">
@@ -60,10 +56,9 @@ layout: pages/default
             </div>
         </div>
         {% endif %}
-    </article>
-</div>
 
 <style>
+/* Layout & Container Styles */
 .content-block {
     max-width: 1200px;
     margin: 0 auto;
@@ -75,12 +70,13 @@ layout: pages/default
     margin: 0 auto;
 }
 
+/* Header Styles */
 .project-header {
     margin-bottom: 2rem;
 }
 
 .project-header h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-bottom: 0.5rem;
     line-height: 1.3;
 }
@@ -93,6 +89,7 @@ layout: pages/default
     margin: 0.5rem 0;
 }
 
+/* Image Styles */
 .project-image {
     margin: 2rem 0;
 }
@@ -104,6 +101,7 @@ layout: pages/default
     border-radius: 8px;
 }
 
+/* Content Styles */
 .project-overview {
     margin: 2rem 0;
     padding: 1.5rem;
@@ -119,7 +117,7 @@ layout: pages/default
 
 .project-content {
     line-height: 1.6;
-    font-size: 1.125rem;
+    font-size: 1rem;
 }
 
 .project-content p {
@@ -128,7 +126,7 @@ layout: pages/default
 }
 
 .project-content h2 {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     margin: 2rem 0 1rem;
 }
 
@@ -147,6 +145,7 @@ layout: pages/default
     margin-bottom: 0.5rem;
 }
 
+/* Technology Tags */
 .project-technologies {
     margin-top: 2rem;
 }
@@ -162,6 +161,7 @@ layout: pages/default
     margin-bottom: 0.5rem;
 }
 
+/* Project Links */
 .project-links {
     margin-top: 2rem;
 }
@@ -191,6 +191,56 @@ layout: pages/default
     margin-right: 0.5rem;
 }
 
+/* Project Card Styles */
+.project-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    overflow: hidden;
+    align-items: flex-start;
+    border: 1px solid #e0e0e0;
+}
+
+.project-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.project-tags {
+    display: flex;
+    gap: 8px;
+    margin: 16px 0 4px 0;
+    padding: 0 8px;
+}
+
+.project-title {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 0 8px;
+    line-height: 1.4;
+    text-align: left;
+    margin: 0;
+    display: flex;
+    align-items: flex-start;
+}
+
+.project-subtitle {
+    font-size: 1.75rem;
+    color: #4b5563;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+    font-weight: normal;
+    padding: 0 8px;
+}
+
+.project-year {
+    font-size: 12px;
+    color: #777;
+    margin-top: 4px;
+    padding: 0 8px 8px;
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
     .project-content {
         font-size: 1rem;
@@ -205,7 +255,7 @@ layout: pages/default
     }
     
     .project-header h1 {
-        font-size: 2rem;
+        font-size: 1.75rem;
     }
     
     .link-buttons {
@@ -215,6 +265,15 @@ layout: pages/default
     .link-button {
         width: 100%;
         justify-content: center;
+    }
+    
+    .project-card {
+        flex-direction: row;
+        gap: 4px;
+    }
+    
+    .project-tags {
+        display: none;
     }
 }
 </style> 
