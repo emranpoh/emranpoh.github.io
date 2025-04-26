@@ -22,17 +22,28 @@
             <i class="fas fa-envelope"></i>
             <span class="email-label long-label">{{ site.email | replace: '@', ' [at] ' }}</span>
         </a>
+    </span>
+    <span class="filler"></span>
+</div>
+<div class="nav-buttons">
+    <span class="nav-group">
         <a href="/publications/art01" title="Cross-Reality Artefact Awareness" class="icon-link text-link">
             <i class="fas fa-file-alt"></i>
             <span class="long-label">Cross-Reality Artefact Awareness</span>
             <span class="short-label">Cross-Reality Artefact Awareness</span>
         </a>
+    </span>
+    <span class="filler"></span>
+</div>
+<div class="nav-buttons">
+    <span class="nav-group">
         <a href="/projects/xr-physical-assault" title="How to use XR for Physical Assault" class="icon-link text-link">
             <i class="fas fa-microphone"></i>
             <span class="long-label">How to use XR for Physical Assault</span>
             <span class="short-label">How to use XR for Physical Assault</span>
         </a>
     </span>
+    <span class="filler"></span>
 </div>
 
 <style>
@@ -44,7 +55,7 @@
     gap: 0.5rem;
     flex-wrap: wrap;
     align-items: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .nav-group {
@@ -113,7 +124,7 @@
 @media (max-width: 768px) {
     .long-label { display: none; }
     .short-label { display: inline; }
-    .nav-buttons { margin-bottom: 1.5rem; }
+    .nav-buttons { margin-bottom: 0.5rem; }
     .scholar-icon {
         height: 1.5rem;
         width: 1.5rem;
@@ -164,6 +175,14 @@
     background: rgba(0, 0, 0, 0.05);
     border-color: #666;
     opacity: 0.7;
+}
+
+.filler {
+    flex: 1 1 0;
+    min-width: 0;
+    height: 36px;
+    background: rgba(241, 243, 245, 0.3); /* faint version of #f1f3f5 */
+    border-radius: 8px;
 }
 </style>
 

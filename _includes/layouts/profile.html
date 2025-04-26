@@ -4,7 +4,8 @@
             <img src="{{ site.profile_image | relative_url }}" alt="{{ site.author }}">
         </div>
         <div class="profile-info">
-            <div class="profile-name">{{ site.author }}</div>
+            <div class="profile-name"><span class="profile-name-underline">Emran</span> Poh</div>
+            <div class="profile-pronouns">he/him</div>
             <div class="profile-position">Ph.D. Student</div>
             <div class="profile-university">Singapore Management University</div>
             <div class="profile-details">
@@ -59,7 +60,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 0.25rem;
     text-align: center;
 }
 
@@ -71,18 +72,26 @@
     text-align: center;
 }
 
+.profile-pronouns {
+    font-size: 1rem;
+    color: #888;
+    font-weight: 400;
+    margin-bottom: 0.1rem;
+    text-align: center;
+}
+
 .profile-position {
     font-size: 1.25rem;
     color: #666;
     text-align: center;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.1rem;
 }
 
 .profile-university {
     font-size: 1rem;
     color: #666;
     text-align: center;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.1rem;
 }
 
 .profile-details {
@@ -133,6 +142,11 @@
         text-align: left;
     }
 
+    .profile-pronouns {
+        font-size: 0.875rem;
+        text-align: left;
+    }
+
     .profile-details {
         align-items: flex-start;
     }
@@ -152,5 +166,11 @@
         font-size: 0.875rem;
         text-align: left;
     }
+}
+
+.profile-name-underline {
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+    text-decoration-thickness: 1px;
 }
 </style> 

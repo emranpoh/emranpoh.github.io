@@ -4,6 +4,7 @@
             <i class="fas fa-home" style="font-size: 0.9rem;"></i>
         </a>
     </span>
+    <span class="filler"></span>
 </div>
 
 <style>
@@ -14,7 +15,7 @@
     gap: 0.5rem;
     align-items: center;
     margin-right: auto;
-    justify-content: flex-start;
+    justify-content: space-between;
 }
 
 .nav-group {
@@ -55,5 +56,14 @@
     .nav-buttons .icon-link.text-link {
         width: 36px !important;
     }
+}
+
+.filler {
+    flex: 1 1 0;
+    min-width: 0;
+    height: 36px;
+    background: rgba(241, 243, 245, 0.3); /* faint version of #f1f3f5 */
+    border-radius: 8px;
+    box-shadow: inset 0 0 0 1px rgba(229, 231, 235, 0.5); /* fainter inset outline */
 }
 </style> 
