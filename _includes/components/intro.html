@@ -2,25 +2,35 @@
   <div class="h-64 mb-4 introduction">
     <div class="intro-block">
         <p class="intro-label">research</p>
-        <p class="intro-text">I'm a <strong>Human-Agent Interaction researcher</strong> focused on <mark>amplifying human creativity</mark>. I design, build, and study tools that help novices develop domain expertise — with an emphasis on empowering humans to be more… human (authentic + expressive). Here are some of my publications <a href="/publications/" class="intro-link"><i class="fas fa-file-alt"></i></a>.</p>
+        <p class="intro-text">I'm a <strong>Human-Agent Interaction researcher</strong> focused on <mark>amplifying human creativity</mark>. I design, build, and study tools that help novices develop domain expertise — with an emphasis on empowering humans to be more… human (authentic + expressive).</p>
+        <p class="intro-text">Here are some of my previous work <i class="fas fa-arrow-right arrow-icon"></i> <a href="/publications/" class="intro-link"><i class="fas fa-file-alt"></i></a> <a href="/projects/xr-physical-assault" class="intro-link"><i class="fas fa-microphone"></i></a></p>
     </div>
     <div class="intro-block">
         <p class="intro-label">position</p>
         <p class="intro-text">Currently part of the amazing <a href="https://smuhci.com/">SMU-HCI</a> community at the School of Computing and Information Systems, Singapore Management University. I'm also with the SMU HAI-Lab, advised by <a href="https://jchrisli.github.io/">Li Jiannan</a>.</p>
     </div>
     <div class="intro-block">
-        <p class="intro-label">education</p>
+        <p class="intro-label">education & experience</p>
         <p class="intro-text">
-            <ul class="intro-list">
-                <li class="intro-list-item">Ph.D. in Computer Science, Singapore Management University [2025-2029]</li>
-                <li class="intro-list-item">Master of Computing, National University of Singapore [2022-2024]</li>
-                <li class="intro-list-item">B.Sc. in Computing Science (First Class Honours), University of Glasgow [2018-2020]</li>
-            </ul>
+            <table class="intro-table">
+                <tr>
+                    <td class="intro-table-number" style="color: #3b82f6;">25-29</td>
+                    <td class="intro-table-content">Ph.D. in Computer Science, Singapore Management University</td>
+                </tr>
+                <tr>
+                    <td class="intro-table-number">22-24</td>
+                    <td class="intro-table-content">Master of Computing, National University of Singapore</td>
+                </tr>
+                <tr>
+                    <td class="intro-table-number">18-20</td>
+                    <td class="intro-table-content">B.Sc. in Computing Science (First Class Honours), University of Glasgow</td>
+                </tr>
+            </table>
         </p>
     </div>
     <div class="intro-block">
         <p class="intro-label">others</p>
-        <p class="intro-text">Enjoy building and occasionally crashing interplanetary rockets in Kerbal Space Program 🚀</p>
+        <p class="intro-text">Enjoy building and occasionally crashing interplanetary rockets in Kerbal Space Program 🚀 and creating unnecessarily complicated factory designs in Factorio 🔧</p>
         <p class="intro-text">If you wanna chat, drop me a text! <a href="https://instagram.com/emranpoh" target="_blank" class="intro-link"><i class="fab fa-instagram"></i></a> <a href="https://t.me/emranpoh" target="_blank" class="intro-link"><i class="fab fa-telegram"></i></a></p>
     </div>
   </div>
@@ -81,6 +91,12 @@
   font-size: 1.125rem;
 }
 
+.intro-text mark {
+    padding: 0 0.25rem;
+    border-radius: 0.25rem;
+    background-color: #fef08a;
+}
+
 .intro-link {
   display: inline-flex;
   align-items: center;
@@ -92,17 +108,23 @@
   text-decoration: none;
   font-weight: 500;
   transition: all 0.2s ease;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.75rem;
+  height: 1.75rem;
 }
 
 .intro-link i {
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 
 .intro-link:hover {
   background-color: #e5e7eb;
   transform: translateY(-1px);
+}
+
+.arrow-icon {
+  font-size: 0.875rem;
+  color: #666;
+  margin: 0 0.25rem;
 }
 
 .intro-list {
@@ -118,6 +140,26 @@
 .intro-list-item {
   margin-bottom: 0.5rem;
   font-size: 1.125rem;
+}
+
+.intro-table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.intro-table-number {
+    padding-right: 1rem;
+    font-weight: 600;
+    color: #666;
+    vertical-align: top;
+    font-size: 0.875rem;
+    min-width: 3.25rem;
+}
+
+.intro-table-content {
+    font-size: 1.125rem;
+    line-height: 1.5;
 }
 
 @media (max-width: 768px) {
@@ -147,6 +189,10 @@
   }
   .intro-list {
     display: block;
+  }
+  .intro-table {
+    display: block;
+    width: 100%;
   }
 }
 

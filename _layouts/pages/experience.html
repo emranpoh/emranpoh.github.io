@@ -1,0 +1,113 @@
+---
+layout: pages/default
+---
+
+<div class="nav-container">
+    {% include components/nav-buttons.html %}
+</div>
+
+<div class="experience-container">
+
+    <div class="experience-content">
+        {{ content }}
+    </div>
+</div>
+
+<style>
+.nav-container {
+    max-width: 60%;
+    margin: 0 auto;
+}
+
+.experience-container {
+    max-width: 60%;
+    margin: 0 auto;
+}
+
+.experience-header {
+    margin-bottom: 2rem;
+}
+
+.experience-header h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+    text-transform: lowercase;
+}
+
+.experience-content {
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.experience-content h2 {
+    font-size: 1.25rem;
+    margin: 2rem 0 1rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.experience-content h3 {
+    font-size: 1rem;
+    margin: 1.5rem 0 0.75rem;
+    color: #444;
+    font-weight: 500;
+}
+
+.experience-content p {
+    margin-bottom: 1rem;
+    color: #666;
+    font-size: 1rem;
+}
+
+.experience-content ul {
+    margin-bottom: 1.5rem;
+}
+
+.experience-content li {
+    margin-bottom: 0.5rem;
+    color: #666;
+    font-size: 1rem;
+}
+
+.experience-content strong {
+    color: #333;
+    font-weight: 600;
+}
+
+.experience-content em {
+    color: #555;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        max-width: 100%;
+        /* padding: 0 1rem; */
+    }
+    
+    .experience-container {
+        max-width: 100%;
+        /* padding: 1rem; */
+    }
+    
+    .experience-header h1 {
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+    
+    .experience-content h2 {
+        font-size: 1.25rem;
+    }
+    
+    .experience-content h3 {
+        font-size: 1rem;
+    }
+    
+    .experience-content p,
+    .experience-content li {
+        font-size: 0.875rem;
+    }
+}
+</style> 

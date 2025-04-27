@@ -3,6 +3,9 @@
         <a href="{{ '/' | relative_url }}" title="Home" class="icon-link {% if page.url == '/' %}active{% endif %}">
             <i class="fas fa-home"></i>
         </a>
+        <a href="/experience" title="Experience" class="icon-link {% if page.url == '/experience/' %}active{% endif %}">
+            <i class="fas fa-briefcase"></i>
+        </a>
         <a href="https://scholar.google.com/citations?user={{ site.scholar_id }}&hl=en" target="_blank" title="Google Scholar" class="icon-link scholar-link">
             <img src="{{ '/assets/images/scholar.svg' | relative_url }}" alt="Google Scholar" class="scholar-icon">
         </a>
@@ -20,7 +23,6 @@
         </a>
         <a href="mailto:{{ site.email }}" title="Email" class="icon-link">
             <i class="fas fa-envelope"></i>
-            <span class="email-label long-label">{{ site.email | replace: '@', ' [at] ' }}</span>
         </a>
     </span>
     <span class="filler"></span>
@@ -184,8 +186,4 @@
     background: rgba(241, 243, 245, 0.3); /* faint version of #f1f3f5 */
     border-radius: 8px;
 }
-</style>
-
-<script>
-// All button group functionality is now handled in expandable-button-group.html
-</script> 
+</style> 

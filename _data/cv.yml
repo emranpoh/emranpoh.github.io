@@ -1,0 +1,190 @@
+research_interests: "Agent-assisted Creative Workflows, Collaborative Systems for Intimacy"
+
+professional:
+  - start_month: "Jan"
+    start_year: "2024"
+    end_month: ""
+    end_year: ""
+    current: true
+    title: "UX Research Engineer"
+    organization: "Singapore Management University"
+    description: "Working on human-agent interactions and HCI research under [Li Jiannan](https://jchrisli.github.io/). Focus on collaborative interactions and user experience design."
+    link: "https://jchrisli.github.io/"
+
+  - start_month: "Jan"
+    start_year: "2023"
+    end_month: "Feb"
+    end_year: "2024"
+    title: "Research Project Manager"
+    organization: "Synteraction Lab (formerly NUS-HCI Lab), NUS, SG"
+    description: |
+      *Collaborative Artefact Awareness for Partially-Replicated Workspaces*
+      - Developed an artefact awareness interaction framework for cross-reality collaboration, and evaluated its effectiveness through exploratory and pilot studies.
+    notable_presentations:
+      - date: "Jan 24"
+        title: "Emptiness, Isolation, Death: Parallels from Kojima's Death Stranding for Human Connection"
+      - date: "Jun 23"
+        title: "'How to use XR for Physical Assault' — A Less-than-Optimistic Commentary of 'The Ethics of Realism in Virtual and Augmented Reality' through Netflix's Black Mirror"
+
+  - start_month: "Feb"
+    start_year: "2023"
+    end_month: "Jul"
+    end_year: "2023"
+    title: "AR Developer"
+    organization: "NUS Center for the Arts, SG"
+    description: |
+      *Be-Longing: An Immersive AR Concept, Advisor: Anand Bhojan*
+      Created an Android-based AR site-specific experiential artwork for the NUS Arts Festival 2023
+
+  - start_month: "Jan"
+    start_year: "2021"
+    end_month: "Dec"
+    end_year: "2022"
+    title: "UX Research Engineer"
+    organization: "Center for Immersification"
+    description: |
+      Worked on immersive technologies and interactive systems development.
+      *MR for Design for Manufacturing and Design Assembly (MR4DFMA)*
+      - Led a multidisciplinary research and development team in creating an industrial MR application for engineering force and assembly visualisation leading to [4 publications](#) that focused on the load application interface, utility of MR for assembly and stress visualisation.
+      - Supervised 10 undergraduate students in offshore project topics, including remote collaboration in MR, assembly UI design, project and code management, experimental design and analysis, and research writing.
+    notable_projects:
+      - date: "Apr 23"
+        title: "The Institution of Engineering and Technology (IET) Singapore Talk"
+      - date: "Oct 22"
+        title: "International Symposium on Mixed and Augmented Reality (ISMAR) Visit to SIT"
+      - date: "Feb 22"
+        title: "2022 Singapore Airshow"
+      - date: "Sep 21"
+        title: "Infocomm Media Development Authority (IMDA) Educational Visit"
+
+  - start_month: "Jan"
+    start_year: "2021"
+    end_month: "Jul"
+    end_year: "2023"
+    title: "Creative Technology Consultant (Freelance)"
+    organization: "Got Drip? Coffee Company, SG"
+    description: |
+      Lead branding initiatives, curate web assets, and packaging designs, and collaborate with creative directors and junior staff to engage clients and customers through diverse digital channels within budgetary constraints
+
+  - start_month: "Jan"
+    start_year: "2015"
+    end_month: "Dec"
+    end_year: "2015"
+    title: "Research Intern"
+    organization: "Advanced Digital Science Centre (by University of Illinois Urbana-Champaign), SG"
+    description: |
+      Assisted in code refactoring and graphic design work in an international research software team
+
+  - start_month: "Jan"
+    start_year: "2014"
+    end_month: "Dec"
+    end_year: "2016"
+    title: "Frontend Developer Intern → UI/UX Developer (Freelance)"
+    organization: "Cyclone Creative Technology, SG"
+    description: |
+      Coordinated with an in-house designer in various front-end projects such as Client-side web development, UI, and UX Design for various clients such as YouTube and GE, from web design to online advertisement design
+
+teaching:
+  - term: "Winter 23"
+    year: "2023"
+    course: "Professional Certificate in User Interface and Interaction Design"
+    role: "Graduate Teaching Assistant"
+    organization: "School of Computing, NUS, SG"
+    instructor: "Zhao Shengdong"
+  - term: "Fall 23"
+    year: "2023"
+    course: "CS3240 Interaction Design"
+    role: "Graduate Teaching Assistant"
+    organization: "School of Computing, NUS, SG"
+    instructor: "Zhao Shengdong"
+  - term: "Summer 23"
+    year: "2023"
+    course: "Professional Certificate in User Interface and Interaction Design (Run 1, 2)"
+    role: "Graduate Teaching Assistant"
+    organization: "School of Computing, NUS, SG"
+    instructor: "Zhao Shengdong"
+    description: "Assisted and conducted a six-day professional certification course to a group of 20 industry professionals"
+  - term: "Spring 23"
+    year: "2023"
+    course: "CS4240 Interaction Design for Virtual and Augmented Reality"
+    role: "Graduate Teaching Assistant"
+    organization: "School of Computing, NUS, SG"
+    instructor: "Anand Bhojan"
+    description: |
+      Provided personalized guidance and supervision to a diverse group of 20+ undergraduate and graduate students, to 5 project teams comprising of 30 students
+      Led 3 teams working on VR-based educational games to win prestigious prizes in the 22nd SoC Term Project Showcase (STePS)
+  - year: "2021"
+    course: "LaTeX Crash Course"
+    role: "Instructor"
+    organization: "Center for Immersification, SIT, SG"
+    description: "Monthly z-axis, Delivered an informative one-day crash course on LaTeX to fellow lab researchers and faculty members"
+  - term: "Apr 25"
+    year: "2025"
+    course: "Minecraft Coding Camp"
+    role: "Instructor"
+    organization: "Lucidspark"
+    description: "Instructor for Minecraft Coding Camp at Lucidspark."
+
+education:
+  - start_month: ""
+    start_year: "2025"
+    end_month: ""
+    end_year: "2029"
+    title: "Doctor of Philosophy (Computer Science)"
+    organization: "Singapore Management University (SMU)"
+    location: "SG"
+    thesis: ""
+    advisor: "Jiannan Li"
+  - start_month: ""
+    start_year: "2022"
+    end_month: ""
+    end_year: "2024"
+    title: "Master of Computing (Computer Science Specialisation)"
+    organization: "National University of Singapore (NUS)"
+    location: "SG"
+    thesis: "Understanding Artefact Awareness for Partially-Replicated Workspace"
+    advisor: "Anthony Tang, Jeannie Lee, Zhao Shengdong"
+    courses: "Phenomena and Theories of Human-Computer Interaction (HCI), Theoretical Foundations of Multimedia"
+  - start_month: ""
+    start_year: "2018"
+    end_month: ""
+    end_year: "2020"
+    title: "Bachelor of Science (First Class Hons) in Computing Science"
+    organization: "University of Glasgow"
+    location: "SG"
+    thesis: "3D User Interface in Mixed Reality for Engineering Design Finite Element Analysis"
+    advisor: "Kyrin Liong, Jeannie Lee"
+
+skills:
+  - "User Experience Research"
+  - "Human-Computer Interaction"
+  - "Immersive Technologies"
+  - "Interactive Systems Design"
+  - "[Add more relevant skills]"
+
+languages:
+  - language: "English"
+    writing_fluency: "Fluent"
+    speaking_fluency: "Fluent"
+  - language: "Malay"
+    writing_fluency: "Fluent"
+    speaking_fluency: "Fluent"
+  - language: "Indonesian"
+    writing_fluency: "Fluent"
+    speaking_fluency: "Fluent"
+  - language: "Mandarin"
+    writing_fluency: "None"
+    speaking_fluency: "Beginner"
+
+scholarships:
+  - year: "2022"
+    name: "NUS MComp Study Award"
+    amount: "SGD$ 20,000"
+    description: "Awarded to exceptional MComp applicants at NUS"
+  - year: "2020"
+    name: "MENDAKI Anugerah Cemerlang Award"
+    amount: "SGD$ 1000"
+    description: "Awarded to students who attained first-class honours"
+  - year: "2025"
+    name: "SMU Research Scholarship"
+    description: "Awarded to PhD students for research excellence at SMU"
