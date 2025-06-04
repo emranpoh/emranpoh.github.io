@@ -43,7 +43,8 @@ plugins:
 collections:
   posts:
     output: true
-    permalink: /posts/:title/
+    permalink: /content/posts/:title/
+    path: content/posts
   projects:
     output: true
     permalink: /projects/:title/
@@ -63,7 +64,7 @@ defaults:
       layout: "pages/default"
       permalink: /
   - scope:
-      path: "_content/posts"
+      path: "content/posts"
       type: "posts"
     values:
       layout: "posts/post"

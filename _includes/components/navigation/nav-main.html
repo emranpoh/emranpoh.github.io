@@ -1,4 +1,4 @@
-<div class="nav-buttons">
+<div class="nav-main">
     <span class="nav-group">
         <a href="{{ '/' | relative_url }}" title="Home" class="icon-link {% if page.url == '/' %}active{% endif %}">
             <i class="fas fa-home"></i>
@@ -6,50 +6,17 @@
         <a href="/experience" title="Experience" class="icon-link {% if page.url == '/experience/' %}active{% endif %}">
             <i class="fas fa-briefcase"></i>
         </a>
-        <a href="https://scholar.google.com/citations?user={{ site.scholar_id }}&hl=en" target="_blank" title="Google Scholar" class="icon-link scholar-link">
-            <img src="{{ '/assets/images/scholar.svg' | relative_url }}" alt="Google Scholar" class="scholar-icon">
-        </a>
-        <a href="https://github.com/{{ site.github_username }}" target="_blank" title="GitHub" class="icon-link">
-            <i class="fab fa-github"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}/" target="_blank" title="LinkedIn" class="icon-link">
-            <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="https://instagram.com/{{ site.instagram_username }}" target="_blank" title="Instagram" class="icon-link">
-            <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://t.me/{{ site.telegram_username }}" target="_blank" title="Telegram" class="icon-link">
-            <i class="fab fa-telegram"></i>
-        </a>
-        <a href="mailto:{{ site.email }}" title="Email" class="icon-link">
-            <i class="fas fa-envelope"></i>
-        </a>
-    </span>
-    <span class="filler"></span>
-</div>
-<div class="nav-buttons">
-    <span class="nav-group">
-        <a href="/publications/art01" title="Cross-Reality Artefact Awareness" class="icon-link text-link">
-            <i class="fas fa-file-alt"></i>
-            <span class="long-label">Cross-Reality Artefact Awareness</span>
-            <span class="short-label">Cross-Reality Artefact Awareness</span>
-        </a>
-    </span>
-    <span class="filler"></span>
-</div>
-<div class="nav-buttons">
-    <span class="nav-group">
-        <a href="/projects/xr-physical-assault" title="How to use XR for Physical Assault" class="icon-link text-link">
-            <i class="fas fa-microphone"></i>
-            <span class="long-label">How to use XR for Physical Assault</span>
-            <span class="short-label">How to use XR for Physical Assault</span>
+        <a href="{{ '/content/posts/' | relative_url }}" title="Blog" class="icon-link text-link {% if page.url contains '/content/posts' %}active{% endif %}">
+            <i class="fas fa-blog"></i>
+            <span class="long-label">Blog</span>
+            <span class="short-label">Blog</span>
         </a>
     </span>
     <span class="filler"></span>
 </div>
 
 <style>
-.nav-buttons {
+.nav-main {
     width: 100%;
     margin-left: auto;
     justify-content: flex-end;
@@ -67,7 +34,7 @@
     flex-wrap: wrap;
 }
 
-.nav-buttons .icon-link {
+.nav-main .icon-link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -82,22 +49,22 @@
     background: #f1f3f5;
 }
 
-.nav-buttons .icon-link:hover,
-.nav-buttons .icon-link:focus,
-.nav-buttons .icon-link:active {
+.nav-main .icon-link:hover,
+.nav-main .icon-link:focus,
+.nav-main .icon-link:active {
     text-decoration: none !important;
     text-transform: none !important;
     transform: none !important;
     background-color: rgba(0, 0, 0, 0.05);
 }
 
-.nav-buttons .icon-link:visited {
+.nav-main .icon-link:visited {
     text-decoration: none !important;
     text-transform: none !important;
     transform: none !important;
 }
 
-.nav-buttons .icon-link.text-link {
+.nav-main .icon-link.text-link {
     width: auto !important;
     height: 36px;
     padding: 0 1rem;
@@ -107,7 +74,7 @@
     border-radius: 8px;
 }
 
-.nav-buttons .icon-link.text-link i {
+.nav-main .icon-link.text-link i {
     font-size: 1rem;
     margin-right: 0.5rem;
 }
@@ -126,7 +93,7 @@
 @media (max-width: 768px) {
     .long-label { display: none; }
     .short-label { display: inline; }
-    .nav-buttons { margin-bottom: 0.5rem; }
+    .nav-main { margin-bottom: 0.5rem; }
     .scholar-icon {
         height: 1.5rem;
         width: 1.5rem;
@@ -136,7 +103,7 @@
 @media (min-width: 769px) {
     .long-label { display: inline; }
     .short-label { display: none; }
-    .nav-buttons .icon-link i {
+    .nav-main .icon-link i {
         font-size: 1rem;
     }
     .scholar-icon {
@@ -166,14 +133,14 @@
     padding: 0 1rem;
 }
 
-.nav-buttons .icon-link.active {
+.nav-main .icon-link.active {
     background: transparent;
     border: 2px dotted #666;
     color: #666;
     opacity: 0.5;
 }
 
-.nav-buttons .icon-link.active:hover {
+.nav-main .icon-link.active:hover {
     background: rgba(0, 0, 0, 0.05);
     border-color: #666;
     opacity: 0.7;

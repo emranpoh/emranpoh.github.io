@@ -1,10 +1,13 @@
-<div class="nav-buttons">
+<div class="nav-main">
     <span class="nav-group">
         <a href="{{ '/' | relative_url }}" class="icon-link text-link home-link {% if page.url == '/' %}active{% endif %}">
             <i class="fas fa-home"></i>
         </a>
         <a href="/publications" class="icon-link text-link pub-icon-link {% if page.url contains '/publications' %}active{% endif %}">
             <i class="fas fa-file-alt"></i>
+        </a>
+        <a href="{{ '/content/posts/' | relative_url }}" class="icon-link text-link {% if page.url contains '/content/posts' %}active{% endif %}">
+            <span>Blog</span>
         </a>
         {% for pub in site.data.pubs %}
             {% assign is_first_author = false %}
@@ -24,7 +27,7 @@
 </div>
 
 <style>
-.nav-buttons {
+.nav-main {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -41,7 +44,7 @@
     flex-wrap: wrap;
 }
 
-.nav-buttons .icon-link {
+.nav-main .icon-link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -50,11 +53,11 @@
     transition: background-color 0.2s ease;
 }
 
-.nav-buttons .icon-link:hover {
+.nav-main .icon-link:hover {
     background-color: #e5e7eb !important;
 }
 
-.nav-buttons .icon-link.text-link {
+.nav-main .icon-link.text-link {
     width: auto;
     min-width: 36px;
     height: 36px;
@@ -66,44 +69,44 @@
     padding: 0 1rem;
 }
 
-.nav-buttons .icon-link.text-link.home-link {
+.nav-main .icon-link.text-link.home-link {
     width: 36px;
     padding: 0;
 }
 
-.nav-buttons .icon-link.text-link.pub-link.disabled {
+.nav-main .icon-link.text-link.pub-link.disabled {
     opacity: 0.5;
     cursor: not-allowed;
 }
 
-.nav-buttons .icon-link.text-link span {
+.nav-main .icon-link.text-link span {
     white-space: nowrap;
 }
 
-.nav-buttons .icon-link.text-link i {
+.nav-main .icon-link.text-link i {
     font-size: 0.9rem;
 }
 
-.nav-buttons .icon-link.text-link.pub-icon-link {
+.nav-main .icon-link.text-link.pub-icon-link {
     width: 36px;
     padding: 0;
 }
 
-.nav-buttons .icon-link.active {
+.nav-main .icon-link.active {
     background: transparent;
     border: 2px dotted #666;
     color: #666;
     opacity: 0.5;
 }
 
-.nav-buttons .icon-link.active:hover {
+.nav-main .icon-link.active:hover {
     background: rgba(0, 0, 0, 0.05);
     border-color: #666;
     opacity: 0.7;
 }
 
 @media (min-width: 769px) {
-    .nav-buttons .icon-link.text-link {
+    .nav-main .icon-link.text-link {
         width: auto;
     }
 }

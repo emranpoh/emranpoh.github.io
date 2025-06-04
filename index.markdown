@@ -5,6 +5,24 @@ id: emran
 ---
 
 <style>
+.main-content {
+    display: flex;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.left-column {
+    flex: 0.2;
+    max-width: 20%;
+}
+
+.right-column {
+    flex: 0.8;
+    max-width: 80%;
+}
+
 @media (max-width: 768px) {
     .navbar {
         display: none;
@@ -141,6 +159,14 @@ id: emran
     .mobile-profile {
         display: flex !important;
     }
+    .main-content {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    .left-column,
+    .right-column {
+        max-width: 100%;
+    }
 }
 
 @media (min-width: 769px) {
@@ -261,16 +287,13 @@ id: emran
 }
 </style>
 
-<div class="desktop-container">
-
-    {% include components/nav-buttons.html %}
-
-    {% include layouts/profile.html %}
-
-    {% include components/intro.html %}
-
-    {% include layouts/desktop/main.html %}
-    
-    {% include layouts/mobile/main.html %}
-
+<div class="main-content">
+    <div class="left-column">
+        {% include layouts/profile.html %}
+    </div>
+    <div class="right-column">
+        {% include components/intro.html %}
+        {% include layouts/desktop/main.html %}
+        {% include layouts/mobile/main.html %}
+    </div>
 </div>

@@ -17,22 +17,16 @@
     }
   </script>
 </head>
-<body>
-  <div class="container">
-    <main class="content content-{{ page.id | default: page.title | replace: ' ', '-' | slice: 0, 5 }}" style="display: block;">
+<body style="min-height:100vh;display:flex;flex-direction:column;">
+  <div class="container" style="flex:1 0 auto;display:flex;flex-direction:column;min-height:0;">
+    
+    {% include components/navigation/nav-main.html %}
+
+    <main class="content content-{{ page.id | default: page.title | replace: ' ', '-' | slice: 0, 5 }}" style="display: block;flex:1 0 auto;">
       {{ content }}
     </main>
 
-    <!-- <footer>
-      <div class="footer-links">
-        <a href="https://scholar.google.com/citations?user=wYcrORkAAAAJ&hl=en">
-          <img src="{{ '/assets/images/scholar.svg' | relative_url }}" alt="Google Scholar icon" class="icon icon-lg">
-        </a>
-      </div>
-      <div>
-        <p class="powered-by-text">Powered by Jekyll and <b>my own da*n</b> theme. &copy; {{ site.author }} {{ site.year }}</p>
-      </div>
-    </footer> -->
+    {% include components/footer.html %}
   </div>
 </body>
 </html>

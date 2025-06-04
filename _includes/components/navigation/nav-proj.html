@@ -1,14 +1,17 @@
-<div class="nav-buttons" style="margin-bottom: 2rem; margin-left: auto; margin-right: auto;">
+<div class="nav-main" style="margin-bottom: 2rem; margin-left: auto; margin-right: auto;">
     <span class="nav-group" style="display: inline-flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
         <a href="{{ '/' | relative_url }}" class="icon-link text-link" style="width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: #f1f3f5;">
             <i class="fas fa-home" style="font-size: 0.9rem;"></i>
+        </a>
+        <a href="{{ '/content/posts/' | relative_url }}" class="icon-link text-link" style="width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: #f1f3f5;">
+            <i class="fas fa-blog" style="font-size: 0.9rem;"></i>
         </a>
     </span>
     <span class="filler"></span>
 </div>
 
 <style>
-.nav-buttons {
+.nav-main {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -25,7 +28,7 @@
     flex-wrap: wrap;
 }
 
-.nav-buttons .icon-link {
+.nav-main .icon-link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -34,11 +37,11 @@
     transition: background-color 0.2s ease;
 }
 
-.nav-buttons .icon-link:hover {
+.nav-main .icon-link:hover {
     background-color: #e5e7eb !important;
 }
 
-.nav-buttons .icon-link.text-link {
+.nav-main .icon-link.text-link {
     width: 36px !important;
     height: 36px;
     display: inline-flex;
@@ -48,12 +51,12 @@
     background: #f1f3f5;
 }
 
-.nav-buttons .icon-link.text-link i {
+.nav-main .icon-link.text-link i {
     font-size: 0.9rem;
 }
 
 @media (min-width: 769px) {
-    .nav-buttons .icon-link.text-link {
+    .nav-main .icon-link.text-link {
         width: 36px !important;
     }
 }
