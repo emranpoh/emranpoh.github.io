@@ -5,15 +5,13 @@ permalink: /works/
 id: works
 ---
 
-{% include components/navigation.html %}
-
 <style>
 .works-nav-container {
   position: sticky;
   top: 0;
   z-index: 100;
   background: white;
-  padding: 1rem 0;
+  padding: 0 0 1rem 0;
   margin-bottom: 1rem;
   /* border-bottom: 1px solid #e5e7eb; */
 }
@@ -168,6 +166,8 @@ id: works
   margin-bottom: 16px;
   box-sizing: border-box;
   transition: transform 0.3s ease-out;
+  background: #fff;
+  border-radius: 16px;
 }
 
 .pub-item:nth-child(5n) {
@@ -183,6 +183,14 @@ id: works
   background: #f1f3f5;
   text-decoration: none !important;
   transform: none !important;
+}
+
+.placeholder-image {
+  width: 100%;
+  height: 140px;
+  background: #f8f8f8;
+  border-radius: 16px;
+  display: block;
 }
 </style>
 
@@ -240,6 +248,26 @@ id: works
           <!-- Project title hidden as requested -->
         </div>
       </a>
+    </div>
+  {% endfor %}
+  {% for pres in site.data.others.presentations %}
+    <div class="pub-item" data-type="presentation">
+      <a href="{{ pres.link | default: '#' }}" class="pub-image-link">
+        <div class="pub-image">
+          {% if pres.image %}
+            <img src="{{ '/assets/images/projects/' | append: pres.image | relative_url }}" alt="{{ pres.title }}">
+          {% else %}
+            <div class="placeholder-image"></div>
+          {% endif %}
+        </div>
+      </a>
+      <div class="pub-content">
+        <div class="pub-header">
+          <div class="pub-title">{{ pres.title }}</div>
+          <div class="pub-meta">{{ pres.event }}{% if pres.date %}, {{ pres.date | date: '%b %Y' }}{% endif %}</div>
+          <div class="pub-meta">{{ pres.description }}</div>
+        </div>
+      </div>
     </div>
   {% endfor %}
 </div>

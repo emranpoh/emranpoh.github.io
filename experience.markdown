@@ -9,6 +9,37 @@ id: experience
 
 {{ site.data.cv.research_interests }}
 
+## Education
+
+<table class="experience-table">
+    {% for edu in site.data.cv.education %}
+    <tr>
+        <td class="experience-year {% if edu.current == false and edu.end_year != '2025' %}past-year{% endif %} {% if edu.current %}current-year{% endif %}">
+            {%- if edu.end_year == '' -%}
+                {{ edu.start_month }} {{ edu.start_year | slice: -2, 2 }} - Now
+            {%- else -%}
+                {{ edu.start_month }} {{ edu.start_year | slice: -2, 2 }} - {{ edu.end_month }} {{ edu.end_year | slice: -2, 2 }}
+            {%- endif -%}
+        </td>
+        <td class="experience-content">
+            <div class="experience-year-mobile {% if edu.current == false and edu.end_year != '2025' %}past-year{% endif %} {% if edu.current %}current-year{% endif %}">
+                {%- if edu.end_year == '' -%}
+                    {{ edu.start_month }} {{ edu.start_year | slice: -2, 2 }} - Now
+                {%- else -%}
+                    {{ edu.start_month }} {{ edu.start_year | slice: -2, 2 }} - {{ edu.end_month }} {{ edu.end_year | slice: -2, 2 }}
+                {%- endif -%}
+            </div>
+            <strong>{{ edu.title }}</strong>{% if edu.organization %}{{ edu.organization }}{% endif %}{% if edu.location %}, {{ edu.location }}{% endif %}<br>
+            {% if edu.thesis %}<span class="edu-label">Thesis</span> {{ edu.thesis }}<br>{% endif %}
+            {% if edu.advisor %}<span class="edu-label">Adv:</span> <em>{{ edu.advisor }}</em><br>{% endif %}
+            {% if edu.courses %}<span class="edu-label">Courses</span> {{ edu.courses }}<br>{% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<hr class="section-divider">
+
 # Professional Experience
 
 <table class="experience-table">
@@ -73,37 +104,6 @@ id: experience
             <strong><span class="course-term-inline">{{ teach.term }}</span>{{ teach.course }}</strong>
             <span style="font-size:0.95em; color:#444;">{{ teach.role }}</span>{% if teach.organization %}, {{ teach.organization }}{% endif %}{% if teach.instructor %}, <em>Instructor: {{ teach.instructor }}</em>{% endif %}<br>
             {% if teach.description %}<span style="display: block; margin-top: 0.5em; color: #444; font-size: 0.97em;">{{ teach.description }}</span>{% endif %}
-        </td>
-    </tr>
-    {% endfor %}
-</table>
-
-<hr class="section-divider">
-
-## Education
-
-<table class="experience-table">
-    {% for edu in site.data.cv.education %}
-    <tr>
-        <td class="experience-year {% if edu.current == false and edu.end_year != '2025' %}past-year{% endif %} {% if edu.current %}current-year{% endif %}">
-            {%- if edu.end_year == '' -%}
-                {{ edu.start_month }} {{ edu.start_year | slice: -2, 2 }} - Now
-            {%- else -%}
-                {{ edu.start_month }} {{ edu.start_year | slice: -2, 2 }} - {{ edu.end_month }} {{ edu.end_year | slice: -2, 2 }}
-            {%- endif -%}
-        </td>
-        <td class="experience-content">
-            <div class="experience-year-mobile {% if edu.current == false and edu.end_year != '2025' %}past-year{% endif %} {% if edu.current %}current-year{% endif %}">
-                {%- if edu.end_year == '' -%}
-                    {{ edu.start_month }} {{ edu.start_year | slice: -2, 2 }} - Now
-                {%- else -%}
-                    {{ edu.start_month }} {{ edu.start_year | slice: -2, 2 }} - {{ edu.end_month }} {{ edu.end_year | slice: -2, 2 }}
-                {%- endif -%}
-            </div>
-            <strong>{{ edu.title }}</strong>{% if edu.organization %}{{ edu.organization }}{% endif %}{% if edu.location %}, {{ edu.location }}{% endif %}<br>
-            {% if edu.thesis %}<span class="edu-label">Thesis</span> {{ edu.thesis }}<br>{% endif %}
-            {% if edu.advisor %}<span class="edu-label">Adv:</span> <em>{{ edu.advisor }}</em><br>{% endif %}
-            {% if edu.courses %}<span class="edu-label">Courses</span> {{ edu.courses }}<br>{% endif %}
         </td>
     </tr>
     {% endfor %}

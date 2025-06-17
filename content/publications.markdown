@@ -12,7 +12,13 @@ id: pubs
   <div class="pub-item">
      <a href="{{ pub.url | relative_url }}" class="pub-image-link">
         <div class="pub-image">
-           {% if pub.image %}
+           {% if pub.images %}
+           <div class="pub-image-gallery">
+             {% for image in pub.images limit:4 %}
+             <img src="{{ '/assets/images/projects/' | append: image | relative_url }}" alt="{{ pub.title }}">
+             {% endfor %}
+           </div>
+           {% elsif pub.image %}
            <img src="{{ '/assets/images/projects/' | append: pub.image | relative_url }}" alt="{{ pub.title }}">
            {% else %}
            <div class="placeholder-image"></div>

@@ -26,6 +26,12 @@
         margin: 0;
         padding: 2rem;
       }
+      .page-container {
+        display: flex;
+        gap: 1rem;
+        /* width: 100%; */
+        max-width: 1200px;
+      }
       .container {
         width: 800px;
         height: 90vh;
@@ -37,7 +43,6 @@
         position: relative;
         display: flex;
         flex-direction: column;
-        /* margin: 2rem 0; */
       }
       .content {
         flex: 1;
@@ -47,12 +52,16 @@
   </style>
   <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 </head>
-<body style="min-height:100vh;display:flex;flex-direction:column;">
-  <div class="container" id="main-container">
-    {% include components/navigation.html %}
-    <main class="content content-{{ page.id | default: page.title | replace: ' ', '-' | slice: 0, 5 }}" id="main-content">
-      {{ content }}
-    </main>
+<body style="min-height:100vh;">
+  <div class="page-center-wrap" style="display:flex;justify-content:center;align-items:center;min-height:100vh;width:100vw;">
+    <div class="page-container" style="display:flex;gap:1rem;">
+      {% include components/sidebar.html %}
+      <div class="container" id="main-container">
+        <main class="content content-{{ page.id | default: page.title | replace: ' ', '-' | slice: 0, 5 }}" id="main-content">
+          {{ content }}
+        </main>
+      </div>
+    </div>
   </div>
 </body>
 </html>
