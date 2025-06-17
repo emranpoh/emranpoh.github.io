@@ -100,18 +100,3 @@
   tags:
     - name: "pdf"
       url: "https://irr.singaporetech.edu.sg/articles/conference_contribution/Designing_with_Holograms_A_Preliminary_Study_On_Improving_Design_Visualisation_Through_Holographic_Display/23651547/1/files/41505537.pdf"
-
-- title: "In-Situ Visual Guidance for Software Task Assistance and Learning"
-  title_short: "In-Situ Visual Guidance"
-  authors: "Emran Poh, Hou Yueyue, and Jiannan Li"
-  venue_short: "in-progress"
-  venue: "in-progress"
-  location: "Singapore"
-  year: 2025
-  image: "mmguide-image.png"
-  status: "submitted"
-  institution: "smu-hai"
-  is-selected: true
-  emoji: "💡"
-  url: "/publications/vis01"
-  abstract: "This work explores the use of in-situ visual guidance for software task assistance and learning, providing contextual help and instructions directly within the software interface."

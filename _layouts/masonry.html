@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ site.title }}</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap');
+  </style>
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('viewMode');
+    if (savedTheme === 'research') {
+      document.documentElement.classList.add('research-theme');
+    }
+  </script>
+  <style>
+    @media (min-width: 769px) {
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 2rem;
+      }
+      .page-center-wrap {
+        margin: 2rem;
+      }
+      .container {
+        width: calc(100% - 4rem);
+        height: calc(100vh - 4rem);
+        max-width: 100%;
+        max-height: 100vh;
+        overflow-y: auto;
+        background: white;
+        border-radius: 1rem;
+        padding: 2rem;
+        position: relative;
+      }
+      .content {
+        height: calc(100% - 60px);
+        overflow-y: auto;
+      }
+      .grid {
+        width: 100%;
+        margin: 0 auto;
+      }
+      .grid-item {
+        width: calc(33.333% - 1rem);
+        margin-bottom: 1.5rem;
+        background: #f1f3f5;
+        border-radius: 18px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        padding: 1rem 1rem 0.5rem 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: none !important;
+        animation: none !important;
+      }
+      .pub-image {
+        width: 100%;
+        height: auto;
+        min-height: unset;
+        max-height: unset;
+        padding: 0;
+        background: #f1f3f5;
+        display: block;
+        position: relative;
+        border-radius: 16px;
+      }
+      .pub-image-gallery {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4px;
+        width: 100%;
+        height: auto;
+        min-height: unset;
+        max-height: unset;
+        padding: 0;
+        background: #f1f3f5;
+        border-radius: 16px;
+        overflow: hidden;
+      }
+      .pub-image-gallery img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        aspect-ratio: 1;
+      }
+      .pub-image img,
+      .selected-project-card-bg-image img {
+        width: 100%;
+        height: auto;
+        min-height: unset;
+        max-height: unset;
+        border-radius: 16px;
+        object-fit: contain;
+        object-position: center;
+        display: block;
+      }
+      .grid-item .card-text {
+        width: 100%;
+        text-align: left;
+        margin-top: 0.5rem;
+        transition: background 0.2s;
+      }
+      .grid-item .card-text:hover {
+        background: #f5f6fa;
+        border-radius: 8px;
+      }
+      .tag-overlay {
+        display: none;
+      }
+      .project-tags {
+        display: none;
+      }
+      .tag {
+        display: none;
+      }
+      .pub-title {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .pub-venue {
+        margin-bottom: 0 !important;
+      }
+      .pub-meta {
+        font-size: 0.75rem !important;
+        color: #666 !important;
+      }
+      .grid-item,
+      .pub-item {
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+  </style>
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+</head>
+<body style="min-height:100vh;">
+  <div class="page-center-wrap" style="display:flex;min-height:100vh;width:100vw;">
+    <div class="page-container" style="display:flex;gap:1rem;width:100vw;margin:2rem;">
+      {% include components/sidebar.html %}
+      <div class="container" id="main-container" style="flex:1 0 auto;display:flex;flex-direction:column;min-height:0;height:calc(100vh - 4rem);max-height:100vh;">
+        <main class="content content-{{ page.id | default: page.title | replace: ' ', '-' | slice: 0, 5 }}" id="main-content" style="display: block;flex:1 0 auto;">
+          {{ content }}
+        </main>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

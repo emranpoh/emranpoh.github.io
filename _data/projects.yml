@@ -9,10 +9,7 @@
   is-collab: false
   is-selected: true
   emoji: "🎮"
-  tags:
-    - name: "project"
-      type: "project"
-      url: "/projects/death-stranding"
+  url: "/projects/gam01"
 
 - title: "How to Use XR for Physical Assault"
   subtitle: "A Less-than-Optimistic Commentary on `The Ethics of Realism in Virtual and Augmented Reality' through Netflix's Black Mirror"
@@ -25,6 +22,7 @@
   is-selected: true
   emoji: "🕶️"
   institution: "immersification"
+  url: "/projects/xr01"
 
 - title: "Be-Longing"
   image: "belonging.png"
@@ -36,6 +34,7 @@
   is-collab: true
   emoji: "✨"
   description: "Be-Longing is a site-specific, augmented reality (AR) experiential artwork on UTown Green that invites you to slow down and enjoy life as a community. This interactive experience lets participants 'light' AR sparklers using their mobile phones. As more AR sparklers are lighted, more AR balloons are floated in the sky – personifying the beauty of humanity, lifting and supporting each other in times of uncertainty."
+  url: "/projects/art02"
   tags:
     - name: "web"
       type: "web"
@@ -52,10 +51,7 @@
   end-year: 2023
   projtype: "art"
   emoji: "🎨"
-  tags:
-    - name: "project"
-      type: "project"
-      url: "/projects/geylang-drip-city"
+  url: "/projects/des01"
 
 - title: "Notifications: Reimagined"
   module: "CS4249 Phenomena and Theories of Human-Computer Interaction"
@@ -66,10 +62,7 @@
   end-year: 2019
   projtype: "research"
   emoji: "🔔"
-  tags:
-    - name: "project"
-      type: "project"
-      url: "/projects/notifications-reimagined"
+  url: "/projects/notifs01"
 
 - title: "A Decentralised Swarm-Based Mapping Algorithm for Search and Rescue Operations in a Disaster Relief Scenario"
   subtitle: "with Muhd Hazeeq, Saw Ye Kai, Marcus Tay Kai Yan"
@@ -79,10 +72,7 @@
   end-year: 2019
   projtype: "code"
   emoji: "🚁"
-  tags:
-    - name: "project"
-      type: "project"
-      url: "/projects/swarm-mapping"
+  url: "/projects/swarm01"
 
 - title: "Front Office System (FOS) for Hotel Management Mobile App"
   subtitle: "UX Lead for a collective project of 20 students"
@@ -92,7 +82,4 @@
   end-year: 2018
   projtype: "code"
   emoji: "🏨"
-  tags:
-    - name: "project"
-      type: "project"
-      url: "/projects/front-office-system"
+  url: "/projects/fos01"

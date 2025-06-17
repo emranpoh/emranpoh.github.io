@@ -3,9 +3,9 @@ research_interests: "Agent-assisted Creative Workflows, Collaborative Systems fo
 professional:
   - start_month: "Jan"
     start_year: "2024"
-    end_month: ""
-    end_year: ""
-    current: true
+    end_month: "May"
+    end_year: "2025"
+    current: false
     title: "UX Research Engineer"
     organization: "Singapore Management University"
     description: "Working on human-agent interactions and HCI research under [Li Jiannan](https://jchrisli.github.io/). Focus on collaborative interactions and user experience design."
@@ -129,7 +129,8 @@ education:
   - start_month: ""
     start_year: "2025"
     end_month: ""
-    end_year: "2029"
+    end_year: ""
+    current: true
     title: "Doctor of Philosophy (Computer Science)"
     organization: "Singapore Management University (SMU)"
     location: "SG"

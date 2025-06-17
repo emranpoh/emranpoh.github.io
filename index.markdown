@@ -6,21 +6,9 @@ id: emran
 
 <style>
 .main-content {
-    display: flex;
-    gap: 2rem;
-    max-width: 1200px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 2rem;
-}
-
-.left-column {
-    flex: 0.2;
-    max-width: 20%;
-}
-
-.right-column {
-    flex: 0.8;
-    max-width: 80%;
 }
 
 @media (max-width: 768px) {
@@ -78,9 +66,7 @@ id: emran
     .profile-name {
         font-size: 1.5rem;
         font-weight: 700;
-        /* margin-bottom: 0.25rem; */
         text-transform: lowercase;
-        /* letter-spacing: 0.05em; */
     }
     .profile-title {
         font-size: 0.875rem;
@@ -162,10 +148,6 @@ id: emran
     .main-content {
         flex-direction: column;
         padding: 1rem;
-    }
-    .left-column,
-    .right-column {
-        max-width: 100%;
     }
 }
 
@@ -288,12 +270,8 @@ id: emran
 </style>
 
 <div class="main-content">
-    <div class="left-column">
-        {% include layouts/profile.html %}
-    </div>
-    <div class="right-column">
-        {% include components/intro.html %}
-        {% include layouts/desktop/main.html %}
-        {% include layouts/mobile/main.html %}
-    </div>
+    {% include layouts/profile.html %}
+    {% include components/intro.html %}
+    {% include layouts/desktop/news.html %}
+    {% include layouts/mobile/news.html %}
 </div>

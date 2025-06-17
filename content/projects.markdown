@@ -1,14 +1,14 @@
 ---
-layout: pages/default
+layout: masonry
 title: projects
 permalink: /projects/
 id: projs
 ---
 
-<div class="content-gallery">
-  <div class="projects-grid">
-    {% for project in site.data.projects %}
-    <div class="project-card" data-year="{{ project.year }}" title="{{ project.description }}">
+<div class="projects-grid" style="margin:0 auto;">
+{% for project in site.data.projects %}
+  <div class="project-card" data-year="{{ project.year }}" title="{{ project.description }}">
+    <a href="{{ project.url | relative_url }}" class="project-link">
       <div class="selected-project-card-bg-image" 
         {% if project.image contains 'placeholder' %}
           style="background-image: url('https://via.placeholder.com/400x300?text=Project+Image'); background-size: cover; background-position: center;"
@@ -32,11 +32,12 @@ id: projs
           {% endif %}
         </span>
       </div>
-      <div>
-        {% if project.tags %}
-          <div class="project-tags">
-            {% for tag in project.tags %}
-              {% unless tag.name == 'talk' or tag.type == 'talk' %}
+      <div class="card-text">
+        <div class="selected-project-card-title">
+          <h3 class="project-title">{{ project.title }}</h3>
+          {% if project.tags %}
+            <div class="project-tags">
+              {% for tag in project.tags %}
                 <a href="{{ tag.url | relative_url }}" class="tag-link">
                   <span class="tag" data-tag="{{ tag.name }}">
                     {% if tag.name == 'pub' or tag.type == 'pub' %}
@@ -54,49 +55,47 @@ id: projs
                     {% endif %}
                   </span>
                 </a>
-              {% endunless %}
-            {% endfor %}
-          </div>
-        {% endif %}
-        <div style="display: flex; flex-direction: column; align-items: flex-start;">
-          <h3 class="project-title">{{ project.title }}</h3>
-          <p class="project-subtitle">{{ project.subtitle }}</p>
+              {% endfor %}
+            </div>
+          {% endif %}
         </div>
       </div>
-      <!-- {% if project.year %}
-      <div class="project-year">{{ project.year }}</div>
-      {% endif %} -->
-    </div>
-    {% endfor %}
+    </a>
   </div>
+{% endfor %}
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const projects = document.querySelectorAll('.project-card');
-    
-    filterButtons.forEach(button => {
-      button.addEventListener('click', function() {
-        const filter = this.getAttribute('data-filter');
-        
-        // Remove active class from all buttons
-        filterButtons.forEach(btn => {
-          btn.classList.remove('active');
-        });
-        
-        // Add active class to clicked button
-        this.classList.add('active');
-        
-        // Filter projects
-        projects.forEach(project => {
-          if (filter === 'all' || project.getAttribute('data-year') === filter) {
-            project.style.display = 'flex';
-          } else {
-            project.style.display = 'none';
-          }
-        });
-      });
+document.addEventListener('DOMContentLoaded', function() {
+  var homeLink = document.querySelector('a.nav-link[href="/"]');
+  var container = document.getElementById('main-container');
+  var mainContent = document.getElementById('main-content');
+  if (homeLink && container && mainContent) {
+    homeLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      container.style.transition = 'all 0.3s ease';
+      mainContent.style.transition = 'opacity 0.3s ease';
+      container.style.pointerEvents = 'none';
+      mainContent.style.opacity = '0';
+      setTimeout(function() {
+        window.location = homeLink.href;
+      }, 300);
     });
-  });
+  }
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var grid = document.querySelector('.projects-grid');
+  if (grid) {
+    new Masonry(grid, {
+      itemSelector: '.project-card',
+      columnWidth: '.project-card',
+      percentPosition: true,
+      gutter: 16,
+      transitionDuration: 0
+    });
+  }
+});
 </script>
