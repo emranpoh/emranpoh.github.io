@@ -2,111 +2,122 @@
 layout: pages/default
 ---
 
-{% include components/navigation/nav-proj.html %}
-    
-<header class="project-header">
-    <h1>{{ page.title }}</h1>
-    {% if page.subtitle %}
-    <h2 class="project-subtitle">{{ page.subtitle }}</h2>
-    {% endif %}
-    {% if page.date %}
-    <div class="project-meta">
-        <p>Date: {{ page.date | date: "%B %Y" }}</p>
+<article class="project-detail">
+    <header class="project-header">
+        <h1>{{ page.title }}</h1>
+        {% if page.subtitle %}
+        <h2 class="project-subtitle">{{ page.subtitle }}</h2>
+        {% endif %}
+        {% if page.date %}
+        <div class="project-meta">
+            <p>Date: {{ page.date | date: "%B %Y" }}</p>
+        </div>
+        {% endif %}
+    </header>
+
+    {% if page.image %}
+    <div class="project-image">
+        <img src="{{ '/assets/images/projects/' | append: page.image | relative_url }}" 
+                alt="{{ page.title }}">
     </div>
     {% endif %}
-</header>
 
-{% if page.image %}
-<div class="project-image">
-    <img src="{{ '/assets/images/projects/' | append: page.image | relative_url }}" 
-            alt="{{ page.title }}">
-</div>
-{% endif %}
+    {% if page.overview %}
+    <div class="project-overview">
+        <h2>Overview</h2>
+        <p>{{ page.overview }}</p>
+    </div>
+    {% endif %}
 
-{% if page.overview %}
-<div class="project-overview">
-    <h2>Overview</h2>
-    <p>{{ page.overview }}</p>
-</div>
-{% endif %}
-
+    <div class="project-content">
         {{ content }}
+    </div>
 
-        {% if page.technologies %}
-        <div class="project-technologies">
-            <h3>Technologies Used</h3>
-            <div class="tech-tags">
-                {% for tech in page.technologies %}
-                <span class="tech-tag">{{ tech }}</span>
-                {% endfor %}
-            </div>
+    {% if page.technologies %}
+    <div class="project-technologies">
+        <h3>Technologies Used</h3>
+        <div class="tech-tags">
+            {% for tech in page.technologies %}
+            <span class="tech-tag">{{ tech }}</span>
+            {% endfor %}
         </div>
-        {% endif %}
+    </div>
+    {% endif %}
 
-        {% if page.links %}
-        <div class="project-links">
-            <h3>Project Links</h3>
-            <div class="link-buttons">
-                {% for link in page.links %}
-                <a href="{{ link.url }}" class="link-button" target="_blank">
-                    <i class="{{ link.icon }}"></i>
-                    {{ link.text }}
-                </a>
-                {% endfor %}
-            </div>
+    {% if page.links %}
+    <div class="project-links">
+        <h3>Project Links</h3>
+        <div class="link-buttons">
+            {% for link in page.links %}
+            <a href="{{ link.url }}" class="link-button" target="_blank">
+                <i class="{{ link.icon }}"></i>
+                {{ link.text }}
+            </a>
+            {% endfor %}
         </div>
-        {% endif %}
+    </div>
+    {% endif %}
+</article>
 
 <style>
-/* Layout & Container Styles */
-.content-block {
-    max-width: 1200px;
+.project-detail {
+    max-width: 800px;
     margin: 0 auto;
     padding: 2rem 1rem;
 }
 
-.project-detail {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* Header Styles */
 .project-header {
     margin-bottom: 2rem;
 }
 
 .project-header h1 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-    line-height: 1.3;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: #111827;
+}
+
+.project-subtitle {
+    font-size: 1.5rem;
+    color: #4b5563;
+    margin-bottom: 1rem;
+    font-weight: normal;
 }
 
 .project-meta {
-    color: #666;
+    color: #6b7280;
+    font-size: 0.875rem;
 }
 
 .project-meta p {
     margin: 0.5rem 0;
 }
 
-/* Image Styles */
 .project-image {
     margin: 2rem 0;
 }
 
 .project-image img {
     width: 100%;
-    max-height: 400px;
+    max-height: 500px;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-/* Content Styles */
 .project-overview {
     margin: 2rem 0;
     padding: 1.5rem;
-    background-color: #f8f9fa;
-    border-radius: 8px;
+    background: #f8f9fa;
+    border-radius: 1rem;
+}
+
+.project-overview h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #111827;
 }
 
 .project-overview p {
@@ -117,22 +128,26 @@ layout: pages/default
 
 .project-content {
     line-height: 1.6;
-    font-size: 1rem;
+    font-size: 1.125rem;
+    color: #374151;
 }
 
 .project-content p {
     margin-bottom: 1.5rem;
-    font-size: 1rem;
 }
 
 .project-content h2 {
-    font-size: 1.5rem;
+    font-size: 1.875rem;
+    font-weight: 600;
     margin: 2rem 0 1rem;
+    color: #111827;
 }
 
 .project-content h3 {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
+    font-weight: 600;
     margin: 1.5rem 0 1rem;
+    color: #111827;
 }
 
 .project-content ul, 
@@ -145,23 +160,33 @@ layout: pages/default
     margin-bottom: 0.5rem;
 }
 
-/* Technology Tags */
 .project-technologies {
     margin-top: 2rem;
 }
 
-.tech-tag {
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
-    background-color: #e5e7eb;
-    border-radius: 9999px;
-    font-size: 0.875rem;
-    color: #374151;
-    margin-right: 0.5rem;
-    margin-bottom: 0.5rem;
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
 }
 
-/* Project Links */
+.tech-tag {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: #f1f3f5;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    color: #444;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+}
+
+.tech-tag:hover {
+    background: #e5e7eb;
+    color: #222;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
 .project-links {
     margin-top: 2rem;
 }
@@ -176,72 +201,33 @@ layout: pages/default
     display: inline-flex;
     align-items: center;
     padding: 0.5rem 1rem;
-    background-color: #f3f4f6;
-    border-radius: 8px;
+    background: #f1f3f5;
+    border-radius: 0.5rem;
     text-decoration: none;
-    color: #374151;
-    transition: background-color 0.2s ease;
+    color: #444;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
 }
 
 .link-button:hover {
-    background-color: #e5e7eb;
+    background: #e5e7eb;
+    color: #222;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 .link-button i {
     margin-right: 0.5rem;
 }
 
-/* Project Card Styles */
-.project-card {
-    display: flex;
-    flex-direction: column;
-    border-radius: 8px;
-    overflow: hidden;
-    align-items: flex-start;
-    border: 1px solid #e0e0e0;
-}
-
-.project-card-link {
-    text-decoration: none;
-    color: inherit;
-}
-
-.project-tags {
-    display: flex;
-    gap: 8px;
-    margin: 16px 0 4px 0;
-    padding: 0 8px;
-}
-
-.project-title {
-    font-size: 16px;
-    font-weight: 600;
-    padding: 0 8px;
-    line-height: 1.4;
-    text-align: left;
-    margin: 0;
-    display: flex;
-    align-items: flex-start;
-}
-
-.project-subtitle {
-    font-size: 1.75rem;
-    color: #4b5563;
-    margin-bottom: 1rem;
-    line-height: 1.4;
-    font-weight: normal;
-    padding: 0 8px;
-}
-
-.project-year {
-    font-size: 12px;
-    color: #777;
-    margin-top: 4px;
-    padding: 0 8px 8px;
-}
-
-/* Responsive Styles */
 @media (max-width: 768px) {
+    .project-header h1 {
+        font-size: 2rem;
+    }
+    
+    .project-subtitle {
+        font-size: 1.25rem;
+    }
+    
     .project-content {
         font-size: 1rem;
     }
@@ -254,10 +240,6 @@ layout: pages/default
         font-size: 1.25rem;
     }
     
-    .project-header h1 {
-        font-size: 1.75rem;
-    }
-    
     .link-buttons {
         flex-direction: column;
     }
@@ -265,15 +247,6 @@ layout: pages/default
     .link-button {
         width: 100%;
         justify-content: center;
-    }
-    
-    .project-card {
-        flex-direction: row;
-        gap: 4px;
-    }
-    
-    .project-tags {
-        display: none;
     }
 }
 </style> 

@@ -47,7 +47,7 @@ collections:
     path: content/posts
   projects:
     output: true
-    permalink: /projects/:title/
+    permalink: /projects/:name/
   publications:
     output: true
     permalink: /publications/:title/

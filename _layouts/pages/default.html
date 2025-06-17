@@ -16,17 +16,43 @@
       document.documentElement.classList.add('research-theme');
     }
   </script>
+  <style>
+    @media (min-width: 769px) {
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 2rem;
+      }
+      .container {
+        width: 800px;
+        height: 90vh;
+        max-width: 100%;
+        max-height: 90vh;
+        background: white;
+        border-radius: 1rem;
+        padding: 2rem;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        /* margin: 2rem 0; */
+      }
+      .content {
+        flex: 1;
+        overflow-y: auto;
+      }
+    }
+  </style>
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 </head>
 <body style="min-height:100vh;display:flex;flex-direction:column;">
-  <div class="container" style="flex:1 0 auto;display:flex;flex-direction:column;min-height:0;">
-    
-    {% include components/navigation/nav-main.html %}
-
-    <main class="content content-{{ page.id | default: page.title | replace: ' ', '-' | slice: 0, 5 }}" style="display: block;flex:1 0 auto;">
+  <div class="container" id="main-container">
+    {% include components/navigation.html %}
+    <main class="content content-{{ page.id | default: page.title | replace: ' ', '-' | slice: 0, 5 }}" id="main-content">
       {{ content }}
     </main>
-
-    {% include components/footer.html %}
   </div>
 </body>
 </html>

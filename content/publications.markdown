@@ -1,95 +1,44 @@
 ---
-layout: pages/default
+layout: masonry
 title: publications
 permalink: /publications/
 id: pubs
 ---
 
-<div class="content-block">
-
-   <h1>publications</h1>
-   
-   <div class="pubs-list">
-   {% if site.data.pubs %}
-      {% assign sorted_publications = site.data.pubs | sort: 'year' | reverse %}
-      {% for pub in sorted_publications %}
-      <div class="pub-item">
-         <div class="pub-image">
-            {% if pub.image %}
-            <img src="{{ '/assets/images/projects/' | append: pub.image | relative_url }}" alt="{{ pub.title }}">
-            {% else %}
-            <div class="placeholder-image"></div>
-            {% endif %}
-         </div>
-         <div class="pub-content">
-            <div class="pub-header">
-            <p class="pub-title-flair">{{ pub.mentioned }}</p>
-            <h2 class="pub-title">{{ pub.title }}</h2>
-            <p>{{pub.venue}}</p>
-               <!-- <p class="pub-citation">{{ pub.authors }}, "{{ pub.title }}"{% if pub.venue %}, {{ pub.venue }}{% endif %}{% if pub.location %}, {{ pub.location }}{% endif %}, {{ pub.year }}</p> -->
-            </div>
-            <div class="pub-footer">
-               <p class="pub-authors">{{pub.authors}}</p>
-               <div class="pub-tags">
-                  {% for tag in pub.tags %}
-                  <a href="{{ tag.url | relative_url }}" class="tag-link">
-                     <span class="tag" data-tag="{{ tag.name }}">{{ tag.name }}
-                     </span>
-                  </a>
-                  {% endfor %}
-               </div>
-            </div>
-         </div>
-      </div>
-      {% endfor %}
-   {% else %}
-      <p>No pubs available.</p>
-   {% endif %}
-   </div>
-
-</div>
-
-<div class="content-block" style="margin-top:56px;">
-   
-   <h1>research acknowledgements</h1>
-
-   <div class="pubs-list">
-   {% if site.data.pubs-ack %}
-      {% assign sorted_publications = site.data.pubs-ack | sort: 'year' | reverse %}
-      {% for pub in sorted_publications %}
-      <div class="pub-item">
-         <div class="pub-image">
-            {% if pub.image %}
-            <img src="{{ '/assets/images/projects/' | append: pub.image | relative_url }}" alt="{{ pub.title }}">
-            {% else %}
-            <div class="placeholder-image"></div>
-            {% endif %}
-         </div>
-         <div class="pub-content">
-            <div class="pub-header">
-            <p class="pub-title-flair">{{ pub.mentioned }}</p>
-            <h2 class="pub-title">{{ pub.title }}</h2>
-            <p>{{pub.venue}}</p>
-               <!-- <p class="pub-citation">{{ pub.authors }}, "{{ pub.title }}"{% if pub.venue %}, {{ pub.venue }}{% endif %}{% if pub.location %}, {{ pub.location }}{% endif %}, {{ pub.year }}</p> -->
-            </div>
-            <div class="pub-footer">
-               <p class="pub-authors">{{pub.authors}}</p>
-               <div class="pub-tags">
-                  {% for tag in pub.tags %}
-                  <a href="{{ tag.url | relative_url }}" class="tag-link">
-                     <span class="tag" data-tag="{{ tag.name }}">{{ tag.name }}
-                     </span>
-                  </a>
-                  {% endfor %}
-               </div>
-            </div>
-         </div>
-      </div>
-      {% endfor %}
-   {% else %}
-      <p>No pubs available.</p>
-   {% endif %}
-   </div>
+<div class="pubs-list" style="margin:0 auto;">
+{% if site.data.pubs %}
+  {% assign sorted_publications = site.data.pubs | sort: 'year' | reverse %}
+  {% for pub in sorted_publications %}
+  <div class="pub-item">
+     <a href="{{ pub.url | relative_url }}" class="pub-image-link">
+        <div class="pub-image">
+           {% if pub.image %}
+           <img src="{{ '/assets/images/projects/' | append: pub.image | relative_url }}" alt="{{ pub.title }}">
+           {% else %}
+           <div class="placeholder-image"></div>
+           {% endif %}
+        </div>
+     </a>
+     <a href="{{ pub.url | relative_url }}" class="pub-content">
+        <div class="pub-header">
+           <div class="pub-title">{{ pub.title }}</div>
+           <p class="pub-authors">
+             {% assign author_list = pub.authors | split: ',' %}
+             {% assign first_author = author_list[0] | strip %}
+             {% if author_list.size > 1 %}
+               {{ first_author | split: ' ' | last }} et al.
+             {% else %}
+               {{ first_author | split: ' ' | last }}
+             {% endif %}
+           </p>
+           <p class="pub-venue">{{ pub.venue_short }}, {{ pub.year }}</p>
+        </div>
+     </a>
+  </div>
+  {% endfor %}
+{% else %}
+  <p>No pubs available.</p>
+{% endif %}
 </div>
 
 <script>
@@ -140,5 +89,17 @@ document.addEventListener('DOMContentLoaded', function() {
       });
    });
    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  var grid = document.querySelector('.pubs-list');
+  if (grid) {
+    new Masonry(grid, {
+      itemSelector: '.pub-item',
+      columnWidth: '.pub-item',
+      percentPosition: true,
+      gutter: 16
+    });
+  }
 });
 </script>

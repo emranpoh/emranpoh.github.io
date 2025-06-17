@@ -1,60 +1,38 @@
 <section class="publications-section desktop-section">
-  <section class="projects-list-section">
-    <!-- title -->
+  <section class="publications-list-section">
     <h2 class="section-title">Publications</h2>
-    
-    <div class="w-full mt-4">
-      <div class="projects-grid">
-        {% assign sorted_pubs = site.data.pubs | sort: "year" | reverse %}
-        {% for pub in sorted_pubs %}
-        <div class="project-card" data-year="{{ pub.year }}" title="{{ pub.authors }}">
-          <div class="selected-project-card-bg-image w-full h-64 bg-cover bg-center" 
-            {% if pub.image %}
-              style="background-image: url('{{ '/assets/images/projects/' | append: pub.image | relative_url }}'); background-size: cover; background-position: center;"
-            {% else %}
-              style="background-image: url('https://via.placeholder.com/400x300?text=Publication'); background-size: cover; background-position: center;"
-            {% endif %}
-          >
-          </div>
-          <div class="selected-project-card-title h-32">
-            <div class="tag-container flex flex-row items-center justify-start">
-              <span class="project-year-tag project-tag text-xs px-2 py-1">
-                {{ pub.year }}
-              </span>
-              <span class="project-type-tag project-tag text-xs px-2 py-1 ml-2" style="text-transform: none;">
-                {{ pub.venue_short }}
-              </span>
-              {% if pub.institution == "smu-hai" %}
-                <span class="project-tag text-xs px-2 py-1 ml-2" style="background-color: #e9ecef;">
-                  SMU HAI
-                </span>
-              {% endif %}
-              {% if pub.institution == "nus-hci" %}
-                <span class="project-tag text-xs px-2 py-1 ml-2" style="background-color: #dc2626; color: white;">
-                  NUS HCI
-                </span>
-              {% endif %}
-              {% if pub.institution == "immersification" %}
-                <span class="project-tag text-xs px-2 py-1 ml-2" style="background-color: #2563eb; color: white;">
-                  Immersification
-                </span>
-              {% endif %}
-              {% if pub.is-collab %}
-                <span class="project-tag text-xs px-2 py-1 ml-2" style="background-color: #ff8787; color: white;">
-                  Collaboration
-                </span>
+    <div class="w-full mt-4 pubs-list">
+      {% for pub in site.data.pubs %}
+        <div class="pub-item">
+          <a href="{{ pub.url | relative_url }}" class="pub-image-link">
+            <div class="pub-image">
+              {% if pub.image %}
+              <img src="{{ '/assets/images/projects/' | append: pub.image | relative_url }}" alt="{{ pub.title }}">
+              {% else %}
+              <div class="placeholder-image"></div>
               {% endif %}
             </div>
-            <div>
-              <a href="{{ pub.url }}" class="project-link">
-                <h3 class="project-title">{{ pub.title }}</h3>
-              </a>
-              <p class="project-subtitle">{{ pub.authors }}</p>
+          </a>
+          <a href="{{ pub.url | relative_url }}" class="pub-content">
+            <div class="pub-header">
+              <div class="pub-title">{{ pub.title }}</div>
+              <p class="pub-authors">
+                {% assign author_list = pub.authors | split: ',' %}
+                {% assign first_author = author_list[0] | strip %}
+                {% if author_list.size > 1 %}
+                  {{ first_author | split: ' ' | last }} et al.
+                {% else %}
+                  {{ first_author | split: ' ' | last }}
+                {% endif %}
+              </p>
+              <p class="pub-venue">{{ pub.venue_short }}, {{ pub.year }}</p>
             </div>
-          </div>
+          </a>
         </div>
-        {% endfor %}
-      </div>
+      {% endfor %}
+    </div>
+    <div class="view-all-publications">
+      <a href="{{ '/publications' | relative_url }}" class="view-all-btn">View All Publications →</a>
     </div>
   </section>
 </section> 

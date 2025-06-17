@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: pages/project
 title: "Emptiness, Isolation, Death, Hope"
 subtitle: "Parallels from Kojima's Death Stranding for Human Connection"
 image: "ds-1.png"
@@ -11,7 +11,7 @@ institution: "nus-hci"
 is-collab: false
 is-selected: true
 emoji: "🎮"
-permalink: /projects/gam01/
+permalink: /projects/gam01
 ---
 
 ## About

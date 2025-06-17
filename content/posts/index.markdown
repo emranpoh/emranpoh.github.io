@@ -4,8 +4,6 @@ title: Blog Posts
 permalink: /content/posts/
 ---
 
-{% include components/navigation/nav-main.html %}
-
 <div class="posts-container">
     {% assign posts = site.posts | sort: 'date' | reverse %}
     <div class="posts-grid">

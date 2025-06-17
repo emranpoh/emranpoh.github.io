@@ -27,7 +27,7 @@
           {% endif %}
         </span>
       </div>
-      <div>
+      <div class="card-text">
         {% if project.tags %}
           <div class="project-tags">
             {% for tag in project.tags %}
@@ -54,7 +54,6 @@
           </div>
         {% endif %}
         <h3 class="project-title">{{ project.title }}</h3>
-        <p class="project-subtitle">{{ project.subtitle }}</p>
       </div>
       <!-- {% if project.year %}
       <div class="project-year">{{ project.year }}</div>

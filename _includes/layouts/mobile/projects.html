@@ -21,24 +21,19 @@
                 </div>
                 {% endif %}
                 <div style="display: flex; flex-direction: column; padding: 1rem;">
-                    <a href="{{ '/projects/' | append: project.title | slugify | relative_url }}" style="text-decoration: none; color: inherit;">
-                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
-                            <p style="font-size: 0.75rem; color: #495057; margin: 0; display: inline-block; background-color: #e9ecef; padding: 0.125rem 0.375rem 0.025rem 0.375rem; border-radius: 0.25rem;">{{ project.start-year }}</p>
-                            {% if project.projtype %}
-                            <span style="font-size: 0.75rem; color: white; margin: 0; display: inline-block; background-color: #ff8787; padding: 0.125rem 0.375rem 0.025rem 0.375rem; border-radius: 0.25rem;">{{ project.projtype }}</span>
-                            {% endif %}
-                            {% if project.type %}
-                            <span style="font-size: 0.75rem; color: white; margin: 0; display: inline-block; background-color: #ff8787; padding: 0.125rem 0.375rem 0.025rem 0.375rem; border-radius: 0.25rem;">{{ project.type }}</span>
-                            {% endif %}
-                            {% if project.status %}
-                            <span style="font-size: 0.75rem; color: #495057; margin: 0; display: inline-block; background-color: #e9ecef; padding: 0.125rem 0.375rem 0.025rem 0.375rem; border-radius: 0.25rem;">{{ project.status }}</span>
-                            {% endif %}
+                    <a href="{{ project.url | relative_url }}" style="text-decoration: none; color: inherit;">
+                        <h3 style="margin: 0 0 0.5rem 0; font-size: 1rem; font-weight: 600;">{{ project.title }}</h3>
+                        {% if project.subtitle %}
+                        <p style="margin: 0 0 0.5rem 0; font-size: 0.875rem; color: #666;">{{ project.subtitle }}</p>
+                        {% endif %}
+                        {% if project.tags %}
+                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            {% for tag in project.tags %}
+                            <span style="font-size: 0.75rem; padding: 0.25rem 0.5rem; background: #e9ecef; border-radius: 0.25rem; color: #666;">{{ tag.name }}</span>
+                            {% endfor %}
                         </div>
-                        <h3 style="font-size: 1rem; font-weight: 600; color: #111827; margin: 0;">{{ project.title }}</h3>
+                        {% endif %}
                     </a>
-                    {% if project.subtitle %}
-                    <p style="font-size: 0.75rem; color: #495057; margin: 0; line-height: 1.5;">{{ project.subtitle }}</p>
-                    {% endif %}
                 </div>
             </div>
             {% endif %}
