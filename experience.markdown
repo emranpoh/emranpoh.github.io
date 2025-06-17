@@ -84,6 +84,55 @@ id: experience
                 {% endfor %}
             </ul>
             {% endif %}
+            {% if exp.title == "Research Project Manager" %}
+            <div class="citations">
+                <span class="citation-label">Related Publication:</span>
+                <a href="/publications/art01" class="citation-link">Supporting Artefact Awareness for Partially-Replicated Workspaces (ISMAR-Adjunct 2023)</a>
+            </div>
+            {% endif %}
+            {% if exp.title == "UX Research Engineer" and exp.organization == "Center for Immersification" %}
+            <div class="citations">
+                <span class="citation-label">Related Publications:</span>
+                <ul class="citation-list">
+                    <li><a href="/publications/mr01" class="citation-link">Mixed Reality for Engineering Design Review Using Finite Element Analysis (ISMAR-Adjunct 2022)</a></li>
+                    <li><a href="/publications/mr02" class="citation-link">Mixed Reality for Mechanical Design and Assembly Planning (HCI-International 2022)</a></li>
+                    <li><a href="/publications/mr03" class="citation-link">Mixed Reality Interface for Load Application in Finite Element Analysis (HCI-International 2021)</a></li>
+                    <li><a href="/publications/hol01" class="citation-link">Designing with Holograms (NewRIIS 2021)</a></li>
+                </ul>
+            </div>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<hr class="section-divider">
+
+## Publications
+
+<table class="experience-table">
+    {% assign sorted_pubs = site.data.pubs | sort: 'year' | reverse %}
+    {% assign current_year = 0 %}
+    {% for pub in sorted_pubs %}
+    <tr>
+        <td class="experience-year">
+            {% if pub.year != current_year %}
+            {{ pub.year }}
+            {% assign current_year = pub.year %}
+            {% endif %}
+        </td>
+        <td class="experience-content">
+            <div class="experience-year-mobile">{{ pub.year }}</div>
+            <strong><a href="{{ pub.url }}" class="pub-link">{{ pub.title }}</a></strong>
+            <div class="pub-authors">{{ pub.authors }}</div>
+            <div class="pub-venue">{{ pub.venue }}{% if pub.location %}, {{ pub.location }}{% endif %}</div>
+            {% if pub.tags %}
+            <div class="pub-tags">
+                {% for tag in pub.tags %}
+                <a href="{{ tag.url }}" class="pub-tag" target="_blank">{{ tag.name }}</a>
+                {% endfor %}
+            </div>
+            {% endif %}
         </td>
     </tr>
     {% endfor %}
@@ -150,7 +199,6 @@ id: experience
     border-collapse: collapse;
     margin-bottom: 2rem;
 }
-
 
 .experience-table tr:last-child {
     border-bottom: none;
@@ -242,7 +290,7 @@ id: experience
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-left: 0px !important; 
+    margin-left: 0px !important;
 }
 
 .skills-list li {
@@ -273,29 +321,29 @@ id: experience
     .experience-year {
         display: none;
     }
-    
+
     .experience-year-mobile {
         display: block;
     }
-    
+
     .experience-content {
         padding: 0.75rem 0.25rem 0.75rem 0.5rem;
     }
-    
+
     .skills-list {
         flex-direction: column;
     }
-    
+
     .skills-list li {
         width: 100%;
     }
-    
+
     .course-term {
         display: block;
         margin-bottom: 0.1em;
         margin-right: 0;
     }
-    
+
     .course-term-inline {
         display: inline;
         margin-right: 0.3em;
@@ -324,4 +372,77 @@ id: experience
 .presentation-link-btn:hover {
     background: #2563eb;
 }
-</style> 
+
+.citations {
+    margin-top: 1rem;
+    font-size: 0.95em;
+}
+
+.citation-label {
+    font-weight: 500;
+    color: #4b5563;
+    margin-right: 0.5rem;
+}
+
+.citation-list {
+    list-style: none;
+    padding-left: 1rem;
+    margin: 0.5rem 0;
+}
+
+.citation-link {
+    color: #3b82f6;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.citation-link:hover {
+    color: #2563eb;
+    text-decoration: underline;
+}
+
+.pub-link {
+    color: #3b82f6;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.pub-link:hover {
+    color: #2563eb;
+    text-decoration: underline;
+}
+
+.pub-authors {
+    font-size: 0.95em;
+    color: #4b5563;
+    margin: 0.25rem 0;
+}
+
+.pub-venue {
+    font-size: 0.95em;
+    font-style: italic;
+    color: #6b7280;
+}
+
+.pub-tags {
+    margin-top: 0.5rem;
+}
+
+.pub-tag {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.25rem;
+    background-color: #e5e7eb;
+    color: #4b5563;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.pub-tag:hover {
+    background-color: #d1d5db;
+    color: #1f2937;
+}
+</style>

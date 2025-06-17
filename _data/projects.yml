@@ -1,29 +1,3 @@
-- title: "Emptiness, Isolation, Death, Hope"
-  subtitle: "Parallels from Kojima's Death Stranding for Human Connection"
-  image: "ds-1.png"
-  year: 2024
-  start-year: 2024
-  end-year: 2024
-  projtype: "talk"
-  institution: "nus-hci"
-  is-collab: false
-  is-selected: true
-  emoji: "🎮"
-  url: "/projects/gam01"
-
-- title: "How to Use XR for Physical Assault"
-  subtitle: "A Less-than-Optimistic Commentary on `The Ethics of Realism in Virtual and Augmented Reality' through Netflix's Black Mirror"
-  image: "xr-assault.jpg"
-  year: 2023
-  start-year: 2023
-  end-year: 2023
-  projtype: "talk"
-  institution: "nus-hci"
-  is-selected: true
-  emoji: "🕶️"
-  institution: "immersification"
-  url: "/projects/xr01"
-
 - title: "Be-Longing"
   image: "belonging.png"
   subtitle: "A site-specific, augmented reality (AR) experiential artwork"
