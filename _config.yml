@@ -59,7 +59,7 @@ defaults:
     values:
       layout: "pages/default"
   - scope:
-      path: "index.markdown"
+      path: "content/index.markdown"
     values:
       layout: "pages/default"
       permalink: /
