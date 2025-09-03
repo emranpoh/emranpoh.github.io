@@ -29,7 +29,40 @@
           {% endif %}
           <div class="pub-compact-content">
             <a href="{{ '/publications/' | append: pub.title | slugify | relative_url }}" class="pub-compact-title">{{ pub.title }}</a>
-            <p class="pub-compact-authors">{{ pub.authors }}</p>
+            <p class="pub-compact-authors">
+              {% assign author_list = pub.authors | replace: ', and ', ', ' | split: ', ' %}
+              {% for author in author_list %}
+                {% assign author_name = author | strip %}
+                {% assign author_found = false %}
+                {% for author_data in site.data.authors %}
+                  {% if author_data.name == author_name %}
+                    {% assign author_found = true %}
+                    {% if author_data.url %}
+                      {% if author_name contains 'Emran Poh' %}
+                        <strong style="color: #000;"><a href="{{ author_data.url }}" target="_blank" style="color: #000; text-decoration: none;">{{ author_name }}</a></strong>
+                      {% else %}
+                        <a href="{{ author_data.url }}" target="_blank" style="color: #2563eb; text-decoration: none;">{{ author_name }}</a>
+                      {% endif %}
+                    {% else %}
+                      {% if author_name contains 'Emran Poh' %}
+                        <strong style="color: #000;">{{ author_name }}</strong>
+                      {% else %}
+                        {{ author_name }}
+                      {% endif %}
+                    {% endif %}
+                    {% break %}
+                  {% endif %}
+                {% endfor %}
+                {% unless author_found %}
+                  {% if author_name contains 'Emran Poh' %}
+                    <strong style="color: #000;">{{ author_name }}</strong>
+                  {% else %}
+                    {{ author_name }}
+                  {% endif %}
+                {% endunless %}
+                {% unless forloop.last %}, {% endunless %}
+              {% endfor %}
+            </p>
             <p class="pub-compact-venue">{{ pub.venue }}</p>
             <p class="pub-compact-year">{{ pub.year }}</p>
             {% if pub.tags %}

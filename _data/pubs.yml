@@ -1,6 +1,7 @@
 - title: "Supporting Artefact Awareness for Partially-Replicated Workspaces"
   title_short: "Supporting Artefact Awareness"
   authors: "Emran Poh, Anthony Tang, Jeannie Lee, and Shengdong Zhao"
+
   venue: "2023 IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct)"
   venue_short: "ISMAR-Adjunct"
   location: "Sydney, Australia"
@@ -11,6 +12,7 @@
   is-selected: true
   emoji: "👥"
   url: "/publications/art01"
+  pdf: "/assets/pdfs/sample.pdf"
   abstract: "We present a system that supports artefact awareness in partially-replicated workspaces, enabling users to maintain awareness of shared objects and their states across different physical locations."
   tags:
     - name: "pdf"
@@ -19,6 +21,7 @@
 - title: "IntVRsection: Virtual Reality Environment for Evaluating Signalized and Unsignalized Intersection Scenarios"
   title_short: "IntVRsection"
   authors: "Jeannie Lee, Adriel Yeo, B. Kwok, Z. F. Wong, Emran Poh, and R. Chan"
+
   venue: "International ACM SIGCHI Conference on Automotive User Interfaces and Interactive Vehicular Applications"
   venue_short: "AutoUI"
   location: "Ingolstadt, Germany"
@@ -32,6 +35,7 @@
   tags:
     - name: "doi"
       url: "https://dl.acm.org/doi/abs/10.1145/3581961.3610373"
+  citation: "@inproceedings{10.1145/3581961.3610373,\nauthor = {Lee, Jeannie Su Ann and Yeo, Adriel and Kwok, Benjamin Wei Jie and Wong, Zi Feng and Poh, Emran and Chan, Raymond},\ntitle = {IntVRsection: Virtual Reality Environment for Evaluating Signalized and Unsignalized Intersection Scenarios},\nyear = {2023},\nisbn = {9798400701122},\npublisher = {Association for Computing Machinery},\naddress = {New York, NY, USA},\nurl = {https://doi.org/10.1145/3581961.3610373},\ndoi = {10.1145/3581961.3610373},\nabstract = {This demo presents a virtual reality (VR) environment developed for evaluating signalized and unsignalized intersection scenarios using low cost head-mounted devices (HMD). Prior work focused on VR simulations that re-create less complex scenarios for the evaluation of different autonomous vehicle (AV) behavior and external human-machine interfaces (eHMIs). The proposed VR environment allows participants to walk across multiple road lanes, and experience and interact with high fidelity simulated traffic scenarios, including signalized and unsignalized intersections at 1:1 scale, with vehicular traffic making turns, and providing audio feedback. This simulation can be used for conducting user studies to test AV eHMIs or behavior interventions with participants.},\nbooktitle = {Adjunct Proceedings of the 15th International Conference on Automotive User Interfaces and Interactive Vehicular Applications},\npages = {300–303},\nnumpages = {4},\nkeywords = {autonomous vehicles, external human machine interface, pedestrian crossing, virtual reality},\nlocation = {Ingolstadt, Germany},\nseries = {AutomotiveUI '23 Adjunct}\n}"
 
 - title: "Mixed Reality for Engineering Design Review Using Finite Element Analysis"
   title_short: "MR4FEA"

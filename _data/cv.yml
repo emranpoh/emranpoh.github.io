@@ -129,7 +129,7 @@ education:
   - start_month: ""
     start_year: "2025"
     end_month: ""
-    end_year: ""
+    end_year: "2029"
     current: true
     title: "Doctor of Philosophy (Computer Science)"
     organization: "Singapore Management University (SMU)"
