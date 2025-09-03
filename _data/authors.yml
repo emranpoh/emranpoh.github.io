@@ -1,0 +1,44 @@
+- name: "Emran Poh"
+  url: "https://emranpoh.github.io"
+  affiliation: "Singapore Management University"
+  is_primary: true
+
+- name: "Anthony Tang"
+  url: "https://hcitang.github.io/"
+  affiliation: "Singapore Management University"
+
+- name: "Jeannie Lee"
+  url: "https://www.singaporetech.edu.sg/directory/faculty/jeannie-lee"
+  affiliation: "Singapore Institute of Technology"
+
+- name: "Shengdong Zhao"
+  url: "https://shengdongzhao.com/"
+  affiliation: "City University of Hong Kong"
+
+- name: "Kyrin Liong"
+  url: "https://www.singaporetech.edu.sg/directory/faculty/kyrin-liong-yushan"
+  affiliation: "Singapore Institute of Technology"
+
+- name: "Adriel Yeo"
+  url: "https://scholar.google.com/citations?user=TBpf5TUAAAAJ&hl=en"
+  affiliation: "Singapore Institute of Technology"
+
+- name: "B. Kwok"
+  url: "https://www.linkedin.com/in/benjamin-kwok/"
+  affiliation: "Singapore Institute of Technology"
+
+- name: "Z. F. Wong"
+  url: "https://www.linkedin.com/in/wong-zi-feng/?originalSubdomain=sg"
+  affiliation: "Singapore Institute of Technology"
+
+- name: "R. Chan"
+  url: "https://www.singaporetech.edu.sg/directory/faculty/raymond-chan"
+  affiliation: "Singapore Institute of Technology"
+
+- name: "A. Tan"
+  url: "https://www.singaporetech.edu.sg/directory/faculty/alfred-tan"
+  affiliation: "Singapore Institute of Technology"
+
+- name: "V. Balachandran"
+  url: "https://www.vivekb.info/"
+  affiliation: "Singapore Institute of Technology"

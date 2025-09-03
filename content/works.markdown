@@ -192,6 +192,31 @@ id: works
   border-radius: 16px;
   display: block;
 }
+
+@media (max-width: 768px) {
+  .pubs-list {
+    column-count: 2;
+    column-gap: 10px;
+    display: block !important;
+  }
+  .pub-item {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 0;
+  }
+  .pub-image,
+  .pub-image img {
+    width: 100%;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    display: block;
+  }
+  .pub-item:not([data-type="pub"]) .pub-header,
+  .pub-item:not([data-type="pub"]) .pub-meta {
+    display: none !important;
+  }
+}
 </style>
 
 <div class="works-nav-container">
@@ -286,7 +311,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   var grid = document.querySelector('.pubs-list');
-  if (grid) {
+  if (grid && window.innerWidth > 768) {
     imagesLoaded(grid, function() {
       msnry = new Masonry(grid, {
         itemSelector: '.pub-item',
@@ -329,7 +354,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   var grid = document.querySelector('.pubs-list');
-  if (grid) {
+  if (grid && window.innerWidth > 768) {
     function getColumnWidth() {
       var containerWidth = grid.offsetWidth;
       var gutter = 16;
