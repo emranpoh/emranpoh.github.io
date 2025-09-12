@@ -1,7 +1,7 @@
 - title: "Supporting Artefact Awareness for Partially-Replicated Workspaces"
   title_short: "Supporting Artefact Awareness"
   authors: "Emran Poh, Anthony Tang, Jeannie Lee, and Shengdong Zhao"
-
+  type: "Position Paper"
   venue: "2023 IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct)"
   venue_short: "ISMAR-Adjunct"
   location: "Sydney, Australia"
@@ -21,8 +21,8 @@
 - title: "IntVRsection: Virtual Reality Environment for Evaluating Signalized and Unsignalized Intersection Scenarios"
   title_short: "IntVRsection"
   authors: "Jeannie Lee, Adriel Yeo, B. Kwok, Z. F. Wong, Emran Poh, and R. Chan"
-
-  venue: "International ACM SIGCHI Conference on Automotive User Interfaces and Interactive Vehicular Applications"
+  type: "Demonstration"
+  venue: "AutomotiveUI '23 Adjunct: Adjunct Proceedings of the 15th International Conference on Automotive User Interfaces and Interactive Vehicular Applications"
   venue_short: "AutoUI"
   location: "Ingolstadt, Germany"
   year: 2023
@@ -40,6 +40,7 @@
 - title: "Mixed Reality for Engineering Design Review Using Finite Element Analysis"
   title_short: "MR4FEA"
   authors: "Emran Poh, Kyrin Liong, and Jeannie Lee"
+  type: "Full Paper"
   venue: "2022 IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct)"
   venue_short: "ISMAR-Adjunct"
   location: "Singapore"
@@ -58,7 +59,8 @@
 - title: "Mixed Reality for Mechanical Design and Assembly Planning"
   title_short: "MR4Assembly"
   authors: "Emran Poh, Kyrin Liong, and Jeannie Lee"
-  venue: "HCI International 2022–Late Breaking Posters: 24th International Conference on Human-Computer Interaction"
+  type: "Late-Breaking Poster"
+  venue: "24th International Conference on Human-Computer Interaction, HCII 2022"
   venue_short: "HCI-International"
   location: ""
   year: 2022
@@ -75,6 +77,7 @@
 - title: "Mixed Reality Interface for Load Application in Finite Element Analysis"
   title_short: "MR4FEA-Load"
   authors: "Emran Poh, Kyrin Liong, and Jeannie Lee"
+  type: "Full Paper"
   venue: "Innovations in Social Computing and Digital Transformation, International Conference on Human-Computer Interaction 2021"
   venue_short: "HCI-International"
   location: ""

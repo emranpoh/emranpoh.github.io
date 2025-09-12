@@ -15,6 +15,7 @@
           </a>
           <a href="{{ pub.url | relative_url }}" class="pub-content">
             <div class="pub-header">
+              <div class="pub-venue-tag">{{ pub.venue_short }} {{ pub.year }}</div>
               <div class="pub-title">{{ pub.title }}</div>
               <p class="pub-authors">
                 {% assign author_list = pub.authors | split: ',' %}
@@ -25,7 +26,6 @@
                   {{ first_author | split: ' ' | last }}
                 {% endif %}
               </p>
-              <p class="pub-venue">{{ pub.venue_short }}, {{ pub.year }}</p>
             </div>
           </a>
         </div>

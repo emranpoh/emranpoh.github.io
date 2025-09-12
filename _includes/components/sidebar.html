@@ -29,19 +29,9 @@
           <i class="fab fa-instagram"></i>
         </a>
         {% endif %}
-        {% if site.telegram_username %}
-        <a href="https://t.me/{{ site.telegram_username }}" target="_blank" rel="noopener noreferrer" class="sidebar-social-link">
-          <i class="fab fa-telegram"></i>
-        </a>
-        {% endif %}
         {% if site.scholar_id %}
         <a href="https://scholar.google.com/citations?user={{ site.scholar_id }}" target="_blank" rel="noopener noreferrer" class="sidebar-social-link">
-          <i class="fas fa-book"></i>
-        </a>
-        {% endif %}
-        {% if site.email %}
-        <a href="mailto:{{ site.email }}" class="sidebar-social-link">
-          <i class="fas fa-envelope"></i>
+          <img src="{{ '/assets/images/scholar.svg' | relative_url }}" alt="Google Scholar" style="width: 1.25rem; height: 1.25rem;">
         </a>
         {% endif %}
       </div>

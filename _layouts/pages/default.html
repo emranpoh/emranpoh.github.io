@@ -94,13 +94,13 @@
 <body style="min-height:100vh;">
   <div class="page-center-wrap" style="display:flex;justify-content:center;align-items:center;min-height:100vh;width:100vw;">
     <div class="page-container">
-      <!-- Desktop Top Navigation -->
-      <div class="desktop-top-nav">
-        {% include components/navigation.html %}
-      </div>
-      
       <div class="main-content-row">
         <div class="container" id="main-container">
+          <!-- Desktop Top Navigation -->
+          <div class="desktop-top-nav">
+            {% include components/navigation.html %}
+          </div>
+          
           <main class="content content-{{ page.id | default: page.title | replace: ' ', '-' | slice: 0, 5 }}" id="main-content">
             {{ content }}
           </main>

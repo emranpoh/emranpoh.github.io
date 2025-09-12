@@ -37,7 +37,7 @@ id: pubs
                {{ first_author | split: ' ' | last }}
              {% endif %}
            </p>
-           <p class="pub-venue">{{ pub.venue_short }}, {{ pub.year }}</p>
+           <p class="pub-venue">{{ pub.venue_short }} {{ pub.year }}</p>
         </div>
      </a>
   </div>

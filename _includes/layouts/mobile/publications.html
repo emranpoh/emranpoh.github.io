@@ -19,7 +19,10 @@
             {% endif %}
             <div style="display: flex; flex-direction: column; padding: 1rem;">
                 <a href="{{ pub.url | relative_url }}" style="text-decoration: none; color: inherit;">
-                    <h3 style="margin: 0 0 0.5rem 0; font-size: 1rem; font-weight: 600;">{{ pub.title }}</h3>
+                    {% if pub.venue_short and pub.year %}
+                    <div style="margin: 0 0 0.75rem 0; font-size: 0.75rem; color: #888; background-color: #f0f0f0; padding: 0.25rem 0.5rem; border-radius: 0.25rem; display: inline-block; width: fit-content;">{{ pub.venue_short }} {{ pub.year }}</div>
+                    {% endif %}
+                    <h3 style="margin: 0 0 0.75rem 0; font-size: 1rem; font-weight: 600;">{{ pub.title }}</h3>
                     {% if pub.authors %}
                     <p style="margin: 0 0 0.5rem 0; font-size: 0.875rem; color: #666;">
                         {% assign author_list = pub.authors | split: ',' %}
@@ -30,9 +33,6 @@
                             {{ first_author | split: ' ' | last }}
                         {% endif %}
                     </p>
-                    {% endif %}
-                    {% if pub.venue_short and pub.year %}
-                    <p style="margin: 0 0 0.5rem 0; font-size: 0.875rem; color: #666;">{{ pub.venue_short }}, {{ pub.year }}</p>
                     {% endif %}
                 </a>
             </div>

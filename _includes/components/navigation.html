@@ -12,11 +12,9 @@
       <!-- Desktop Socials -->
       <span class="nav-socials-desktop">
         <a href="https://instagram.com/{{ site.instagram_username }}" target="_blank" class="nav-link"><i class="fab fa-instagram"></i></a>
-        <a href="https://t.me/{{ site.telegram_username }}" target="_blank" class="nav-link"><i class="fab fa-telegram"></i></a>
         <a href="https://github.com/{{ site.github_username }}" target="_blank" class="nav-link"><i class="fab fa-github"></i></a>
         <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" class="nav-link"><i class="fab fa-linkedin"></i></a>
-        <a href="https://scholar.google.com/citations?user={{ site.scholar_id }}" target="_blank" class="nav-link"><i class="fas fa-book"></i></a>
-        <a href="mailto:{{ site.email }}" class="nav-link"><i class="fas fa-envelope"></i></a>
+        <a href="https://scholar.google.com/citations?user={{ site.scholar_id }}" target="_blank" class="nav-link"><img src="{{ '/assets/images/scholar.svg' | relative_url }}" alt="Google Scholar" style="width: 1.25rem; height: 1.25rem;"></a>
       </span>
       <!-- Mobile Linktree -->
       <span class="nav-socials-mobile">
@@ -28,7 +26,16 @@
 
 <style>
 .nav-socials-mobile { display: none; }
-.nav-socials-desktop { display: flex; }
+.nav-socials-desktop { 
+  display: flex; 
+  gap: 0.75rem;
+}
+
+.desktop-top-nav {
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+}
 @media (max-width: 768px) {
   .nav-socials-mobile { display: flex !important; }
   .nav-socials-desktop { display: none !important; }

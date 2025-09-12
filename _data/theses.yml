@@ -1,8 +1,10 @@
-- title: "MComp Thesis: Mixed Reality Applications for Engineering Design"
+- title: "Mixed Reality Applications for Engineering Design"
   title_short: "MComp Thesis"
   authors: "Emran Poh"
+  type: "Thesis"
   venue: "National University of Singapore"
   venue_short: "NUS"
+  degree: "Masters in Computing"
   location: "Singapore"
   year: 2020
   status: "completed"
@@ -12,11 +14,13 @@
   pdf: "/assets/pdfs/mcomp-thesis.pdf"
   abstract: "This thesis investigates the application of mixed reality technologies in engineering design processes, with a focus on assembly planning and mechanical design."
 
-- title: "BSc Computing Science Thesis: [Thesis Title]"
+- title: "3D User Interface in Mixed Reality for Engineering Design Finite Element Analysis"
   title_short: "BSc Thesis"
   authors: "Emran Poh"
+  type: "Thesis"
   venue: "University of Glasgow"
   venue_short: "UofG"
+  degree: "Bachelor of Science"
   location: "Glasgow, UK"
   year: 2018
   status: "completed"
@@ -24,4 +28,4 @@
   image: "thesis-bsc.png"
   url: "/theses/bsc"
   pdf: "/assets/pdfs/bsc-thesis.pdf"
-  abstract: "This thesis explores [your BSc thesis topic and focus area]."
+  abstract: "This thesis explores the development of 3D user interfaces in mixed reality environments for engineering design finite element analysis applications."

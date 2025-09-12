@@ -293,6 +293,40 @@ id: emran
     border-radius: 12px;
     padding: 1.5rem;
     transition: all 0.2s ease;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.article-content {
+    flex: 1;
+}
+
+.article-image {
+    flex-shrink: 0;
+    width: 120px;
+    height: 100%;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7280;
+    font-size: 0.875rem;
+    overflow: hidden;
+    align-self: stretch;
+}
+
+.article-image:empty {
+    background: #f3f4f6;
+}
+
+.article-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 6px;
 }
 
 .article-card:hover {
@@ -301,7 +335,7 @@ id: emran
 
 .article-title {
     margin: 0 0 0.75rem 0;
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     font-weight: 600;
     line-height: 1.3;
 }
@@ -320,7 +354,7 @@ id: emran
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
     align-items: center;
 }
 
@@ -337,6 +371,67 @@ id: emran
     align-items: center;
 }
 
+.section-divider {
+    border: none;
+    height: 1px;
+    background-color: #e5e7eb;
+    margin: 3rem 0 2rem 0;
+    opacity: 0.6;
+}
+
+.article-tags {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.article-venue-tag {
+    background: #f0f0f0;
+    color: #888;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.375rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    display: inline-block;
+    width: fit-content;
+}
+
+.article-type-tag {
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.375rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    display: inline-block;
+    width: fit-content;
+}
+
+/* Publication Type Colors */
+.article-type-tag[data-type="Position Paper"] {
+    background: #fff3e0;
+    color: #f57c00;
+}
+
+.article-type-tag[data-type="Demonstration"] {
+    background: #e8f5e8;
+    color: #2e7d32;
+}
+
+.article-type-tag[data-type="Full Paper"] {
+    background: #e3f2fd;
+    color: #1976d2;
+}
+
+.article-type-tag[data-type="Late-Breaking Poster"] {
+    background: #fce4ec;
+    color: #c2185b;
+}
+
+.article-type-tag[data-type="Thesis"] {
+    background: #f3e5f5;
+    color: #7b1fa2;
+}
+
 .category-tag {
     background: #f3f4f6;
     color: #374151;
@@ -348,9 +443,11 @@ id: emran
 }
 
 .venue-full {
-    color: #888;
-    font-size: 0.75rem;
+    color: #666;
+    font-size: 0.875rem;
     font-style: italic;
+    font-weight: 400;
+    margin: 0 0 0.5rem 0;
     flex: 1;
 }
 
@@ -368,21 +465,38 @@ id: emran
 }
 
 .read-more {
-    color: #2563eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    background-color: #f3f4f6;
+    color: #666 !important;
     text-decoration: none;
-    font-weight: 500;
-    font-size: 0.75rem;
-    padding: 0.375rem 0.75rem;
-    border: 1px solid #2563eb;
-    border-radius: 4px;
     transition: all 0.2s ease;
-    display: inline-block;
+    font-size: 0.75rem;
+    border: none;
+    outline: none;
 }
 
 .read-more:hover {
-    background-color: #2563eb;
-    color: white;
-    text-decoration: none;
+    background: #e5e7eb;
+    color: #222 !important;
+    text-decoration: none !important;
+}
+
+.cite-button {
+    background-color: #f3f4f6;
+    color: #666 !important;
+    border: none;
+    outline: none;
+}
+
+.cite-button:hover {
+    background: #e5e7eb;
+    color: #222 !important;
+    text-decoration: none !important;
 }
 
 .view-all-articles {
@@ -444,21 +558,34 @@ id: emran
     {% include components/intro.html %}
     
     <!-- Publications Gallery Section -->
+    <hr class="section-divider">
     <section class="article-gallery">
-        <h2 class="section-title">Publications</h2>
+        <h2 class="section-title">here are some publications</h2>
         <div class="articles-list">
             {% assign sorted_pubs = site.data.pubs | sort: 'year' | reverse %}
             {% for pub in sorted_pubs %}
             <article class="article-card">
+                <div class="article-image">
+                    {% if pub.image %}
+                    <img src="{{ '/assets/images/projects/' | append: pub.image | relative_url }}" alt="{{ pub.title }}">
+                    {% endif %}
+                </div>
                 <div class="article-content">
+                    {% if pub.venue_short %}
+                    <div class="article-tags">
+                        <div class="article-venue-tag">{{ pub.venue_short }} {{ pub.year }}</div>
+                        {% if pub.type %}
+                        <div class="article-type-tag" data-type="{{ pub.type }}">{{ pub.type }}</div>
+                        {% endif %}
+                    </div>
+                    {% endif %}
                     <h3 class="article-title">
                         {{ pub.title }}
                     </h3>
                     <div class="article-meta">
                         {% if pub.venue_short %}
                         <span class="article-categories">
-                            <span class="category-tag">{{ pub.venue_short }} {{ pub.year }}</span>
-                            <span class="venue-full">{{ pub.venue | remove: pub.year | remove: pub.venue_short | remove: '(' | remove: ')' | remove: 'Innovations in Social Computing and Digital Transformation, ' | strip }}</span>
+                            <span class="venue-full">{{ pub.venue }}</span>
                         </span>
                         {% else %}
                         <time class="article-date">{{ pub.year }}</time>
@@ -472,15 +599,11 @@ id: emran
                             {% for author_data in site.data.authors %}
                                 {% if author_data.name == author_name %}
                                     {% assign author_found = true %}
-                                    {% if author_data.url %}
-                                        {% if author_name contains 'Emran Poh' %}
-                                            <strong style="color: #000;"><a href="{{ author_data.url }}" target="_blank" style="color: #000; text-decoration: none;">{{ author_name }}</a></strong>
-                                        {% else %}
-                                            <a href="{{ author_data.url }}" target="_blank" style="color: #2563eb; text-decoration: none;">{{ author_name }}</a>
-                                        {% endif %}
+                                    {% if author_name contains 'Emran Poh' %}
+                                        <strong style="color: #000;">{{ author_name }}</strong>
                                     {% else %}
-                                        {% if author_name contains 'Emran Poh' %}
-                                            <strong style="color: #000;">{{ author_name }}</strong>
+                                        {% if author_data.url %}
+                                            <a href="{{ author_data.url }}" target="_blank" style="color: #2563eb; text-decoration: none;">{{ author_name }}</a>
                                         {% else %}
                                             {{ author_name }}
                                         {% endif %}
@@ -500,7 +623,7 @@ id: emran
                     </p>
                     <div class="article-links">
                         {% if pub.pdf %}
-                        <a href="{{ pub.pdf | relative_url }}" class="read-more" target="_blank">PDF</a>
+                        <a href="{{ pub.pdf | relative_url }}" class="read-more" target="_blank"><img src="{{ '/assets/images/noun-document-8069524 (1) 1.svg' | relative_url }}" alt="PDF" style="width: 1.125rem; height: 1.125rem; filter: brightness(0) saturate(100%) invert(40%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);"></a>
                         {% endif %}
                         {% for tag in pub.tags %}
                             {% if tag.name == "pdf" and tag.url %}
@@ -510,11 +633,11 @@ id: emran
                             {% endif %}
                         {% endfor %}
                         {% if pub.citation %}
-                        <button class="read-more cite-button" onclick="copyCitation('{{ pub.citation | escape }}')">Cite</button>
-                        {% endif %}
+                            <button class="read-more cite-button" onclick="copyCitation('{{ pub.citation | escape }}')"><img src="{{ '/assets/images/noun-quotes-344902.svg' | relative_url }}" alt="Cite" style="width: 1rem; height: 1rem; filter: brightness(0) saturate(100%) invert(40%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);"></button>
+                            {% endif %}
+                        </div>
                     </div>
-                </div>
-            </article>
+                </article>
             {% endfor %}
         </div>
     </section>
@@ -526,15 +649,27 @@ id: emran
             {% assign sorted_theses = site.data.theses | sort: 'year' | reverse %}
             {% for thesis in sorted_theses %}
             <article class="article-card">
+                <div class="article-image">
+                    {% if thesis.image %}
+                    <img src="{{ '/assets/images/projects/' | append: thesis.image | relative_url }}" alt="{{ thesis.title }}">
+                    {% endif %}
+                </div>
                 <div class="article-content">
+                    {% if thesis.venue_short %}
+                    <div class="article-tags">
+                        <div class="article-venue-tag">{{ thesis.year }}</div>
+                        {% if thesis.type %}
+                        <div class="article-type-tag" data-type="{{ thesis.type }}">{{ thesis.type }}</div>
+                        {% endif %}
+                    </div>
+                    {% endif %}
                     <h3 class="article-title">
                         {{ thesis.title }}
                     </h3>
                     <div class="article-meta">
                         {% if thesis.venue_short %}
                         <span class="article-categories">
-                            <span class="category-tag">{{ thesis.venue_short }} {{ thesis.year }}</span>
-                            <span class="venue-full">{{ thesis.venue | remove: thesis.year | remove: thesis.venue_short | remove: '(' | remove: ')' | remove: 'Innovations in Social Computing and Digital Transformation, ' | strip }}</span>
+                            <span class="venue-full">{{ thesis.degree }} • {{ thesis.venue | remove: thesis.year | remove: thesis.venue_short | remove: '(' | remove: ')' | remove: 'Innovations in Social Computing and Digital Transformation, ' | strip }}</span>
                         </span>
                         {% else %}
                         <time class="article-date">{{ thesis.year }}</time>
@@ -548,15 +683,11 @@ id: emran
                             {% for author_data in site.data.authors %}
                                 {% if author_data.name == author_name %}
                                     {% assign author_found = true %}
-                                    {% if author_data.url %}
-                                        {% if author_name contains 'Emran Poh' %}
-                                            <strong style="color: #000;"><a href="{{ author_data.url }}" target="_blank" style="color: #000; text-decoration: none;">{{ author_name }}</a></strong>
-                                        {% else %}
-                                            <a href="{{ author_data.url }}" target="_blank" style="color: #2563eb; text-decoration: none;">{{ author_name }}</a>
-                                        {% endif %}
+                                    {% if author_name contains 'Emran Poh' %}
+                                        <strong style="color: #000;">{{ author_name }}</strong>
                                     {% else %}
-                                        {% if author_name contains 'Emran Poh' %}
-                                            <strong style="color: #000;">{{ author_name }}</strong>
+                                        {% if author_data.url %}
+                                            <a href="{{ author_data.url }}" target="_blank" style="color: #2563eb; text-decoration: none;">{{ author_name }}</a>
                                         {% else %}
                                             {{ author_name }}
                                         {% endif %}
@@ -576,7 +707,7 @@ id: emran
                     </p>
                     <div class="article-links">
                         {% if thesis.pdf %}
-                        <a href="{{ thesis.pdf | relative_url }}" class="read-more" target="_blank">PDF</a>
+                        <a href="{{ thesis.pdf | relative_url }}" class="read-more" target="_blank"><img src="{{ '/assets/images/noun-document-8069524 (1) 1.svg' | relative_url }}" alt="PDF" style="width: 1.125rem; height: 1.125rem; filter: brightness(0) saturate(100%) invert(40%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);"></a>
                         {% endif %}
                         {% for tag in thesis.tags %}
                             {% if tag.name == "pdf" and tag.url %}
