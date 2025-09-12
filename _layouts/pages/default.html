@@ -42,6 +42,12 @@
       body {
         padding-bottom: 4rem; /* Add space for mobile nav */
       }
+      .works-panel {
+        display: none; /* Hide works panel on mobile - use regular navigation */
+      }
+      .page-center-wrap.slide-left {
+        transform: none; /* Disable sliding on mobile */
+      }
     }
 
     @media (min-width: 769px) {
@@ -49,11 +55,17 @@
         margin: 0;
         padding: 2rem;
         min-height: 100vh;
+        overflow-x: hidden;
       }
       .page-center-wrap {
         display: flex;
         justify-content: center;
         min-height: 100vh;
+        position: relative;
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .page-center-wrap.slide-left {
+        transform: translateX(-50%);
       }
       .page-container {
         display: flex;
@@ -61,6 +73,25 @@
         gap: 1rem;
         max-width: 1200px;
         width: 100%;
+        flex-shrink: 0;
+      }
+      .works-panel {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 100%;
+        max-width: 1200px;
+        height: 100%;
+        background: white;
+        border-radius: 1rem;
+        padding: 2rem;
+        box-sizing: border-box;
+        overflow-y: auto;
+        z-index: 10;
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .works-panel.slide-in {
+        transform: translateX(-100%);
       }
       .desktop-top-nav {
         display: block;
@@ -93,7 +124,7 @@
   <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 </head>
 <body style="min-height:100vh;">
-  <div class="page-center-wrap" style="display:flex;justify-content:center;min-height:100vh;width:100vw;">
+  <div class="page-center-wrap" id="page-wrapper" style="display:flex;justify-content:center;min-height:100vh;width:100vw;">
     <div class="page-container">
       <div class="main-content-row">
         <div class="container" id="main-container">
@@ -108,11 +139,102 @@
         </div>
       </div>
     </div>
+    
+    <!-- Works Panel (Hidden by default) -->
+    <div class="works-panel" id="works-panel">
+      <div class="desktop-top-nav">
+        {% include components/navigation.html %}
+      </div>
+      <div class="works-content">
+        {% include works-content.html %}
+      </div>
+    </div>
   </div>
   
   <!-- Mobile Navigation -->
   <div class="mobile-nav">
     {% include components/navigation.html %}
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const pageWrapper = document.getElementById('page-wrapper');
+      const worksPanel = document.getElementById('works-panel');
+      const worksLinks = document.querySelectorAll('a[href*="/works"]');
+      const homeLinks = document.querySelectorAll('a[href="/"]');
+      let isWorksPanelOpen = false;
+
+      // Check if we're on mobile
+      function isMobile() {
+        return window.innerWidth <= 768;
+      }
+
+      // Function to open works panel
+      function openWorksPanel() {
+        if (!isMobile() && !isWorksPanelOpen) {
+          pageWrapper.classList.add('slide-left');
+          worksPanel.classList.add('slide-in');
+          isWorksPanelOpen = true;
+        }
+      }
+
+      // Function to close works panel
+      function closeWorksPanel() {
+        if (!isMobile() && isWorksPanelOpen) {
+          pageWrapper.classList.remove('slide-left');
+          worksPanel.classList.remove('slide-in');
+          isWorksPanelOpen = false;
+        }
+      }
+
+      // Add click handlers to works links
+      worksLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          if (isMobile()) {
+            // On mobile, allow normal navigation
+            return;
+          }
+          e.preventDefault();
+          openWorksPanel();
+        });
+      });
+
+      // Add click handlers to home links
+      homeLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          if (isMobile()) {
+            // On mobile, allow normal navigation
+            return;
+          }
+          e.preventDefault();
+          closeWorksPanel();
+        });
+      });
+
+      // Handle back button
+      window.addEventListener('popstate', function(e) {
+        if (isWorksPanelOpen) {
+          closeWorksPanel();
+        }
+      });
+
+      // Close works panel when clicking outside (optional)
+      document.addEventListener('click', function(e) {
+        if (!isMobile() && isWorksPanelOpen && !worksPanel.contains(e.target) && !e.target.closest('a[href*="/works"]')) {
+          // Only close if clicking on the main container area
+          if (e.target.closest('#main-container')) {
+            closeWorksPanel();
+          }
+        }
+      });
+
+      // Handle window resize
+      window.addEventListener('resize', function() {
+        if (isMobile() && isWorksPanelOpen) {
+          closeWorksPanel();
+        }
+      });
+    });
+  </script>
 </body>
 </html>
