@@ -48,6 +48,25 @@
   emoji: "🚁"
   url: "/projects/swarm01"
 
+- title: "Minecraft Coding Camp"
+  subtitle: "Educational Programming Workshop"
+  location: "Linguaspark"
+  role: "Instructor"
+  image: "mcc.png"
+  year: 2024
+  start-year: 2024
+  end-year: 2024
+  projtype: "code"
+  emoji: "⛏️"
+  description: "An educational coding camp using Minecraft as a platform to teach programming concepts to students. The camp combines game-based learning with hands-on coding exercises to make programming accessible and engaging."
+  url: "/projects/minecraft-coding"
+  # pdf: "/assets/images/projects/mcc.png"
+  tags:
+    - name: "education"
+      type: "education"
+    - name: "programming"
+      type: "programming"
+
 - title: "Front Office System (FOS) for Hotel Management Mobile App"
   subtitle: "UX Lead for a collective project of 20 students"
   image: "fos.png"

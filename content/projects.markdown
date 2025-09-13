@@ -5,60 +5,30 @@ permalink: /projects/
 id: projs
 ---
 
-<div class="projects-grid" style="margin:0 auto;">
+<div class="pubs-list" style="margin:0 auto;">
 {% for project in site.data.projects %}
-  <div class="project-card" data-year="{{ project.year }}" title="{{ project.description }}">
-    <a href="{{ project.url | relative_url }}" class="project-link">
-      <div class="selected-project-card-bg-image" 
-        {% if project.image contains 'placeholder' %}
-          style="background-image: url('https://via.placeholder.com/400x300?text=Project+Image'); background-size: cover; background-position: center;"
+  <div class="pub-item" data-type="project">
+    <a href="{{ project.url | relative_url }}" class="pub-image-link">
+      <div class="pub-image">
+        {% if project.image %}
+        <img src="{{ '/assets/images/projects/' | append: project.image | relative_url }}" alt="{{ project.title }}">
         {% else %}
-          style="background-image: url('{{ '/assets/images/projects/' | append: project.image | relative_url }}'); background-size: cover; background-position: center;"
+        <div class="placeholder-image"></div>
         {% endif %}
-      >
-        <span class="project-type-tag tag-overlay">
-          {% if project.projtype == 'pub'%}
-            pdf
-          {% elsif project.projtype == 'presentation'%}
-            🗣️
-          {% elsif project.projtype == 'art'%}
-            🖼️
-          {% elsif project.projtype == 'research'%}
-            🧪
-          {% elsif project.projtype == 'blog'%}
-            <i class="fa fa-pencil"></i>
-          {% else %}
-            {{ project.projtype }}
-          {% endif %}
-        </span>
       </div>
-      <div class="card-text">
-        <div class="selected-project-card-title">
-          <h3 class="project-title">{{ project.title }}</h3>
-          {% if project.tags %}
-            <div class="project-tags">
-              {% for tag in project.tags %}
-                <a href="{{ tag.url | relative_url }}" class="tag-link">
-                  <span class="tag" data-tag="{{ tag.name }}">
-                    {% if tag.name == 'pub' or tag.type == 'pub' %}
-                      📄
-                    {% elsif tag.name == 'web' or tag.type == 'web' %}
-                      🌐
-                    {% elsif tag.name == 'project' or tag.type == 'project' %}
-                      <i class="fa fa-code"></i>
-                    {% elsif tag.name == 'workshop' or tag.type == 'workshop' %}
-                      <i class="fa fa-users"></i>
-                    {% elsif tag.name == 'blog' or tag.type == 'blog' %}
-                      <i class="fa fa-pencil"></i>
-                    {% else %}
-                      {{ tag.name }}
-                    {% endif %}
-                  </span>
-                </a>
-              {% endfor %}
-            </div>
-          {% endif %}
-        </div>
+    </a>
+    <a href="{{ project.url | relative_url }}" class="pub-content">
+      <div class="pub-header">
+        <div class="pub-title">{{ project.title }}</div>
+        {% if project.subtitle %}
+        <div class="pub-meta">{{ project.subtitle }}</div>
+        {% endif %}
+        {% if project.role %}
+        <div class="pub-meta">{{ project.role }}</div>
+        {% endif %}
+        {% if project.location %}
+        <div class="pub-meta">{{ project.location }}</div>
+        {% endif %}
       </div>
     </a>
   </div>
@@ -87,11 +57,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  var grid = document.querySelector('.projects-grid');
+  var grid = document.querySelector('.pubs-list');
   if (grid) {
     new Masonry(grid, {
-      itemSelector: '.project-card',
-      columnWidth: '.project-card',
+      itemSelector: '.pub-item',
+      columnWidth: '.pub-item',
       percentPosition: true,
       gutter: 16,
       transitionDuration: 0

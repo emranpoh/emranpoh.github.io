@@ -267,7 +267,16 @@ id: works
       </a>
       <a href="{{ project.url | relative_url }}" class="pub-content">
         <div class="pub-header">
-          <!-- Project title hidden as requested -->
+          <div class="pub-title">{{ project.title }}</div>
+          {% if project.subtitle %}
+          <div class="pub-meta">{{ project.subtitle }}</div>
+          {% endif %}
+          {% if project.role %}
+          <div class="pub-meta">{{ project.role }}</div>
+          {% endif %}
+          {% if project.location %}
+          <div class="pub-meta">{{ project.location }}</div>
+          {% endif %}
         </div>
       </a>
     </div>

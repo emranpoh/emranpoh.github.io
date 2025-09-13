@@ -41,8 +41,9 @@ body {
   background-color: #ffffff;
   margin: 0 auto;
   height: 100vh;
+  scroll-behavior: smooth;
   
-  /* Hide scrollbar for desktop */
+  /* Hide scrollbar by default, show only when scrolling */
   @media (min-width: 769px) {
     overflow-y: auto;
     scrollbar-width: none; /* Firefox */
@@ -50,6 +51,30 @@ body {
     
     &::-webkit-scrollbar {
       display: none; /* WebKit */
+    }
+    
+    /* Show scrollbar when scrolling */
+    &.scrolling {
+      scrollbar-width: thin; /* Firefox */
+      scrollbar-color: #ddd transparent; /* Firefox */
+      
+      &::-webkit-scrollbar {
+        display: block;
+        width: 4px;
+      }
+      
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      
+      &::-webkit-scrollbar-thumb {
+        background: #ddd;
+        border-radius: 2px;
+      }
+      
+      &::-webkit-scrollbar-thumb:hover {
+        background: #ccc;
+      }
     }
   }
 }
@@ -274,7 +299,6 @@ section {
 
   img {
     max-width: 100%;
-    border-radius: 8px;
   }
 
   ul {
@@ -761,7 +785,7 @@ mark {
   font-size: 14px;
   font-weight: 700;
   color: #222;
-  margin: 0 0 12px 0;
+  margin: 0 0 4px 0;
   line-height: 1.3;
 }
 

@@ -70,9 +70,11 @@
         flex: 0 0 auto;
         background: white;
         border-radius: 1rem;
-        padding: 1rem 2rem;
         display: flex;
         gap: 1rem;
+      }
+      #main-container {
+        padding: 0 !important;
       }
       .left-nav {
         flex: 0 0 600px;
@@ -238,6 +240,36 @@
         flex: 1;
         min-height: 0;
         overflow-y: auto;
+        scroll-behavior: smooth;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* Internet Explorer 10+ */
+      }
+      
+      .content::-webkit-scrollbar {
+        display: none; /* WebKit */
+      }
+      
+      .content.scrolling {
+        scrollbar-width: thin; /* Firefox */
+        scrollbar-color: #ddd transparent; /* Firefox */
+      }
+      
+      .content.scrolling::-webkit-scrollbar {
+        display: block;
+        width: 4px;
+      }
+      
+      .content.scrolling::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      
+      .content.scrolling::-webkit-scrollbar-thumb {
+        background: #ddd;
+        border-radius: 2px;
+      }
+      
+      .content.scrolling::-webkit-scrollbar-thumb:hover {
+        background: #ccc;
       }
     }
   </style>
@@ -314,7 +346,16 @@
               </a>
               <a href="{{ project.url | relative_url }}" class="pub-content">
                 <div class="pub-header">
-                  <!-- Project title hidden as requested -->
+                  <div class="pub-title">{{ project.title }}</div>
+                  {% if project.subtitle %}
+                  <div class="pub-meta">{{ project.subtitle }}</div>
+                  {% endif %}
+                  {% if project.role %}
+                  <div class="pub-meta">{{ project.role }}</div>
+                  {% endif %}
+                  {% if project.location %}
+                  <div class="pub-meta">{{ project.location }}</div>
+                  {% endif %}
                 </div>
               </a>
             </div>
@@ -573,6 +614,54 @@
             }
           });
         });
+      });
+    });
+
+    // Scrollbar visibility control
+    let scrollTimeout;
+    document.addEventListener('scroll', function() {
+      document.body.classList.add('scrolling');
+      // Also add scrolling class to content elements
+      const contentElements = document.querySelectorAll('.content');
+      contentElements.forEach(content => {
+        content.classList.add('scrolling');
+      });
+      
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(function() {
+        document.body.classList.remove('scrolling');
+        contentElements.forEach(content => {
+          content.classList.remove('scrolling');
+        });
+      }, 1000);
+    });
+
+    // Enhanced smooth scrolling for all scrollable elements
+    function smoothScrollTo(element, target, duration = 300) {
+      const start = element.scrollTop;
+      const change = target - start;
+      const startTime = performance.now();
+
+      function animateScroll(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = progress < 0.5 ? 2 * progress * progress : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+        
+        element.scrollTop = start + change * ease;
+        
+        if (progress < 1) {
+          requestAnimationFrame(animateScroll);
+        }
+      }
+      
+      requestAnimationFrame(animateScroll);
+    }
+
+    // Apply smooth scrolling to all scrollable containers
+    document.addEventListener('DOMContentLoaded', function() {
+      const scrollableElements = document.querySelectorAll('.content, .container, .pubs-list');
+      scrollableElements.forEach(element => {
+        element.style.scrollBehavior = 'smooth';
       });
     });
   </script>

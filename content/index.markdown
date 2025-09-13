@@ -389,6 +389,18 @@ id: emran
     flex-wrap: wrap;
 }
 
+.article-cite-tag {
+    background: #e3f2fd;
+    color: #1976d2;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.375rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: inline-block;
+    width: fit-content;
+    font-family: 'Courier New', monospace;
+}
+
 .article-venue-tag {
     background: #f0f0f0;
     color: #888;
@@ -397,6 +409,15 @@ id: emran
     font-size: 0.75rem;
     font-weight: 500;
     display: inline-block;
+    width: fit-content;
+}
+
+.article-shape-tag {
+    padding: 0.25rem;
+    border-radius: 0.375rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: fit-content;
 }
 
@@ -433,6 +454,16 @@ id: emran
 .article-type-tag[data-type="Thesis"] {
     background: #f3e5f5;
     color: #7b1fa2;
+}
+
+/* Citation shape colors - no default filter */
+.article-cite-tag .citation-shape {
+    /* No filter - will use individual colors below */
+}
+
+/* All citation shapes are grey */
+.article-shape-tag .citation-shape {
+    filter: brightness(0) saturate(100%) invert(50%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
 }
 
 .category-tag {
@@ -566,17 +597,36 @@ id: emran
         <h2 class="section-title">here are some publications</h2>
         <div class="articles-list">
             {% assign sorted_pubs = site.data.pubs | sort: 'year' | reverse %}
+            {% assign cite_counter = 0 %}
             {% for pub in sorted_pubs %}
                 {% assign author_list = pub.authors | split: ',' %}
                 {% assign first_author = author_list[0] | strip %}
                 {% if first_author contains 'Emran Poh' %}
+                    {% assign cite_counter = cite_counter | plus: 1 %}
             <article class="article-card">
                 <div class="article-content">
                     {% if pub.venue_short %}
                     <div class="article-tags">
+                        <div class="article-shape-tag" data-type="{{ pub.type | default: 'default' }}">
+                            {% if cite_counter == 1 %}
+                                <!-- First publication (MComp) - use rectangle -->
+                                <img src="/assets/images/rectangle.svg" class="citation-shape" alt="Citation">
+                            {% elsif cite_counter >= 2 and cite_counter <= 5 %}
+                                <!-- Publications 2-5 (B.Sc.) - use single circle -->
+                                <img src="/assets/images/circle.svg" class="citation-shape" alt="Citation">
+                            {% else %}
+                                <!-- Other publications - use rectangle -->
+                                <img src="/assets/images/rectangle.svg" class="citation-shape" alt="Citation">
+                            {% endif %}
+                        </div>
+                        <div class="article-cite-tag">
+                            {{ cite_counter }}
+                        </div>
                         <div class="article-venue-tag">{{ pub.venue_short }} {{ pub.year }}</div>
                         {% if pub.type %}
-                        <div class="article-type-tag" data-type="{{ pub.type }}">{{ pub.type }}</div>
+                        <div class="article-type-tag" data-type="{{ pub.type }}">
+                            {{ pub.type }}
+                        </div>
                         {% endif %}
                     </div>
                     {% endif %}
