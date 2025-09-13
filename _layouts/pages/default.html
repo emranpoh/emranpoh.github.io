@@ -76,15 +76,15 @@
         border-radius: 1rem;
         padding: 2rem;
         overflow-y: auto;
-        display: none;
-        transition: all 0.3s ease;
-        opacity: 0;
-        transform: translateX(20px);
-      }
-      .works-panel.show {
         display: block;
+        transition: all 0.3s ease;
         opacity: 1;
         transform: translateX(0);
+      }
+      .works-panel.hide {
+        display: none;
+        opacity: 0;
+        transform: translateX(20px);
       }
       
       /* Works panel specific styles */
@@ -324,27 +324,39 @@
       const worksPanel = document.getElementById('works-panel');
       const worksLinks = document.querySelectorAll('a[href*="/works"]');
       const homeLinks = document.querySelectorAll('a[href="/"]');
-      let isWorksPanelOpen = false;
+      let isWorksPanelOpen = true; // Start with panel open on home page
 
       // Check if we're on mobile
       function isMobile() {
         return window.innerWidth <= 768;
       }
 
-      // Function to open works panel
-      function openWorksPanel() {
-        if (!isMobile() && !isWorksPanelOpen) {
-          worksPanel.classList.add('show');
+      // Check if we're on the home page
+      function isHomePage() {
+        return window.location.pathname === '/' || window.location.pathname === '/index.html';
+      }
+
+      // Function to show works panel
+      function showWorksPanel() {
+        if (!isMobile()) {
+          worksPanel.classList.remove('hide');
           isWorksPanelOpen = true;
         }
       }
 
-      // Function to close works panel
-      function closeWorksPanel() {
-        if (!isMobile() && isWorksPanelOpen) {
-          worksPanel.classList.remove('show');
+      // Function to hide works panel
+      function hideWorksPanel() {
+        if (!isMobile()) {
+          worksPanel.classList.add('hide');
           isWorksPanelOpen = false;
         }
+      }
+
+      // Initialize panel state based on current page
+      if (isHomePage() && !isMobile()) {
+        showWorksPanel();
+      } else {
+        hideWorksPanel();
       }
 
       // Add click handlers to works links
@@ -355,7 +367,7 @@
             return;
           }
           e.preventDefault();
-          openWorksPanel();
+          showWorksPanel();
         });
       });
 
@@ -367,21 +379,37 @@
             return;
           }
           e.preventDefault();
-          closeWorksPanel();
+          showWorksPanel();
         });
+      });
+
+      // Handle navigation to other pages
+      document.addEventListener('click', function(e) {
+        const link = e.target.closest('a');
+        if (link && !isMobile()) {
+          const href = link.getAttribute('href');
+          // If navigating to a page that's not home or works, hide the panel
+          if (href && !href.includes('/works') && href !== '/' && !href.includes('index')) {
+            hideWorksPanel();
+          }
+        }
       });
 
       // Handle back button
       window.addEventListener('popstate', function(e) {
-        if (isWorksPanelOpen) {
-          closeWorksPanel();
+        if (isHomePage() && !isMobile()) {
+          showWorksPanel();
+        } else {
+          hideWorksPanel();
         }
       });
 
       // Handle window resize
       window.addEventListener('resize', function() {
-        if (isMobile() && isWorksPanelOpen) {
-          closeWorksPanel();
+        if (isMobile()) {
+          hideWorksPanel();
+        } else if (isHomePage()) {
+          showWorksPanel();
         }
       });
 
