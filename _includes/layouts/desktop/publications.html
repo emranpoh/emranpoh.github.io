@@ -3,6 +3,9 @@
     <h2 class="section-title">Publications</h2>
     <div class="w-full mt-4 pubs-list">
       {% for pub in site.data.pubs %}
+        {% assign author_list = pub.authors | split: ',' %}
+        {% assign first_author = author_list[0] | strip %}
+        {% if first_author contains 'Emran Poh' %}
         <div class="pub-item">
           <a href="{{ pub.url | relative_url }}" class="pub-image-link">
             <div class="pub-image">
@@ -29,6 +32,7 @@
             </div>
           </a>
         </div>
+        {% endif %}
       {% endfor %}
     </div>
     <div class="view-all-publications">

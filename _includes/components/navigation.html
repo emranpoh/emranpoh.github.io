@@ -6,7 +6,6 @@
     <div class="nav-left">
       <a href="{{ '/' | relative_url }}" class="nav-link {% if current_section == nil %}active{% endif %}"><i class="fas fa-home"></i></a>
       <a href="{{ '/works' | relative_url }}" class="nav-link {% if current_section == 'works' %}active{% endif %}"><i class="fas fa-layer-group"></i></a>
-      <a href="{{ '/experience' | relative_url }}" class="nav-link {% if current_section == 'experience' %}active{% endif %}"><i class="fas fa-briefcase"></i></a>
     </div>
     <div class="nav-right">
       <!-- Desktop Socials -->
@@ -109,6 +108,13 @@
 .nav-button.active {
   background: #333;
   color: white;
+}
+
+/* Hide Works button on desktop */
+@media (min-width: 769px) {
+  .nav-link[href*="/works"] {
+    display: none;
+  }
 }
 
 /* Mobile-specific styles */

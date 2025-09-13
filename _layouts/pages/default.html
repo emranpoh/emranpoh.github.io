@@ -48,30 +48,67 @@
       body {
         margin: 0;
         padding: 2rem;
-        min-height: 100vh;
+        height: 100vh;
+        overflow: hidden;
       }
       .page-center-wrap {
         display: flex;
         justify-content: center;
-        min-height: 100vh;
+        height: 100vh;
+        overflow: hidden;
       }
       .page-container {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         gap: 1rem;
         max-width: 1600px;
         width: 100%;
         height: calc(100vh - 4rem);
+        overflow: hidden;
+      }
+      .top-nav-container {
+        flex: 0 0 auto;
+        background: white;
+        border-radius: 1rem;
+        padding: 1rem 2rem;
+        display: flex;
+        gap: 1rem;
+      }
+      .left-nav {
+        flex: 0 0 600px;
+        display: flex;
+        align-items: center;
+      }
+      .right-nav {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+      .right-nav .works-nav-buttons {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        justify-content: flex-end;
+      }
+      .panels-container {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        flex: 1;
+        overflow: hidden;
       }
       .main-panel {
-        flex: 1;
+        flex: 0 0 600px;
         display: flex;
         flex-direction: column;
         gap: 1rem;
         min-width: 0;
+        height: 100%;
+        overflow: hidden;
       }
       .works-panel {
-        flex: 0 0 400px;
+        flex: 1;
         background: white;
         border-radius: 1rem;
         padding: 2rem;
@@ -80,6 +117,8 @@
         transition: all 0.3s ease;
         opacity: 1;
         transform: translateX(0);
+        min-width: 0;
+        height: 100%;
       }
       .works-panel.hide {
         display: none;
@@ -88,21 +127,6 @@
       }
       
       /* Works panel specific styles */
-      .works-panel .works-nav-container {
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        background: white;
-        padding: 0 0 1rem 0;
-        margin-bottom: 1rem;
-      }
-      
-      .works-panel .works-nav-buttons {
-        display: flex;
-        gap: 0.5rem;
-        align-items: center;
-        justify-content: flex-start;
-      }
       
       .works-panel .works-nav-button {
         padding: 0.25rem 0.5rem;
@@ -125,40 +149,49 @@
         color: white;
       }
       
+      .works-panel .pubs-list {
+        column-count: 3;
+        column-gap: 16px;
+        width: 100%;
+      }
+      
       .works-panel .pub-item {
-        display: block;
+        display: inline-block;
         width: 100%;
         margin-bottom: 16px;
         background: white;
         border-radius: 6px;
         overflow: hidden;
         box-sizing: border-box;
+        break-inside: avoid;
       }
       
       .works-panel .pub-image {
         width: 100%;
-        height: 140px;
         background: #f5f5f5;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 16px;
-        overflow: hidden;
+        border: 1px solid #f8f9fa;
+        border-bottom: none;
+        border-radius: 4px 4px 0 0;
       }
       
       .works-panel .pub-image img,
       .works-panel .placeholder-image {
         width: 100%;
-        height: 100%;
-        object-fit: cover;
+        height: auto;
+        object-fit: contain;
         display: block;
       }
       
       .works-panel .pub-content {
-        padding: 12px 8px;
+        padding: 12px 12px;
         display: flex;
         flex-direction: column;
         gap: 4px;
+        background-color: #f8f9fa;
+        border-radius: 0 0 4px 4px;
       }
       
       .works-panel .pub-title {
@@ -177,21 +210,16 @@
       
       .works-panel .placeholder-image {
         width: 100%;
-        height: 140px;
+        height: 120px;
         background: #f8f8f8;
         border-radius: 16px;
         display: block;
       }
-      .desktop-top-nav {
-        display: block;
-        background: white;
-        border-radius: 1rem;
-        padding: 1rem 2rem;
-        margin-bottom: 1rem;
-      }
       .main-content-row {
         display: flex;
         flex: 1;
+        height: 100%;
+        overflow: hidden;
       }
       .container {
         width: 100%;
@@ -203,47 +231,55 @@
         display: flex;
         flex-direction: column;
         min-height: 0;
-        overflow-y: auto;
+        height: 100%;
+        overflow: hidden;
       }
       .content {
         flex: 1;
         min-height: 0;
+        overflow-y: auto;
       }
     }
   </style>
   <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 </head>
 <body style="min-height:100vh;">
-  <div class="page-center-wrap" style="display:flex;justify-content:center;min-height:100vh;width:100vw;">
+  <div class="page-center-wrap" style="display:flex;justify-content:center;height:100vh;width:100vw;overflow:hidden;">
     <div class="page-container">
-      <div class="main-panel">
-        <div class="main-content-row">
-          <div class="container" id="main-container">
-            <!-- Desktop Top Navigation -->
-            <div class="desktop-top-nav">
-              {% include components/navigation.html %}
-            </div>
-            
-            <main class="content content-{{ page.id | default: page.title | replace: ' ', '-' | slice: 0, 5 }}" id="main-content">
-              {{ content }}
-            </main>
-          </div>
+      <!-- Top Navigation -->
+      <div class="top-nav-container">
+        <div class="left-nav">
+          {% include components/navigation.html %}
         </div>
-      </div>
-      
-      <!-- Works Panel (Desktop Only) -->
-      <div class="works-panel" id="works-panel">
-        <div class="works-nav-container">
+        <div class="right-nav">
           <div class="works-nav-buttons">
             <button class="works-nav-button active" data-filter="all">All</button>
             <button class="works-nav-button" data-filter="project">Projects</button>
             <button class="works-nav-button" data-filter="pub">Publications</button>
           </div>
         </div>
+      </div>
+      
+      <!-- Panels Container -->
+      <div class="panels-container">
+        <div class="main-panel">
+          <div class="main-content-row">
+            <div class="container" id="main-container">
+              <main class="content content-{{ page.id | default: page.title | replace: ' ', '-' | slice: 0, 5 }}" id="main-content">
+                {{ content }}
+              </main>
+            </div>
+          </div>
+        </div>
         
+        <!-- Works Panel (Desktop Only) -->
+        <div class="works-panel" id="works-panel">
         <div class="pubs-list" style="margin:0 auto;">
           {% assign sorted_publications = site.data.pubs | sort: 'year' | reverse %}
           {% for pub in sorted_publications %}
+            {% assign author_list = pub.authors | split: ',' %}
+            {% assign first_author = author_list[0] | strip %}
+            {% if first_author contains 'Emran Poh' %}
             <div class="pub-item" data-type="pub">
               <a href="{{ pub.url | relative_url }}" class="pub-image-link">
                 <div class="pub-image">
@@ -257,18 +293,12 @@
               <a href="{{ pub.url | relative_url }}" class="pub-content">
                 <div class="pub-header">
                   <div class="pub-meta">
-                    {% assign author_list = pub.authors | split: ',' %}
-                    {% assign first_author = author_list[0] | strip %}
-                    {% if author_list.size > 1 %}
-                      {{ first_author | split: ' ' | last }} et al.
-                    {% else %}
-                      {{ first_author | split: ' ' | last }}
-                    {% endif %}
-                    &nbsp;|&nbsp;{{ pub.venue_short }}, {{ pub.year }}
+                    {{ pub.venue_short }} {{ pub.year }}
                   </div>
                 </div>
               </a>
             </div>
+            {% endif %}
           {% endfor %}
           {% assign sorted_projects = site.data.projects | sort: 'year' | reverse %}
           {% for project in sorted_projects %}
@@ -309,6 +339,7 @@
               </div>
             </div>
           {% endfor %}
+        </div>
         </div>
       </div>
     </div>
@@ -380,8 +411,119 @@
           }
           e.preventDefault();
           showWorksPanel();
+          loadHomeContent();
         });
       });
+
+      // Add click handlers to experience links
+      const experienceLinks = document.querySelectorAll('a[href*="/experience"]');
+      experienceLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          if (isMobile()) {
+            // On mobile, allow normal navigation
+            return;
+          }
+          e.preventDefault();
+          showWorksPanel();
+          loadExperienceContent();
+        });
+      });
+
+      // Function to load home content
+      function loadHomeContent() {
+        const mainContent = document.getElementById('main-content');
+        const mainContainer = document.getElementById('main-container');
+        
+        // Load the original home content
+        fetch('/')
+          .then(response => response.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            
+            // Try multiple selectors to find the content
+            const homeContent = doc.querySelector('#main-content') || 
+                               doc.querySelector('main.content') ||
+                               doc.querySelector('.main-content') || 
+                               doc.querySelector('main') || 
+                               doc.querySelector('.content');
+                               
+            if (homeContent) {
+              // Preserve the container structure and classes
+              mainContent.innerHTML = homeContent.innerHTML;
+              
+              // Ensure the main content has the proper classes
+              mainContent.className = 'content content-emran';
+              
+              // Ensure the container has proper styling
+              if (mainContainer) {
+                mainContainer.className = 'container';
+              }
+              
+              // Re-initialize any scripts that might be needed
+              initializeHomeContent();
+            } else {
+              console.error('Could not find home content in fetched HTML');
+              // Fallback: reload the page
+              window.location.href = '/';
+            }
+          })
+          .catch(error => {
+            console.error('Error loading home content:', error);
+            // Fallback: reload the page
+            window.location.href = '/';
+          });
+      }
+
+      // Function to initialize home content after loading
+      function initializeHomeContent() {
+        // Re-initialize any home-specific functionality if needed
+        console.log('Home content loaded');
+      }
+
+      // Function to load experience content
+      function loadExperienceContent() {
+        const mainContent = document.getElementById('main-content');
+        const mainContainer = document.getElementById('main-container');
+        
+        // Load the experience content
+        fetch('/experience/')
+          .then(response => response.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            
+            // Try multiple selectors to find the content
+            const experienceContent = doc.querySelector('#main-content') || 
+                                     doc.querySelector('main.content') ||
+                                     doc.querySelector('.main-content') || 
+                                     doc.querySelector('main') || 
+                                     doc.querySelector('.content');
+                                     
+            if (experienceContent) {
+              // Preserve the container structure and classes
+              mainContent.innerHTML = experienceContent.innerHTML;
+              
+              // Ensure the main content has the proper classes for experience
+              mainContent.className = 'content content-experience';
+              
+              // Ensure the container has proper styling
+              if (mainContainer) {
+                mainContainer.className = 'container';
+              }
+              
+            } else {
+              console.error('Could not find experience content in fetched HTML');
+              // Fallback: reload the page
+              window.location.href = '/experience/';
+            }
+          })
+          .catch(error => {
+            console.error('Error loading experience content:', error);
+            // Fallback: reload the page
+            window.location.href = '/experience/';
+          });
+      }
 
       // Handle navigation to other pages
       document.addEventListener('click', function(e) {
@@ -389,7 +531,8 @@
         if (link && !isMobile()) {
           const href = link.getAttribute('href');
           // If navigating to a page that's not home or works, hide the panel
-          if (href && !href.includes('/works') && href !== '/' && !href.includes('index')) {
+          // Exclude external links (starting with http) from this handler
+          if (href && !href.startsWith('http') && !href.includes('/works') && href !== '/' && !href.includes('index')) {
             hideWorksPanel();
           }
         }
@@ -414,7 +557,7 @@
       });
 
       // Works panel filtering functionality
-      const filterButtons = document.querySelectorAll('.works-panel .works-nav-button');
+      const filterButtons = document.querySelectorAll('.right-nav .works-nav-button');
       const items = document.querySelectorAll('.works-panel .pub-item');
 
       filterButtons.forEach(button => {
@@ -424,7 +567,7 @@
           this.classList.add('active');
           items.forEach(item => {
             if (filter === 'all' || item.getAttribute('data-type') === filter) {
-              item.style.display = 'block';
+              item.style.display = 'inline-block';
             } else {
               item.style.display = 'none';
             }

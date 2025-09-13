@@ -9,6 +9,9 @@ id: pubs
 {% if site.data.pubs %}
   {% assign sorted_publications = site.data.pubs | sort: 'year' | reverse %}
   {% for pub in sorted_publications %}
+    {% assign author_list = pub.authors | split: ',' %}
+    {% assign first_author = author_list[0] | strip %}
+    {% if first_author contains 'Emran Poh' %}
   <div class="pub-item">
      <a href="{{ pub.url | relative_url }}" class="pub-image-link">
         <div class="pub-image">
@@ -29,18 +32,13 @@ id: pubs
         <div class="pub-header">
            <div class="pub-title">{{ pub.title }}</div>
            <p class="pub-authors">
-             {% assign author_list = pub.authors | split: ',' %}
-             {% assign first_author = author_list[0] | strip %}
-             {% if author_list.size > 1 %}
-               {{ first_author | split: ' ' | last }} et al.
-             {% else %}
-               {{ first_author | split: ' ' | last }}
-             {% endif %}
+             <!-- Authors removed since all publications are first-author -->
            </p>
            <p class="pub-venue">{{ pub.venue_short }} {{ pub.year }}</p>
         </div>
      </a>
   </div>
+    {% endif %}
   {% endfor %}
 {% else %}
   <p>No pubs available.</p>

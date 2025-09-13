@@ -230,6 +230,9 @@ id: works
 <div class="pubs-list" style="margin:0 auto;">
   {% assign sorted_publications = site.data.pubs | sort: 'year' | reverse %}
   {% for pub in sorted_publications %}
+    {% assign author_list = pub.authors | split: ',' %}
+    {% assign first_author = author_list[0] | strip %}
+    {% if first_author contains 'Emran Poh' %}
     <div class="pub-item" data-type="pub">
       <a href="{{ pub.url | relative_url }}" class="pub-image-link">
         <div class="pub-image">
@@ -243,18 +246,12 @@ id: works
       <a href="{{ pub.url | relative_url }}" class="pub-content">
         <div class="pub-header">
           <div class="pub-meta">
-            {% assign author_list = pub.authors | split: ',' %}
-            {% assign first_author = author_list[0] | strip %}
-            {% if author_list.size > 1 %}
-              {{ first_author | split: ' ' | last }} et al.
-            {% else %}
-              {{ first_author | split: ' ' | last }}
-            {% endif %}
-            &nbsp;|&nbsp;{{ pub.venue_short }}, {{ pub.year }}
+            {{ pub.venue_short }} {{ pub.year }}
           </div>
         </div>
       </a>
     </div>
+    {% endif %}
   {% endfor %}
   {% assign sorted_projects = site.data.projects | sort: 'year' | reverse %}
   {% for project in sorted_projects %}

@@ -114,6 +114,9 @@ id: experience
     {% assign sorted_pubs = site.data.pubs | sort: 'year' | reverse %}
     {% assign current_year = 0 %}
     {% for pub in sorted_pubs %}
+        {% assign author_list = pub.authors | split: ',' %}
+        {% assign first_author = author_list[0] | strip %}
+        {% if first_author contains 'Emran Poh' %}
     <tr>
         <td class="experience-year">
             {% if pub.year != current_year %}
@@ -135,6 +138,7 @@ id: experience
             {% endif %}
         </td>
     </tr>
+        {% endif %}
     {% endfor %}
 </table>
 

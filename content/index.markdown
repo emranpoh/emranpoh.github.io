@@ -151,6 +151,9 @@ id: emran
 }
 
 @media (min-width: 769px) {
+    .main-content {
+        padding: 0;
+    }
     .mobile-projects-section,
     .mobile-publications-section,
     .mobile-experience-section {
@@ -202,8 +205,8 @@ id: emran
         margin-bottom: auto;
     }
     .profile-image {
-        width: 128px;
-        height: 128px;
+        width: 200px;
+        height: 200px;
         border-radius: 0.5rem;
         object-fit: cover;
         border: 2px solid #f3f4f6;
@@ -291,7 +294,7 @@ id: emran
     background: #fff;
     border: 1px solid #e5e7eb;
     border-radius: 12px;
-    padding: 1.5rem;
+    padding: 1rem;
     transition: all 0.2s ease;
     display: flex;
     gap: 1rem;
@@ -564,12 +567,10 @@ id: emran
         <div class="articles-list">
             {% assign sorted_pubs = site.data.pubs | sort: 'year' | reverse %}
             {% for pub in sorted_pubs %}
+                {% assign author_list = pub.authors | split: ',' %}
+                {% assign first_author = author_list[0] | strip %}
+                {% if first_author contains 'Emran Poh' %}
             <article class="article-card">
-                <div class="article-image">
-                    {% if pub.image %}
-                    <img src="{{ '/assets/images/projects/' | append: pub.image | relative_url }}" alt="{{ pub.title }}">
-                    {% endif %}
-                </div>
                 <div class="article-content">
                     {% if pub.venue_short %}
                     <div class="article-tags">
@@ -633,11 +634,12 @@ id: emran
                             {% endif %}
                         {% endfor %}
                         {% if pub.citation %}
-                            <button class="read-more cite-button" onclick="copyCitation('{{ pub.citation | escape }}')"><img src="{{ '/assets/images/noun-quotes-344902.svg' | relative_url }}" alt="Cite" style="width: 1rem; height: 1rem; filter: brightness(0) saturate(100%) invert(40%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);"></button>
+                            <button class="read-more cite-button" onclick="copyCitation('{{ pub.citation | escape }}')"><i class="fas fa-quote-left" style="font-size: 1rem; color: #666;"></i></button>
                             {% endif %}
                         </div>
                     </div>
                 </article>
+                {% endif %}
             {% endfor %}
         </div>
     </section>
@@ -649,11 +651,6 @@ id: emran
             {% assign sorted_theses = site.data.theses | sort: 'year' | reverse %}
             {% for thesis in sorted_theses %}
             <article class="article-card">
-                <div class="article-image">
-                    {% if thesis.image %}
-                    <img src="{{ '/assets/images/projects/' | append: thesis.image | relative_url }}" alt="{{ thesis.title }}">
-                    {% endif %}
-                </div>
                 <div class="article-content">
                     {% if thesis.venue_short %}
                     <div class="article-tags">
@@ -733,15 +730,21 @@ function copyCitation(citation) {
     // Copy to clipboard
     navigator.clipboard.writeText(formattedCitation).then(function() {
         // Show feedback
-        const button = event.target;
-        const originalText = button.textContent;
-        button.textContent = 'Copied!';
-        button.style.backgroundColor = '#059669';
+        const button = event.target.closest('button');
+        const icon = button.querySelector('i');
+        const originalClass = icon.className;
+        const originalColor = icon.style.color;
+        
+        // Change icon to checkmark and color
+        icon.className = 'fas fa-check';
+        icon.style.color = '#059669';
+        button.style.backgroundColor = '#d1fae5';
         button.style.borderColor = '#059669';
         
         // Reset after 2 seconds
         setTimeout(function() {
-            button.textContent = originalText;
+            icon.className = originalClass;
+            icon.style.color = originalColor;
             button.style.backgroundColor = '';
             button.style.borderColor = '';
         }, 2000);
