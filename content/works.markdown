@@ -229,102 +229,130 @@ id: works
 </div>
 
 <div class="pubs-list" style="margin:0 auto;">
-  {% comment %} Render news first (most recent) {% endcomment %}
-  {% assign sorted_news = site.data.news.news_items | sort: 'date' | reverse %}
-  {% for news_item in sorted_news limit: 10 %}
-    <div class="pub-item" data-type="news">
-      {% if news_item.image %}
-      <a href="{{ news_item.link | default: '#' }}" class="pub-image-link">
-        <div class="pub-image">
-          <img src="{{ '/assets/images/projects/' | append: news_item.image | relative_url }}" alt="{{ news_item.title }}">
-        </div>
-      </a>
-      {% endif %}
-      <div class="pub-content">
-        <div class="pub-header">
-          <div class="pub-title">{{ news_item.title }}</div>
-        </div>
-      </div>
-    </div>
+  {% comment %} Create a combined list and sort by date {% endcomment %}
+  {% assign all_items = '' | split: '' %}
+  
+  {% comment %} Add news items {% endcomment %}
+  {% for news_item in site.data.news.news_items limit: 10 %}
+    {% assign item = news_item %}
+    {% assign item = item | merge: hash: 'item_type', 'news' %}
+    {% assign item = item | merge: hash: 'sort_date', news_item.date %}
+    {% assign all_items = all_items | push: item %}
   {% endfor %}
   
-  {% comment %} Then render publications {% endcomment %}
-  {% assign sorted_publications = site.data.pubs | sort: 'year' | reverse %}
-  {% for pub in sorted_publications %}
+  {% comment %} Add publications {% endcomment %}
+  {% for pub in site.data.pubs %}
     {% assign author_list = pub.authors | split: ',' %}
     {% assign first_author = author_list[0] | strip %}
     {% if first_author contains 'Emran Poh' %}
-    <div class="pub-item" data-type="pub">
-      <a href="{{ pub.url | relative_url }}" class="pub-image-link">
-        <div class="pub-image">
-          {% if pub.image %}
-          <img src="{{ '/assets/images/projects/' | append: pub.image | relative_url }}" alt="{{ pub.title }}">
-          {% else %}
-          <div class="placeholder-image"></div>
-          {% endif %}
-        </div>
-      </a>
-      <a href="{{ pub.url | relative_url }}" class="pub-content">
-        <div class="pub-header">
-          <div class="pub-meta">
-            {{ pub.venue_short }} {{ pub.year }}
-          </div>
-        </div>
-      </a>
-    </div>
+      {% assign item = pub %}
+      {% assign item = item | merge: hash: 'item_type', 'pub' %}
+      {% assign item = item | merge: hash: 'sort_date', pub.year | append: '-12-31' %}
+      {% assign all_items = all_items | push: item %}
     {% endif %}
   {% endfor %}
   
-  {% comment %} Then render projects {% endcomment %}
-  {% assign sorted_projects = site.data.projects | sort: 'year' | reverse %}
-  {% for project in sorted_projects %}
-    <div class="pub-item" data-type="project">
-      <a href="{{ project.url | relative_url }}" class="pub-image-link">
-        <div class="pub-image">
-          {% if project.image %}
-          <img src="{{ '/assets/images/projects/' | append: project.image | relative_url }}" alt="{{ project.title }}">
-          {% else %}
-          <div class="placeholder-image"></div>
-          {% endif %}
-        </div>
-      </a>
-      <a href="{{ project.url | relative_url }}" class="pub-content">
-        <div class="pub-header">
-          <div class="pub-title">{{ project.title }}</div>
-          {% if project.subtitle %}
-          <div class="pub-meta">{{ project.subtitle }}</div>
-          {% endif %}
-          {% if project.role %}
-          <div class="pub-meta">{{ project.role }}</div>
-          {% endif %}
-          {% if project.location %}
-          <div class="pub-meta">{{ project.location }}</div>
-          {% endif %}
-        </div>
-      </a>
-    </div>
+  {% comment %} Add projects {% endcomment %}
+  {% for project in site.data.projects %}
+    {% assign item = project %}
+    {% assign item = item | merge: hash: 'item_type', 'project' %}
+    {% assign item = item | merge: hash: 'sort_date', project.year | append: '-12-31' %}
+    {% assign all_items = all_items | push: item %}
   {% endfor %}
   
-  {% comment %} Finally render presentations {% endcomment %}
+  {% comment %} Add presentations {% endcomment %}
   {% for pres in site.data.others.presentations %}
-    <div class="pub-item" data-type="presentation">
-      <a href="{{ pres.link | default: '#' }}" class="pub-image-link">
-        <div class="pub-image">
-          {% if pres.image %}
-            <img src="{{ '/assets/images/projects/' | append: pres.image | relative_url }}" alt="{{ pres.title }}">
-          {% else %}
-            <div class="placeholder-image"></div>
-          {% endif %}
-        </div>
-      </a>
-      <div class="pub-content">
-        <div class="pub-header">
-          <div class="pub-title">{{ pres.title }}</div>
-          <div class="pub-meta">{{ pres.event }}{% if pres.date %}, {{ pres.date | date: '%b %Y' }}{% endif %}</div>
-          <div class="pub-meta">{{ pres.description }}</div>
+    {% assign item = pres %}
+    {% assign item = item | merge: hash: 'item_type', 'presentation' %}
+    {% assign item = item | merge: hash: 'sort_date', pres.date %}
+    {% assign all_items = all_items | push: item %}
+  {% endfor %}
+  
+  {% comment %} Sort all items by date (newest first) {% endcomment %}
+  {% assign sorted_items = all_items | sort: 'sort_date' | reverse %}
+  
+  {% comment %} Render all items in chronological order {% endcomment %}
+  {% for item in sorted_items %}
+    {% if item.item_type == 'news' %}
+      <div class="pub-item" data-type="news">
+        {% if item.image %}
+        <a href="{{ item.link | default: '#' }}" class="pub-image-link">
+          <div class="pub-image">
+            <img src="{{ '/assets/images/projects/' | append: item.image | relative_url }}" alt="{{ item.title }}">
+          </div>
+        </a>
+        {% endif %}
+        <div class="pub-content">
+          <div class="pub-header">
+            <div class="pub-title">{{ item.title }}</div>
+          </div>
         </div>
       </div>
-    </div>
+    {% elsif item.item_type == 'pub' %}
+      <div class="pub-item" data-type="pub">
+        <a href="{{ item.url | relative_url }}" class="pub-image-link">
+          <div class="pub-image">
+            {% if item.image %}
+            <img src="{{ '/assets/images/projects/' | append: item.image | relative_url }}" alt="{{ item.title }}">
+            {% else %}
+            <div class="placeholder-image"></div>
+            {% endif %}
+          </div>
+        </a>
+        <a href="{{ item.url | relative_url }}" class="pub-content">
+          <div class="pub-header">
+            <div class="pub-meta">
+              {{ item.venue_short }} {{ item.year }}
+            </div>
+          </div>
+        </a>
+      </div>
+    {% elsif item.item_type == 'project' %}
+      <div class="pub-item" data-type="project">
+        <a href="{{ item.url | relative_url }}" class="pub-image-link">
+          <div class="pub-image">
+            {% if item.image %}
+            <img src="{{ '/assets/images/projects/' | append: item.image | relative_url }}" alt="{{ item.title }}">
+            {% else %}
+            <div class="placeholder-image"></div>
+            {% endif %}
+          </div>
+        </a>
+        <a href="{{ item.url | relative_url }}" class="pub-content">
+          <div class="pub-header">
+            <div class="pub-title">{{ item.title }}</div>
+            {% if item.subtitle %}
+            <div class="pub-meta">{{ item.subtitle }}</div>
+            {% endif %}
+            {% if item.role %}
+            <div class="pub-meta">{{ item.role }}</div>
+            {% endif %}
+            {% if item.location %}
+            <div class="pub-meta">{{ item.location }}</div>
+            {% endif %}
+          </div>
+        </a>
+      </div>
+    {% elsif item.item_type == 'presentation' %}
+      <div class="pub-item" data-type="presentation">
+        <a href="{{ item.link | default: '#' }}" class="pub-image-link">
+          <div class="pub-image">
+            {% if item.image %}
+              <img src="{{ '/assets/images/projects/' | append: item.image | relative_url }}" alt="{{ item.title }}">
+            {% else %}
+              <div class="placeholder-image"></div>
+            {% endif %}
+          </div>
+        </a>
+        <div class="pub-content">
+          <div class="pub-header">
+            <div class="pub-title">{{ item.title }}</div>
+            <div class="pub-meta">{{ item.event }}{% if item.date %}, {{ item.date | date: '%b %Y' }}{% endif %}</div>
+            <div class="pub-meta">{{ item.description }}</div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
   {% endfor %}
 </div>
 

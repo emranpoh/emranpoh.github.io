@@ -340,7 +340,7 @@
           {% comment %} Render news first (most recent) {% endcomment %}
           {% assign sorted_news = site.data.news.news_items | sort: 'date' | reverse %}
           {% for news_item in sorted_news limit: 10 %}
-            <div class="pub-item" data-type="news">
+            <div class="pub-item" data-type="news" data-date="{{ news_item.date }}">
               {% if news_item.image %}
               <a href="{{ news_item.link | default: '#' }}" class="pub-image-link">
                 <div class="pub-image">
@@ -362,7 +362,7 @@
             {% assign author_list = pub.authors | split: ',' %}
             {% assign first_author = author_list[0] | strip %}
             {% if first_author contains 'Emran Poh' %}
-            <div class="pub-item" data-type="pub">
+            <div class="pub-item" data-type="pub" data-date="{{ pub.year }}-12-31">
               <a href="{{ pub.url | relative_url }}" class="pub-image-link">
                 <div class="pub-image">
                   {% if pub.image %}
@@ -386,7 +386,7 @@
           {% comment %} Then render projects {% endcomment %}
           {% assign sorted_projects = site.data.projects | sort: 'year' | reverse %}
           {% for project in sorted_projects %}
-            <div class="pub-item" data-type="project">
+            <div class="pub-item" data-type="project" data-date="{{ project.year }}-12-31">
               <a href="{{ project.url | relative_url }}" class="pub-image-link">
                 <div class="pub-image">
                   {% if project.image %}
@@ -415,7 +415,7 @@
           
           {% comment %} Finally render presentations {% endcomment %}
           {% for pres in site.data.others.presentations %}
-            <div class="pub-item" data-type="presentation">
+            <div class="pub-item" data-type="presentation" data-date="{{ pres.date }}">
               <a href="{{ pres.link | default: '#' }}" class="pub-image-link">
                 <div class="pub-image">
                   {% if pres.image %}
@@ -460,67 +460,116 @@
     </div>
     
     <div class="mobile-works-content" id="mobile-works-content">
-      {% assign sorted_publications = site.data.pubs | sort: 'year' | reverse %}
-      {% for pub in sorted_publications %}
+      {% comment %} Create a combined list and sort by date {% endcomment %}
+      {% assign all_items = '' | split: '' %}
+      
+      {% comment %} Add news items {% endcomment %}
+      {% for news_item in site.data.news.news_items limit: 10 %}
+        {% assign item = news_item %}
+        {% assign item = item | merge: hash: 'item_type', 'news' %}
+        {% assign item = item | merge: hash: 'sort_date', news_item.date %}
+        {% assign all_items = all_items | push: item %}
+      {% endfor %}
+      
+      {% comment %} Add publications {% endcomment %}
+      {% for pub in site.data.pubs %}
         {% assign author_list = pub.authors | split: ',' %}
         {% assign first_author = author_list[0] | strip %}
         {% if first_author contains 'Emran Poh' %}
-        <div class="mobile-works-item" data-type="pub">
-          <a href="{{ pub.url | relative_url }}" class="mobile-works-item-link">
-            <div class="mobile-works-item-image">
-              {% if pub.images %}
-              <div class="pub-image-gallery">
-                {% for image in pub.images limit:4 %}
-                <img src="{{ '/assets/images/projects/' | append: image | relative_url }}" alt="{{ pub.title }}">
-                {% endfor %}
-              </div>
-              {% elsif pub.image %}
-                <img src="{{ '/assets/images/projects/' | append: pub.image | relative_url }}" alt="{{ pub.title }}">
-              {% else %}
-                <div class="placeholder-image"></div>
-              {% endif %}
-            </div>
-            <div class="mobile-works-item-content">
-              <h3 class="mobile-works-item-title">{{ pub.title }}</h3>
-              <p class="mobile-works-item-meta">{{ pub.venue }} • {{ pub.year }}</p>
-            </div>
-          </a>
-        </div>
+          {% assign item = pub %}
+          {% assign item = item | merge: hash: 'item_type', 'pub' %}
+          {% assign item = item | merge: hash: 'sort_date', pub.year | append: '-12-31' %}
+          {% assign all_items = all_items | push: item %}
         {% endif %}
       {% endfor %}
       
+      {% comment %} Add projects {% endcomment %}
       {% for project in site.data.projects %}
-        <div class="mobile-works-item" data-type="project">
-          <a href="{{ project.url | relative_url }}" class="mobile-works-item-link">
-            <div class="mobile-works-item-image">
-              {% if project.image %}
-                <img src="{{ '/assets/images/projects/' | append: project.image | relative_url }}" alt="{{ project.title }}">
-              {% else %}
-                <div class="placeholder-image"></div>
-              {% endif %}
-            </div>
-            <div class="mobile-works-item-content">
-              <h3 class="mobile-works-item-title">{{ project.title }}</h3>
-              <p class="mobile-works-item-meta">{{ project.year }} • {{ project.type }}</p>
-            </div>
-          </a>
-        </div>
+        {% assign item = project %}
+        {% assign item = item | merge: hash: 'item_type', 'project' %}
+        {% assign item = item | merge: hash: 'sort_date', project.year | append: '-12-31' %}
+        {% assign all_items = all_items | push: item %}
       {% endfor %}
       
-      {% assign sorted_news = site.data.news.news_items | sort: 'date' | reverse %}
-      {% for news_item in sorted_news limit: 10 %}
-        <div class="mobile-works-item" data-type="news">
-          <a href="{{ news_item.link | default: '#' }}" class="mobile-works-item-link">
-            {% if news_item.image %}
-            <div class="mobile-works-item-image">
-              <img src="{{ '/assets/images/projects/' | append: news_item.image | relative_url }}" alt="{{ news_item.title }}">
-            </div>
-            {% endif %}
-            <div class="mobile-works-item-content">
-              <h3 class="mobile-works-item-title">{{ news_item.title }}</h3>
-            </div>
-          </a>
-        </div>
+      {% comment %} Add presentations {% endcomment %}
+      {% for pres in site.data.others.presentations %}
+        {% assign item = pres %}
+        {% assign item = item | merge: hash: 'item_type', 'presentation' %}
+        {% assign item = item | merge: hash: 'sort_date', pres.date %}
+        {% assign all_items = all_items | push: item %}
+      {% endfor %}
+      
+      {% comment %} Sort all items by date (newest first) {% endcomment %}
+      {% assign sorted_items = all_items | sort: 'sort_date' | reverse %}
+      
+      {% comment %} Render all items in chronological order {% endcomment %}
+      {% for item in sorted_items %}
+        {% if item.item_type == 'news' %}
+          <div class="mobile-works-item" data-type="news">
+            <a href="{{ item.link | default: '#' }}" class="mobile-works-item-link">
+              {% if item.image %}
+              <div class="mobile-works-item-image">
+                <img src="{{ '/assets/images/projects/' | append: item.image | relative_url }}" alt="{{ item.title }}">
+              </div>
+              {% endif %}
+              <div class="mobile-works-item-content">
+                <h3 class="mobile-works-item-title">{{ item.title }}</h3>
+              </div>
+            </a>
+          </div>
+        {% elsif item.item_type == 'pub' %}
+          <div class="mobile-works-item" data-type="pub">
+            <a href="{{ item.url | relative_url }}" class="mobile-works-item-link">
+              <div class="mobile-works-item-image">
+                {% if item.images %}
+                <div class="pub-image-gallery">
+                  {% for image in item.images limit:4 %}
+                  <img src="{{ '/assets/images/projects/' | append: image | relative_url }}" alt="{{ item.title }}">
+                  {% endfor %}
+                </div>
+                {% elsif item.image %}
+                  <img src="{{ '/assets/images/projects/' | append: item.image | relative_url }}" alt="{{ item.title }}">
+                {% else %}
+                  <div class="placeholder-image"></div>
+                {% endif %}
+              </div>
+              <div class="mobile-works-item-content">
+                <h3 class="mobile-works-item-title">{{ item.title }}</h3>
+                <p class="mobile-works-item-meta">{{ item.venue }} • {{ item.year }}</p>
+              </div>
+            </a>
+          </div>
+        {% elsif item.item_type == 'project' %}
+          <div class="mobile-works-item" data-type="project">
+            <a href="{{ item.url | relative_url }}" class="mobile-works-item-link">
+              <div class="mobile-works-item-image">
+                {% if item.image %}
+                  <img src="{{ '/assets/images/projects/' | append: item.image | relative_url }}" alt="{{ item.title }}">
+                {% else %}
+                  <div class="placeholder-image"></div>
+                {% endif %}
+              </div>
+              <div class="mobile-works-item-content">
+                <h3 class="mobile-works-item-title">{{ item.title }}</h3>
+                <p class="mobile-works-item-meta">{{ item.year }} • {{ item.type }}</p>
+              </div>
+            </a>
+          </div>
+        {% elsif item.item_type == 'presentation' %}
+          <div class="mobile-works-item" data-type="presentation">
+            <a href="{{ item.link | default: '#' }}" class="mobile-works-item-link">
+              {% if item.image %}
+              <div class="mobile-works-item-image">
+                <img src="{{ '/assets/images/projects/' | append: item.image | relative_url }}" alt="{{ item.title }}">
+              </div>
+              {% endif %}
+              <div class="mobile-works-item-content">
+                <h3 class="mobile-works-item-title">{{ item.title }}</h3>
+                <p class="mobile-works-item-meta">{{ item.event }}{% if item.date %}, {{ item.date | date: '%b %Y' }}{% endif %}</p>
+              </div>
+            </a>
+          </div>
+        {% endif %}
       {% endfor %}
     </div>
     
@@ -868,6 +917,27 @@
           }, 1000);
         });
       });
+      
+      // Sort masonry items chronologically
+      function sortMasonryChronologically() {
+        const pubsList = document.querySelector('.pubs-list');
+        if (!pubsList) return;
+        
+        const items = Array.from(pubsList.querySelectorAll('.pub-item'));
+        
+        // Sort items by date (newest first)
+        items.sort((a, b) => {
+          const dateA = a.getAttribute('data-date') || '0000-00-00';
+          const dateB = b.getAttribute('data-date') || '0000-00-00';
+          return dateB.localeCompare(dateA); // Newest first
+        });
+        
+        // Re-append sorted items
+        items.forEach(item => pubsList.appendChild(item));
+      }
+      
+      // Sort items after a short delay to ensure all content is loaded
+      setTimeout(sortMasonryChronologically, 100);
     });
   </script>
 </body>
