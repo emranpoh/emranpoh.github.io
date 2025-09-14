@@ -224,10 +224,35 @@ id: works
     <button class="works-nav-button active" data-filter="all">All</button>
     <button class="works-nav-button" data-filter="project">Projects</button>
     <button class="works-nav-button" data-filter="pub">Publications</button>
+    <button class="works-nav-button" data-filter="news">News</button>
   </div>
 </div>
 
 <div class="pubs-list" style="margin:0 auto;">
+  {% comment %} Render news first (most recent) {% endcomment %}
+  {% assign sorted_news = site.data.news.news_items | sort: 'date' | reverse %}
+  {% for news_item in sorted_news limit: 10 %}
+    <div class="pub-item" data-type="news">
+      {% if news_item.image %}
+      <a href="{{ news_item.link | default: '#' }}" class="pub-image-link">
+        <div class="pub-image">
+          <img src="{{ '/assets/images/projects/' | append: news_item.image | relative_url }}" alt="{{ news_item.title }}">
+        </div>
+      </a>
+      {% endif %}
+      <div class="pub-content">
+        <div class="pub-header">
+          <div class="pub-title">{{ news_item.title }}</div>
+          <div class="pub-meta">{{ news_item.date | date: '%b %Y' }}{% if news_item.category %} • {{ news_item.category }}{% endif %}</div>
+          {% if news_item.summary %}
+          <div class="pub-meta">{{ news_item.summary }}</div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+  
+  {% comment %} Then render publications {% endcomment %}
   {% assign sorted_publications = site.data.pubs | sort: 'year' | reverse %}
   {% for pub in sorted_publications %}
     {% assign author_list = pub.authors | split: ',' %}
@@ -253,6 +278,8 @@ id: works
     </div>
     {% endif %}
   {% endfor %}
+  
+  {% comment %} Then render projects {% endcomment %}
   {% assign sorted_projects = site.data.projects | sort: 'year' | reverse %}
   {% for project in sorted_projects %}
     <div class="pub-item" data-type="project">
@@ -281,6 +308,8 @@ id: works
       </a>
     </div>
   {% endfor %}
+  
+  {% comment %} Finally render presentations {% endcomment %}
   {% for pres in site.data.others.presentations %}
     <div class="pub-item" data-type="presentation">
       <a href="{{ pres.link | default: '#' }}" class="pub-image-link">

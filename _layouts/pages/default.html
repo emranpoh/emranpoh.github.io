@@ -121,6 +121,35 @@
         transform: translateX(0);
         min-width: 0;
         height: 100%;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* Internet Explorer 10+ */
+      }
+      
+      .works-panel::-webkit-scrollbar {
+        display: none; /* WebKit */
+      }
+      
+      .works-panel.scrolling {
+        scrollbar-width: thin; /* Firefox */
+        scrollbar-color: #ddd transparent; /* Firefox */
+      }
+      
+      .works-panel.scrolling::-webkit-scrollbar {
+        display: block;
+        width: 4px;
+      }
+      
+      .works-panel.scrolling::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      
+      .works-panel.scrolling::-webkit-scrollbar-thumb {
+        background: #ddd;
+        border-radius: 2px;
+      }
+      
+      .works-panel.scrolling::-webkit-scrollbar-thumb:hover {
+        background: #ccc;
       }
       .works-panel.hide {
         display: none;
@@ -288,6 +317,7 @@
             <button class="works-nav-button active" data-filter="all">All</button>
             <button class="works-nav-button" data-filter="project">Projects</button>
             <button class="works-nav-button" data-filter="pub">Publications</button>
+            <button class="works-nav-button" data-filter="news">News</button>
           </div>
         </div>
       </div>
@@ -307,6 +337,30 @@
         <!-- Works Panel (Desktop Only) -->
         <div class="works-panel" id="works-panel">
         <div class="pubs-list" style="margin:0 auto;">
+          {% comment %} Render news first (most recent) {% endcomment %}
+          {% assign sorted_news = site.data.news.news_items | sort: 'date' | reverse %}
+          {% for news_item in sorted_news limit: 10 %}
+            <div class="pub-item" data-type="news">
+              {% if news_item.image %}
+              <a href="{{ news_item.link | default: '#' }}" class="pub-image-link">
+                <div class="pub-image">
+                  <img src="{{ '/assets/images/projects/' | append: news_item.image | relative_url }}" alt="{{ news_item.title }}">
+                </div>
+              </a>
+              {% endif %}
+              <div class="pub-content">
+                <div class="pub-header">
+                  <div class="pub-title">{{ news_item.title }}</div>
+                  <div class="pub-meta">{{ news_item.date | date: '%b %Y' }}{% if news_item.category %} • {{ news_item.category }}{% endif %}</div>
+                  {% if news_item.summary %}
+                  <div class="pub-meta">{{ news_item.summary }}</div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+          
+          {% comment %} Then render publications {% endcomment %}
           {% assign sorted_publications = site.data.pubs | sort: 'year' | reverse %}
           {% for pub in sorted_publications %}
             {% assign author_list = pub.authors | split: ',' %}
@@ -332,6 +386,8 @@
             </div>
             {% endif %}
           {% endfor %}
+          
+          {% comment %} Then render projects {% endcomment %}
           {% assign sorted_projects = site.data.projects | sort: 'year' | reverse %}
           {% for project in sorted_projects %}
             <div class="pub-item" data-type="project">
@@ -360,6 +416,8 @@
               </a>
             </div>
           {% endfor %}
+          
+          {% comment %} Finally render presentations {% endcomment %}
           {% for pres in site.data.others.presentations %}
             <div class="pub-item" data-type="presentation">
               <a href="{{ pres.link | default: '#' }}" class="pub-image-link">
@@ -402,6 +460,7 @@
       <button class="mobile-works-filter-btn active" data-filter="all">All</button>
       <button class="mobile-works-filter-btn" data-filter="project">Projects</button>
       <button class="mobile-works-filter-btn" data-filter="pub">Publications</button>
+      <button class="mobile-works-filter-btn" data-filter="news">News</button>
     </div>
     
     <div class="mobile-works-content" id="mobile-works-content">
@@ -447,6 +506,23 @@
             <div class="mobile-works-item-content">
               <h3 class="mobile-works-item-title">{{ project.title }}</h3>
               <p class="mobile-works-item-meta">{{ project.year }} • {{ project.type }}</p>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+      
+      {% assign sorted_news = site.data.news.news_items | sort: 'date' | reverse %}
+      {% for news_item in sorted_news limit: 10 %}
+        <div class="mobile-works-item" data-type="news">
+          <a href="{{ news_item.link | default: '#' }}" class="mobile-works-item-link">
+            {% if news_item.image %}
+            <div class="mobile-works-item-image">
+              <img src="{{ '/assets/images/projects/' | append: news_item.image | relative_url }}" alt="{{ news_item.title }}">
+            </div>
+            {% endif %}
+            <div class="mobile-works-item-content">
+              <h3 class="mobile-works-item-title">{{ news_item.title }}</h3>
+              <p class="mobile-works-item-meta">{{ news_item.date | date: '%b %Y' }}{% if news_item.category %} • {{ news_item.category }}{% endif %}</p>
             </div>
           </a>
         </div>
@@ -735,8 +811,14 @@
       document.body.classList.add('scrolling');
       // Also add scrolling class to content elements
       const contentElements = document.querySelectorAll('.content');
+      const worksPanelElements = document.querySelectorAll('.works-panel');
+      
       contentElements.forEach(content => {
         content.classList.add('scrolling');
+      });
+      
+      worksPanelElements.forEach(worksPanel => {
+        worksPanel.classList.add('scrolling');
       });
       
       clearTimeout(scrollTimeout);
@@ -744,6 +826,9 @@
         document.body.classList.remove('scrolling');
         contentElements.forEach(content => {
           content.classList.remove('scrolling');
+        });
+        worksPanelElements.forEach(worksPanel => {
+          worksPanel.classList.remove('scrolling');
         });
       }, 1000);
     });
@@ -774,6 +859,19 @@
       const scrollableElements = document.querySelectorAll('.content, .container, .pubs-list');
       scrollableElements.forEach(element => {
         element.style.scrollBehavior = 'smooth';
+      });
+      
+      // Add scroll event listeners to works panels
+      const worksPanels = document.querySelectorAll('.works-panel');
+      worksPanels.forEach(worksPanel => {
+        let worksPanelScrollTimeout;
+        worksPanel.addEventListener('scroll', function() {
+          worksPanel.classList.add('scrolling');
+          clearTimeout(worksPanelScrollTimeout);
+          worksPanelScrollTimeout = setTimeout(function() {
+            worksPanel.classList.remove('scrolling');
+          }, 1000);
+        });
       });
     });
   </script>
