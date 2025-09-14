@@ -11,7 +11,7 @@ news_items:
     title: "Attending Singapore HCI Meetup 2025 at SMU! 🤝"
     date: "2025-04-15"
     category: "Conference"
-    tags: ["sghci", "conference", "hci"]
+    tags: ["sghci", "conference", "hci"] 
     featured: true
     type: "conference"
     conference: "SG-HCI Meetup 2025"

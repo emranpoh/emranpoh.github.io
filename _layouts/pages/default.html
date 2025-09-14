@@ -159,7 +159,7 @@
       
       /* Works panel specific styles */
       
-      .works-panel .works-nav-button {
+      .right-nav .works-nav-button {
         padding: 0.25rem 0.5rem;
         border-radius: 0.5rem;
         font-size: 0.75rem;
@@ -168,17 +168,170 @@
         border: none;
         cursor: pointer;
         transition: all 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
       }
       
-      .works-panel .works-nav-button:hover {
+      .right-nav .works-nav-button i {
+        font-size: 0.7rem;
+      }
+      
+      /* Filter type specific colors */
+      .right-nav .works-nav-button[data-filter="all"] {
+        background: #f3f4f6;
+        color: #6b7280;
+      }
+      
+      .right-nav .works-nav-button[data-filter="all"]:hover {
+        background: #e5e7eb;
+        color: #374151;
+      }
+      
+      .right-nav .works-nav-button[data-filter="all"].active {
+        background: #6b7280;
+        color: white;
+      }
+      
+      .right-nav .works-nav-button[data-filter="project"] {
+        background: #fef3c7;
+        color: #d97706;
+      }
+      
+      .right-nav .works-nav-button[data-filter="project"]:hover {
+        background: #fde68a;
+        color: #b45309;
+      }
+      
+      .right-nav .works-nav-button[data-filter="project"].active {
+        background: #d97706;
+        color: white;
+      }
+      
+      .right-nav .works-nav-button[data-filter="pub"] {
+        background: #dbeafe;
+        color: #2563eb;
+      }
+      
+      .right-nav .works-nav-button[data-filter="pub"]:hover {
+        background: #bfdbfe;
+        color: #1d4ed8;
+      }
+      
+      .right-nav .works-nav-button[data-filter="pub"].active {
+        background: #2563eb;
+        color: white;
+      }
+      
+      .right-nav .works-nav-button[data-filter="news"] {
+        background: #fce7f3;
+        color: #be185d;
+      }
+      
+      .right-nav .works-nav-button[data-filter="news"]:hover {
+        background: #fbcfe8;
+        color: #9d174d;
+      }
+      
+      .right-nav .works-nav-button[data-filter="news"].active {
+        background: #be185d;
+        color: white;
+      }
+      
+      /* Mobile filter button styling */
+      .mobile-works-filter-btn {
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        background: #f3f4f6;
+        color: #4b5563;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+      
+      .mobile-works-filter-btn i {
+        font-size: 0.8rem;
+      }
+      
+      .mobile-works-filter-btn:hover {
         background: #e5e7eb;
         color: #1f2937;
       }
       
-      .works-panel .works-nav-button.active {
+      .mobile-works-filter-btn.active {
         background: #2563eb;
         color: white;
       }
+      
+      /* Mobile filter type specific colors */
+      .mobile-works-filter-btn[data-filter="all"] {
+        background: #f3f4f6;
+        color: #6b7280;
+      }
+      
+      .mobile-works-filter-btn[data-filter="all"]:hover {
+        background: #e5e7eb;
+        color: #374151;
+      }
+      
+      .mobile-works-filter-btn[data-filter="all"].active {
+        background: #6b7280;
+        color: white;
+      }
+      
+      .mobile-works-filter-btn[data-filter="project"] {
+        background: #fef3c7;
+        color: #d97706;
+      }
+      
+      .mobile-works-filter-btn[data-filter="project"]:hover {
+        background: #fde68a;
+        color: #b45309;
+      }
+      
+      .mobile-works-filter-btn[data-filter="project"].active {
+        background: #d97706;
+        color: white;
+      }
+      
+      .mobile-works-filter-btn[data-filter="pub"] {
+        background: #dbeafe;
+        color: #2563eb;
+      }
+      
+      .mobile-works-filter-btn[data-filter="pub"]:hover {
+        background: #bfdbfe;
+        color: #1d4ed8;
+      }
+      
+      .mobile-works-filter-btn[data-filter="pub"].active {
+        background: #2563eb;
+        color: white;
+      }
+      
+      .mobile-works-filter-btn[data-filter="news"] {
+        background: #fce7f3;
+        color: #be185d;
+      }
+      
+      .mobile-works-filter-btn[data-filter="news"]:hover {
+        background: #fbcfe8;
+        color: #9d174d;
+      }
+      
+      .mobile-works-filter-btn[data-filter="news"].active {
+        background: #be185d;
+        color: white;
+      }
+      
+      
       
       .works-panel .pubs-list {
         column-count: 3;
@@ -326,10 +479,10 @@
         </div>
         <div class="right-nav">
           <div class="works-nav-buttons">
-            <button class="works-nav-button active" data-filter="all">All</button>
-            <button class="works-nav-button" data-filter="project">Projects</button>
-            <button class="works-nav-button" data-filter="pub">Publications</button>
-            <button class="works-nav-button" data-filter="news">News</button>
+            <button class="works-nav-button active" data-filter="all"><i class="fas fa-th"></i> All</button>
+            <button class="works-nav-button" data-filter="project"><i class="fas fa-code"></i> Projects</button>
+            <button class="works-nav-button" data-filter="pub"><i class="fas fa-file-alt"></i> Publications</button>
+            <button class="works-nav-button" data-filter="news"><i class="fas fa-newspaper"></i> News</button>
           </div>
         </div>
       </div>
@@ -345,6 +498,8 @@
             </div>
           </div>
         </div>
+        
+        {% include components/minimap.html %}
         
         <!-- Works Panel (Desktop Only) -->
         <div class="works-panel" id="works-panel">
@@ -466,10 +621,10 @@
     </div>
     
     <div class="mobile-works-filters">
-      <button class="mobile-works-filter-btn active" data-filter="all">All</button>
-      <button class="mobile-works-filter-btn" data-filter="project">Projects</button>
-      <button class="mobile-works-filter-btn" data-filter="pub">Publications</button>
-      <button class="mobile-works-filter-btn" data-filter="news">News</button>
+      <button class="mobile-works-filter-btn active" data-filter="all"><i class="fas fa-th"></i> All</button>
+      <button class="mobile-works-filter-btn" data-filter="project"><i class="fas fa-code"></i> Projects</button>
+      <button class="mobile-works-filter-btn" data-filter="pub"><i class="fas fa-file-alt"></i> Publications</button>
+      <button class="mobile-works-filter-btn" data-filter="news"><i class="fas fa-newspaper"></i> News</button>
     </div>
     
     <div class="mobile-works-content" id="mobile-works-content">
