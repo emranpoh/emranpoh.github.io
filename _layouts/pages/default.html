@@ -391,6 +391,74 @@
     {% include components/navigation.html %}
   </div>
 
+  <!-- Mobile Works Panel -->
+  <div class="mobile-works-overlay" id="mobile-works-overlay"></div>
+  <div class="mobile-works-panel" id="mobile-works-panel">
+    <div class="mobile-works-header">
+      <h2 class="mobile-works-title">Works</h2>
+    </div>
+    
+    <div class="mobile-works-filters">
+      <button class="mobile-works-filter-btn active" data-filter="all">All</button>
+      <button class="mobile-works-filter-btn" data-filter="project">Projects</button>
+      <button class="mobile-works-filter-btn" data-filter="pub">Publications</button>
+    </div>
+    
+    <div class="mobile-works-content" id="mobile-works-content">
+      {% assign sorted_publications = site.data.pubs | sort: 'year' | reverse %}
+      {% for pub in sorted_publications %}
+        {% assign author_list = pub.authors | split: ',' %}
+        {% assign first_author = author_list[0] | strip %}
+        {% if first_author contains 'Emran Poh' %}
+        <div class="mobile-works-item" data-type="pub">
+          <a href="{{ pub.url | relative_url }}" class="mobile-works-item-link">
+            <div class="mobile-works-item-image">
+              {% if pub.images %}
+              <div class="pub-image-gallery">
+                {% for image in pub.images limit:4 %}
+                <img src="{{ '/assets/images/projects/' | append: image | relative_url }}" alt="{{ pub.title }}">
+                {% endfor %}
+              </div>
+              {% elsif pub.image %}
+                <img src="{{ '/assets/images/projects/' | append: pub.image | relative_url }}" alt="{{ pub.title }}">
+              {% else %}
+                <div class="placeholder-image"></div>
+              {% endif %}
+            </div>
+            <div class="mobile-works-item-content">
+              <h3 class="mobile-works-item-title">{{ pub.title }}</h3>
+              <p class="mobile-works-item-meta">{{ pub.venue }} • {{ pub.year }}</p>
+            </div>
+          </a>
+        </div>
+        {% endif %}
+      {% endfor %}
+      
+      {% for project in site.data.projects %}
+        <div class="mobile-works-item" data-type="project">
+          <a href="{{ project.url | relative_url }}" class="mobile-works-item-link">
+            <div class="mobile-works-item-image">
+              {% if project.image %}
+                <img src="{{ '/assets/images/projects/' | append: project.image | relative_url }}" alt="{{ project.title }}">
+              {% else %}
+                <div class="placeholder-image"></div>
+              {% endif %}
+            </div>
+            <div class="mobile-works-item-content">
+              <h3 class="mobile-works-item-title">{{ project.title }}</h3>
+              <p class="mobile-works-item-meta">{{ project.year }} • {{ project.type }}</p>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+    
+    <!-- Mobile Navigation at bottom of works panel -->
+    <div class="mobile-works-nav">
+      {% include components/navigation.html %}
+    </div>
+  </div>
+
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const worksPanel = document.getElementById('works-panel');
@@ -435,7 +503,9 @@
       worksLinks.forEach(link => {
         link.addEventListener('click', function(e) {
           if (isMobile()) {
-            // On mobile, allow normal navigation
+            // On mobile, show mobile works panel
+            e.preventDefault();
+            showMobileWorksPanel();
             return;
           }
           e.preventDefault();
@@ -595,6 +665,48 @@
         } else if (isHomePage()) {
           showWorksPanel();
         }
+      });
+
+      // Mobile works panel functionality
+      const mobileWorksPanel = document.getElementById('mobile-works-panel');
+      const mobileWorksOverlay = document.getElementById('mobile-works-overlay');
+      const mobileWorksFilterBtns = document.querySelectorAll('.mobile-works-filter-btn');
+      const mobileWorksItems = document.querySelectorAll('.mobile-works-item');
+
+      function showMobileWorksPanel() {
+        if (isMobile()) {
+          mobileWorksPanel.classList.add('show');
+          mobileWorksOverlay.classList.add('show');
+          document.body.style.overflow = 'hidden';
+        }
+      }
+
+      function hideMobileWorksPanel() {
+        mobileWorksPanel.classList.remove('show');
+        mobileWorksOverlay.classList.remove('show');
+        document.body.style.overflow = '';
+      }
+
+      // Mobile works panel event listeners - overlay click to close
+      if (mobileWorksOverlay) {
+        mobileWorksOverlay.addEventListener('click', hideMobileWorksPanel);
+      }
+
+      // Mobile works filtering
+      mobileWorksFilterBtns.forEach(button => {
+        button.addEventListener('click', function() {
+          const filter = this.getAttribute('data-filter');
+          mobileWorksFilterBtns.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+          
+          mobileWorksItems.forEach(item => {
+            if (filter === 'all' || item.getAttribute('data-type') === filter) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
       });
 
       // Works panel filtering functionality

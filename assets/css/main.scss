@@ -236,6 +236,260 @@ body {
 @media (min-width: 1024px) {
   .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
+
+/* Mobile scrolling fix */
+@media (max-width: 768px) {
+  .page-center-wrap {
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow: visible !important;
+  }
+  
+  body {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  
+  /* Hide top navigation on mobile since buttons are at bottom */
+  .top-nav-container {
+    display: none !important;
+  }
+  
+  /* Hide desktop works panel on mobile */
+  .works-panel {
+    display: none !important;
+  }
+  
+  /* Make masonry two columns on mobile */
+  .grid-item,
+  .project-card,
+  .pub-item {
+    width: calc(50% - 8px) !important;
+  }
+  
+  .pub-image-gallery {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  
+  /* Align theses section with masonry grid */
+  .article-gallery {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  .section-title {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  /* Mobile works panel */
+  .mobile-works-panel {
+    display: none !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    z-index: 1000;
+    overflow-y: auto;
+    padding: 1rem;
+  }
+  
+  .mobile-works-panel.show {
+    display: block !important;
+  }
+  
+  .mobile-works-header {
+    display: none !important;
+  }
+  
+  .mobile-works-title {
+    display: none !important;
+  }
+  
+  .mobile-works-filters {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .mobile-works-filter-btn {
+    font-family: 'Hanken Grotesk', sans-serif !important;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    color: #4b5563;
+    background: #f3f4f6;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .mobile-works-filter-btn:hover {
+    background: #e5e7eb;
+    color: #1f2937;
+  }
+  
+  .mobile-works-filter-btn.active {
+    background: #2563eb;
+    color: white;
+  }
+  
+  .mobile-works-content {
+    column-count: 2;
+    column-gap: 1rem;
+    width: 100%;
+  }
+  
+  .mobile-works-item {
+    background: white;
+    border-radius: 6px;
+    overflow: hidden;
+    box-sizing: border-box;
+    break-inside: avoid;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  .mobile-works-item-image {
+    width: 100%;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #f8f9fa;
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+  }
+  
+  .mobile-works-item-image img,
+  .mobile-works-item-image .placeholder-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+  
+  .mobile-works-item-image .pub-image-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+    width: 100%;
+    height: auto;
+    min-height: unset;
+    max-height: unset;
+    padding: 0;
+    background: #f5f5f5;
+    border-radius: 4px 4px 0 0;
+    overflow: hidden;
+  }
+  
+  .mobile-works-item-image .pub-image-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 1;
+  }
+  
+  .mobile-works-item-content {
+    padding: 12px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background-color: #f8f9fa;
+    border-radius: 0 0 4px 4px;
+  }
+  
+  .mobile-works-item-title {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.2;
+    text-decoration: none !important;
+    color: #1d1d1d;
+    margin: 0;
+  }
+  
+  .mobile-works-item-meta {
+    font-size: 12px;
+    color: #666;
+    line-height: 1.2;
+    text-decoration: none !important;
+    margin: 0;
+  }
+  
+  .mobile-works-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+  
+  .mobile-works-overlay.show {
+    display: block;
+  }
+  
+  .mobile-works-item-link {
+    text-decoration: none !important;
+    color: inherit;
+    display: block;
+  }
+  
+  .mobile-works-item-link:hover {
+    text-decoration: none !important;
+  }
+  
+  /* Mobile works panel bottom navigation */
+  .mobile-works-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 0.75rem 1rem;
+    border-top: 1px solid #e5e7eb;
+    z-index: 1001;
+  }
+  
+  .mobile-works-content {
+    padding-bottom: 5rem; /* Add space for bottom nav */
+  }
+  
+  /* Remove margin-top from nav-links-section on mobile */
+  .nav-links-section {
+    margin-top: 0 !important;
+  }
+  
+  /* Hide section dividers on mobile */
+  .section-divider {
+    display: none !important;
+  }
+}
+
+/* Hide mobile works panel on desktop */
+@media (min-width: 769px) {
+  .mobile-works-panel,
+  .mobile-works-overlay {
+    display: none !important;
+  }
+}
+
+/* Remove 100vw on desktop for better layout */
+@media (min-width: 769px) {
+  .page-center-wrap {
+    width: 100% !important;
+  }
+  
+  .page-container {
+    width: 100% !important;
+  }
+}
 /*#endregion*/
 
 /*#region Layout */
