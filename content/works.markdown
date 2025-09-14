@@ -102,12 +102,24 @@ id: works
   text-decoration: none !important;
 }
 
-.pub-title {
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.2;
-  text-decoration: none !important;
-}
+  .pub-title {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.2;
+    text-decoration: none !important;
+  }
+  
+  .pub-item[data-type="news"] .pub-title {
+    font-weight: 400;
+  }
+  
+  .pub-date {
+    font-size: 11px;
+    color: #999;
+    line-height: 1.2;
+    margin-bottom: 4px;
+    text-decoration: none !important;
+  }
 
 .pub-meta {
   font-size: 12px;
@@ -284,6 +296,7 @@ id: works
         {% endif %}
         <div class="pub-content">
           <div class="pub-header">
+            <div class="pub-date">{{ item.date | date: '%b %Y' }}</div>
             <div class="pub-title">{{ item.title }}</div>
           </div>
         </div>
