@@ -9,7 +9,7 @@ settings:
 news_items:
   - id: news-003
     title: "Attending Singapore HCI Meetup 2025 at SMU! 🤝"
-    date: "2025-04-25"
+    date: "2025-04-15"
     category: "Conference"
     tags: ["sghci", "conference", "hci"]
     featured: true
@@ -44,6 +44,7 @@ news_items:
     conference: "CHI 2025"
     conference_link: "https://chi2025.acm.org/"
     institution: "acm"
+    image: "fbb97622-7af3-4f4a-9080-a6baf4209100.jpg"
     summary: "Attending the ACM CHI Conference on Human Factors in Computing Systems 2025 in Yokohama, Japan."
     content: |
       I am excited to be attending the ACM CHI Conference on Human Factors in Computing Systems (CHI 2025) in Yokohama, Japan. This will be my first time attending CHI, the premier international conference in Human-Computer Interaction. I look forward to engaging with the HCI community, learning about cutting-edge research, and networking with fellow researchers and practitioners in the field.
