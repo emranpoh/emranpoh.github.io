@@ -243,10 +243,6 @@ id: works
       <div class="pub-content">
         <div class="pub-header">
           <div class="pub-title">{{ news_item.title }}</div>
-          <div class="pub-meta">{{ news_item.date | date: '%b %Y' }}{% if news_item.category %} • {{ news_item.category }}{% endif %}</div>
-          {% if news_item.summary %}
-          <div class="pub-meta">{{ news_item.summary }}</div>
-          {% endif %}
         </div>
       </div>
     </div>
