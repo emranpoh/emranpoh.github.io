@@ -129,28 +129,6 @@
         display: none; /* WebKit */
       }
       
-      .works-panel.scrolling {
-        scrollbar-width: thin; /* Firefox */
-        scrollbar-color: #ddd transparent; /* Firefox */
-      }
-      
-      .works-panel.scrolling::-webkit-scrollbar {
-        display: block;
-        width: 4px;
-      }
-      
-      .works-panel.scrolling::-webkit-scrollbar-track {
-        background: transparent;
-      }
-      
-      .works-panel.scrolling::-webkit-scrollbar-thumb {
-        background: #ddd;
-        border-radius: 2px;
-      }
-      
-      .works-panel.scrolling::-webkit-scrollbar-thumb:hover {
-        background: #ccc;
-      }
       .works-panel.hide {
         display: none;
         opacity: 0;
@@ -235,6 +213,21 @@
       
       .right-nav .works-nav-button[data-filter="news"].active {
         background: #be185d;
+        color: white;
+      }
+      
+      .right-nav .works-nav-button[data-filter="presentation"] {
+        background: #f0fdf4;
+        color: #16a34a;
+      }
+      
+      .right-nav .works-nav-button[data-filter="presentation"]:hover {
+        background: #dcfce7;
+        color: #15803d;
+      }
+      
+      .right-nav .works-nav-button[data-filter="presentation"].active {
+        background: #16a34a;
         color: white;
       }
       
@@ -328,6 +321,21 @@
       
       .mobile-works-filter-btn[data-filter="news"].active {
         background: #be185d;
+        color: white;
+      }
+      
+      .mobile-works-filter-btn[data-filter="presentation"] {
+        background: #f0fdf4;
+        color: #16a34a;
+      }
+      
+      .mobile-works-filter-btn[data-filter="presentation"]:hover {
+        background: #dcfce7;
+        color: #15803d;
+      }
+      
+      .mobile-works-filter-btn[data-filter="presentation"].active {
+        background: #16a34a;
         color: white;
       }
       
@@ -443,28 +451,6 @@
         display: none; /* WebKit */
       }
       
-      .content.scrolling {
-        scrollbar-width: thin; /* Firefox */
-        scrollbar-color: #ddd transparent; /* Firefox */
-      }
-      
-      .content.scrolling::-webkit-scrollbar {
-        display: block;
-        width: 4px;
-      }
-      
-      .content.scrolling::-webkit-scrollbar-track {
-        background: transparent;
-      }
-      
-      .content.scrolling::-webkit-scrollbar-thumb {
-        background: #ddd;
-        border-radius: 2px;
-      }
-      
-      .content.scrolling::-webkit-scrollbar-thumb:hover {
-        background: #ccc;
-      }
     }
   </style>
   <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
@@ -499,7 +485,6 @@
           </div>
         </div>
         
-        {% include components/minimap.html %}
         
         <!-- Works Panel (Desktop Only) -->
         <div class="works-panel" id="works-panel">
@@ -542,6 +527,7 @@
               </a>
               <a href="{{ pub.url | relative_url }}" class="pub-content">
                 <div class="pub-header">
+                  <div class="pub-title">{{ pub.title }}</div>
                   <div class="pub-meta">
                     {{ pub.venue_short }} {{ pub.year }}
                   </div>
@@ -625,120 +611,86 @@
       <button class="mobile-works-filter-btn" data-filter="project"><i class="fas fa-code"></i> Projects</button>
       <button class="mobile-works-filter-btn" data-filter="pub"><i class="fas fa-file-alt"></i> Publications</button>
       <button class="mobile-works-filter-btn" data-filter="news"><i class="fas fa-newspaper"></i> News</button>
+      <button class="mobile-works-filter-btn" data-filter="presentation"><i class="fas fa-microphone"></i> Presentations</button>
     </div>
     
     <div class="mobile-works-content" id="mobile-works-content">
-      {% comment %} Create a combined list and sort by date {% endcomment %}
-      {% assign all_items = '' | split: '' %}
-      
-      {% comment %} Add news items {% endcomment %}
+      {% comment %} Render news items {% endcomment %}
       {% for news_item in site.data.news.news_items limit: 10 %}
-        {% assign item = news_item %}
-        {% assign item = item | merge: hash: 'item_type', 'news' %}
-        {% assign item = item | merge: hash: 'sort_date', news_item.date %}
-        {% assign all_items = all_items | push: item %}
+        <div class="mobile-works-item" data-type="news">
+          <a href="{{ news_item.link | default: '#' }}" class="mobile-works-item-link">
+            {% if news_item.image %}
+            <div class="mobile-works-item-image">
+              <img src="{{ '/assets/images/projects/' | append: news_item.image | relative_url }}" alt="{{ news_item.title }}">
+            </div>
+            {% endif %}
+            <div class="mobile-works-item-content">
+              <div class="mobile-works-item-title">{{ news_item.title }}</div>
+              <div class="mobile-works-item-date">{{ news_item.date | date: '%b %Y' }}</div>
+            </div>
+          </a>
+        </div>
       {% endfor %}
       
-      {% comment %} Add publications {% endcomment %}
+      {% comment %} Render publications {% endcomment %}
       {% for pub in site.data.pubs %}
         {% assign author_list = pub.authors | split: ',' %}
         {% assign first_author = author_list[0] | strip %}
         {% if first_author contains 'Emran Poh' %}
-          {% assign item = pub %}
-          {% assign item = item | merge: hash: 'item_type', 'pub' %}
-          {% assign item = item | merge: hash: 'sort_date', pub.year | append: '-12-31' %}
-          {% assign all_items = all_items | push: item %}
-        {% endif %}
-      {% endfor %}
-      
-      {% comment %} Add projects {% endcomment %}
-      {% for project in site.data.projects %}
-        {% assign item = project %}
-        {% assign item = item | merge: hash: 'item_type', 'project' %}
-        {% assign item = item | merge: hash: 'sort_date', project.year | append: '-12-31' %}
-        {% assign all_items = all_items | push: item %}
-      {% endfor %}
-      
-      {% comment %} Add presentations {% endcomment %}
-      {% for pres in site.data.others.presentations %}
-        {% assign item = pres %}
-        {% assign item = item | merge: hash: 'item_type', 'presentation' %}
-        {% assign item = item | merge: hash: 'sort_date', pres.date %}
-        {% assign all_items = all_items | push: item %}
-      {% endfor %}
-      
-      {% comment %} Sort all items by date (newest first) {% endcomment %}
-      {% assign sorted_items = all_items | sort: 'sort_date' | reverse %}
-      
-      {% comment %} Render all items in chronological order {% endcomment %}
-      {% for item in sorted_items %}
-        {% if item.item_type == 'news' %}
-          <div class="mobile-works-item" data-type="news">
-            <a href="{{ item.link | default: '#' }}" class="mobile-works-item-link">
-              {% if item.image %}
-              <div class="mobile-works-item-image">
-                <img src="{{ '/assets/images/projects/' | append: item.image | relative_url }}" alt="{{ item.title }}">
-              </div>
-              {% endif %}
-              <div class="mobile-works-item-content">
-                <div class="mobile-works-item-date">{{ item.date | date: '%b %Y' }}</div>
-                <h3 class="mobile-works-item-title">{{ item.title }}</h3>
-              </div>
-            </a>
-          </div>
-        {% elsif item.item_type == 'pub' %}
           <div class="mobile-works-item" data-type="pub">
-            <a href="{{ item.url | relative_url }}" class="mobile-works-item-link">
+            <a href="{{ pub.url | relative_url }}" class="mobile-works-item-link">
               <div class="mobile-works-item-image">
-                {% if item.images %}
-                <div class="pub-image-gallery">
-                  {% for image in item.images limit:4 %}
-                  <img src="{{ '/assets/images/projects/' | append: image | relative_url }}" alt="{{ item.title }}">
-                  {% endfor %}
-                </div>
-                {% elsif item.image %}
-                  <img src="{{ '/assets/images/projects/' | append: item.image | relative_url }}" alt="{{ item.title }}">
+                {% if pub.image %}
+                <img src="{{ '/assets/images/projects/' | append: pub.image | relative_url }}" alt="{{ pub.title }}">
                 {% else %}
-                  <div class="placeholder-image"></div>
+                <div class="placeholder-image"></div>
                 {% endif %}
               </div>
               <div class="mobile-works-item-content">
-                <h3 class="mobile-works-item-title">{{ item.title }}</h3>
-                <p class="mobile-works-item-meta">{{ item.venue }} • {{ item.year }}</p>
-              </div>
-            </a>
-          </div>
-        {% elsif item.item_type == 'project' %}
-          <div class="mobile-works-item" data-type="project">
-            <a href="{{ item.url | relative_url }}" class="mobile-works-item-link">
-              <div class="mobile-works-item-image">
-                {% if item.image %}
-                  <img src="{{ '/assets/images/projects/' | append: item.image | relative_url }}" alt="{{ item.title }}">
-                {% else %}
-                  <div class="placeholder-image"></div>
-                {% endif %}
-              </div>
-              <div class="mobile-works-item-content">
-                <h3 class="mobile-works-item-title">{{ item.title }}</h3>
-                <p class="mobile-works-item-meta">{{ item.year }} • {{ item.type }}</p>
-              </div>
-            </a>
-          </div>
-        {% elsif item.item_type == 'presentation' %}
-          <div class="mobile-works-item" data-type="presentation">
-            <a href="{{ item.link | default: '#' }}" class="mobile-works-item-link">
-              {% if item.image %}
-              <div class="mobile-works-item-image">
-                <img src="{{ '/assets/images/projects/' | append: item.image | relative_url }}" alt="{{ item.title }}">
-              </div>
-              {% endif %}
-              <div class="mobile-works-item-content">
-                <h3 class="mobile-works-item-title">{{ item.title }}</h3>
-                <p class="mobile-works-item-meta">{{ item.event }}{% if item.date %}, {{ item.date | date: '%b %Y' }}{% endif %}</p>
+                <div class="mobile-works-item-title">{{ pub.title }}</div>
+                <div class="mobile-works-item-meta">{{ pub.venue_short }} {{ pub.year }}</div>
               </div>
             </a>
           </div>
         {% endif %}
+      {% endfor %}
+      
+      {% comment %} Render projects {% endcomment %}
+      {% for project in site.data.projects %}
+        <div class="mobile-works-item" data-type="project">
+          <a href="{{ project.url | relative_url }}" class="mobile-works-item-link">
+            <div class="mobile-works-item-image">
+              {% if project.image %}
+              <img src="{{ '/assets/images/projects/' | append: project.image | relative_url }}" alt="{{ project.title }}">
+              {% else %}
+              <div class="placeholder-image"></div>
+              {% endif %}
+            </div>
+            <div class="mobile-works-item-content">
+              <div class="mobile-works-item-title">{{ project.title }}</div>
+              <div class="mobile-works-item-meta">{{ project.subtitle | default: project.role | default: project.location }}</div>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+      
+      {% comment %} Render presentations {% endcomment %}
+      {% for pres in site.data.presentations.presentations %}
+        <div class="mobile-works-item" data-type="presentation">
+          <a href="{{ pres.link | default: '#' }}" class="mobile-works-item-link">
+            <div class="mobile-works-item-image">
+              {% if pres.image %}
+              <img src="{{ '/assets/images/projects/' | append: pres.image | relative_url }}" alt="{{ pres.title }}">
+              {% else %}
+              <div class="placeholder-image"></div>
+              {% endif %}
+            </div>
+            <div class="mobile-works-item-content">
+              <div class="mobile-works-item-title">{{ pres.title }}</div>
+              <div class="mobile-works-item-meta">{{ pres.event }}{% if pres.date %}, {{ pres.date | date: '%b %Y' }}{% endif %}</div>
+            </div>
+          </a>
+        </div>
       {% endfor %}
     </div>
     
@@ -784,6 +736,8 @@
       // Initialize panel state based on current page
       if (isHomePage() && !isMobile()) {
         showWorksPanel();
+      } else if (isHomePage() && isMobile()) {
+        showMobileWorksPanel();
       } else {
         hideWorksPanel();
       }
@@ -961,7 +915,7 @@
       const mobileWorksOverlay = document.getElementById('mobile-works-overlay');
       const mobileWorksFilterBtns = document.querySelectorAll('.mobile-works-filter-btn');
       const mobileWorksItems = document.querySelectorAll('.mobile-works-item');
-
+      
       function showMobileWorksPanel() {
         if (isMobile()) {
           mobileWorksPanel.classList.add('show');
@@ -1018,33 +972,6 @@
       });
     });
 
-    // Scrollbar visibility control
-    let scrollTimeout;
-    document.addEventListener('scroll', function() {
-      document.body.classList.add('scrolling');
-      // Also add scrolling class to content elements
-      const contentElements = document.querySelectorAll('.content');
-      const worksPanelElements = document.querySelectorAll('.works-panel');
-      
-      contentElements.forEach(content => {
-        content.classList.add('scrolling');
-      });
-      
-      worksPanelElements.forEach(worksPanel => {
-        worksPanel.classList.add('scrolling');
-      });
-      
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(function() {
-        document.body.classList.remove('scrolling');
-        contentElements.forEach(content => {
-          content.classList.remove('scrolling');
-        });
-        worksPanelElements.forEach(worksPanel => {
-          worksPanel.classList.remove('scrolling');
-        });
-      }, 1000);
-    });
 
     // Enhanced smooth scrolling for all scrollable elements
     function smoothScrollTo(element, target, duration = 300) {
@@ -1074,18 +1001,6 @@
         element.style.scrollBehavior = 'smooth';
       });
       
-      // Add scroll event listeners to works panels
-      const worksPanels = document.querySelectorAll('.works-panel');
-      worksPanels.forEach(worksPanel => {
-        let worksPanelScrollTimeout;
-        worksPanel.addEventListener('scroll', function() {
-          worksPanel.classList.add('scrolling');
-          clearTimeout(worksPanelScrollTimeout);
-          worksPanelScrollTimeout = setTimeout(function() {
-            worksPanel.classList.remove('scrolling');
-          }, 1000);
-        });
-      });
       
       // Sort masonry items chronologically
       function sortMasonryChronologically() {

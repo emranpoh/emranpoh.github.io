@@ -207,14 +207,24 @@ id: works
 
 @media (max-width: 768px) {
   .pubs-list {
-    column-count: 2;
-    column-gap: 10px;
+    column-count: 2 !important;
+    column-gap: 10px !important;
     display: block !important;
+    /* Reset any masonry positioning */
+    position: static !important;
+    height: auto !important;
   }
   .pub-item {
-    display: inline-block;
-    width: 100%;
-    margin-bottom: 0;
+    display: inline-block !important;
+    width: 100% !important;
+    margin-bottom: 10px !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    /* Reset any masonry positioning */
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
   }
   .pub-image,
   .pub-image img {
@@ -237,135 +247,106 @@ id: works
     <button class="works-nav-button" data-filter="project">Projects</button>
     <button class="works-nav-button" data-filter="pub">Publications</button>
     <button class="works-nav-button" data-filter="news">News</button>
+    <button class="works-nav-button" data-filter="presentation">Presentations</button>
   </div>
 </div>
 
 <div class="pubs-list" style="margin:0 auto;">
-  {% comment %} Create a combined list and sort by date {% endcomment %}
-  {% assign all_items = '' | split: '' %}
-  
-  {% comment %} Add news items {% endcomment %}
+  {% comment %} Render news items {% endcomment %}
   {% for news_item in site.data.news.news_items limit: 10 %}
-    {% assign item = news_item %}
-    {% assign item = item | merge: hash: 'item_type', 'news' %}
-    {% assign item = item | merge: hash: 'sort_date', news_item.date %}
-    {% assign all_items = all_items | push: item %}
+    <div class="pub-item" data-type="news">
+      {% if news_item.image %}
+      <a href="{{ news_item.link | default: '#' }}" class="pub-image-link">
+        <div class="pub-image">
+          <img src="{{ '/assets/images/projects/' | append: news_item.image | relative_url }}" alt="{{ news_item.title }}">
+        </div>
+      </a>
+      {% endif %}
+      <div class="pub-content">
+        <div class="pub-header">
+          <div class="pub-date">{{ news_item.date | date: '%b %Y' }}</div>
+          <div class="pub-title">{{ news_item.title }}</div>
+        </div>
+      </div>
+    </div>
   {% endfor %}
   
-  {% comment %} Add publications {% endcomment %}
+  {% comment %} Render publications {% endcomment %}
   {% for pub in site.data.pubs %}
     {% assign author_list = pub.authors | split: ',' %}
     {% assign first_author = author_list[0] | strip %}
     {% if first_author contains 'Emran Poh' %}
-      {% assign item = pub %}
-      {% assign item = item | merge: hash: 'item_type', 'pub' %}
-      {% assign item = item | merge: hash: 'sort_date', pub.year | append: '-12-31' %}
-      {% assign all_items = all_items | push: item %}
-    {% endif %}
-  {% endfor %}
-  
-  {% comment %} Add projects {% endcomment %}
-  {% for project in site.data.projects %}
-    {% assign item = project %}
-    {% assign item = item | merge: hash: 'item_type', 'project' %}
-    {% assign item = item | merge: hash: 'sort_date', project.year | append: '-12-31' %}
-    {% assign all_items = all_items | push: item %}
-  {% endfor %}
-  
-  {% comment %} Add presentations {% endcomment %}
-  {% for pres in site.data.others.presentations %}
-    {% assign item = pres %}
-    {% assign item = item | merge: hash: 'item_type', 'presentation' %}
-    {% assign item = item | merge: hash: 'sort_date', pres.date %}
-    {% assign all_items = all_items | push: item %}
-  {% endfor %}
-  
-  {% comment %} Sort all items by date (newest first) {% endcomment %}
-  {% assign sorted_items = all_items | sort: 'sort_date' | reverse %}
-  
-  {% comment %} Render all items in chronological order {% endcomment %}
-  {% for item in sorted_items %}
-    {% if item.item_type == 'news' %}
-      <div class="pub-item" data-type="news">
-        {% if item.image %}
-        <a href="{{ item.link | default: '#' }}" class="pub-image-link">
-          <div class="pub-image">
-            <img src="{{ '/assets/images/projects/' | append: item.image | relative_url }}" alt="{{ item.title }}">
-          </div>
-        </a>
-        {% endif %}
-        <div class="pub-content">
-          <div class="pub-header">
-            <div class="pub-date">{{ item.date | date: '%b %Y' }}</div>
-            <div class="pub-title">{{ item.title }}</div>
-          </div>
-        </div>
-      </div>
-    {% elsif item.item_type == 'pub' %}
       <div class="pub-item" data-type="pub">
-        <a href="{{ item.url | relative_url }}" class="pub-image-link">
+        <a href="{{ pub.url | relative_url }}" class="pub-image-link">
           <div class="pub-image">
-            {% if item.image %}
-            <img src="{{ '/assets/images/projects/' | append: item.image | relative_url }}" alt="{{ item.title }}">
+            {% if pub.image %}
+            <img src="{{ '/assets/images/projects/' | append: pub.image | relative_url }}" alt="{{ pub.title }}">
             {% else %}
             <div class="placeholder-image"></div>
             {% endif %}
           </div>
         </a>
-        <a href="{{ item.url | relative_url }}" class="pub-content">
+        <a href="{{ pub.url | relative_url }}" class="pub-content">
           <div class="pub-header">
+            <div class="pub-title">{{ pub.title }}</div>
             <div class="pub-meta">
-              {{ item.venue_short }} {{ item.year }}
+              {{ pub.venue_short }} {{ pub.year }}
             </div>
           </div>
         </a>
       </div>
-    {% elsif item.item_type == 'project' %}
-      <div class="pub-item" data-type="project">
-        <a href="{{ item.url | relative_url }}" class="pub-image-link">
-          <div class="pub-image">
-            {% if item.image %}
-            <img src="{{ '/assets/images/projects/' | append: item.image | relative_url }}" alt="{{ item.title }}">
-            {% else %}
+    {% endif %}
+  {% endfor %}
+  
+  {% comment %} Render projects {% endcomment %}
+  {% for project in site.data.projects %}
+    <div class="pub-item" data-type="project">
+      <a href="{{ project.url | relative_url }}" class="pub-image-link">
+        <div class="pub-image">
+          {% if project.image %}
+          <img src="{{ '/assets/images/projects/' | append: project.image | relative_url }}" alt="{{ project.title }}">
+          {% else %}
+          <div class="placeholder-image"></div>
+          {% endif %}
+        </div>
+      </a>
+      <a href="{{ project.url | relative_url }}" class="pub-content">
+        <div class="pub-header">
+          <div class="pub-title">{{ project.title }}</div>
+          {% if project.subtitle %}
+          <div class="pub-meta">{{ project.subtitle }}</div>
+          {% endif %}
+          {% if project.role %}
+          <div class="pub-meta">{{ project.role }}</div>
+          {% endif %}
+          {% if project.location %}
+          <div class="pub-meta">{{ project.location }}</div>
+          {% endif %}
+        </div>
+      </a>
+    </div>
+  {% endfor %}
+  
+  {% comment %} Render presentations {% endcomment %}
+  {% for pres in site.data.presentations.presentations %}
+    <div class="pub-item" data-type="presentation">
+      <a href="{{ pres.link | default: '#' }}" class="pub-image-link">
+        <div class="pub-image">
+          {% if pres.image %}
+            <img src="{{ '/assets/images/projects/' | append: pres.image | relative_url }}" alt="{{ pres.title }}">
+          {% else %}
             <div class="placeholder-image"></div>
-            {% endif %}
-          </div>
-        </a>
-        <a href="{{ item.url | relative_url }}" class="pub-content">
-          <div class="pub-header">
-            <div class="pub-title">{{ item.title }}</div>
-            {% if item.subtitle %}
-            <div class="pub-meta">{{ item.subtitle }}</div>
-            {% endif %}
-            {% if item.role %}
-            <div class="pub-meta">{{ item.role }}</div>
-            {% endif %}
-            {% if item.location %}
-            <div class="pub-meta">{{ item.location }}</div>
-            {% endif %}
-          </div>
-        </a>
-      </div>
-    {% elsif item.item_type == 'presentation' %}
-      <div class="pub-item" data-type="presentation">
-        <a href="{{ item.link | default: '#' }}" class="pub-image-link">
-          <div class="pub-image">
-            {% if item.image %}
-              <img src="{{ '/assets/images/projects/' | append: item.image | relative_url }}" alt="{{ item.title }}">
-            {% else %}
-              <div class="placeholder-image"></div>
-            {% endif %}
-          </div>
-        </a>
-        <div class="pub-content">
-          <div class="pub-header">
-            <div class="pub-title">{{ item.title }}</div>
-            <div class="pub-meta">{{ item.event }}{% if item.date %}, {{ item.date | date: '%b %Y' }}{% endif %}</div>
-            <div class="pub-meta">{{ item.description }}</div>
-          </div>
+          {% endif %}
+        </div>
+      </a>
+      <div class="pub-content">
+        <div class="pub-header">
+          <div class="pub-title">{{ pres.title }}</div>
+          <div class="pub-meta">{{ pres.event }}{% if pres.date %}, {{ pres.date | date: '%b %Y' }}{% endif %}</div>
+          <div class="pub-meta">{{ pres.description }}</div>
         </div>
       </div>
-    {% endif %}
+    </div>
   {% endfor %}
 </div>
 
@@ -383,16 +364,33 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   var grid = document.querySelector('.pubs-list');
-  if (grid && window.innerWidth > 768) {
-    imagesLoaded(grid, function() {
-      msnry = new Masonry(grid, {
-        itemSelector: '.pub-item',
-        columnWidth: getColumnWidth(),
-        percentPosition: false,
-        gutter: 16
+  
+  // Only initialize masonry on desktop, and ensure it doesn't interfere on mobile
+  function initMasonry() {
+    if (window.innerWidth > 768 && grid) {
+      // Destroy existing masonry instance if it exists
+      if (msnry) {
+        msnry.destroy();
+        msnry = null;
+      }
+      
+      imagesLoaded(grid, function() {
+        msnry = new Masonry(grid, {
+          itemSelector: '.pub-item',
+          columnWidth: getColumnWidth(),
+          percentPosition: false,
+          gutter: 16
+        });
       });
-    });
+    } else if (window.innerWidth <= 768 && msnry) {
+      // Destroy masonry on mobile to prevent interference with CSS columns
+      msnry.destroy();
+      msnry = null;
+    }
   }
+  
+  // Initialize masonry
+  initMasonry();
 
   filterButtons.forEach(button => {
     button.addEventListener('click', function() {
@@ -414,6 +412,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   window.addEventListener('resize', function() {
+    initMasonry();
     if (msnry) {
       msnry.options.columnWidth = getColumnWidth();
       msnry.layout();

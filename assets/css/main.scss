@@ -34,6 +34,16 @@
   box-sizing: border-box;
 }
 
+/* Hide all scrollbars globally */
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+*::-webkit-scrollbar {
+  display: none; /* WebKit */
+}
+
 body {
   font-family: 'Hanken Grotesk', sans-serif;
   line-height: 1.6;
@@ -43,39 +53,13 @@ body {
   height: 100vh;
   scroll-behavior: smooth;
   
-  /* Hide scrollbar by default, show only when scrolling */
-  @media (min-width: 769px) {
-    overflow-y: auto;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* Internet Explorer 10+ */
-    
-    &::-webkit-scrollbar {
-      display: none; /* WebKit */
-    }
-    
-    /* Show scrollbar when scrolling */
-    &.scrolling {
-      scrollbar-width: thin; /* Firefox */
-      scrollbar-color: #ddd transparent; /* Firefox */
-      
-      &::-webkit-scrollbar {
-        display: block;
-        width: 4px;
-      }
-      
-      &::-webkit-scrollbar-track {
-        background: transparent;
-      }
-      
-      &::-webkit-scrollbar-thumb {
-        background: #ddd;
-        border-radius: 2px;
-      }
-      
-      &::-webkit-scrollbar-thumb:hover {
-        background: #ccc;
-      }
-    }
+  /* Hide scrollbar permanently but keep scrolling */
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  
+  &::-webkit-scrollbar {
+    display: none; /* WebKit */
   }
 }
 
@@ -284,7 +268,7 @@ body {
   
   /* Mobile works panel */
   .mobile-works-panel {
-    display: none !important;
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -301,11 +285,15 @@ body {
   }
   
   .mobile-works-header {
-    display: none !important;
+    display: block;
+    margin-bottom: 1rem;
   }
   
   .mobile-works-title {
-    display: none !important;
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
   }
   
   .mobile-works-filters {
@@ -349,6 +337,7 @@ body {
     overflow: hidden;
     box-sizing: border-box;
     break-inside: avoid;
+    page-break-inside: avoid;
     display: inline-block;
     width: 100%;
     margin-bottom: 1rem;
@@ -410,6 +399,33 @@ body {
     text-decoration: none !important;
     color: #1d1d1d;
     margin: 0;
+  }
+  
+  /* Mobile news item icon differentiation */
+  .mobile-works-item[data-type="news"] .mobile-works-item-date::before {
+    content: "\f1ea"; /* Font Awesome newspaper icon */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-right: 6px;
+    color: #999; /* Same color as the date */
+  }
+  
+  /* Mobile publication item icon differentiation */
+  .mobile-works-item[data-type="pub"] .mobile-works-item-meta::before {
+    content: "\f15c"; /* Font Awesome document icon */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-right: 6px;
+    color: #666; /* Same color as the meta text */
+  }
+  
+  /* Mobile presentation item icon differentiation */
+  .mobile-works-item[data-type="presentation"] .mobile-works-item-meta::before {
+    content: "\f130"; /* Font Awesome microphone icon */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-right: 6px;
+    color: #666; /* Same color as the meta text */
   }
   
   .mobile-works-item-date {
@@ -482,6 +498,11 @@ body {
 @media (min-width: 769px) {
   .mobile-works-panel,
   .mobile-works-overlay {
+    display: none !important;
+  }
+  
+  /* Hide section dividers on desktop */
+  .section-divider {
     display: none !important;
   }
 }
@@ -913,26 +934,13 @@ mark {
   overflow-y: auto;
   padding-right: 8px;
   
+  /* Hide scrollbar permanently but keep scrolling */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  
   &::-webkit-scrollbar {
-    width: 8px;
+    display: none; /* WebKit */
   }
-  
-  &::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 4px;
-  }
-  
-  &::-webkit-scrollbar-thumb {
-    background: #c1c1c1;
-    border-radius: 4px;
-  }
-  
-  &::-webkit-scrollbar-thumb:hover {
-    background: #a8a8a8;
-  }
-  
-  scrollbar-width: thin;
-  scrollbar-color: #c1c1c1 #f1f1f1;
 }
 
 .proj-compact-item {
@@ -1047,6 +1055,33 @@ mark {
   color: #222;
   margin: 0 0 4px 0;
   line-height: 1.3;
+}
+
+/* News item icon differentiation */
+.pub-item[data-type="news"] .pub-date::before {
+  content: "\f1ea"; /* Font Awesome newspaper icon */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  margin-right: 6px;
+  color: #999; /* Same color as the date */
+}
+
+/* Publication item icon differentiation */
+.pub-item[data-type="pub"] .pub-meta::before {
+  content: "\f15c"; /* Font Awesome document icon */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  margin-right: 6px;
+  color: #666; /* Same color as the meta text */
+}
+
+/* Presentation item icon differentiation */
+.pub-item[data-type="presentation"] .pub-meta::before {
+  content: "\f130"; /* Font Awesome microphone icon */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  margin-right: 6px;
+  color: #666; /* Same color as the meta text */
 }
 
 .pub-authors {

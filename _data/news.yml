@@ -8,7 +8,7 @@ settings:
 
 news_items:
   - id: news-003
-    title: "Attending Singapore HCI Meetup 2025 at SMU! 🤝"
+    title: "Attending Singapore HCI Meetup 2025 at SMU!"
     date: "2025-04-15"
     category: "Conference"
     tags: ["sghci", "conference", "hci"] 
@@ -49,43 +49,6 @@ news_items:
     summary: "Attending the ACM CHI Conference on Human Factors in Computing Systems 2025 in Yokohama, Japan."
     content: |
       I am excited to be attending the ACM CHI Conference on Human Factors in Computing Systems (CHI 2025) in Yokohama, Japan. This will be my first time attending CHI, the premier international conference in Human-Computer Interaction. I look forward to engaging with the HCI community, learning about cutting-edge research, and networking with fellow researchers and practitioners in the field.
-
-  - title: "Sharing my research at NUS-HCI Lab Seminar 🎤"
-    date: "2023-12-01"
-    type: "talk"
-    link: "https://synteraction.org/"
-    institution: "nus-hci"
-    summary: "Presented our latest research findings on artefact awareness in collaborative workspaces."
-
-  - title: "Exploring human connection through Death Stranding 🎮"
-    date: "2024-01-01"
-    type: "talk"
-    link: "https://synteraction.org/"
-    institution: "nus-hci"
-
-  - title: "Discussing XR ethics in Black Mirror's context 🕶️"
-    date: "2023-12-01"
-    type: "talk"
-    link: "https://www.immersification.org/"
-    institution: "immersification"
-
-  - title: "Our paper on artefact awareness got published! 📝"
-    date: "2023-10-01"
-    type: "publication"
-    link: "https://ieeexplore.ieee.org/abstract/document/10322229/"
-    institution: "nus-hci"
-
-  - title: "Mixed Reality for manufacturing assembly - our latest work! 🏭"
-    date: "2022-12-01"
-    type: "publication"
-    link: "https://doi.org/10.1145/1122445.1122456"
-    institution: "immersification"
-
-  - title: "Be-Longing: My AR art installation is live! ✨"
-    date: "2023-09-01"
-    type: "art"
-    link: "https://nus.edu.sg/cfa/NAF_2023/event/be-longing/index.html"
-    institution: "nus-hci"
 
 upcoming_events:
   - title: "Guest Lecture at University"
