@@ -674,7 +674,7 @@ id: emran
                     </p>
                     <div class="article-links">
                         {% if pub.pdf %}
-                        <a href="{{ pub.pdf | relative_url }}" class="read-more" target="_blank"><img src="{{ '/assets/images/noun-document-8069524 (1) 1.svg' | relative_url }}" alt="PDF" style="width: 1.125rem; height: 1.125rem; filter: brightness(0) saturate(100%) invert(40%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);"></a>
+                        <a href="{{ pub.pdf | relative_url }}" class="read-more" target="_blank"><img src="{{ '/assets/images/document-icon.svg' | relative_url }}" alt="PDF" style="width: 1.125rem; height: 1.125rem; filter: brightness(0) saturate(100%) invert(40%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);"></a>
                         {% endif %}
                         {% for tag in pub.tags %}
                             {% if tag.name == "pdf" and tag.url %}

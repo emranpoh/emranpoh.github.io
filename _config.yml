@@ -38,6 +38,8 @@ scholar_id: wYcrORkAAAAJ
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
 
 # Collections
 collections:
@@ -69,12 +71,12 @@ defaults:
     values:
       layout: "posts/post"
   - scope:
-      path: "_content/projects"
+      path: "content/projects"
       type: "projects"
     values:
       layout: "pages/project"
   - scope:
-      path: "_content/publications"
+      path: "content/publications"
       type: "publications"
     values:
       layout: "pages/publication"
