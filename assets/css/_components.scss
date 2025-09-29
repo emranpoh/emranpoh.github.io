@@ -1,0 +1,288 @@
+// Component styles - buttons, cards, navigation, forms
+
+/* Navigation */
+.nav-block {
+  /* Add any block-level nav styles if needed */
+}
+
+.nav-links-section {
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.nav-links-grid {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+.icon-link {
+  border-radius: 8px;
+  color: #666;
+  text-decoration: none;
+  transition: none;
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  height: 48px;
+  background-color: #f1f3f5;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: #2563eb;
+  }
+
+  span {
+    font-size: 1rem;
+    color: #666;
+  }
+}
+
+@media (min-width: 769px) {
+  .nav-buttons {
+    gap: 1.5rem;
+  }
+
+  .text-link {
+    padding: 0 1.5rem;
+    height: 56px;
+
+    span {
+      font-size: 1.125rem;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav-buttons {
+    gap: 2rem;
+  }
+
+  .text-link {
+    padding: 0 2rem;
+    height: 64px;
+
+    span {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+/* Buttons */
+.filter-btn, .works-nav-button {
+  font-family: 'Hanken Grotesk', sans-serif !important;
+  padding: 8px 16px;
+  background-color: #dad7d7;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover, .works-nav-button:hover {
+  background-color: #e0e0e0;
+  transform: none;
+}
+
+.filter-btn.active, .works-nav-button.active {
+  background-color: #0078ff;
+  color: white;
+  border-color: #0078ff;
+}
+
+/* Cards */
+.project-card {
+  display: block;
+  width: 240px;
+  margin-bottom: 16px;
+  background: white;
+  border-radius: 6px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.pub-item {
+  display: block;
+  width: 240px;
+  margin-bottom: 16px;
+  background: white;
+  border-radius: 6px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.article-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1rem;
+  transition: all 0.2s ease;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+
+  &:hover {
+    border-color: #d1d5db;
+  }
+}
+
+/* Tags */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+  background-color: #f4f4f4;
+  color: #666;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #e0e0e0;
+  }
+
+  &[data-tag="repo"] {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+  }
+
+  &[data-tag="pdf"] {
+    background-color: #ffebee;
+    color: #c62828;
+  }
+
+  &[data-tag="demo"] {
+    background-color: #e3f2fd;
+    color: #1565c0;
+  }
+
+  &[data-tag="video"] {
+    background-color: #f3e5f5;
+    color: #7b1fa2;
+  }
+}
+
+.tag-container {
+  display: flex;
+  gap: 8px;
+  padding: 0 8px;
+  margin: 8px 0 12px 0;
+  flex-wrap: wrap;
+
+  .project-tag {
+    text-transform: lowercase;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 12px;
+  }
+
+  .project-type-tag {
+    background: #f87171;
+    color: white;
+  }
+
+  .project-year-tag {
+    background: #E5E7EB;
+    color: #374151;
+  }
+}
+
+@media (max-width: 768px) {
+  .tag {
+    font-size: 10px;
+  }
+
+  .projtype-tag {
+    display: none;
+  }
+}
+
+.tag-link {
+  text-decoration: none;
+}
+
+/* Icons */
+.icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  vertical-align: middle;
+
+  &-sm {
+    width: 16px;
+    height: 16px;
+  }
+
+  &-lg {
+    width: 32px;
+    height: 32px;
+  }
+
+  &-xl {
+    width: 48px;
+    height: 48px;
+  }
+
+  /* Icon color variations */
+  &-primary {
+    fill: #0078ff;
+  }
+
+  &-secondary {
+    fill: #333;
+  }
+}
+
+.tag-icon {
+  margin-right: 4px;
+  vertical-align: -2px;
+}
+
+mark {
+  background-color: #ffce1b;
+  color: #000;
+}
+
+/* Links */
+.project-link,
+.pub-image-link,
+.pub-content,
+.tag-link,
+.post-card-link {
+  text-decoration: none !important;
+  
+  &:hover {
+    text-decoration: none !important;
+  }
+}
+
+/* Ensure masonry link content doesn't have underlines */
+.project-link *,
+.pub-image-link *,
+.pub-content *,
+.post-card-link * {
+  text-decoration: none !important;
+  
+  &:hover {
+    text-decoration: none !important;
+  }
+}
