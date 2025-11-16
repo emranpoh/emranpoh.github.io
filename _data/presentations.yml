@@ -9,28 +9,33 @@ presentations:
   - id: pres-001
     title: "Emptiness, Isolation, Death: Parallels from Kojima's Death Stranding for Human Connection"
     date: "2024-01-24"
+    year: 2024
     event: "Synteraction Lab Seminar"
     type: "seminar"
     description: "A talk exploring themes of connection and isolation in Death Stranding, relating them to human-agent interaction."
     link: ""
     image: "eidh.png"
     institution: "nus-hci"
+    is-selected: true
     tags: ["death-stranding", "hci", "gaming", "connection"]
     
   - id: pres-002
     title: "How to use XR for Physical Assault — A Less-than-Optimistic Commentary of 'The Ethics of Realism in Virtual and Augmented Reality' through Netflix's Black Mirror"
     date: "2023-06-23"
+    year: 2023
     event: "Synteraction Lab Seminar"
     type: "seminar"
     description: "A critical commentary on the ethics of realism in XR, referencing Black Mirror."
     link: ""
     image: "xr-assault.png"
     institution: "nus-hci"
+    is-selected: true
     tags: ["xr", "ethics", "black-mirror", "virtual-reality"]
     
   - id: pres-003
     title: "Mixed Reality for Design Engineering & FEA"
     date: "2022-02-18"
+    year: 2022
     event: "Singapore Airshow"
     type: "conference"
     description: "Presentation and demo of MR for Design Engineering and FEA at the Singapore Airshow."

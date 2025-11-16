@@ -7,6 +7,8 @@
   projtype: "art"
   is-collab: true
   emoji: "✨"
+  label: "ART INSTALLATION"
+  location: "University Town, NUS"
   description: "Be-Longing is a site-specific, augmented reality (AR) experiential artwork on UTown Green that invites you to slow down and enjoy life as a community. This interactive experience lets participants 'light' AR sparklers using their mobile phones. As more AR sparklers are lighted, more AR balloons are floated in the sky – personifying the beauty of humanity, lifting and supporting each other in times of uncertainty."
   url: "/projects/art02"
   tags:
@@ -25,6 +27,7 @@
   end-year: 2023
   projtype: "art"
   emoji: "🎨"
+  label: "DESIGN"
   url: "/projects/des01"
 
 - title: "Notifications: Reimagined"
@@ -36,6 +39,8 @@
   end-year: 2019
   projtype: "research"
   emoji: "🔔"
+  label: "COURSEWORK"
+  university: "NUS"
   url: "/projects/notifs01"
 
 - title: "A Decentralised Swarm-Based Mapping Algorithm for Search and Rescue Operations in a Disaster Relief Scenario"
@@ -46,6 +51,8 @@
   end-year: 2019
   projtype: "code"
   emoji: "🚁"
+  label: "COURSEWORK"
+  university: "UOG"
   url: "/projects/swarm01"
 
 - title: "Minecraft Coding Camp"
@@ -75,4 +82,6 @@
   end-year: 2018
   projtype: "code"
   emoji: "🏨"
+  label: "COURSEWORK"
+  university: "UOG"
   url: "/projects/fos01"
