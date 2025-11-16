@@ -1,0 +1,46 @@
+{% comment %} Selected Works Component
+   Displays works marked with is-selected: true flag
+{% endcomment %}
+
+<div class="selected-works-container">
+  <h2 class="selected-works-header">Selected Works</h2>
+  <div class="selected-works" id="selected-works">
+  {% comment %} Collect selected publications where Emran Poh is first author {% endcomment %}
+  {% assign selected_works = '' | split: '' %}
+  {% for pub in site.data.pubs %}
+    {% assign author_list = pub.authors | split: ',' %}
+    {% assign first_author = author_list[0] | strip %}
+    {% if first_author contains 'Emran Poh' and pub.is-selected == true %}
+      {% assign selected_works = selected_works | push: pub %}
+    {% endif %}
+  {% endfor %}
+  
+  {% comment %} Add selected projects {% endcomment %}
+  {% for project in site.data.projects %}
+    {% comment %} Skip teaching-related projects {% endcomment %}
+    {% if project.is-selected == true and project.url != '/projects/minecraft-coding' %}
+      {% assign selected_works = selected_works | push: project %}
+    {% endif %}
+  {% endfor %}
+  
+  {% comment %} Add selected presentations {% endcomment %}
+  {% for pres in site.data.presentations.presentations %}
+    {% if pres.is-selected == true %}
+      {% assign selected_works = selected_works | push: pres %}
+    {% endif %}
+  {% endfor %}
+  
+  {% comment %} Display selected works {% endcomment %}
+  {% for work in selected_works %}
+    {% if work.authors %}
+      {% assign work_type = 'pub' %}
+    {% elsif work.event %}
+      {% assign work_type = 'presentation' %}
+    {% else %}
+      {% assign work_type = 'project' %}
+    {% endif %}
+    {% include components/cards/selected-work-card.html work=work type=work_type %}
+  {% endfor %}
+  </div>
+</div>
+

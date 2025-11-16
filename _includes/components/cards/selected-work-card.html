@@ -1,0 +1,102 @@
+{% comment %} Determine URL for the work {% endcomment %}
+{% if include.type == 'presentation' %}
+  {% if include.work.link and include.work.link != '' %}
+    {% assign work_url = include.work.link %}
+  {% elsif include.work.id == 'pres-001' %}
+    {% comment %} Death Stranding talk links to its project page {% endcomment %}
+    {% assign work_url = '/projects/death-stranding' %}
+  {% else %}
+    {% assign work_url = '#' %}
+  {% endif %}
+  {% assign work_year = include.work.date | date: '%Y' %}
+{% else %}
+  {% assign work_url = include.work.url %}
+  {% assign work_year = include.work.year %}
+{% endif %}
+
+{% comment %} Determine label type {% endcomment %}
+{% if include.type == 'presentation' %}
+  {% assign work_label = 'Talk' %}
+{% elsif include.type == 'pub' %}
+  {% if include.work.type contains 'Poster' %}
+    {% assign work_label = 'Poster' %}
+  {% elsif include.work.type contains 'Position' %}
+    {% assign work_label = 'Position' %}
+  {% else %}
+    {% assign work_label = 'Paper' %}
+  {% endif %}
+{% elsif include.type == 'project' %}
+  {% if include.work.label %}
+    {% assign work_label = include.work.label %}
+  {% else %}
+    {% assign work_label = '' %}
+  {% endif %}
+{% else %}
+  {% assign work_label = '' %}
+{% endif %}
+
+{% comment %} Determine location {% endcomment %}
+{% if include.type == 'presentation' %}
+  {% if include.work.type == 'conference' %}
+    {% comment %} For conferences, show event name before location {% endcomment %}
+    {% if include.work.location %}
+      {% assign work_location = include.work.event | append: ', ' | append: include.work.location %}
+    {% else %}
+      {% assign work_location = include.work.event %}
+    {% endif %}
+  {% elsif include.work.location %}
+    {% assign work_location = include.work.location %}
+  {% elsif include.work.institution == 'nus-hci' %}
+    {% assign work_location = 'NUS' %}
+  {% else %}
+    {% assign work_location = '' %}
+  {% endif %}
+{% elsif include.type == 'pub' %}
+  {% comment %} For publications, show venue_short before location if available {% endcomment %}
+  {% if include.work.venue_short and include.work.location %}
+    {% assign work_location = include.work.venue_short | append: ', ' | append: include.work.location %}
+  {% elsif include.work.venue_short %}
+    {% assign work_location = include.work.venue_short %}
+  {% elsif include.work.location %}
+    {% assign work_location = include.work.location %}
+  {% else %}
+    {% assign work_location = '' %}
+  {% endif %}
+{% elsif include.type == 'project' %}
+  {% comment %} For coursework projects, show university; for others, show location {% endcomment %}
+  {% if include.work.label == 'COURSEWORK' and include.work.university %}
+    {% assign work_location = include.work.university %}
+  {% elsif include.work.location %}
+    {% assign work_location = include.work.location %}
+  {% else %}
+    {% assign work_location = '' %}
+  {% endif %}
+{% else %}
+  {% assign work_location = '' %}
+{% endif %}
+
+<div class="work-grid-item" data-type="{{ include.type }}" data-year="{{ work_year }}">
+  <a href="{{ work_url | relative_url }}" class="work-link">
+    {% if work_label != '' or work_location != '' %}
+    <div class="work-meta-row">
+      {% if work_label != '' %}
+      <span class="work-label">{{ work_label }}</span>
+      {% endif %}
+      {% if work_location != '' %}
+      <span class="work-location">{{ work_location }}</span>
+      {% endif %}
+    </div>
+    {% endif %}
+    <div class="work-image">
+      {% if include.work.image %}
+        <img src="{{ '/assets/images/projects/' | append: include.work.image | relative_url }}" alt="{{ include.work.title }}">
+      {% else %}
+        <div class="placeholder-image"></div>
+      {% endif %}
+    </div>
+    <div class="work-content">
+      <div class="work-title">{{ include.work.title }}</div>
+    </div>
+  </a>
+</div>
+
