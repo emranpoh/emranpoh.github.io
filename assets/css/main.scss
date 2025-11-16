@@ -8,44 +8,47 @@
 @import "pages";
 @import "mobile-works";
 @import "home";
+@import "intro";
 @import "project";
 @import "publication";
+@import "works";
+@import "teach";
 
 // Additional styles that don't fit into modules
-.hello-text {
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  font-size: 24px !important;
+// Desktop hello-text styles
+@media (min-width: 769px) {
+  .hello-text {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    font-size: 24px !important;
 
-  a {
-    user-select: text;
-    -webkit-user-select: text;
-    -moz-user-select: text;
-    -ms-user-select: text;
-    cursor: pointer;
+    a {
+      user-select: text;
+      -webkit-user-select: text;
+      -moz-user-select: text;
+      -ms-user-select: text;
+      cursor: pointer;
+    }
+
+    .emoji {
+      font-size: 24px;
+    }
+
+    ul {
+      font-size: 24px;
+    }
   }
+}
 
-  .emoji {
-    font-size: 24px;
-  }
-
-  ul {
-    font-size: 16px;
-  }
-
-  @media (max-width: 768px) {
+// Mobile hello-text styles
+@media (max-width: 768px) {
+  .hello-text {
     font-size: 16px !important;
 
     .emoji {
       font-size: 16px;
-    }
-  }
-
-  @media (min-width: 769px) {
-    ul {
-      font-size: 24px;
     }
   }
 }
