@@ -41,6 +41,13 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
 
+# Sass Configuration
+sass:
+  style: :expanded
+  quiet_deps: true
+  silence_deprecations:
+    - slash-div
+
 # Collections
 collections:
   posts:
