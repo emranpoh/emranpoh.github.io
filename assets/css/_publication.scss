@@ -8,6 +8,7 @@
   .publication-detail {
     max-width: 800px;
     margin: 0 auto;
+    padding: 2rem 1rem;
   }
 
   .publication-header {
@@ -34,8 +35,9 @@
 
   .publication-image__img {
     width: 100%;
+    max-height: 320px;
     height: auto;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 8px;
   }
 

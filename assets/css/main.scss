@@ -22,7 +22,7 @@
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    font-size: 24px !important;
+    font-size: 20px !important;
 
     a {
       user-select: text;
@@ -33,11 +33,11 @@
     }
 
     .emoji {
-      font-size: 24px;
+      font-size: 20px;
     }
 
     ul {
-      font-size: 24px;
+      font-size: 20px;
     }
   }
 }
@@ -45,10 +45,10 @@
 // Mobile hello-text styles
 @media (max-width: 768px) {
   .hello-text {
-    font-size: 16px !important;
+    font-size: 14px !important;
 
     .emoji {
-      font-size: 16px;
+      font-size: 14px;
     }
   }
 }

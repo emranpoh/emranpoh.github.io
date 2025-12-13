@@ -2,10 +2,12 @@
 // Desktop styles
 @media (min-width: 769px) {
   .main-content {
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
-    padding: 2rem;
+    padding-left: 0;
+    padding-right: 0;
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     gap: 0;
@@ -15,6 +17,25 @@
   .selected-works-container {
     margin: 4rem 0 0 0;
     width: 100%;
+    
+    .selected-works + .intro-block {
+      text-align: right !important;
+      
+      p {
+        text-align: right !important;
+      }
+      
+      a .fa-arrow-right,
+      a .fa-layer-group {
+        color: #0078ff;
+        transition: color 0.2s ease;
+      }
+      
+      a:hover .fa-arrow-right,
+      a:hover .fa-layer-group {
+        color: #0066cc;
+      }
+    }
   }
 
   .selected-works-header {
@@ -30,7 +51,6 @@
     flex-direction: row;
     gap: 1.5rem;
     overflow-x: auto;
-    padding-bottom: 1rem;
     
     // Hide scrollbar but keep functionality
     scrollbar-width: none; /* Firefox */
@@ -56,14 +76,57 @@
     min-width: 0;
     width: calc(25% - 1.125rem);
   }
+
+  .selected-works-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.5rem;
+    height: 2.5rem;
+    padding: 0 0.75rem;
+    background: #e5e7eb;
+    border-radius: 0.5rem;
+    color: #444;
+    font-size: 1rem;
+    transition: background 0.2s, color 0.2s;
+    text-decoration: none;
+    flex: 0 0 auto;
+    
+    &:hover {
+      background: #d1d5db;
+      color: #222;
+    }
+    
+    span {
+      font-size: 0.875rem;
+      font-weight: 400;
+      text-transform: lowercase;
+      white-space: nowrap;
+    }
+  }
 }
 
 // Mobile overrides
 @media (max-width: 768px) {
   .selected-works-container {
-    margin: 2.5rem 0 0 0;
-    padding-top: 2.5rem;
-    border-top: 1px solid #e5e7eb;
+    margin: 1rem 0 0 0;
+    
+    .intro-block {
+      text-align: right;
+    }
+    
+    .selected-works + .intro-block {
+      a .fa-arrow-right,
+      a .fa-layer-group {
+        color: #0078ff;
+        transition: color 0.2s ease;
+      }
+      
+      a:hover .fa-arrow-right,
+      a:hover .fa-layer-group {
+        color: #0066cc;
+      }
+    }
   }
 
   .selected-works-header {
@@ -72,53 +135,66 @@
   }
 
   .selected-works {
+    display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
-    padding-bottom: 0.5rem;
+    overflow-x: visible;
   }
 
   .project-grid-item {
     width: calc(50% - 0.5rem);
-    min-width: 280px;
+    min-width: 0;
   }
 
   .work-grid-item {
     width: calc(50% - 0.5rem);
-    min-width: 280px;
+    min-width: 0;
   }
 }
 
 .work-meta-row {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  right: 0.75rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.5rem;
-  
-  @media (max-width: 768px) {
-    margin-bottom: 0.375rem;
-  }
+  z-index: 10;
+  margin: 0;
 }
 
-.work-label {
+.selected-works-container .work-label {
   font-size: 0.75rem;
   font-weight: 600;
-  color: #666;
+  color: #fff;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  display: inline !important;
+  visibility: visible !important;
   
   @media (max-width: 768px) {
     font-size: 0.6875rem;
     }
 }
 
-.work-location {
+.selected-works-container .work-location {
   font-size: 0.75rem;
   font-weight: 400;
-  color: #888;
+  color: #fff;
   text-align: right;
+  display: inline !important;
+  visibility: visible !important;
+  opacity: 0;
+  transition: opacity 0.2s ease;
   
   @media (max-width: 768px) {
     font-size: 0.6875rem;
   }
+}
+
+.selected-works-container .work-grid-item:hover .work-location {
+  opacity: 1;
 }
 
 .project-link,
@@ -128,6 +204,7 @@
   text-decoration: none !important;
   color: inherit;
   height: 100%;
+  position: relative;
 }
 
 .work-link:hover {
@@ -185,6 +262,7 @@
   overflow: hidden;
   margin: 0;
   border-radius: 8px;
+  position: relative;
   
   img {
     width: 100%;
@@ -192,6 +270,22 @@
     object-fit: cover;
     display: block;
     border-radius: 8px;
+    transition: filter 0.2s ease;
+  }
+  
+  // Overlay for hover effect
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: transparent;
+    border-radius: 8px;
+    pointer-events: none;
+    transition: background 0.2s ease;
+    z-index: 5;
   }
   
   .placeholder-image {
@@ -205,6 +299,100 @@
     font-size: 0.875rem;
     border-radius: 8px;
   }
+}
+
+// White overlay on hover for light images (black text = needs lightening)
+.work-grid-item.has-white-text:hover .work-image::after {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+// Dark overlay on hover for dark images (white text = needs darkening)
+.work-grid-item.has-black-text:hover .work-image::after {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.work-title-overlay {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  right: 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 0;
+  color: #fff;
+  text-decoration: none;
+  z-index: 10;
+  
+  @media (max-width: 768px) {
+    font-size: 0.875rem;
+    bottom: 0.5rem;
+    left: 0.5rem;
+    right: 0.5rem;
+  }
+}
+
+// Publication and presentation titles: smaller font, only show on hover
+.work-grid-item[data-type="pub"] .work-title-overlay,
+.work-grid-item[data-type="presentation"] .work-title-overlay {
+  font-size: 0.75rem !important;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  
+  @media (max-width: 768px) {
+    font-size: 0.75rem !important;
+  }
+}
+
+.work-grid-item[data-type="pub"]:hover .work-title-overlay,
+.work-grid-item[data-type="presentation"]:hover .work-title-overlay {
+  opacity: 1;
+}
+
+.work-author-label {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+  font-style: italic;
+  color: #fff;
+  z-index: 10;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+  
+  @media (max-width: 768px) {
+    bottom: 0.5rem;
+    right: 0.5rem;
+    font-size: 0.6875rem;
+  }
+}
+
+.work-grid-item[data-type="pub"]:hover .work-author-label {
+  opacity: 0;
+}
+
+.work-date-label {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+  font-style: italic;
+  color: #fff;
+  z-index: 10;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+  
+  @media (max-width: 768px) {
+    bottom: 0.5rem;
+    right: 0.5rem;
+    font-size: 0.6875rem;
+  }
+}
+
+.work-grid-item[data-type="presentation"]:hover .work-date-label {
+  opacity: 0;
 }
 
 .project-content {
@@ -278,6 +466,7 @@
     width: 100%;
     overflow: hidden;
     margin-bottom: 1rem;
+    padding-top: 0 !important;
   }
   .mobile-projects-section h2,
   .mobile-publications-section h2,
@@ -350,10 +539,15 @@
     display: none !important;
   }
   footer {
-    margin-top: 2rem;
-    padding: 1rem 0;
-    border-top: 1px solid #eee;
+    margin-top: 0;
+    padding: 16px 0 48px 0;
+    border-top: none;
     width: 100%;
+    
+    p {
+      color: #999;
+      font-size: 0.8125rem;
+    }
   }
   .footer-links {
     display: flex;
@@ -382,7 +576,8 @@
   }
   .main-content {
     flex-direction: column;
-    padding: 1rem;
+    padding-left: 0;
+    padding-right: 0;
     max-width: 100%;
   }
 }
@@ -398,8 +593,8 @@
     display: none;
   }
   .introduction {
-    padding-top: 2rem;
     margin-top: 0.5rem;
+    padding-top: 0 !important;
     height: auto;
     min-height: 0;
   }
@@ -470,10 +665,16 @@
   footer {
     position: static;
     width: 100%;
-    background-color: #f8f9fa;
-    padding: 1rem 0;
-    border-top: 1px solid #eee;
+    background: transparent;
+    padding: 0 2rem;
+    border-top: none;
     text-align: center;
+    font-size: 0.875rem;
+    
+    p {
+      color: #999;
+      font-size: 0.8125rem;
+    }
   }
   .footer-links {
     display: flex;
@@ -725,7 +926,7 @@
     width: 2.5rem;
     height: 2rem;
     border-radius: 0.5rem;
-    background-color: #f3f4f6;
+    background-color: #e5e7eb;
     color: #666 !important;
     text-decoration: none;
     transition: all 0.2s ease;
@@ -735,20 +936,20 @@
   }
 
   .read-more:hover {
-    background: #e5e7eb;
+    background: #d1d5db;
     color: #222 !important;
     text-decoration: none !important;
   }
 
   .cite-button {
-    background-color: #f3f4f6;
+    background-color: #e5e7eb;
     color: #666 !important;
     border: none;
     outline: none;
   }
 
   .cite-button:hover {
-    background: #e5e7eb;
+    background: #d1d5db;
     color: #222 !important;
     text-decoration: none !important;
   }

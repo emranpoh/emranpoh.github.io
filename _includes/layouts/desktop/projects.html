@@ -3,7 +3,9 @@
     <h2 class="section-title">Projects</h2>
     <div class="w-full mt-4 projects-grid">
       {% for project in site.data.projects %}
-        {% include components/cards/project-card.html %}
+        {% if project.label != 'COURSEWORK' %}
+          {% include components/cards/project-card.html %}
+        {% endif %}
       {% endfor %}
     </div>
     <div class="view-all-projects">

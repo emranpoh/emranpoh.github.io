@@ -2,8 +2,10 @@
    Displays works marked with is-selected: true flag
 {% endcomment %}
 
-<div class="selected-works-container">
-  <h2 class="selected-works-header">Selected Works</h2>
+<section class="selected-works-container">
+  <div class="intro-block" style="margin-bottom: 1.5rem; text-align: left;">
+    <p>here are some selected works,</p>
+  </div>
   <div class="selected-works" id="selected-works">
   {% comment %} Collect selected publications where Emran Poh is first author {% endcomment %}
   {% assign selected_works = '' | split: '' %}
@@ -17,8 +19,8 @@
   
   {% comment %} Add selected projects {% endcomment %}
   {% for project in site.data.projects %}
-    {% comment %} Skip teaching-related projects {% endcomment %}
-    {% if project.is-selected == true and project.url != '/projects/minecraft-coding' %}
+    {% comment %} Skip teaching-related projects and coursework projects {% endcomment %}
+    {% if project.is-selected == true and project.url != '/projects/minecraft-coding' and project.label != 'COURSEWORK' %}
       {% assign selected_works = selected_works | push: project %}
     {% endif %}
   {% endfor %}
@@ -42,5 +44,8 @@
     {% include components/cards/selected-work-card.html work=work type=work_type %}
   {% endfor %}
   </div>
-</div>
+  <div class="intro-block" style="margin-top: 1.5rem; text-align: right;">
+    <p>and then some more <a href="/works"><i class="fas fa-arrow-right"></i><i class="fas fa-layer-group"></i></a></p>
+  </div>
+</section>
 

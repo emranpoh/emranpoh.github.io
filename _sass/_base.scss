@@ -28,10 +28,12 @@ body {
   font-family: 'Hanken Grotesk', sans-serif;
   line-height: 1.6;
   color: #1d1d1d;
-  background-color: #ffffff;
+  background-color: #f6f6f6;
   margin: 0 auto;
   height: 100vh;
   scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
   
   /* Hide scrollbar permanently but keep scrolling */
   overflow-y: auto;

@@ -18,20 +18,23 @@
   </script>
 </head>
 <body style="min-height:100vh;">
-  <!-- Top Navigation - Fixed at top -->
-  <div class="top-nav-container">
-    <div class="left-nav">
+  <div class="desktop-wrapper">
+    <!-- Top Navigation - Fixed at top -->
+    <div class="desktop-nav">
       {% include components/navigation.html %}
     </div>
-  </div>
-  
-  <div class="page-center-wrap" style="display:flex;justify-content:center;align-items:center;min-height:100vh;width:100vw;overflow:visible;">
-    <div class="page-container">
+    
+    <div class="content-wrapper">
       <!-- Main Content -->
       <main class="content content-{{ page.id | default: page.title | replace: ' ', '-' | slice: 0, 5 }}" id="main-content">
         {{ content }}
       </main>
     </div>
+    
+    <footer class="footer">
+      <p>made with care in {{ site.location }}</p>
+      <p>&copy; {{ 'now' | date: '%Y' }} {{ site.title | downcase }}</p>
+    </footer>
   </div>
   
   <!-- Mobile Navigation -->
@@ -69,5 +72,6 @@
       });
     });
   </script>
+  <script src="{{ '/assets/js/image-contrast.js' | relative_url }}"></script>
 </body>
 </html>

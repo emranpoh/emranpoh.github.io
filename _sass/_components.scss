@@ -1,10 +1,6 @@
 // Component styles - buttons, cards, navigation, forms
 
 /* Navigation */
-.nav-block {
-  /* Add any block-level nav styles if needed */
-}
-
 .nav-links-section {
 }
 
@@ -20,6 +16,7 @@
     display: flex;
     gap: 0.75rem;
     align-items: center;
+    width: 100%;
   }
 
   .nav-buttons {
@@ -43,7 +40,7 @@
     justify-content: center;
     padding: 0 1rem;
     height: 48px;
-    background-color: #f1f3f5;
+    background-color: #e5e7eb;
     border-radius: 12px;
     transition: all 0.2s ease;
 

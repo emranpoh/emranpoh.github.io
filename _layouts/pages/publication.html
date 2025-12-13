@@ -2,6 +2,7 @@
 layout: pages/default
 ---
 
+<article class="publication-detail">
 {% include partials/pub-header.html %}
 
 {% if page.image %}
@@ -18,4 +19,7 @@ layout: pages/default
 </div>
 {% endif %}
 
+<div class="publication-content">
 {{ content }}
+</div>
+</article>

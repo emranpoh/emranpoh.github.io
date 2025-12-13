@@ -7,6 +7,7 @@ year: 2024
 image: ds-1.png
 projtype: talk
 institution: nus-hci
+permalink: /projects/death-stranding/
 ---
 
 ## Overview

@@ -3,6 +3,7 @@
 <div class="content-gallery">
   <div class="projects-grid">
     {% for project in site.data.projects %}
+    {% if project.label != 'COURSEWORK' %}
     <div class="project-card" data-year="{{ project.year }}" title="{{ project.description }}">
       <div class="selected-project-card-bg-image" 
         {% if project.image contains 'placeholder' %}
@@ -59,6 +60,7 @@
       <div class="project-year">{{ project.year }}</div>
       {% endif %} -->
     </div>
+    {% endif %}
     {% endfor %}
   </div>
 </div>

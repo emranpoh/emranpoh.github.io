@@ -52,13 +52,9 @@
     {% assign work_location = '' %}
   {% endif %}
 {% elsif include.type == 'pub' %}
-  {% comment %} For publications, show venue_short before location if available {% endcomment %}
-  {% if include.work.venue_short and include.work.location %}
-    {% assign work_location = include.work.venue_short | append: ', ' | append: include.work.location %}
-  {% elsif include.work.venue_short %}
-    {% assign work_location = include.work.venue_short %}
-  {% elsif include.work.location %}
-    {% assign work_location = include.work.location %}
+  {% comment %} For publications, show only venue_short (short conference name) without suffixes {% endcomment %}
+  {% if include.work.venue_short %}
+    {% assign work_location = include.work.venue_short | split: '-' | first %}
   {% else %}
     {% assign work_location = '' %}
   {% endif %}
@@ -93,9 +89,13 @@
       {% else %}
         <div class="placeholder-image"></div>
       {% endif %}
-    </div>
-    <div class="work-content">
-      <div class="work-title">{{ include.work.title }}</div>
+      <div class="work-title-overlay">{{ include.work.title }}</div>
+      {% if include.type == 'pub' %}
+      <div class="work-author-label">Poh et al.</div>
+      {% elsif include.type == 'presentation' and include.work.date %}
+      {% assign presentation_date = include.work.date | date: '%b %y' %}
+      <div class="work-date-label">{{ presentation_date }}</div>
+      {% endif %}
     </div>
   </a>
 </div>
