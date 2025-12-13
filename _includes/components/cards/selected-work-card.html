@@ -91,7 +91,12 @@
       {% endif %}
       <div class="work-title-overlay">{{ include.work.title }}</div>
       {% if include.type == 'pub' %}
-      <div class="work-author-label">Poh et al.</div>
+        {% assign author_list = include.work.authors | split: ',' %}
+        {% if author_list.size > 1 %}
+          {% assign first_author = author_list[0] | strip %}
+          {% assign last_name = first_author | split: ' ' | last %}
+          <div class="work-author-label">{{ last_name }} et al.</div>
+        {% endif %}
       {% elsif include.type == 'presentation' and include.work.date %}
       {% assign presentation_date = include.work.date | date: '%b %y' %}
       <div class="work-date-label">{{ presentation_date }}</div>
