@@ -66,8 +66,7 @@
     flex: 1;
     overflow: visible;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
     outline: none;
     border: none;
     width: 100%;
