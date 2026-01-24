@@ -1,0 +1,172 @@
+<div class="work-list-sidebar">
+  <h3 class="work-list-title">Work</h3>
+  <ul class="work-list">
+    {% comment %} Separate items into Industry, Design, Dev, Teaching, and regular work {% endcomment %}
+    {% assign industry_items = '' | split: '' %}
+    {% assign design_items = '' | split: '' %}
+    {% assign dev_items = '' | split: '' %}
+    {% assign teaching_items = '' | split: '' %}
+    {% assign all_work_items = '' | split: '' %}
+    
+    {% comment %} Add publications where Emran Poh is an author {% endcomment %}
+    {% for pub in site.data.pubs %}
+      {% if pub.authors contains 'Emran Poh' %}
+        {% if pub.title_short contains 'MR4' or pub.institution == 'immersification' %}
+          {% assign industry_items = industry_items | push: pub %}
+        {% else %}
+          {% assign all_work_items = all_work_items | push: pub %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+    
+    {% comment %} Add projects (separate Design and Dev items) {% endcomment %}
+    {% for project in site.data.projects %}
+      {% if project.work-tags contains 'Design' %}
+        {% assign design_items = design_items | push: project %}
+      {% elsif project.work-tags contains 'dev' %}
+        {% assign dev_items = dev_items | push: project %}
+      {% else %}
+        {% assign all_work_items = all_work_items | push: project %}
+      {% endif %}
+    {% endfor %}
+    
+    {% comment %} Add presentations (excluding NYCU visit, Airshow goes to Industry) {% endcomment %}
+    {% if site.data.presentations.presentations %}
+      {% for pres in site.data.presentations.presentations %}
+        {% unless pres.institution == 'nycu' %}
+          {% if pres.institution == 'singapore-airshow' %}
+            {% assign industry_items = industry_items | push: pres %}
+          {% else %}
+            {% assign all_work_items = all_work_items | push: pres %}
+          {% endif %}
+        {% endunless %}
+      {% endfor %}
+    {% endif %}
+    
+    {% comment %} Add teaching experience {% endcomment %}
+    {% if site.data.cv.teaching %}
+      {% for teaching in site.data.cv.teaching %}
+        {% assign teaching_items = teaching_items | push: teaching %}
+      {% endfor %}
+    {% endif %}
+    
+    {% comment %} Sort by year (most recent first) {% endcomment %}
+    {% assign sorted_work_items = all_work_items | sort: 'year' | reverse %}
+    {% assign sorted_industry_items = industry_items | sort: 'year' | reverse %}
+    {% assign sorted_design_items = design_items | sort: 'year' | reverse %}
+    {% assign sorted_dev_items = dev_items | sort: 'year' | reverse %}
+    {% assign sorted_teaching_items = teaching_items | sort: 'year' | reverse %}
+    
+    {% comment %} Display regular work items {% endcomment %}
+    {% for item in sorted_work_items %}
+      <li class="work-item">
+        <span>
+          {% if item.title_short %}{{ item.title_short }}{% else %}{{ item.title }}{% endif %}
+          {% if item.year %}
+            {% assign year_str = item.year | append: '' %}
+            {% assign year_short = year_str | slice: -2, 2 %}
+            <span class="work-year">{{ year_short }}</span>
+          {% elsif item.date %}
+            {% assign item_year = item.date | date: '%Y' %}
+            {% assign year_str = item_year | append: '' %}
+            {% assign year_short = year_str | slice: -2, 2 %}
+            <span class="work-year">{{ year_short }}</span>
+          {% endif %}
+        </span>
+      </li>
+    {% endfor %}
+    
+    {% comment %} Display Industry section with MR4 publications {% endcomment %}
+    {% if sorted_industry_items.size > 0 %}
+      <li class="work-item work-section-header">
+        <span>Industry</span>
+      </li>
+      {% for item in sorted_industry_items %}
+        <li class="work-item work-sub-item">
+          <span>
+            {% if item.title_short %}{{ item.title_short }}{% else %}{{ item.title }}{% endif %}
+            {% if item.year %}
+              {% assign year_str = item.year | append: '' %}
+              {% assign year_short = year_str | slice: -2, 2 %}
+              <span class="work-year">{{ year_short }}</span>
+            {% elsif item.date %}
+              {% assign item_year = item.date | date: '%Y' %}
+              {% assign year_str = item_year | append: '' %}
+              {% assign year_short = year_str | slice: -2, 2 %}
+              <span class="work-year">{{ year_short }}</span>
+            {% endif %}
+          </span>
+        </li>
+      {% endfor %}
+    {% endif %}
+    
+    {% comment %} Display Design section {% endcomment %}
+    {% if sorted_design_items.size > 0 %}
+      <li class="work-item work-section-header">
+        <span>Design</span>
+      </li>
+      {% for item in sorted_design_items %}
+        <li class="work-item work-sub-item">
+          <span>
+            {% if item.title_short %}{{ item.title_short }}{% else %}{{ item.title }}{% endif %}
+            {% if item.year %}
+              {% assign year_str = item.year | append: '' %}
+              {% assign year_short = year_str | slice: -2, 2 %}
+              <span class="work-year">{{ year_short }}</span>
+            {% elsif item.date %}
+              {% assign item_year = item.date | date: '%Y' %}
+              {% assign year_str = item_year | append: '' %}
+              {% assign year_short = year_str | slice: -2, 2 %}
+              <span class="work-year">{{ year_short }}</span>
+            {% endif %}
+          </span>
+        </li>
+      {% endfor %}
+    {% endif %}
+    
+    {% comment %} Display Dev section {% endcomment %}
+    {% if sorted_dev_items.size > 0 %}
+      <li class="work-item work-section-header">
+        <span>Dev</span>
+      </li>
+      {% for item in sorted_dev_items %}
+        <li class="work-item work-sub-item">
+          <span>
+            {% if item.title_short %}{{ item.title_short }}{% else %}{{ item.title }}{% endif %}
+            {% if item.year %}
+              {% assign year_str = item.year | append: '' %}
+              {% assign year_short = year_str | slice: -2, 2 %}
+              <span class="work-year">{{ year_short }}</span>
+            {% elsif item.date %}
+              {% assign item_year = item.date | date: '%Y' %}
+              {% assign year_str = item_year | append: '' %}
+              {% assign year_short = year_str | slice: -2, 2 %}
+              <span class="work-year">{{ year_short }}</span>
+            {% endif %}
+          </span>
+        </li>
+      {% endfor %}
+    {% endif %}
+    
+    {% comment %} Display Teaching section {% endcomment %}
+    {% if sorted_teaching_items.size > 0 %}
+      <li class="work-item work-section-header">
+        <span>Teaching</span>
+      </li>
+      {% for item in sorted_teaching_items %}
+        <li class="work-item work-sub-item">
+          <span>
+            {{ item.course }}
+            {% if item.year %}
+              {% assign year_str = item.year | append: '' %}
+              {% assign year_short = year_str | slice: -2, 2 %}
+              <span class="work-year">{{ year_short }}</span>
+            {% endif %}
+          </span>
+        </li>
+      {% endfor %}
+    {% endif %}
+    
+    {% comment %} Note: Theses are excluded from the work list as they are displayed in the publications section {% endcomment %}
+  </ul>
+</div>

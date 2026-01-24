@@ -105,10 +105,12 @@
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
+  aspect-ratio: 3 / 2;
 
   img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     display: block;
     max-width: 100%;
     box-sizing: border-box;
@@ -235,13 +237,7 @@
 // Desktop styles
 @media (min-width: 769px) {
   // Grid sizer and item widths
-  .grid-sizer,
-  .work-item,
-  .work-item[data-type="project"],
-  .work-item[data-type="pub"],
-  .work-item[data-type="news"],
-  .work-item[data-type="presentation"],
-  .work-item[data-type="teaching"] {
+  .grid-sizer {
     width: calc(25% - 12px) !important;
   }
 

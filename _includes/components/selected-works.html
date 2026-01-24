@@ -1,51 +1,71 @@
 {% comment %} Selected Works Component
-   Displays works marked with is-selected: true flag
+   Displays all works with selected ones pinned at the start
 {% endcomment %}
 
 <section class="selected-works-container">
   <div class="intro-block" style="margin-bottom: 1.5rem; text-align: left;">
-    <p>here are some selected works,</p>
+    <p>here are some of the stuff ive worked on</p>
   </div>
   <div class="selected-works" id="selected-works">
-  {% comment %} Collect selected publications where Emran Poh is first author {% endcomment %}
-  {% assign selected_works = '' | split: '' %}
-  {% for pub in site.data.pubs %}
-    {% assign author_list = pub.authors | split: ',' %}
-    {% assign first_author = author_list[0] | strip %}
-    {% if first_author contains 'Emran Poh' and pub.is-selected == true %}
-      {% assign selected_works = selected_works | push: pub %}
-    {% endif %}
-  {% endfor %}
+  {% comment %} Collect ALL works (excluding publications and theses which have their own section) {% endcomment %}
+  {% assign all_works = '' | split: '' %}
   
-  {% comment %} Add selected projects {% endcomment %}
+  {% comment %} Process ALL projects {% endcomment %}
   {% for project in site.data.projects %}
-    {% comment %} Skip teaching-related projects and coursework projects {% endcomment %}
-    {% if project.is-selected == true and project.url != '/projects/minecraft-coding' and project.label != 'COURSEWORK' %}
-      {% assign selected_works = selected_works | push: project %}
-    {% endif %}
+    {% assign all_works = all_works | push: project %}
   {% endfor %}
   
-  {% comment %} Add selected presentations {% endcomment %}
-  {% for pres in site.data.presentations.presentations %}
-    {% if pres.is-selected == true %}
-      {% assign selected_works = selected_works | push: pres %}
-    {% endif %}
+  {% comment %} Process ALL presentations {% endcomment %}
+  {% if site.data.presentations.presentations %}
+    {% for pres in site.data.presentations.presentations %}
+      {% assign all_works = all_works | push: pres %}
+    {% endfor %}
+  {% endif %}
+  
+  {% comment %} Process ALL project markdown files from collections {% endcomment %}
+  {% if site.projects %}
+    {% for project_page in site.projects %}
+      {% assign all_works = all_works | push: project_page %}
+    {% endfor %}
+  {% endif %}
+  
+  {% comment %} Note: Publications and theses are excluded here as they have their own section {% endcomment %}
+  
+  {% comment %} Sort all works by year (most recent first) {% endcomment %}
+  {% comment %} Build a new array with works sorted by year {% endcomment %}
+  {% assign sorted_works = '' | split: '' %}
+  {% assign years_list = '' | split: '' %}
+  {% for work in all_works %}
+    {% assign work_year = work.year | default: work.start-year | default: work.end-year | default: 0 %}
+    {% assign year_str = work_year | append: '' %}
+    {% unless years_list contains year_str %}
+      {% assign years_list = years_list | push: year_str %}
+    {% endunless %}
+  {% endfor %}
+  {% assign years_list = years_list | sort | reverse %}
+  {% for year_str in years_list %}
+    {% assign year_num = year_str | plus: 0 %}
+    {% for work in all_works %}
+      {% assign work_year = work.year | default: work.start-year | default: work.end-year | default: 0 %}
+      {% if work_year == year_num %}
+        {% assign sorted_works = sorted_works | push: work %}
+      {% endif %}
+    {% endfor %}
   {% endfor %}
   
-  {% comment %} Display selected works {% endcomment %}
-  {% for work in selected_works %}
+  {% comment %} Display all works sorted by year {% endcomment %}
+  {% for work in sorted_works %}
     {% if work.authors %}
       {% assign work_type = 'pub' %}
     {% elsif work.event %}
       {% assign work_type = 'presentation' %}
+    {% elsif work.type == 'Thesis' %}
+      {% assign work_type = 'thesis' %}
     {% else %}
       {% assign work_type = 'project' %}
     {% endif %}
     {% include components/cards/selected-work-card.html work=work type=work_type %}
   {% endfor %}
-  </div>
-  <div class="intro-block" style="margin-top: 1.5rem; text-align: right;">
-    <p>and then some more <a href="/works"><i class="fas fa-arrow-right"></i><i class="fas fa-layer-group"></i></a></p>
   </div>
 </section>
 

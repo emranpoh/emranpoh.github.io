@@ -33,6 +33,15 @@
       .mobile-nav {
         display: block;
       }
+      .page-header {
+        display: none;
+      }
+      .content-wrapper {
+        grid-template-columns: 1fr !important;
+      }
+      .work-list-column {
+        display: none;
+      }
       body {
         padding-bottom: 4rem; /* Add space for mobile nav */
       }
@@ -42,35 +51,119 @@
       body {
         margin: 0;
         padding: 0;
-        min-height: 100vh;
         overflow: visible;
       }
-      .content-wrapper {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        gap: 1rem;
-        max-width: 1000px;
+      .page-header {
         width: 100%;
-        margin: 0 auto;
-        flex: 1;
+        padding: 10rem 10rem 0.5rem 10rem;
+        margin: 0;
+      }
+      .page-title {
+        font-size: 2rem;
+        font-weight: 600;
+        margin: 0;
+        color: #333;
+      }
+      .content-wrapper {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 2rem;
+        align-items: start;
+        max-width: 100%;
+        width: 100%;
+        margin: 0;
         overflow: visible;
-        padding: 0 2rem;
+        padding: 0 10rem;
+      }
+      
+      .work-list-column {
+        display: none !important;
+      }
+      
+      .work-list-sidebar {
+        width: 100%;
+      }
+      
+      .work-list-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin: 0 0 1rem 0;
+        color: #333;
+      }
+      
+      .work-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .work-item {
+        margin-bottom: 1rem;
+        padding-left: 1.5rem;
+        position: relative;
+        width: 100%;
+        max-width: none;
+      }
+      
+      .work-item::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: #666;
+      }
+      
+      .work-item span {
+        color: #000;
+        font-size: 1.25rem;
+        line-height: 1.4;
+        display: block;
+        width: 100%;
+        max-width: none;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+      
+      .work-item a {
+        color: #666;
+        text-decoration: underline;
+        font-size: 1.25rem;
+        line-height: 1.4;
+        display: block;
+        width: 100%;
+        max-width: none;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        transition: color 0.3s ease;
+      }
+      
+      .work-item a:hover {
+        color: #000;
+      }
+      
+      .work-item .work-meta {
+        display: block;
+        font-size: 0.75rem;
+        color: #666;
+        margin-top: 0.25rem;
+        width: 100%;
+        max-width: none;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
       }
       .desktop-nav {
         flex: 0 0 auto;
         background: transparent;
         border-radius: 1rem;
-        max-width: 1000px;
+        max-width: 100%;
         width: 100%;
-        margin: 0 auto;
+        margin: 0;
         display: flex;
         gap: 1rem;
       }
       main.content,
       #main-content {
         width: 100%;
-        max-width: 100%;
+        margin: 0;
         background: transparent;
         border-radius: 1rem;
         padding: 2rem;
@@ -79,6 +172,7 @@
         scroll-behavior: smooth;
         scrollbar-width: none; /* Firefox */
         -ms-overflow-style: none; /* Internet Explorer 10+ */
+        min-width: 0;
       }
       
       main.content::-webkit-scrollbar {
@@ -286,18 +380,28 @@
   </style>
   <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 </head>
-<body style="min-height:100vh;">
+<body>
   <div class="desktop-wrapper">
     <!-- Top Navigation - Fixed at top -->
     <div class="desktop-nav">
       {% include components/navigation.html %}
     </div>
     
+    <!-- Page Header -->
+    <header class="page-header">
+      <h1 class="page-title">{{ page.title | default: site.title }}</h1>
+    </header>
+    
     <div class="content-wrapper">
-      <!-- Main Content -->
+      <!-- Main Content - Left Column -->
       <main class="content content-{{ page.id | default: page.title | replace: ' ', '-' | slice: 0, 5 }}" id="main-content">
         {{ content }}
       </main>
+      
+      <!-- Work List - Right Column -->
+      <aside class="work-list-column">
+        {% include components/work-list.html %}
+      </aside>
     </div>
     
     <footer class="footer">
@@ -362,5 +466,6 @@
     });
   </script>
   <script src="{{ '/assets/js/image-contrast.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/placeholder-svg.js' | relative_url }}"></script>
 </body>
 </html>

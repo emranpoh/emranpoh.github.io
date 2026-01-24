@@ -1,9 +1,27 @@
 <section class="w-full intro-section">
-  <div class="h-64 mb-4 introduction">
-    {% for paragraph in site.data.intro.paragraphs %}
-      <div class="intro-block">
-        {{ paragraph | markdownify }}
+  <div class="intro-container">
+    <div class="intro-image">
+      <img src="{{ '/assets/images/projects/me.jpeg' | relative_url }}" alt="Emran Poh" class="intro-placeholder-image">
+    </div>
+    <div class="intro-content">
+      <div class="h-64 mb-4 introduction">
+        {% for paragraph in site.data.intro.paragraphs %}
+          <div class="intro-block">
+            {{ paragraph | markdownify }}
+          </div>
+        {% endfor %}
+        
+        {% if site.data.intro.research %}
+        <div class="intro-research-subsection">
+          <div class="intro-research-label">Research:</div>
+          <div class="intro-research-items">
+            {% for item in site.data.intro.research %}
+              <div class="intro-research-item">{{ forloop.index }}. {{ item | markdownify }}</div>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
       </div>
-    {% endfor %}
+    </div>
   </div>
 </section> 

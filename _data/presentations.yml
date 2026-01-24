@@ -16,8 +16,10 @@ presentations:
     link: ""
     image: "eidh.png"
     institution: "nus-hci"
-    is-selected: true
+    is-selected: false
     tags: ["death-stranding", "hci", "gaming", "connection"]
+    work-tags:
+      - "Talk"
     
   - id: pres-002
     title: "How to use XR for Physical Assault — A Less-than-Optimistic Commentary of 'The Ethics of Realism in Virtual and Augmented Reality' through Netflix's Black Mirror"
@@ -29,8 +31,10 @@ presentations:
     link: ""
     image: "xr-assault.png"
     institution: "nus-hci"
-    is-selected: true
+    is-selected: false
     tags: ["xr", "ethics", "black-mirror", "virtual-reality"]
+    work-tags:
+      - "Talk"
     
   - id: pres-003
     title: "Mixed Reality for Design Engineering & FEA"
@@ -38,8 +42,26 @@ presentations:
     year: 2022
     event: "Singapore Airshow"
     type: "conference"
-    description: "Presentation and demo of MR for Design Engineering and FEA at the Singapore Airshow."
+    description: "Demonstration to aerospace industry experts on the potential of mixed reality for complex and dangerous assembly logistics. Showcased how MR can improve safety and precision in high-stakes manufacturing environments."
     image: "mr-1.jpg"
     link: ""
     institution: "singapore-airshow"
     tags: ["mixed-reality", "engineering", "fea", "demo"]
+    work-tags:
+      - "Talk"
+    
+  - id: pres-004
+    title: "NYCU Visit"
+    date: "2025-12-01"
+    year: 2025
+    event: "Research Presentation"
+    type: "seminar"
+    description: "Multi-university research exchange with HCI labs from National Yang Ming Chiao Tung University (Taiwan), Seoul National University, Hokkaido University, and SMU. Shared ongoing research work and fostered cross-institutional collaboration."
+    link: ""
+    image: "nycu.jpeg"
+    institution: "nycu"
+    location: "National Yang Ming Chiao Tung University"
+    is-selected: false
+    tags: []
+    work-tags:
+      - "Talk"

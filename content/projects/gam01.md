@@ -9,7 +9,7 @@ end-year: 2024
 projtype: "talk"
 institution: "nus-hci"
 is-collab: false
-is-selected: true
+is-selected: false
 emoji: "🎮"
 permalink: /projects/gam01
 ---

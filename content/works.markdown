@@ -52,8 +52,8 @@ id: works
       <div class="work-item" data-type="pub">
         <div class="pub-image-link">
           <div class="pub-image">
-            {% if pub.image %}
-            <img src="{{ '/assets/images/projects/' | append: pub.image | relative_url }}" alt="{{ pub.title }}">
+            {% if pub.image and pub.image != '' %}
+            <img src="{{ '/assets/images/projects/' | append: pub.image | relative_url }}" alt="">
             {% else %}
             <div class="placeholder-image"></div>
             {% endif %}
@@ -111,7 +111,7 @@ id: works
       <div class="pub-image-link">
         <div class="pub-image">
           {% if project.image %}
-          <img src="{{ '/assets/images/projects/' | append: project.image | relative_url }}" alt="{{ project.title }}">
+          <img src="{{ '/assets/images/projects/' | append: project.image | relative_url }}" alt="">
           {% else %}
           <div class="placeholder-image"></div>
           {% endif %}
@@ -181,7 +181,7 @@ id: works
       <div class="pub-image-link">
         <div class="pub-image">
           {% if pres.image %}
-            <img src="{{ '/assets/images/projects/' | append: pres.image | relative_url }}" alt="{{ pres.title }}">
+            <img src="{{ '/assets/images/projects/' | append: pres.image | relative_url }}" alt="">
           {% else %}
             <div class="placeholder-image"></div>
           {% endif %}
@@ -200,7 +200,7 @@ id: works
       <div class="pub-content">
         <div class="pub-header">
           <div class="pub-title">{{ pres.title }}</div>
-          <div class="pub-meta">{{ pres.event }}{% if pres.date %}, {{ pres.date | date: '%b %Y' }}{% endif %}</div>
+          <div class="pub-meta">{{ pres.event }}</div>
           <div class="pub-meta">{{ pres.description }}</div>
         </div>
       </div>

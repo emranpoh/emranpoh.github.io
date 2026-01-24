@@ -4,20 +4,17 @@
 <div class="nav-links-section nav-buttons">
   <div class="nav-links-grid">
     <div class="nav-left">
-      <a href="{{ '/' | relative_url }}" class="nav-link {% if current_section == nil %}active{% endif %}"><i class="fas fa-home"></i></a>
-      <a href="{{ '/works' | relative_url }}" class="nav-link nav-link-with-text {% if current_section == 'works' %}active{% endif %}"><i class="fas fa-layer-group"></i><span class="nav-link-text">works</span></a>
+      <a href="{{ '/' | relative_url }}" class="nav-link nav-link-with-text {% if current_section == nil %}active{% endif %}"><span class="nav-link-text">Emran Poh</span></a>
     </div>
     <div class="nav-right">
       <!-- Desktop Socials -->
       <span class="nav-socials-desktop">
-        <a href="https://instagram.com/{{ site.instagram_username }}" target="_blank" class="nav-link"><i class="fab fa-instagram"></i></a>
         <a href="https://github.com/{{ site.github_username }}" target="_blank" class="nav-link"><i class="fab fa-github"></i></a>
         <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" class="nav-link"><i class="fab fa-linkedin"></i></a>
         <a href="https://scholar.google.com/citations?user={{ site.scholar_id }}" target="_blank" class="nav-link"><img src="{{ '/assets/images/scholar.svg' | relative_url }}" alt="Google Scholar" style="width: 1.25rem; height: 1.25rem;"></a>
       </span>
       <!-- Mobile Socials -->
       <span class="nav-socials-mobile">
-        <a href="https://instagram.com/{{ site.instagram_username }}" target="_blank" class="nav-link"><i class="fab fa-instagram"></i></a>
         <a href="https://github.com/{{ site.github_username }}" target="_blank" class="nav-link"><i class="fab fa-github"></i></a>
         <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" class="nav-link"><i class="fab fa-linkedin"></i></a>
         <a href="https://scholar.google.com/citations?user={{ site.scholar_id }}" target="_blank" class="nav-link"><img src="{{ '/assets/images/scholar.svg' | relative_url }}" alt="Google Scholar" style="width: 1.25rem; height: 1.25rem;"></a>
@@ -37,8 +34,8 @@
 }
 
 .desktop-top-nav {
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 100%;
+  margin: 0;
   width: 100%;
 }
 @media (max-width: 768px) {
@@ -135,6 +132,9 @@
 @media (max-width: 768px) {
   .nav-buttons {
     margin-bottom: 0;
+    background: white;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
   }
   
   .nav-link {
@@ -156,10 +156,9 @@
     gap: 1rem;
   }
   
-  /* Swap order on mobile: social links on left, nav buttons on right */
+  /* Hide home button on mobile */
   .nav-left {
-    order: 2;
-    flex-direction: row-reverse;
+    display: none;
   }
   
   .nav-right {

@@ -1,0 +1,24 @@
+# Work Tags Legend
+# Add your SVG tags here with labels
+# Place SVG files in: assets/images/projects/
+
+- label: "Research"
+  svg: "tag-research.svg"
+
+- label: "Design"
+  svg: "tag-design.svg"
+
+- label: "dev"
+  svg: "tag-development.svg"
+
+- label: "Talk"
+  svg: "tag-talk.svg"
+
+- label: "Paper"
+  svg: "tag-paper.svg"
+
+- label: "Teaching"
+  svg: "tag-teaching.svg"
+
+- label: "Thesis"
+  svg: "tag-thesis.svg"

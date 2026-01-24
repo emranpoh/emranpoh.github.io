@@ -1,0 +1,18 @@
+{% comment %} Publications Section Component
+   Displays only publications where Emran Poh is an author
+{% endcomment %}
+
+<section class="publications-section-container">
+  <div class="intro-block" style="margin-bottom: 1.5rem; text-align: left;">
+    <p>publications</p>
+  </div>
+  <div class="publications-grid" id="publications-grid">
+  {% comment %} Display only publications (excluding theses), sorted by year (most recent first) {% endcomment %}
+  {% assign sorted_pubs = site.data.pubs | sort: 'year' | reverse %}
+  {% for pub in sorted_pubs %}
+    {% if pub.authors contains 'Emran Poh' %}
+      {% include components/cards/selected-work-card.html work=pub type='pub' %}
+    {% endif %}
+  {% endfor %}
+  </div>
+</section>

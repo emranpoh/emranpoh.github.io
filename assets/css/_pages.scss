@@ -137,14 +137,34 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  aspect-ratio: 3 / 2;
 }
 
-.pub-image img,
-.placeholder-image {
+.pub-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.pub-image .placeholder-image {
+  width: 100%;
+  height: 100%;
+  background-color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  
+  .placeholder-svg {
+    width: 40%;
+    height: 40%;
+    max-width: 80px;
+    max-height: 80px;
+    object-fit: contain;
+    filter: grayscale(100%) brightness(0.6);
+    opacity: 1;
+  }
 }
 
 .pub-content {
@@ -573,7 +593,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 2rem;
+  padding: 0 2rem 2rem 2rem;
   border-top: none;
   background: transparent;
   font-size: 0.875rem;

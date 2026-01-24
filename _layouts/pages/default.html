@@ -17,19 +17,43 @@
     }
   </script>
 </head>
-<body style="min-height:100vh;">
+<body>
   <div class="desktop-wrapper">
     <!-- Top Navigation - Fixed at top -->
     <div class="desktop-nav">
       {% include components/navigation.html %}
     </div>
     
+    <!-- Page Header -->
+    <header class="page-header">
+      <h1 class="page-title">{{ page.title | default: site.title }}</h1>
+    </header>
+    
     <div class="content-wrapper">
-      <!-- Main Content -->
+      <!-- Main Content - Left Column -->
       <main class="content content-{{ page.id | default: page.title | replace: ' ', '-' | slice: 0, 5 }}" id="main-content">
         {{ content }}
       </main>
+      
+      <!-- Work List - Right Column -->
+      <aside class="work-list-column">
+        {% include components/work-list.html %}
+      </aside>
     </div>
+    
+    <!-- Publications Section - Full Width Below Columns -->
+    {% if page.id == 'emran' or page.title == 'Emran Poh' %}
+    <div class="publications-section-wrapper">
+      {% include components/publications-section.html %}
+    </div>
+    {% endif %}
+    
+    <!-- Selected Works Section - Full Width Below Columns -->
+    {% if page.id == 'emran' or page.title == 'Emran Poh' %}
+    <div class="selected-works-wrapper">
+      {% include components/selected-works.html %}
+    </div>
+    {% endif %}
     
     <footer class="footer">
       <p>made with care in {{ site.location }}</p>
@@ -73,5 +97,6 @@
     });
   </script>
   <script src="{{ '/assets/js/image-contrast.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/placeholder-svg.js' | relative_url }}"></script>
 </body>
 </html>

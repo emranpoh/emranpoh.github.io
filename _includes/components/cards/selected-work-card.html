@@ -9,6 +9,9 @@
     {% assign work_url = '#' %}
   {% endif %}
   {% assign work_year = include.work.date | date: '%Y' %}
+{% elsif include.type == 'thesis' %}
+  {% assign work_url = include.work.url %}
+  {% assign work_year = include.work.year %}
 {% else %}
   {% assign work_url = include.work.url %}
   {% assign work_year = include.work.year %}
@@ -25,6 +28,8 @@
   {% else %}
     {% assign work_label = 'Paper' %}
   {% endif %}
+{% elsif include.type == 'thesis' %}
+  {% assign work_label = 'Thesis' %}
 {% elsif include.type == 'project' %}
   {% if include.work.label %}
     {% assign work_label = include.work.label %}
@@ -58,6 +63,12 @@
   {% else %}
     {% assign work_location = '' %}
   {% endif %}
+{% elsif include.type == 'thesis' %}
+  {% if include.work.location %}
+    {% assign work_location = include.work.location %}
+  {% else %}
+    {% assign work_location = '' %}
+  {% endif %}
 {% elsif include.type == 'project' %}
   {% comment %} For coursework projects, show university; for others, show location {% endcomment %}
   {% if include.work.label == 'COURSEWORK' and include.work.university %}
@@ -72,36 +83,149 @@
 {% endif %}
 
 <div class="work-grid-item" data-type="{{ include.type }}" data-year="{{ work_year }}">
-  <a href="{{ work_url | relative_url }}" class="work-link">
-    {% if work_label != '' or work_location != '' %}
-    <div class="work-meta-row">
-      {% if work_label != '' %}
-      <span class="work-label">{{ work_label }}</span>
-      {% endif %}
-      {% if work_location != '' %}
-      <span class="work-location">{{ work_location }}</span>
-      {% endif %}
-    </div>
-    {% endif %}
-    <div class="work-image">
-      {% if include.work.image %}
-        <img src="{{ '/assets/images/projects/' | append: include.work.image | relative_url }}" alt="{{ include.work.title }}">
-      {% else %}
-        <div class="placeholder-image"></div>
-      {% endif %}
-      <div class="work-title-overlay">{{ include.work.title }}</div>
-      {% if include.type == 'pub' %}
-        {% assign author_list = include.work.authors | split: ',' %}
-        {% if author_list.size > 1 %}
-          {% assign first_author = author_list[0] | strip %}
-          {% assign last_name = first_author | split: ' ' | last %}
-          <div class="work-author-label">{{ last_name }} et al.</div>
+  <div class="work-link">
+    {% if include.type == 'pub' or include.type == 'thesis' %}
+      {% comment %} Publications and Theses: image on top, title below, total tile is square {% endcomment %}
+      <div class="work-image">
+        {% if include.work.image and include.work.image != '' %}
+          <img src="{{ '/assets/images/projects/' | append: include.work.image | relative_url }}" alt="">
+        {% else %}
+          <div class="placeholder-image"></div>
         {% endif %}
-      {% elsif include.type == 'presentation' and include.work.date %}
-      {% assign presentation_date = include.work.date | date: '%b %y' %}
-      <div class="work-date-label">{{ presentation_date }}</div>
-      {% endif %}
-    </div>
-  </a>
+        {% if work_location != '' %}
+        <div class="work-location-overlay">
+          <span class="work-location">{{ work_location }}</span>
+        </div>
+        {% endif %}
+      </div>
+      <div class="work-title-below">
+        {% if include.work.title_short %}
+        <div class="work-title-text">{{ include.work.title_short }}</div>
+        <div class="work-title-subtitle">{{ include.work.title }}</div>
+        {% else %}
+        <div class="work-title-text">{{ include.work.title }}</div>
+        {% endif %}
+        {% if include.work.tagline and include.work.tagline != '' %}
+        <div class="work-tagline">{{ include.work.tagline }}</div>
+        {% endif %}
+        {% if include.work.authors %}
+        {% assign authors_with_bold = include.work.authors | replace: 'Emran Poh', '<strong>Emran Poh</strong>' %}
+        <div class="work-authors-below">{{ authors_with_bold | raw }}</div>
+        {% endif %}
+        <div class="work-subject-tags">
+          {% if include.work.venue_short %}
+            {% assign venue_parts = include.work.venue_short | split: ' ' %}
+            {% assign venue_name = venue_parts[0] %}
+            {% assign venue_class = venue_name | downcase | replace: '-', '' | replace: "'", '' %}
+            {% assign year_str = include.work.year | append: '' %}
+            {% assign year_short = year_str | slice: -2, 2 %}
+            {% comment %} Check if venue_short already contains the 2-digit year {% endcomment %}
+            {% if include.work.venue_short contains year_short %}
+              <span class="subject-tag venue-tag venue-{{ venue_class }}">{{ include.work.venue_short }}</span>
+            {% else %}
+              <span class="subject-tag venue-tag venue-{{ venue_class }}">{{ include.work.venue_short }} {{ year_short }}</span>
+            {% endif %}
+          {% endif %}
+          {% if include.work.subject-tags and include.work.subject-tags.size > 0 %}
+            {% for tag in include.work.subject-tags %}
+            <span class="subject-tag">{{ tag }}</span>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    {% elsif include.type == 'project' %}
+      {% comment %} Projects: image on top, title and info below {% endcomment %}
+      <div class="work-image">
+        {% if include.work.images and include.work.images.size > 0 %}
+          {% comment %} Multiple images: display in grid/mosaic {% endcomment %}
+          <div class="work-image-grid">
+            {% for img in include.work.images %}
+              <div class="work-image-grid-item">
+                <img src="{{ '/assets/images/projects/' | append: img | relative_url }}" alt="">
+              </div>
+            {% endfor %}
+          </div>
+        {% elsif include.work.image and include.work.image != '' %}
+          <img src="{{ '/assets/images/projects/' | append: include.work.image | relative_url }}" alt="">
+        {% else %}
+          <div class="placeholder-image"></div>
+        {% endif %}
+        {% if work_location != '' %}
+        <div class="work-location-overlay">
+          <span class="work-location">{{ work_location }}</span>
+        </div>
+        {% endif %}
+      </div>
+      <div class="work-title-below">
+        <div class="work-title-text">{{ include.work.title }}</div>
+        {% if include.work.description %}
+          <div class="work-description">{{ include.work.description }}</div>
+        {% elsif include.work.subtitle %}
+          <div class="work-description">{{ include.work.subtitle }}</div>
+        {% endif %}
+        {% if include.work.role or include.work.is-collab %}
+          <div class="work-role">
+            {% if include.work.role %}
+              {{ include.work.role }}
+            {% elsif include.work.is-collab %}
+              Collaborative Project
+            {% endif %}
+          </div>
+        {% endif %}
+        {% if include.work.subject-tags and include.work.subject-tags.size > 0 %}
+        <div class="work-subject-tags">
+          {% for tag in include.work.subject-tags %}
+            <span class="subject-tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+    {% elsif include.type == 'presentation' %}
+      {% comment %} Presentations: image on top, title and info below {% endcomment %}
+      <div class="work-image">
+        {% if include.work.image and include.work.image != '' %}
+          <img src="{{ '/assets/images/projects/' | append: include.work.image | relative_url }}" alt="">
+        {% else %}
+          <div class="placeholder-image"></div>
+        {% endif %}
+        {% if work_location != '' %}
+        <div class="work-location-overlay">
+          <span class="work-location">{{ work_location }}</span>
+        </div>
+        {% endif %}
+      </div>
+      <div class="work-title-below">
+        <div class="work-title-text">{{ include.work.title }}</div>
+        {% if include.work.description %}
+          <div class="work-description">{{ include.work.description }}</div>
+        {% endif %}
+        {% if include.work.event %}
+          <div class="work-role">{{ include.work.event }}</div>
+        {% endif %}
+        {% if include.work.subject-tags and include.work.subject-tags.size > 0 %}
+        <div class="work-subject-tags">
+          {% for tag in include.work.subject-tags %}
+            <span class="subject-tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+    {% else %}
+      {% comment %} Other works: title overlaid on image {% endcomment %}
+      <div class="work-image">
+        {% if include.work.image and include.work.image != '' %}
+          <img src="{{ '/assets/images/projects/' | append: include.work.image | relative_url }}" alt="">
+        {% else %}
+          <div class="placeholder-image"></div>
+        {% endif %}
+        {% if work_location != '' %}
+        <div class="work-location-overlay">
+          <span class="work-location">{{ work_location }}</span>
+        </div>
+        {% endif %}
+        <div class="work-title-overlay">{{ include.work.title }}</div>
+      </div>
+    {% endif %}
+  </div>
 </div>
 

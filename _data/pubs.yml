@@ -1,3 +1,28 @@
+- title: "'Show It, Don't Just Say It': The Complementary Effects of Instruction Multimodality for Software Guidance"
+  title_short: "Show It, Don't Just Say It"
+  authors: "Emran Poh, Yueyue Hou, Tianyi Zhang, and Jiannan Li"
+  type: "Full Paper"
+  venue: "2026 ACM Conference on Human Factors in Computing Systems (CHI '26)"
+  venue_short: "CHI"
+  location: ""
+  year: 2026
+  status: "published"
+  institution: "smuhci"
+  image: "showit.png"
+  is-selected: true
+  emoji: "📝"
+  url: "/publications/chi01"
+  abstract: "[ABSTRACT TO BE ADDED]"
+  citation: "Emran Poh, Yueyue Hou, Tianyi Zhang, Jiannan Li. Proceedings of the 2026 ACM Conference on Human Factors in Computing Systems (CHI '26)"
+  tags: []
+  work-tags:
+    - "Research"
+    - "Paper"
+  subject-tags:
+    - "learning science"
+    - "multimodal interaction"
+  tagline: ""
+
 - title: "Supporting Artefact Awareness for Partially-Replicated Workspaces"
   title_short: "Supporting Artefact Awareness"
   authors: "Emran Poh, Anthony Tang, Jeannie Lee, and Shengdong Zhao"
@@ -18,6 +43,16 @@
   tags:
     - name: "pdf"
       url: "https://ieeexplore.ieee.org/abstract/document/10322229/"
+  work-tags:
+    - "Research"
+    - "Design"
+    - "Paper"
+  subject-tags:
+    - "mixed reality"
+    - "interaction design"
+    - "3d interface"
+    - "collaborative systems"
+  tagline: ""
 
 - title: "IntVRsection: Virtual Reality Environment for Evaluating Signalized and Unsignalized Intersection Scenarios"
   title_short: "IntVRsection"
@@ -37,6 +72,13 @@
     - name: "doi"
       url: "https://dl.acm.org/doi/abs/10.1145/3581961.3610373"
   citation: "@inproceedings{10.1145/3581961.3610373,\nauthor = {Lee, Jeannie Su Ann and Yeo, Adriel and Kwok, Benjamin Wei Jie and Wong, Zi Feng and Poh, Emran and Chan, Raymond},\ntitle = {IntVRsection: Virtual Reality Environment for Evaluating Signalized and Unsignalized Intersection Scenarios},\nyear = {2023},\nisbn = {9798400701122},\npublisher = {Association for Computing Machinery},\naddress = {New York, NY, USA},\nurl = {https://doi.org/10.1145/3581961.3610373},\ndoi = {10.1145/3581961.3610373},\nabstract = {This demo presents a virtual reality (VR) environment developed for evaluating signalized and unsignalized intersection scenarios using low cost head-mounted devices (HMD). Prior work focused on VR simulations that re-create less complex scenarios for the evaluation of different autonomous vehicle (AV) behavior and external human-machine interfaces (eHMIs). The proposed VR environment allows participants to walk across multiple road lanes, and experience and interact with high fidelity simulated traffic scenarios, including signalized and unsignalized intersections at 1:1 scale, with vehicular traffic making turns, and providing audio feedback. This simulation can be used for conducting user studies to test AV eHMIs or behavior interventions with participants.},\nbooktitle = {Adjunct Proceedings of the 15th International Conference on Automotive User Interfaces and Interactive Vehicular Applications},\npages = {300–303},\nnumpages = {4},\nkeywords = {autonomous vehicles, external human machine interface, pedestrian crossing, virtual reality},\nlocation = {Ingolstadt, Germany},\nseries = {AutomotiveUI '23 Adjunct}\n}"
+  work-tags:
+    - "Paper"
+  subject-tags:
+    - "mixed reality"
+    - "interaction design"
+    - "3d interface"
+  tagline: ""
 
 - title: "Mixed Reality for Engineering Design Review Using Finite Element Analysis"
   title_short: "MR4FEA"
@@ -57,13 +99,20 @@
   tags:
     - name: "pdf"
       url: "https://ieeexplore.ieee.org/abstract/document/9974521"
+  work-tags:
+    - "Paper"
+  subject-tags:
+    - "mixed reality"
+    - "interaction design"
+    - "3d interface"
+  tagline: ""
 
 - title: "Mixed Reality for Mechanical Design and Assembly Planning"
   title_short: "MR4Assembly"
   authors: "Emran Poh, Kyrin Liong, and Jeannie Lee"
   type: "Late-Breaking Poster"
   venue: "24th International Conference on Human-Computer Interaction, HCII 2022"
-  venue_short: "HCI-International"
+  venue_short: "HCII"
   location: ""
   year: 2022
   status: "published"
@@ -76,13 +125,20 @@
   tags:
     - name: "pdf"
       url: "https://link.springer.com/chapter/10.1007/978-3-031-19679-9_72"
+  work-tags:
+    - "Paper"
+  subject-tags:
+    - "mixed reality"
+    - "interaction design"
+    - "3d interface"
+  tagline: ""
 
 - title: "Mixed Reality Interface for Load Application in Finite Element Analysis"
   title_short: "MR4FEA-Load"
   authors: "Emran Poh, Kyrin Liong, and Jeannie Lee"
   type: "Full Paper"
   venue: "Innovations in Social Computing and Digital Transformation, International Conference on Human-Computer Interaction 2021"
-  venue_short: "HCI-International"
+  venue_short: "HCII"
   location: ""
   year: 2021
   status: "published"
@@ -95,6 +151,14 @@
   tags:
     - name: "pdf"
       url: "https://link.springer.com/chapter/10.1007/978-3-030-77626-8_32"
+  work-tags:
+    - "Paper"
+  subject-tags:
+    - "mixed reality"
+    - "interaction design"
+    - "3d interface"
+    - "gesture interaction"
+  tagline: ""
 
 - title: "Designing with Holograms – A Preliminary Study on Improving Design Visualisation Through Holographic Display"
   title_short: "Designing with Holograms"
@@ -111,3 +175,8 @@
   tags:
     - name: "pdf"
       url: "https://irr.singaporetech.edu.sg/articles/conference_contribution/Designing_with_Holograms_A_Preliminary_Study_On_Improving_Design_Visualisation_Through_Holographic_Display/23651547/1/files/41505537.pdf"
+  work-tags:
+    - "Paper"
+  subject-tags:
+    - "3d interface"
+  tagline: ""

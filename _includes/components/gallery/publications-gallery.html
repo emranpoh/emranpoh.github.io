@@ -22,9 +22,9 @@
       
       {% for pub in publications %}
         <div class="pub-compact-item">
-          {% if pub.image %}
+          {% if pub.image and pub.image != '' %}
           <div class="pub-compact-image">
-            <img src="{{ '/assets/images/projects/' | append: pub.image | relative_url }}" alt="{{ pub.title }}" style="width: 120px; height: 90px; object-fit: cover; border-radius: 4px;">
+            <img src="{{ '/assets/images/projects/' | append: pub.image | relative_url }}" alt="" style="width: 120px; height: 90px; object-fit: cover; border-radius: 4px;">
           </div>
           {% endif %}
           <div class="pub-compact-content">
