@@ -558,13 +558,6 @@
     font-size: 0.875rem;
     border-radius: 8px;
     position: relative;
-  }
-  
-  // Publications: placeholder only rounds top corners
-  .work-grid-item[data-type="pub"] & .placeholder-image,
-  .work-grid-item[data-type="thesis"] & .placeholder-image {
-    border-radius: 8px 8px 0 0;
-  }
     
     .placeholder-svg {
       width: 40%;
@@ -575,6 +568,12 @@
       filter: grayscale(100%) brightness(0.6);
       opacity: 1;
     }
+  }
+  
+  // Publications: placeholder only rounds top corners
+  .work-grid-item[data-type="pub"] & .placeholder-image,
+  .work-grid-item[data-type="thesis"] & .placeholder-image {
+    border-radius: 8px 8px 0 0;
   }
 }
 
