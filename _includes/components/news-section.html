@@ -37,6 +37,7 @@
         <div class="news-meta">
           <span class="news-date">{{ news.date | date: "%b %y" }}</span>
           {% if news.category %}<span class="news-category">{{ news.category }}</span>{% endif %}
+          {% if news.location %}<span class="news-category">{{ news.location }}</span>{% endif %}
         </div>
         <div class="news-text">
           {{ news.title | markdownify }}{% if news.link %} <a href="{{ news.link }}" class="news-link" target="_blank" rel="noopener" aria-label="Read more"><i class="fas fa-link"></i></a>{% endif %}

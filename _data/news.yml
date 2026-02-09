@@ -25,6 +25,7 @@ news_items:
     title: "Our paper 'Show it, Don't Just Say It' got conditionally accepted to CHI 2026 🇪🇸 🎉"
     date: "2026-01-15"
     category: "Publication"
+    location: "Barcelona, Spain"
     tags: ["chi", "publication", "hci", "acceptance"]
     featured: true
     type: "publication"
@@ -47,10 +48,23 @@ news_items:
     content: |
       Volunteered at the NUS-Google workshop at NUS SoC — two days of talks and workshops on the future of CS education in the AI era. Good to be part of it.
 
+  - id: news-012
+    title: "Student volunteered at ICHEC 2025 in November"
+    date: "2025-11-01"
+    category: "Conference"
+    tags: ["ichec", "volunteer", "conference", "hci"]
+    featured: true
+    type: "conference"
+    institution: "ichec"
+    summary: "Helped out as a student volunteer at ICHEC 2025 in November — ran around, caught some talks, good to be part of it."
+    content: |
+      Student volunteered at ICHEC 2025 in November. Helped run things and caught some talks — good to be part of it.
+
   - id: news-004
     title: "Went to National Yang Ming Chiao Tung University (NYCU) in Hsinchu, Taiwan for an HCI meetup with friends"
     date: "2025-08-20"
     category: "Conference"
+    location: "Hsinchu, Taiwan"
     tags: ["nycu", "hci", "meetup", "taiwan"]
     featured: true
     type: "conference"
@@ -93,6 +107,7 @@ news_items:
     title: "First time at CHI — Yokohama 2025 🇯🇵"
     date: "2025-04-20"
     category: "Conference"
+    location: "Yokohama, Japan"
     tags: ["chi", "conference", "hci"]
     featured: true
     type: "conference"

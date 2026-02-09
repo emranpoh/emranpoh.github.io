@@ -482,10 +482,6 @@ section {
   .content-wrapper {
     grid-template-columns: 1fr !important;
   }
-  
-  .work-list-column {
-    display: none;
-  }
 
   .news-section-wrapper {
     width: 100%;
@@ -500,7 +496,7 @@ section {
   }
 }
 
-/* Remove 100vw on desktop for better layout */
+/* Desktop: single column, main content centered */
 @media (min-width: 769px) {
   .content-wrapper {
     max-width: 100%;
@@ -519,14 +515,6 @@ section {
     max-width: 48rem;
     margin: 0 auto;
     min-width: 0;
-  }
-  
-  .work-list-column {
-    display: none !important;
-  }
-  
-  .work-list-sidebar {
-    width: 100%;
   }
   
   .work-list-title {

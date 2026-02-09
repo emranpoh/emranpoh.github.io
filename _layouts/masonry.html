@@ -36,9 +36,6 @@
       .content-wrapper {
         grid-template-columns: 1fr !important;
       }
-      .work-list-column {
-        display: none;
-      }
       body {
         padding-bottom: 4rem; /* Add space for mobile nav */
       }
@@ -60,14 +57,6 @@
         margin: 0;
         overflow: visible;
         padding: 0 10rem;
-      }
-      
-      .work-list-column {
-        display: none !important;
-      }
-      
-      .work-list-sidebar {
-        width: 100%;
       }
       
       .work-list-title {
@@ -378,11 +367,6 @@
       <main class="content content-{{ page.id | default: page.title | replace: ' ', '-' | slice: 0, 5 }}" id="main-content">
         {{ content }}
       </main>
-      
-      <!-- Work List - Right Column -->
-      <aside class="work-list-column">
-        {% include components/work-list.html %}
-      </aside>
     </div>
     
     <footer class="footer">

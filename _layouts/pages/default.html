@@ -46,15 +46,9 @@
     </div>
     
     <div class="content-wrapper">
-      <!-- Main Content - Left Column -->
       <main class="content content-{{ page.id | default: page.title | replace: ' ', '-' | slice: 0, 5 }}" id="main-content">
         {{ content }}
       </main>
-      
-      <!-- Work List - Right Column -->
-      <aside class="work-list-column">
-        {% include components/work-list.html %}
-      </aside>
     </div>
     
     <!-- News Section - Before Publications -->

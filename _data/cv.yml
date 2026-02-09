@@ -1,6 +1,15 @@
 research_interests: "Agent-assisted Creative Workflows, Collaborative Systems for Intimacy"
 
 professional:
+  - start_month: "Nov"
+    start_year: "2025"
+    end_month: "Nov"
+    end_year: "2025"
+    current: false
+    title: "Student Volunteer"
+    organization: "ICHEC 2025"
+    description: "Student volunteer at ICHEC 2025 in November 2025."
+
   - start_month: "Jan"
     start_year: "2024"
     end_month: "May"
