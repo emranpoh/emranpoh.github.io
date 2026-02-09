@@ -6,13 +6,6 @@
     <div class="intro-content">
       <div class="h-64 mb-4 introduction">
         <div class="intro-name">{{ site.title }}</div>
-        {% if site.name_chinese or site.name_arabic %}
-        <div class="intro-names-alt">
-          {% if site.name_chinese %}<span class="intro-name-chinese">{{ site.name_chinese }}</span>{% endif %}
-          {% if site.name_chinese and site.name_arabic %}<span class="intro-names-divider">·</span>{% endif %}
-          {% if site.name_arabic %}<span class="intro-name-arabic" dir="rtl">{{ site.name_arabic }}</span>{% endif %}
-        </div>
-        {% endif %}
         <div class="intro-meta">
           <span class="intro-pronouns">he/him</span>
         </div>
