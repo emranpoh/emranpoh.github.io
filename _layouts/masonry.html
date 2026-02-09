@@ -33,9 +33,6 @@
       .mobile-nav {
         display: block;
       }
-      .page-header {
-        display: none;
-      }
       .content-wrapper {
         grid-template-columns: 1fr !important;
       }
@@ -52,17 +49,6 @@
         margin: 0;
         padding: 0;
         overflow: visible;
-      }
-      .page-header {
-        width: 100%;
-        padding: 10rem 10rem 0.5rem 10rem;
-        margin: 0;
-      }
-      .page-title {
-        font-size: 2rem;
-        font-weight: 600;
-        margin: 0;
-        color: #333;
       }
       .content-wrapper {
         display: grid !important;
@@ -386,11 +372,6 @@
     <div class="desktop-nav">
       {% include components/navigation.html %}
     </div>
-    
-    <!-- Page Header -->
-    <header class="page-header">
-      <h1 class="page-title">{{ page.title | default: site.title }}</h1>
-    </header>
     
     <div class="content-wrapper">
       <!-- Main Content - Left Column -->

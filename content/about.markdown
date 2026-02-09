@@ -6,7 +6,7 @@ permalink: /about/
 
 # About Me
 
-I'm Emran Poh, a UX Researcher, Designer, and Developer based in Singapore. My work focuses on human-agent and collaborative interactions, working under [Li Jiannan](https://jchrisli.github.io/) at Singapore Management University.
+I'm Emran Poh, a PhD Student, Designer, and Developer based in Singapore. My work focuses on human-agent and collaborative interactions, working under [Li Jiannan](https://jchrisli.github.io/) at Singapore Management University.
 
 ## Education & Experience
 

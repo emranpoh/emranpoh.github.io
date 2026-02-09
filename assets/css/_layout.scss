@@ -255,25 +255,21 @@ section {
     justify-content: flex-start;
     align-items: stretch;
   }
-}
 
-/* Page Header Styles */
-@media (min-width: 769px) {
-  .page-header {
-    width: 100%;
-    padding: 10rem 10rem 0.5rem 10rem;
-    margin: 0;
+  /* Top nav: same width as main content */
+  .desktop-nav {
+    padding: 0 10rem;
   }
-  
-  .page-title {
-    font-size: 2rem;
-    font-weight: 600;
-    margin: 0;
-    color: #333;
+
+  .desktop-nav .nav-links-section,
+  .desktop-nav .nav-buttons {
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
-/* Publications Section Wrapper - Full Width Below Columns */
+/* Publications Section Wrapper - same width as main content */
 @media (min-width: 769px) {
   .publications-section-wrapper {
     width: 100%;
@@ -282,12 +278,26 @@ section {
   }
   
   .publications-section-wrapper .publications-section-container {
-    max-width: 100%;
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
     width: 100%;
+  }
+
+  /* Wider publication blocks = fewer per row, more rows */
+  .publications-section-wrapper .publications-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .publications-section-wrapper .publications-grid .work-grid-item,
+  .publications-section-wrapper .work-grid-item[data-type="pub"] {
+    width: calc((100% - 1.5rem) / 2);
   }
 }
 
-/* Selected Works Wrapper - Full Width Below Columns */
+/* Selected Works Wrapper - same width as main content */
 @media (min-width: 769px) {
   .selected-works-wrapper {
     width: 100%;
@@ -296,16 +306,27 @@ section {
   }
   
   .selected-works-wrapper .selected-works-container {
-    max-width: 100%;
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
     width: 100%;
+  }
+
+  /* Wider blocks = fewer per row, more rows */
+  .selected-works-wrapper .selected-works {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .selected-works-wrapper .selected-works .work-grid-item,
+  .selected-works-wrapper .work-grid-item[data-type="project"],
+  .selected-works-wrapper .work-grid-item[data-type="presentation"] {
+    width: calc((100% - 1.5rem) / 2);
   }
 }
 
 @media (max-width: 768px) {
-  .page-header {
-    display: none;
-  }
-  
   .content-wrapper {
     grid-template-columns: 1fr !important;
   }
@@ -337,7 +358,8 @@ section {
   #main-content,
   main.content {
     width: 100% !important;
-    margin: 0;
+    max-width: 48rem;
+    margin: 0 auto;
     min-width: 0;
   }
   

@@ -20,12 +20,12 @@
     // Content styles specific to intro section
     p {
       margin-bottom: 0.5rem;
-      font-size: 1.5rem;
+      font-size: 1.1rem;
       text-align: left;
     }
 
     .hello-text {
-      font-size: 1.25rem !important;
+      font-size: 1.1rem !important;
       user-select: none;
       -webkit-user-select: none;
       -moz-user-select: none;
@@ -53,8 +53,7 @@
   .intro-content {
     flex: 1;
     min-width: 0;
-    margin-right: 40rem;
-    
+
     .introduction {
       height: auto !important;
     }
@@ -83,10 +82,59 @@
 
     p {
       margin-bottom: 0.5rem;
-      font-size: 1.25rem;
+      font-size: 1.1rem;
       text-align: left;
     }
   }
+}
+
+.intro-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.25rem;
+  line-height: 1.3;
+}
+
+.intro-location {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.intro-names-alt {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 0.25rem;
+  line-height: 1.3;
+}
+
+.intro-names-divider {
+  margin: 0 0.35rem;
+  color: #999;
+  user-select: none;
+}
+
+.intro-meta {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.intro-pronouns {
+  font-weight: 500;
+}
+
+.intro-meta-divider {
+  margin: 0 0.35rem;
+  color: #999;
+  user-select: none;
+}
+
+.intro-email {
+  color: #666;
 }
 
 // Indent paragraphs in intro-blocks that follow another intro-block
@@ -99,33 +147,176 @@
   }
 }
 
+// Intro content below image + first block (e.g. "I'm currently pursuing")
+.intro-content-below {
+  margin-top: 1.5rem;
+}
+
+.intro-content-rest {
+  margin-top: 0;
+}
+
+// Education subsection styles
+.intro-education-subsection {
+  margin-top: 0;
+  margin-bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0.25rem 0.5rem;
+}
+
+.intro-education-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: lowercase;
+  color: #333;
+  flex-shrink: 0;
+}
+
+.intro-education-items {
+  flex: 1;
+  min-width: 0;
+}
+
+.intro-education-items .intro-education-item {
+  display: inline;
+
+  p {
+    display: inline;
+  }
+}
+
+.intro-education-item {
+  font-size: 1.1rem;
+  line-height: 1.6;
+
+  p {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+}
+
 // Research subsection styles
 .intro-research-subsection {
   margin-top: 1.5rem;
   margin-bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0.25rem 0.5rem;
 }
 
 .intro-research-label {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  text-transform: lowercase;
   color: #333;
+  flex-shrink: 0;
 }
 
 .intro-research-items {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.intro-research-items .intro-research-item {
+  display: inline;
+
+  p {
+    display: inline;
+  }
 }
 
 .intro-research-item {
-  font-size: 1.25rem;
-  line-height: 1.4;
-  text-indent: 0.75em;
-  
+  font-size: 1.1rem;
+  line-height: 1.6;
+
   p {
     margin: 0;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
+  }
+}
+
+// Teaching subsection styles (same as research)
+.intro-teaching-subsection {
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0.25rem 0.5rem;
+}
+
+.intro-teaching-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: lowercase;
+  color: #333;
+  flex-shrink: 0;
+}
+
+.intro-teaching-items {
+  flex: 1;
+  min-width: 0;
+}
+
+.intro-teaching-items .intro-teaching-item {
+  display: inline;
+
+  p {
+    display: inline;
+  }
+}
+
+.intro-teaching-item {
+  font-size: 1.1rem;
+  line-height: 1.6;
+
+  p {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+}
+
+// Others subsection styles (same as research)
+.intro-others-subsection {
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0.25rem 0.5rem;
+}
+
+.intro-others-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: lowercase;
+  color: #333;
+  flex-shrink: 0;
+}
+
+.intro-others-items {
+  flex: 1;
+  min-width: 0;
+}
+
+.intro-others-items .intro-others-item {
+  display: inline;
+
+  p {
+    display: inline;
+  }
+}
+
+.intro-others-item {
+  font-size: 1.1rem;
+  line-height: 1.6;
+
+  p {
+    margin: 0;
+    font-size: 1.1rem;
   }
 }
 
@@ -364,7 +555,7 @@
 @media (min-width: 769px) {
   .intro-section {
     display: block;
-    margin-top: 0;
+    margin-top: 2rem;
     margin-bottom: 0;
     height: auto;
     min-height: 0;
@@ -375,6 +566,7 @@
   .introduction {
     height: auto;
     min-height: 0;
+    margin-top: 0;
     margin-bottom: 0;
     padding-top: 0 !important;
     padding-bottom: 0;
