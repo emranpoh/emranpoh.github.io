@@ -16,8 +16,29 @@
       document.documentElement.classList.add('research-theme');
     }
   </script>
+  <style>
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: rgba(0, 0, 0, 0.08);
+      z-index: 9999;
+    }
+    .scroll-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: #64748b;
+      transition: width 0.1s ease-out;
+    }
+  </style>
 </head>
 <body>
+  <!-- Scroll progress indicator -->
+  <div class="scroll-progress" role="progressbar" aria-label="Page scroll progress" aria-valuemin="0" aria-valuemax="100">
+    <div class="scroll-progress-fill" id="scroll-progress-fill" aria-hidden="true"></div>
+  </div>
   <div class="desktop-wrapper">
     <!-- Top Navigation - Fixed at top -->
     <div class="desktop-nav">
@@ -36,6 +57,13 @@
       </aside>
     </div>
     
+    <!-- News Section - Before Publications -->
+    {% if page.id == 'emran' or page.title == 'Emran Poh' %}
+    <div class="news-section-wrapper">
+      {% include components/news-section.html %}
+    </div>
+    {% endif %}
+
     <!-- Publications Section - Full Width Below Columns -->
     {% if page.id == 'emran' or page.title == 'Emran Poh' %}
     <div class="publications-section-wrapper">
@@ -62,6 +90,23 @@
   </div>
 
   <script>
+    // Scroll progress indicator
+    (function() {
+      var bar = document.querySelector('.scroll-progress');
+      var fill = document.getElementById('scroll-progress-fill');
+      if (!bar || !fill) return;
+      function updateProgress() {
+        var scrollTop = window.scrollY || document.documentElement.scrollTop;
+        var scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        var pct = scrollHeight <= 0 ? 0 : Math.min(100, (scrollTop / scrollHeight) * 100);
+        fill.style.width = pct + '%';
+        bar.setAttribute('aria-valuenow', Math.round(pct));
+      }
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      window.addEventListener('resize', updateProgress);
+      updateProgress();
+    })();
+
     // Enhanced smooth scrolling for all scrollable elements
     function smoothScrollTo(element, target, duration = 300) {
       const start = element.scrollTop;

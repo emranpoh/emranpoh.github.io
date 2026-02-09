@@ -131,6 +131,12 @@
             <span class="subject-tag">{{ tag }}</span>
             {% endfor %}
           {% endif %}
+          {% if include.type == 'pub' and include.work.bib and include.work.bib != '' %}
+          <span class="work-bib-wrap">
+            <button type="button" class="subject-tag work-bib-btn" aria-label="Copy BibTeX">Bib</button>
+            <span class="work-bib-content" aria-hidden="true">{{ include.work.bib }}</span>
+          </span>
+          {% endif %}
         </div>
       </div>
     {% elsif include.type == 'project' %}

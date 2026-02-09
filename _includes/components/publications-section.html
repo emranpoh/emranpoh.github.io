@@ -15,4 +15,26 @@
     {% endif %}
   {% endfor %}
   </div>
+  <script>
+    document.getElementById('publications-grid')?.addEventListener('click', function(e) {
+      var btn = e.target.closest('.work-bib-btn');
+      if (!btn) return;
+      e.preventDefault();
+      e.stopPropagation();
+      var wrap = btn.closest('.work-bib-wrap');
+      var el = wrap?.querySelector('.work-bib-content');
+      if (!el) return;
+      var text = el.textContent.trim();
+      if (!text) return;
+      navigator.clipboard.writeText(text).then(function() {
+        var label = btn.getAttribute('aria-label');
+        btn.textContent = 'Copied';
+        btn.setAttribute('aria-label', 'Copied to clipboard');
+        setTimeout(function() {
+          btn.textContent = 'Bib';
+          if (label) btn.setAttribute('aria-label', label);
+        }, 1500);
+      });
+    });
+  </script>
 </section>

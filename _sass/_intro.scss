@@ -46,17 +46,27 @@
     display: flex !important;
     flex-direction: row !important;
     gap: 2rem;
-    align-items: flex-start;
+    align-items: stretch;
     width: 100%;
   }
 
   .intro-content {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
 
     .introduction {
       height: auto !important;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
     }
+  }
+
+  .intro-meta-bottom {
+    margin-top: auto;
   }
 
   .intro-image {
@@ -85,6 +95,13 @@
       font-size: 1.1rem;
       text-align: left;
     }
+  }
+
+  .intro-university {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 0.15rem;
+    font-weight: 500;
   }
 }
 
@@ -119,7 +136,7 @@
 .intro-meta {
   font-size: 1.1rem;
   color: #666;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
   line-height: 1.3;
 }
 
@@ -127,10 +144,11 @@
   font-weight: 500;
 }
 
-.intro-meta-divider {
-  margin: 0 0.35rem;
-  color: #999;
-  user-select: none;
+.intro-email-line {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
 }
 
 .intro-email {

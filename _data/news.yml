@@ -7,8 +7,62 @@ settings:
   sort_order: "newest_first"  # Options: newest_first, oldest_first
 
 news_items:
+  - id: news-007
+    title: "Helping run [Future CS Education Workshop 2.0](https://futuredu.student.ai4sg.org/home) — on the organising team"
+    date: "2026-01-25"
+    category: "Workshop"
+    tags: ["nus", "google", "workshop", "cs education", "organising"]
+    featured: true
+    type: "education"
+    conference: "Future CS Education Workshop 2.0"
+    conference_link: "https://futuredu.student.ai4sg.org/home"
+    institution: "nus"
+    summary: "On the organising team for the student-focused NUS-Google Workshop 2.0 at NUS (Jan 25, 2026)."
+    content: |
+      Helping run Future CS Education Workshop 2.0 — a one-day workshop at NUS (with Google and NUS support) where we're centering student voices on how AI is changing CS education.
+
+  - id: news-005
+    title: "Our paper 'Show it, Don't Just Say It' got conditionally accepted to CHI 2026 🇪🇸 🎉"
+    date: "2026-01-15"
+    category: "Publication"
+    tags: ["chi", "publication", "hci", "acceptance"]
+    featured: true
+    type: "publication"
+    institution: "acm"
+    summary: "Got the notification — our paper is conditionally accepted to CHI 2026. Revising and looking forward to presenting."
+    content: |
+      Really chuffed — we got the conditional accept for CHI 2026. Now revising and looking forward to presenting in Spain.
+
+  - id: news-006
+    title: "Volunteered at [NUS-Google Workshop: Future of CS Education and Curriculum in the AI Era](https://futuredu.ai4sg.org/)"
+    date: "2025-11-07"
+    category: "Workshop"
+    tags: ["nus", "google", "workshop", "cs education", "ai"]
+    featured: true
+    type: "education"
+    conference: "Future CS Education Workshop 2025"
+    conference_link: "https://futuredu.ai4sg.org/"
+    institution: "nus"
+    summary: "Volunteered at the NUS-Google workshop at NUS (Nov 6–8) — talks and workshops on how AI is changing CS education."
+    content: |
+      Volunteered at the NUS-Google workshop at NUS SoC — two days of talks and workshops on the future of CS education in the AI era. Good to be part of it.
+
+  - id: news-004
+    title: "Went to National Yang Ming Chiao Tung University (NYCU) in Hsinchu, Taiwan for an HCI meetup with friends"
+    date: "2025-08-20"
+    category: "Conference"
+    tags: ["nycu", "hci", "meetup", "taiwan"]
+    featured: true
+    type: "conference"
+    conference: "sciwork Meetup at NYCU"
+    conference_link: "https://sciwork.dev/meetup/2025/0820-nycu"
+    institution: "nycu"
+    summary: "Dropped by National Yang Ming Chiao Tung University (NYCU) in Hsinchu, Taiwan for the sciwork HCI meetup — talks and hanging out with friends."
+    content: |
+      Went to National Yang Ming Chiao Tung University (NYCU) in Hsinchu, Taiwan for an HCI meetup with friends. Nice to see the community and catch some talks.
+
   - id: news-003
-    title: "Attending Singapore HCI Meetup 2025 at SMU!"
+    title: "Singapore HCI Meetup 2025 at SMU"
     date: "2025-04-15"
     category: "Conference"
     tags: ["sghci", "conference", "hci"] 
@@ -18,12 +72,12 @@ news_items:
     image: "sghci-meetup-2025.jpeg"
     conference_link: "https://sghcimeetup25.notion.site/#1a91bd1704258010bc6afdf73378c1d1"
     institution: "smu"
-    summary: "Participating in the Singapore HCI Meetup 2025, a gathering of HCI researchers across Singapore."
+    summary: "Joined the SG-HCI meetup at SMU — HCI folks from across Singapore sharing work and catching up."
     content: |
-      Looking forward to joining the Singapore HCI Meetup 2025 at SMU, where HCI researchers across the island will share ideas, celebrate achievements, and connect with old and new friends. The event will feature research presentations, posters, and demos from our community members.
+      Went to the Singapore HCI Meetup at SMU. Talks, posters, demos, and a chance to see what everyone's up to and catch up with the community.
 
   - id: news-000
-    title: "Accepted into SMU PhD in Computer Science with Full Scholarship! 🎉"
+    title: "Starting my PhD at SMU (Computer Science) with a full scholarship 🎉"
     date: "2025-03-18"
     category: "Education"
     tags: ["PhD", "smu", "scholarship"]
@@ -31,12 +85,12 @@ news_items:
     type: "education"
     institution: "smu"
     link: "https://www.linkedin.com/posts/emranpoh_excited-to-share-that-ill-be-starting-activity-7307219143819214848-ANHC?utm_source=share&utm_medium=member_desktop&rcm=ACoAABbmkKQB4nh6DS1TgnvUQUXD3ibMufiETSo"
-    summary: "Accepted into the PhD program at Singapore Management University's School of Computing and Information Systems with a full scholarship."
+    summary: "Accepted into the PhD program at SMU SCIS with a full scholarship — joining Aug 2025, working with Li Jiannan on human-agent interaction."
     content: |
-      I am thrilled to announce that I have been accepted into the PhD program in Computer Science at Singapore Management University (SMU) with a full scholarship. I will be joining the School of Computing and Information Systems (SCIS) in August 2025, working under the supervision of Assistant Professor Li Jiannan. This marks an exciting new chapter in my academic journey, where I will continue my research in human-agent interaction and creativity-centric studies.
+      Got in — I'll be starting my PhD in Computer Science at SMU (SCIS) in August 2025 with a full scholarship, working with Li Jiannan. Really looking forward to diving deeper into human-agent interaction and the stuff I care about.
 
   - id: news-001
-    title: "Heading to CHI 2025 in Yokohama! 🇯🇵"
+    title: "First time at CHI — Yokohama 2025 🇯🇵"
     date: "2025-04-20"
     category: "Conference"
     tags: ["chi", "conference", "hci"]
@@ -46,20 +100,62 @@ news_items:
     conference_link: "https://chi2025.acm.org/"
     institution: "acm"
     image: "fbb97622-7af3-4f4a-9080-a6baf4209100.jpg"
-    summary: "Attending the ACM CHI Conference on Human Factors in Computing Systems 2025 in Yokohama, Japan."
+    summary: "Went to CHI 2025 in Yokohama — my first CHI. Talks, demos, and meeting a lot of the HCI community."
     content: |
-      I am excited to be attending the ACM CHI Conference on Human Factors in Computing Systems (CHI 2025) in Yokohama, Japan. This will be my first time attending CHI, the premier international conference in Human-Computer Interaction. I look forward to engaging with the HCI community, learning about cutting-edge research, and networking with fellow researchers and practitioners in the field.
+      First time at CHI, and it was in Yokohama. Great to finally be there in person, see the work everyone's doing, and meet folks from the community.
+
+  - id: news-008
+    title: "Hello World — created this website in Jan 2023"
+    date: "2023-01-01"
+    category: "Personal"
+    tags: ["website", "hello world"]
+    featured: true
+    type: "education"
+    summary: "Launched this personal site in Jan 2023."
+    content: |
+      Hello World — put this site together in Jan 2023.
+
+  - id: news-009
+    title: "Graduated from NUS with a Master of Computing (July 2024)"
+    date: "2024-07-01"
+    category: "Education"
+    tags: ["nus", "masters", "graduation"]
+    featured: true
+    type: "education"
+    institution: "nus"
+    summary: "Completed Master of Computing at National University of Singapore."
+    content: |
+      Graduated from NUS with a Master of Computing in July 2024.
+
+  - id: news-010
+    title: "Gave a talk on [Emptiness, Isolation, Death, Hope — parallels from Death Stranding](/projects/death-stranding/) at NUS-HCI Lab"
+    date: "2024-01-24"
+    category: "Talk"
+    tags: ["talk", "death-stranding", "nus-hci"]
+    featured: true
+    type: "talk"
+    institution: "nus-hci"
+    summary: "Talk at NUS-HCI Lab on themes of connection and isolation from Kojima's Death Stranding."
+    content: |
+      Gave a talk at NUS-HCI Lab on emptiness, isolation, death, and hope — drawing parallels from Kojima's Death Stranding for human connection.
+
+  - id: news-011
+    title: "Gave a talk on [How to Use XR for Physical Assault](/projects/xr01) at NUS-HCI Lab"
+    date: "2023-06-23"
+    category: "Talk"
+    tags: ["talk", "xr", "ethics", "black-mirror", "nus-hci"]
+    featured: true
+    type: "talk"
+    institution: "nus-hci"
+    summary: "Talk at NUS-HCI Lab on ethics of realism in XR, via Black Mirror."
+    content: |
+      Gave a talk at NUS-HCI Lab — a critical commentary on the ethics of realism in XR through Netflix's Black Mirror.
 
 upcoming_events:
-  - title: "Guest Lecture at University"
-    date: "15-04-2025"
-    location: "University Auditorium"
-    description: "Delivering a guest lecture on advanced topics in my field."
-
-  - title: "Industry Workshop"
-    date: "22-05-2025"
-    location: "Tech Innovation Center"
-    description: "Leading a hands-on workshop showcasing practical applications."
+  - title: "Presenting \"Show it, Don't Just Say It\" at CHI 2026 in Barcelona 🇪🇸"
+    date: "2026-04-26"
+    location: "Barcelona, Spain"
+    description: "Presenting our CHI 2026 paper at the conference."
 
 social_sharing:
   twitter: true

@@ -15,14 +15,20 @@
         {% endif %}
         <div class="intro-meta">
           <span class="intro-pronouns">he/him</span>
-          <span class="intro-meta-divider">·</span>
-          <span class="intro-email">emran.poh.2025 [at] smu.edu.sg</span>
         </div>
         {% assign first_para = site.data.intro.paragraphs[0] %}
         <div class="intro-block">
           {{ first_para | markdownify }}
+          {% if site.data.intro.university %}
+          <div class="intro-university">{{ site.data.intro.university }}</div>
+          {% endif %}
         </div>
-        <div class="intro-location">from 🇸🇬 Singapore</div>
+        <div class="intro-meta-bottom">
+          <div class="intro-email-line">
+            <span class="intro-email">emran.poh.2025 [at] smu.edu.sg</span>
+          </div>
+          <div class="intro-location">from 🇸🇬 Singapore</div>
+        </div>
       </div>
     </div>
   </div>

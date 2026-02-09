@@ -3,21 +3,20 @@
 
 <div class="nav-links-section nav-buttons">
   <div class="nav-links-grid">
-    <div class="nav-left">
-      <a href="{{ '/' | relative_url }}" class="nav-link nav-link-with-text {% if current_section == nil %}active{% endif %}"><span class="nav-link-text">Emran Poh</span></a>
-    </div>
     <div class="nav-right">
       <!-- Desktop Socials -->
       <span class="nav-socials-desktop">
         <a href="https://github.com/{{ site.github_username }}" target="_blank" class="nav-link"><i class="fab fa-github"></i></a>
         <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" class="nav-link"><i class="fab fa-linkedin"></i></a>
         <a href="https://scholar.google.com/citations?user={{ site.scholar_id }}" target="_blank" class="nav-link"><img src="{{ '/assets/images/scholar.svg' | relative_url }}" alt="Google Scholar" style="width: 1.25rem; height: 1.25rem;"></a>
+        <a href="https://orcid.org/{{ site.orcid_id }}" target="_blank" class="nav-link" aria-label="ORCID"><i class="fab fa-orcid"></i></a>
       </span>
       <!-- Mobile Socials -->
       <span class="nav-socials-mobile">
         <a href="https://github.com/{{ site.github_username }}" target="_blank" class="nav-link"><i class="fab fa-github"></i></a>
         <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" class="nav-link"><i class="fab fa-linkedin"></i></a>
         <a href="https://scholar.google.com/citations?user={{ site.scholar_id }}" target="_blank" class="nav-link"><img src="{{ '/assets/images/scholar.svg' | relative_url }}" alt="Google Scholar" style="width: 1.25rem; height: 1.25rem;"></a>
+        <a href="https://orcid.org/{{ site.orcid_id }}" target="_blank" class="nav-link" aria-label="ORCID"><i class="fab fa-orcid"></i></a>
       </span>
     </div>
   </div>
@@ -71,6 +70,7 @@
   display: flex;
   gap: 0.75rem;
   align-items: center;
+  margin-left: auto;
 }
 
 .nav-right .nav-link {

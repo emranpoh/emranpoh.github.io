@@ -1,9 +1,11 @@
 paragraphs:
-  - "**PhD Student + Designer**"
-  - "I'm currently pursuing my Ph.D. in Computer Science at Singapore Management University, working on human-agent interactions with [Li Jiannan](https://jchrisli.github.io/) as part of the [SMU-HCI](https://smuhci.com/) community. Before my Ph.D., I was a Research Engineer at SMU with Li Jiannan and at Singapore Institute of Technology with [Jeannie Lee](https://www.gla.ac.uk/schools/computing/staff/jeanniele/) and [Kyrin Liong](https://www.singaporetech.edu.sg/directory/faculty/kyrin-liong-yushan). I completed my Master of Computing at National University of Singapore working with [Zhao Shengdong](https://shengdongzhao.com/) and [Tony Tang](https://hcitang.github.io/), and my BSc (Hons) in Computing Science from University of Glasgow under Jeannie Lee's supervision."
+  - "**CS PhD Student + Designer**"
+  - "I'm currently pursuing my Ph.D. in Computer Science at Singapore Management University, working on human-agent interactions with [Li Jiannan](https://jchrisli.github.io/) as part of the [SMU-HCI](https://smuhci.com/) community. Before my Ph.D., I was a Research Engineer at Singapore Institute of Technology with [Jeannie Lee](https://www.gla.ac.uk/schools/computing/staff/jeanniele/) and [Kyrin Liong](https://www.singaporetech.edu.sg/directory/faculty/kyrin-liong-yushan). I completed my Master of Computing at National University of Singapore working with [Zhao Shengdong](https://shengdongzhao.com/) and [Tony Tang](https://hcitang.github.io/), and my BSc (Hons) in Computing Science from University of Glasgow under Jeannie Lee's supervision."
+
+university: "Singapore Management University"
 
 research:
-  - "I **research** intelligent human-agent collaboration at the intersection of human-computer interaction and artificial intelligence, with a focus on human creativity and learning. I am passionate about helping humans be more expressive and authentic through the tools I create. My current work focuses on multimodal AI interaction design for learning — exploring how AI systems can be designed to be more expressive, interpretable, and pedagogically effective in educational contexts. This includes developing AI interfaces that help learners understand AI behavior and reasoning processes."
+  - "I **research** human–AI collaboration for creativity and learning — and how to make AI systems more expressive and interpretable so they’re actually useful in educational contexts."
 
 teaching:
   - "I **teach** interaction design and programming courses, and enjoy sharing knowledge with students and professionals. I am particularly interested in AI Tutor design to enhance learning experiences through intelligent human-agent collaboration."

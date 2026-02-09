@@ -1,0 +1,48 @@
+{% comment %} News Section Component - displays upcoming events (greyed) and news items in a scrollable list {% endcomment %}
+{% assign sorted_news = site.data.news.news_items | sort: 'date' | reverse %}
+{% assign upcoming = site.data.news.upcoming_events | sort: 'date' %}
+
+<section class="news-section-container">
+  <div class="intro-block" style="margin-bottom: 1.5rem; text-align: left;">
+    <p>news</p>
+  </div>
+  <div class="news-list">
+    {% if upcoming.size > 0 %}
+    {% for event in upcoming %}
+      {% assign parts = event.date | split: "-" %}
+      {% assign month_num = parts[1] %}
+      {% capture month_name %}{% case month_num %}{% when '01' %}Jan{% when '02' %}Feb{% when '03' %}Mar{% when '04' %}Apr{% when '05' %}May{% when '06' %}Jun{% when '07' %}Jul{% when '08' %}Aug{% when '09' %}Sep{% when '10' %}Oct{% when '11' %}Nov{% when '12' %}Dec{% else %}{{ month_num }}{% endcase %}{% endcapture %}
+    <div class="news-card upcoming">
+      <div class="news-icon conference">
+        <i class="fas fa-calendar-alt"></i>
+      </div>
+      <div class="news-content">
+        <div class="news-meta">
+          <span class="news-date">{{ month_name }} {{ parts[2] }}</span>
+          {% if event.location %}<span class="news-category">{{ event.location }}</span>{% endif %}
+        </div>
+        <div class="news-text">
+          {{ event.title | markdownify }}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% for news in sorted_news %}
+    <div class="news-card">
+      <div class="news-icon {{ news.type }}">
+        <i class="fas {% if news.type == 'award' %}fa-trophy{% elsif news.type == 'publication' %}fa-file-alt{% elsif news.type == 'talk' %}fa-comments{% elsif news.type == 'education' %}fa-graduation-cap{% elsif news.type == 'conference' %}fa-users{% elsif news.type == 'art' %}fa-palette{% else %}fa-star{% endif %}"></i>
+      </div>
+      <div class="news-content">
+        <div class="news-meta">
+          <span class="news-date">{{ news.date | date: "%b %y" }}</span>
+          {% if news.category %}<span class="news-category">{{ news.category }}</span>{% endif %}
+        </div>
+        <div class="news-text">
+          {{ news.title | markdownify }}{% if news.link %} <a href="{{ news.link }}" class="news-link" target="_blank" rel="noopener" aria-label="Read more"><i class="fas fa-link"></i></a>{% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
