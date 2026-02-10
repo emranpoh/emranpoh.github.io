@@ -269,12 +269,21 @@ section {
   }
 }
 
-/* News Section Wrapper - same width as main content */
+/* News Section Wrapper - same width as main content (lives inside second .content-wrapper on desktop) */
 @media (min-width: 769px) {
   .news-section-wrapper {
     width: 100%;
-    padding: 2rem 10rem;
     margin-top: 2rem;
+    padding: 2rem 0; /* horizontal padding from parent .content-wrapper */
+  }
+
+  /* When news is not inside .content-wrapper (e.g. other pages), keep outer padding */
+  .desktop-wrapper > .news-section-wrapper {
+    padding: 2rem 10rem;
+  }
+
+  .content-wrapper .news-section-wrapper {
+    padding: 2rem 0;
   }
 
   .news-section-wrapper .news-section-container {

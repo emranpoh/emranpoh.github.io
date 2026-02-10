@@ -50,11 +50,13 @@
         {{ content }}
       </main>
     </div>
-    
-    <!-- News Section - Before Publications -->
+
+    <!-- News Section - second content-wrapper for same desktop width/padding -->
     {% if page.id == 'emran' or page.title == 'Emran Poh' %}
-    <div class="news-section-wrapper">
-      {% include components/news-section.html %}
+    <div class="content-wrapper">
+      <div class="news-section-wrapper">
+        {% include components/news-section.html %}
+      </div>
     </div>
     {% endif %}
 
