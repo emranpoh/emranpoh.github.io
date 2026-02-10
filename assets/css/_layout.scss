@@ -187,9 +187,13 @@ section {
     padding-bottom: 40px;
   }
   
-  .content-wrapper {
+  .main-column {
     height: auto !important;
     overflow: visible !important;
+  }
+
+  .main-column {
+    grid-template-columns: 1fr !important;
   }
   
   body {
@@ -269,21 +273,12 @@ section {
   }
 }
 
-/* News Section Wrapper - same width as main content (lives inside second .content-wrapper on desktop) */
+/* News Section Wrapper - same width as main content */
 @media (min-width: 769px) {
   .news-section-wrapper {
     width: 100%;
     margin-top: 2rem;
-    padding: 2rem 0; /* horizontal padding from parent .content-wrapper */
-  }
-
-  /* When news is not inside .content-wrapper (e.g. other pages), keep outer padding */
-  .desktop-wrapper > .news-section-wrapper {
     padding: 2rem 10rem;
-  }
-
-  .content-wrapper .news-section-wrapper {
-    padding: 2rem 0;
   }
 
   .news-section-wrapper .news-section-container {
@@ -487,10 +482,6 @@ section {
 }
 
 @media (max-width: 768px) {
-  .content-wrapper {
-    grid-template-columns: 1fr !important;
-  }
-
   .news-section-wrapper {
     width: 100%;
     padding: 1rem 1.5rem;
@@ -504,9 +495,27 @@ section {
   }
 }
 
-/* Desktop: single column, main content centered */
+/* Desktop: main content and news centered with same width */
 @media (min-width: 769px) {
-  .content-wrapper {
+  main.content {
+    width: 100% !important;
+    padding: 0 10rem;
+    min-width: 0;
+  }
+
+  .content-inner {
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  #main-content {
+    width: 100% !important;
+    min-width: 0;
+  }
+
+  .main-column {
     max-width: 100%;
     width: 100% !important;
     margin: 0;
@@ -516,13 +525,12 @@ section {
     gap: 2rem;
     align-items: start;
   }
-  
-  #main-content,
-  main.content {
-    width: 100% !important;
+
+  .main-column main.content {
     max-width: 48rem;
-    margin: 0 auto;
-    min-width: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
   }
   
   .work-list-title {

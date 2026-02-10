@@ -33,7 +33,6 @@
       .mobile-nav {
         display: block;
       }
-      /* .content-wrapper: from main.css _layout.scss */
       body {
         padding-bottom: 4rem; /* Add space for mobile nav */
       }
@@ -45,7 +44,6 @@
         padding: 0;
         overflow: visible;
       }
-      /* .content-wrapper: from main.css _layout.scss */
 
       .work-list-title {
         font-size: 1.25rem;
@@ -350,8 +348,7 @@
       {% include components/navigation.html %}
     </div>
     
-    <div class="content-wrapper">
-      <!-- Main Content - Left Column -->
+    <div class="main-column">
       <main class="content content-{{ page.id | default: page.title | replace: ' ', '-' | slice: 0, 5 }}" id="main-content">
         {{ content }}
       </main>

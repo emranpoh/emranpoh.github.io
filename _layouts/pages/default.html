@@ -45,18 +45,15 @@
       {% include components/navigation.html %}
     </div>
     
-    <div class="content-wrapper">
-      <main class="content content-{{ page.id | default: page.title | replace: ' ', '-' | slice: 0, 5 }}" id="main-content">
+    <main class="content content-{{ page.id | default: page.title | replace: ' ', '-' | slice: 0, 5 }}" id="main-content">
+      <div class="content-inner">
         {{ content }}
-      </main>
-    </div>
-
-    <!-- News Section - second content-wrapper for same desktop width/padding -->
-    {% if page.id == 'emran' or page.title == 'Emran Poh' %}
-    <div class="content-wrapper">
-      <div class="news-section-wrapper">
-        {% include components/news-section.html %}
       </div>
+    </main>
+
+    {% if page.id == 'emran' or page.title == 'Emran Poh' %}
+    <div class="news-section-wrapper">
+      {% include components/news-section.html %}
     </div>
     {% endif %}
 
