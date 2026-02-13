@@ -39,9 +39,13 @@
     {% endif %}
 
     <!-- Publications Section - Full Width Below Columns -->
-    {% if page.id == 'emran' or page.title == 'Emran Poh' %}
+    {% if page.id == 'emran' or page.title == 'Emran Poh' or page.id == 'research' %}
     <div class="publications-section-wrapper">
-      {% include components/publications-section.html %}
+      {% if page.id == 'emran' or page.title == 'Emran Poh' %}
+        {% include components/publications-section.html selected_only=true %}
+      {% else %}
+        {% include components/publications-section.html %}
+      {% endif %}
     </div>
     {% endif %}
 

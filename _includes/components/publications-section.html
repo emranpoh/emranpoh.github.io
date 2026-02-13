@@ -1,7 +1,11 @@
 {% comment %} Publications Section Component
    Displays only publications where Emran Poh is an author
+   When selected_only=true (main page), shows only pubs with is-selected: true
 {% endcomment %}
 {% assign author_pubs = site.data.pubs | where_exp: "pub", "pub.authors contains 'Emran Poh'" %}
+{% if include.selected_only %}
+  {% assign author_pubs = author_pubs | where: "is-selected", true %}
+{% endif %}
 {% assign sorted_pubs = author_pubs | sort: 'year' | reverse %}
 {% comment %} Collect unique subject-tags (concept tags) from all publications {% endcomment %}
 {% assign all_tags = "" | split: "," %}
@@ -19,13 +23,15 @@
 
 <section class="publications-section-container" aria-labelledby="publications-heading">
   <div class="intro-block" style="margin-bottom: 1rem; text-align: left; display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem;">
-    <p id="publications-heading" style="margin: 0;">publications</p>
+    <p id="publications-heading" style="margin: 0;">{% if include.selected_only %}selected publications{% else %}publications{% endif %}</p>
+    {% unless include.selected_only %}
     <div class="publications-filter-buttons" role="group" aria-label="Filter publications by concept">
       <button type="button" class="pub-filter-btn active" data-filter="all" aria-pressed="true">all</button>
       {% for tag in all_tags %}
       <button type="button" class="pub-filter-btn" data-filter="{{ tag }}" aria-pressed="false">{{ tag }}</button>
       {% endfor %}
     </div>
+    {% endunless %}
   </div>
   <div class="publications-grid publications-grid-horizontal" id="publications-grid">
   {% for pub in sorted_pubs %}

@@ -3,6 +3,10 @@
 
 <div class="nav-links-section nav-buttons">
   <div class="nav-links-grid">
+    <div class="nav-left">
+      <a href="{{ '/' | relative_url }}" class="nav-link nav-link-with-text {% if page.url == '/' %}active{% endif %}" aria-label="About"><span class="nav-link-text">about</span></a>
+      <a href="{{ '/research' | relative_url }}" class="nav-link nav-link-with-text {% if page.url contains '/research' %}active{% endif %}" aria-label="Publications"><span class="nav-link-text">publications</span></a>
+    </div>
     <div class="nav-right">
       <!-- Desktop Socials -->
       <span class="nav-socials-desktop">
@@ -73,10 +77,13 @@
   margin-left: auto;
 }
 
+.nav-left .nav-link,
 .nav-right .nav-link {
   background: transparent !important;
 }
 
+.nav-left .nav-link:hover,
+.nav-left .nav-link.active,
 .nav-right .nav-link:hover,
 .nav-right .nav-link.active {
   background: transparent !important;
@@ -172,11 +179,6 @@
   
   .nav-left, .nav-right {
     gap: 1rem;
-  }
-  
-  /* Hide home button on mobile */
-  .nav-left {
-    display: none;
   }
   
   .nav-right {
