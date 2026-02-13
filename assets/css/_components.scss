@@ -1,5 +1,43 @@
 // Component styles - buttons, cards, navigation, forms
 
+/* Skip link (accessibility) */
+.skip-link {
+  position: fixed;
+  top: -100%;
+  left: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #1d1d1d;
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  z-index: 10000;
+  transition: top 0.2s;
+
+  &:focus {
+    top: 0.5rem;
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+}
+
+/* Scroll progress indicator */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.08);
+  z-index: 9999;
+}
+
+.scroll-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: #64748b;
+  transition: width 0.1s ease-out;
+}
+
 /* Navigation */
 .nav-links-section {
 }

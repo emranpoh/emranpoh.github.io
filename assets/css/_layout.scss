@@ -1,5 +1,17 @@
 // Layout styles - grid, containers, responsive layouts
 
+/* Sidebar layout (default.html - projects with sidebar) */
+body.layout-sidebar .main-content {
+  margin-left: 0;
+  padding: 2rem;
+  min-height: 100vh;
+
+  @media (min-width: 1024px) {
+    margin-left: 280px;
+    padding: 3rem;
+  }
+}
+
 /* Section Visibility Rules */
 @media (max-width: 768px) {
   .desktop-section {
