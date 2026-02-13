@@ -827,40 +827,41 @@ section {
 }
 
 @media (max-width: 768px) {
-  .publications-section-wrapper {
+  .publications-section-wrapper,
+  .news-section-wrapper,
+  .service-section-wrapper,
+  .grants-section-wrapper,
+  .talks-section-wrapper {
     width: 100%;
-    padding: 1rem 1.5rem;
+    padding: 1rem 0;
     margin-top: 1rem;
-  }
-
-  .publications-section-wrapper .publications-section-container {
-    max-width: 100%;
   }
 
   .news-section-wrapper {
-    width: 100%;
-    padding: 1rem 1.5rem;
     margin-top: 1.5rem;
   }
 
-  .service-section-wrapper {
-    width: 100%;
-    padding: 1rem 1.5rem;
-    margin-top: 1rem;
+  .publications-section-wrapper .publications-section-container,
+  .news-section-wrapper .news-section-container,
+  .service-section-wrapper .service-section-container,
+  .grants-section-wrapper .grants-section-container,
+  .talks-section-wrapper .talks-section-container,
+  .selected-works-wrapper .selected-works-container {
+    max-width: 100%;
   }
 
-  .talks-section-wrapper {
-    width: 100%;
-    padding: 1rem 1.5rem;
-    margin-top: 1rem;
+  .talks-section-wrapper .talks-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
   }
 
-  .grants-section-wrapper {
-    width: 100%;
-    padding: 1rem 1.5rem;
-    margin-top: 1rem;
+  .talks-section-wrapper .talks-grid .work-grid-item,
+  .talks-section-wrapper .work-grid-item[data-type="presentation"] {
+    width: calc(50% - 0.5rem);
+    min-width: 0;
   }
-  
+
   .selected-works-wrapper {
     width: 100%;
     padding: 0;

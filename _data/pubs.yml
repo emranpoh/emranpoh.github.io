@@ -12,12 +12,14 @@
   is-selected: true
   emoji: "📝"
   url: "/publications/chi01"
+  doi: "10.1145/3772318.3791200"
   bib: ""
   tags:
     - name: "pdf"
       url: "/assets/pdfs/showitdontsayit_multimodal_software_guidance.pdf"
   abstract: "[ABSTRACT TO BE ADDED]"
-  citation: "Emran Poh, Yueyue Hou, Tianyi Zhang, Jiannan Li. Proceedings of the 2026 ACM Conference on Human Factors in Computing Systems (CHI '26)"
+  citation: |
+    Emran Poh, Yueyue Hou, Tianyi Zhang, and Jiannan Li. 2026. 'Show It, Don't Just Say It': The Complementary Effects of Instruction Multimodality for Software Guidance. In Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems (CHI '26), April 13–17, 2026, Barcelona, Spain. ACM, New York, NY, USA, 18 pages. https://doi.org/10.1145/3772318.3791200
   work-tags:
     - "Research"
     - "Paper"
