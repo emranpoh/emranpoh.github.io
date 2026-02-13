@@ -7,8 +7,8 @@
     "build": "bundle exec jekyll build",
     "serve": "bundle exec jekyll serve",
     "watch": "bundle exec jekyll serve --watch",
-    "css:build": "postcss assets/css/main.css -o assets/css/main.min.css",
-    "css:watch": "postcss assets/css/main.css -o assets/css/main.min.css --watch",
+    "css:build": "bundle exec jekyll build && postcss _site/assets/css/main.css -o _site/assets/css/main.min.css",
+    "css:watch": "postcss _site/assets/css/main.css -o _site/assets/css/main.min.css --watch",
     "optimize:images": "node scripts/optimize-images.js"
   },
   "repository": {

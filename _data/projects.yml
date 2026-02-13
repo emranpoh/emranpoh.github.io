@@ -52,7 +52,7 @@
   label: "COURSEWORK"
   university: "NUS"
   description: "CS4249 Phenomena and Theories of Human-Computer Interaction. Comparative study examining different notification design patterns and their impact on user attention and behavior. With Yash Gajaria, Ng Yu Zhong, Jasper Mai, Hyeyeon Yun"
-  url: "/projects/notifs01"
+  url: "/projects/notifications-reimagined"
   work-tags:
     - "dev"
 
@@ -89,7 +89,7 @@
   label: "COURSEWORK"
   university: "UOG"
   description: "UX Lead for a class-wide collaborative project of 20 students working with industry partner Gusto. Designed mobile application for hotel front office operations and guest management."
-  url: "/projects/fos01"
+  url: "/projects/front-office-system"
   work-tags:
     - "dev"
 
