@@ -3,6 +3,14 @@
 
 <div class="nav-links-section nav-buttons">
   <div class="nav-links-grid">
+    <div class="nav-left">
+      <a href="{{ '/' | relative_url }}" class="nav-link nav-link-with-text {% if page.url == '/' or page.url == '' %}active{% endif %}">
+        <span class="nav-link-text">about</span>
+      </a>
+      <a href="{{ '/publications/' | relative_url }}" class="nav-link nav-link-with-text {% if page.url == '/publications/' or page.url == '/publications' %}active{% endif %}">
+        <span class="nav-link-text">publications</span>
+      </a>
+    </div>
     <div class="nav-right">
       <!-- Desktop Socials -->
       <span class="nav-socials-desktop">
@@ -174,9 +182,8 @@
     gap: 1rem;
   }
   
-  /* Hide home button on mobile */
-  .nav-left {
-    display: none;
+  .nav-left .nav-link-text {
+    display: inline;
   }
   
   .nav-right {

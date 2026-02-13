@@ -63,9 +63,12 @@
       {% include components/navigation.html %}
     </nav>
     
-    <main class="content content-{{ page.id | default: page.title | replace: ' ', '-' | slice: 0, 5 }}" id="main-content" role="main">
+    <main class="content content-{{ page.id | default: page.title | replace: ' ', '-' | slice: 0, 5 }}{% if page.id == 'pubs' %} content-pubs-only{% endif %}" id="main-content" role="main">
       <div class="content-inner">
+        {% if page.id == 'pubs' %}
+        {% else %}
         {{ content }}
+        {% endif %}
       </div>
     </main>
 
@@ -76,7 +79,7 @@
     {% endif %}
 
     <!-- Publications Section - Full Width Below Columns -->
-    {% if page.id == 'emran' or page.title == 'Emran Poh' %}
+    {% if page.id == 'emran' or page.title == 'Emran Poh' or page.id == 'pubs' %}
     <div class="publications-section-wrapper">
       {% include components/publications-section.html %}
     </div>

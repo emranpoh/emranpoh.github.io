@@ -1,0 +1,69 @@
+{% comment %}
+  Horizontal publication card: visual on left (~50%), metadata on right
+  Layout matches: large figure/teaser left, title/authors/venue/links right
+{% endcomment %}
+{% assign pub = include.pub %}
+{% assign work_img_alt = pub.title_short | default: pub.title | prepend: 'Cover image for ' %}
+
+{% comment %} Resolve paper link: prefer pdf from tags, else doi {% endcomment %}
+{% assign paper_url = '' %}
+{% for tag in pub.tags %}
+  {% if tag.name == 'pdf' and tag.url and paper_url == '' %}
+    {% assign paper_url = tag.url %}
+  {% endif %}
+{% endfor %}
+{% if paper_url == '' and pub.doi %}
+  {% assign paper_url = 'https://doi.org/' | append: pub.doi %}
+{% endif %}
+
+<div class="pub-horizontal-card work-grid-item" data-type="pub" data-year="{{ pub.year }}" {% if pub.subject-tags %}data-subject-tags="{{ pub.subject-tags | join: '|' }}"{% endif %}>
+  <div class="pub-horizontal-inner">
+    <div class="pub-horizontal-visual">
+      <a href="{{ pub.url | relative_url }}" class="pub-horizontal-image-link">
+        {% if pub.image and pub.image != '' %}
+          <img src="{{ '/assets/images/projects/' | append: pub.image | relative_url }}" alt="{{ work_img_alt }}">
+        {% else %}
+          <div class="pub-horizontal-placeholder" aria-hidden="true"></div>
+        {% endif %}
+      </a>
+    </div>
+    <div class="pub-horizontal-meta">
+      <h3 class="pub-horizontal-title">{{ pub.title }}</h3>
+      {% if pub.authors %}
+        {% assign authors_with_bold = pub.authors | replace: 'Emran Poh', '<strong>Emran Poh</strong>' %}
+        <p class="pub-horizontal-authors">{{ authors_with_bold | raw }}</p>
+      {% endif %}
+      <div class="pub-horizontal-tags">
+        {% if pub.venue_short %}
+          {% assign venue_parts = pub.venue_short | split: ' ' %}
+          {% assign venue_name = venue_parts[0] %}
+          {% assign venue_class = venue_name | downcase | replace: '-', '' | replace: "'", '' %}
+          {% assign year_str = pub.year | append: '' %}
+          {% assign year_short = year_str | slice: -2, 2 %}
+          {% if pub.venue_short contains year_short %}
+            <span class="subject-tag venue-tag venue-{{ venue_class }}">{{ pub.venue_short }}</span>
+          {% else %}
+            <span class="subject-tag venue-tag venue-{{ venue_class }}">{{ pub.venue_short }} {{ year_short }}</span>
+          {% endif %}
+        {% endif %}
+        {% if pub.subject-tags and pub.subject-tags.size > 0 %}
+          {% for tag in pub.subject-tags %}
+            <span class="subject-tag">{{ tag }}</span>
+          {% endfor %}
+        {% endif %}
+        {% if pub.doi and pub.doi != '' %}
+          <a href="https://doi.org/{{ pub.doi }}" target="_blank" rel="noopener noreferrer" class="subject-tag work-doi-btn" aria-label="View DOI: {{ pub.doi }}">doi</a>
+        {% endif %}
+        {% if pub.bib and pub.bib != '' %}
+          <span class="work-bib-wrap">
+            <button type="button" class="subject-tag work-bib-btn" aria-label="Copy BibTeX">bib</button>
+            <span class="work-bib-content" aria-hidden="true">{{ pub.bib }}</span>
+          </span>
+        {% endif %}
+        {% if paper_url != '' %}
+          <a href="{{ paper_url | relative_url }}" target="_blank" rel="noopener noreferrer" class="subject-tag work-doi-btn" aria-label="View PDF">pdf</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
