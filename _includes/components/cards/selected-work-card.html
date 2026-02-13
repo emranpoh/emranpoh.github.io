@@ -104,7 +104,9 @@
         {% endif %}
       </div>
       <div class="work-title-below">
-        {% if include.work.title_short %}
+        {% if include.type == 'pub' %}
+        <div class="work-title-text">{{ include.work.title }}</div>
+        {% elsif include.work.title_short %}
         <div class="work-title-text">{{ include.work.title_short }}</div>
         <div class="work-title-subtitle">{{ include.work.title }}</div>
         {% else %}
@@ -116,26 +118,6 @@
         {% if include.work.authors %}
         {% assign authors_with_bold = include.work.authors | replace: 'Emran Poh', '<strong>Emran Poh</strong>' %}
         <div class="work-authors-below">{{ authors_with_bold | raw }}</div>
-        {% endif %}
-        {% if include.type == 'pub' and (include.work.doi or include.work.bib or include.work.tags) %}
-        <div class="work-action-tags">
-          {% if include.work.doi and include.work.doi != '' %}
-          <a href="https://doi.org/{{ include.work.doi }}" target="_blank" rel="noopener noreferrer" class="subject-tag work-doi-btn" aria-label="View DOI: {{ include.work.doi }}">doi</a>
-          {% endif %}
-          {% if include.work.bib and include.work.bib != '' %}
-          <span class="work-bib-wrap">
-            <button type="button" class="subject-tag work-bib-btn" aria-label="Copy BibTeX">bib</button>
-            <span class="work-bib-content" aria-hidden="true">{{ include.work.bib }}</span>
-          </span>
-          {% endif %}
-          {% if include.work.tags %}
-          {% for tag in include.work.tags %}
-          {% if tag.name == 'pdf' and tag.url %}
-          <a href="{{ tag.url | relative_url }}" target="_blank" rel="noopener noreferrer" class="subject-tag work-doi-btn" aria-label="View PDF">pdf</a>
-          {% endif %}
-          {% endfor %}
-          {% endif %}
-        </div>
         {% endif %}
         <div class="work-subject-tags">
           {% if include.work.venue_short %}
@@ -155,6 +137,24 @@
             {% for tag in include.work.subject-tags %}
             <span class="subject-tag">{{ tag }}</span>
             {% endfor %}
+          {% endif %}
+          {% if include.type == 'pub' and (include.work.doi or include.work.bib or include.work.tags) %}
+          {% if include.work.doi and include.work.doi != '' %}
+          <a href="https://doi.org/{{ include.work.doi }}" target="_blank" rel="noopener noreferrer" class="subject-tag work-doi-btn" aria-label="View DOI: {{ include.work.doi }}">doi</a>
+          {% endif %}
+          {% if include.work.bib and include.work.bib != '' %}
+          <span class="work-bib-wrap">
+            <button type="button" class="subject-tag work-bib-btn" aria-label="Copy BibTeX">bib</button>
+            <span class="work-bib-content" aria-hidden="true">{{ include.work.bib }}</span>
+          </span>
+          {% endif %}
+          {% if include.work.tags %}
+          {% for tag in include.work.tags %}
+          {% if tag.name == 'pdf' and tag.url %}
+          <a href="{{ tag.url | relative_url }}" target="_blank" rel="noopener noreferrer" class="subject-tag work-doi-btn" aria-label="View PDF">pdf</a>
+          {% endif %}
+          {% endfor %}
+          {% endif %}
           {% endif %}
         </div>
       </div>

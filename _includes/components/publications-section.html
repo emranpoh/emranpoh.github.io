@@ -27,7 +27,7 @@
       {% endfor %}
     </div>
   </div>
-  <div class="publications-grid" id="publications-grid">
+  <div class="publications-grid publications-grid-horizontal" id="publications-grid">
   {% for pub in sorted_pubs %}
     {% include components/cards/selected-work-card.html work=pub type='pub' %}
   {% endfor %}
