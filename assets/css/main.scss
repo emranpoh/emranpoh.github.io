@@ -53,10 +53,6 @@
   }
 }
 
-.desktop-section {
-  display: none;
-}
-
 /* Desktop Profile */
 .desktop-profile {
   display: flex;
@@ -66,77 +62,4 @@
   @media (max-width: 768px) {
     display: none;
   }
-}
-
-@media (min-width: 769px) {
-    .mobile-projects-section,
-    .mobile-publications-section,
-    .mobile-experience-section {
-        display: none;
-    }
-    .introduction .mobile-hello-text,
-    .introduction .mobile-title {
-        display: none;
-    }
-    .introduction {
-        padding-top: 0;
-        margin-top: 0;
-        height: auto;
-        min-height: 0;
-    }
-    .profile-name {
-        font-size: 2.5rem;
-        font-weight: 800;
-        margin-bottom: 0.5rem;
-    }
-    .profile-title {
-        font-size: 1rem;
-        color: #666;
-        margin-bottom: 0.5rem;
-    }
-    .profile-email {
-        font-size: 1rem;
-        color: #666;
-        margin-bottom: 0.5rem;
-    }
-    .introduction .hello-text {
-        font-size: 0.875rem;
-        line-height: 1.5;
-        margin-bottom: 1rem;
-    }
-    .profile-container {
-        display: flex;
-        align-items: flex-start;
-        gap: 1rem;
-        margin: 2rem 0 0 0;
-    }
-    .profile-info {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100%;
-    }
-    .profile-text {
-        margin-bottom: auto;
-    }
-    .profile-image {
-        width: 160px;
-        height: 160px;
-        border-radius: 0.5rem;
-        object-fit: cover;
-        border: 2px solid #f3f4f6;
-    }
-    .nav-buttons {
-        display: flex !important;
-        flex-direction: row;
-        gap: 0.5rem;
-    }
-
-    .nav-buttons img {
-        width: 1rem;
-        height: 1rem;
-    }
-    .nav-buttons i {
-        font-size: 1rem;
-    }
 }
