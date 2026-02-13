@@ -1,11 +1,7 @@
 {% comment %} Publications Section Component
    Displays only publications where Emran Poh is an author
-   On main page (emran): only show is-selected. On publications page (pubs): show all.
 {% endcomment %}
 {% assign author_pubs = site.data.pubs | where_exp: "pub", "pub.authors contains 'Emran Poh'" %}
-{% if page.id == 'emran' %}
-  {% assign author_pubs = author_pubs | where_exp: "pub", "pub.is-selected == true" %}
-{% endif %}
 {% assign sorted_pubs = author_pubs | sort: 'year' | reverse %}
 {% comment %} Collect unique subject-tags (concept tags) from all publications {% endcomment %}
 {% assign all_tags = "" | split: "," %}
@@ -21,21 +17,19 @@
 {% endfor %}
 {% assign all_tags = all_tags | sort %}
 
-<section class="publications-section-container publications-horizontal" aria-labelledby="publications-heading">
+<section class="publications-section-container" aria-labelledby="publications-heading">
   <div class="intro-block" style="margin-bottom: 1rem; text-align: left; display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem;">
-    <p id="publications-heading" style="margin: 0;">{% if page.id == 'emran' %}selected work{% else %}publications{% endif %}</p>
-    {% unless page.id == 'emran' %}
+    <p id="publications-heading" style="margin: 0;">publications</p>
     <div class="publications-filter-buttons" role="group" aria-label="Filter publications by concept">
       <button type="button" class="pub-filter-btn active" data-filter="all" aria-pressed="true">all</button>
       {% for tag in all_tags %}
       <button type="button" class="pub-filter-btn" data-filter="{{ tag }}" aria-pressed="false">{{ tag }}</button>
       {% endfor %}
     </div>
-    {% endunless %}
   </div>
-  <div class="publications-grid publications-grid-horizontal" id="publications-grid">
+  <div class="publications-grid" id="publications-grid">
   {% for pub in sorted_pubs %}
-    {% include components/cards/publication-card-horizontal.html pub=pub %}
+    {% include components/cards/selected-work-card.html work=pub type='pub' %}
   {% endfor %}
   </div>
   <script>
