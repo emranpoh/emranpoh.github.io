@@ -45,9 +45,12 @@ plugins:
   - jekyll-sitemap
 
 # Sass Configuration
+# sass_dir tells Jekyll where to find SCSS partials (default: _sass)
+# Our partials are in assets/css/, so we add it to the load path
 sass:
   style: :expanded
   quiet_deps: true
+  sass_dir: assets/css
   silence_deprecations:
     - slash-div
 
