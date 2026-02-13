@@ -17,7 +17,7 @@
         <div style="display: flex; flex-direction: column; background-color: #f7f7f7; border-radius: 0.5rem; border: 1px solid #e9ecef;">
             {% if pub.image and pub.image != '' %}
             <div style="border-radius: 0.5rem 0.5rem 0 0; overflow: hidden; aspect-ratio: 3 / 2;">
-                <img class="pub-image" src="{{ site.baseurl }}/assets/images/projects/{{ pub.image }}" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 0.5rem 0.5rem 0 0;">
+                <img class="pub-image" src="{{ site.baseurl }}/assets/images/projects/{{ pub.image }}" alt="Cover image for {{ pub.title }}" style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 0.5rem 0.5rem 0 0;">
             </div>
             {% else %}
             <div class="placeholder-image" style="border-radius: 0.5rem 0.5rem 0 0; aspect-ratio: 3 / 2; background-color: #e0e0e0; display: flex; align-items: center; justify-content: center;"></div>

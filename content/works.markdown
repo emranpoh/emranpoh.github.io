@@ -53,7 +53,7 @@ id: works
         <div class="pub-image-link">
           <div class="pub-image">
             {% if pub.image and pub.image != '' %}
-            <img src="{{ '/assets/images/projects/' | append: pub.image | relative_url }}" alt="">
+            <img src="{{ '/assets/images/projects/' | append: pub.image | relative_url }}" alt="Cover image for {{ pub.title }}">
             {% else %}
             <div class="placeholder-image"></div>
             {% endif %}
@@ -111,7 +111,7 @@ id: works
       <div class="pub-image-link">
         <div class="pub-image">
           {% if project.image %}
-          <img src="{{ '/assets/images/projects/' | append: project.image | relative_url }}" alt="">
+          <img src="{{ '/assets/images/projects/' | append: project.image | relative_url }}" alt="Cover image for {{ project.title }}">
           {% else %}
           <div class="placeholder-image"></div>
           {% endif %}
@@ -181,7 +181,7 @@ id: works
       <div class="pub-image-link">
         <div class="pub-image">
           {% if pres.image %}
-            <img src="{{ '/assets/images/projects/' | append: pres.image | relative_url }}" alt="">
+            <img src="{{ '/assets/images/projects/' | append: pres.image | relative_url }}" alt="Cover image for {{ pres.title }}">
           {% else %}
             <div class="placeholder-image"></div>
           {% endif %}

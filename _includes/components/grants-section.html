@@ -1,0 +1,32 @@
+{% comment %} Awards Section Component
+   Displays awards, grants, scholarships, and funding
+{% endcomment %}
+{% assign sorted_grants = site.data.grants.grants | sort: 'year' | reverse %}
+
+<section class="grants-section-container" aria-labelledby="grants-heading">
+  <div class="intro-block" style="margin-bottom: 1.5rem; text-align: left;">
+    <p id="grants-heading">awards + scholarships</p>
+  </div>
+  <div class="grants-list">
+    {% for grant in sorted_grants %}
+    <div class="grant-card">
+      <div class="grant-content">
+        <div class="grant-meta">
+          <span class="grant-year">{{ grant.year }}</span>
+          {% if grant.source %}<span class="grant-source">{{ grant.source }}</span>{% endif %}
+        </div>
+        <div class="grant-text">
+          {% if grant.link %}
+            <a href="{{ grant.link }}" target="_blank" rel="noopener">{{ grant.name }}</a>
+          {% else %}
+            {{ grant.name }}
+          {% endif %}
+          {% if grant.description %}
+            <span class="grant-description">— {{ grant.description }}</span>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>

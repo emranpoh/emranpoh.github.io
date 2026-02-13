@@ -2,9 +2,9 @@
    Displays all works with selected ones pinned at the start
 {% endcomment %}
 
-<section class="selected-works-container">
+<section class="selected-works-container" aria-labelledby="selected-works-heading">
   <div class="intro-block" style="margin-bottom: 1.5rem; text-align: left;">
-    <p>here are some of the stuff ive worked on</p>
+    <p id="selected-works-heading">here are some of the stuff ive worked on</p>
   </div>
   <div class="selected-works" id="selected-works">
   {% comment %} Collect ALL works (excluding publications and theses which have their own section) {% endcomment %}
@@ -15,12 +15,7 @@
     {% assign all_works = all_works | push: project %}
   {% endfor %}
   
-  {% comment %} Process ALL presentations {% endcomment %}
-  {% if site.data.presentations.presentations %}
-    {% for pres in site.data.presentations.presentations %}
-      {% assign all_works = all_works | push: pres %}
-    {% endfor %}
-  {% endif %}
+  {% comment %} Presentations excluded - they have their own "talks + presentations" section {% endcomment %}
   
   {% comment %} Process ALL project markdown files from collections {% endcomment %}
   {% if site.projects %}

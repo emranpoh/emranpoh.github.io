@@ -1,21 +1,60 @@
 {% comment %} Publications Section Component
    Displays only publications where Emran Poh is an author
 {% endcomment %}
+{% assign author_pubs = site.data.pubs | where_exp: "pub", "pub.authors contains 'Emran Poh'" %}
+{% assign sorted_pubs = author_pubs | sort: 'year' | reverse %}
+{% comment %} Collect unique subject-tags (concept tags) from all publications {% endcomment %}
+{% assign all_tags = "" | split: "," %}
+{% for pub in author_pubs %}
+  {% if pub.subject-tags %}
+    {% for tag in pub.subject-tags %}
+      {% assign tag_clean = tag | strip %}
+      {% unless all_tags contains tag_clean %}
+        {% assign all_tags = all_tags | push: tag_clean %}
+      {% endunless %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+{% assign all_tags = all_tags | sort %}
 
-<section class="publications-section-container">
-  <div class="intro-block" style="margin-bottom: 1.5rem; text-align: left;">
-    <p>publications</p>
+<section class="publications-section-container" aria-labelledby="publications-heading">
+  <div class="intro-block" style="margin-bottom: 1rem; text-align: left; display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem;">
+    <p id="publications-heading" style="margin: 0;">publications</p>
+    <div class="publications-filter-buttons" role="group" aria-label="Filter publications by concept">
+      <button type="button" class="pub-filter-btn active" data-filter="all" aria-pressed="true">all</button>
+      {% for tag in all_tags %}
+      <button type="button" class="pub-filter-btn" data-filter="{{ tag }}" aria-pressed="false">{{ tag }}</button>
+      {% endfor %}
+    </div>
   </div>
   <div class="publications-grid" id="publications-grid">
-  {% comment %} Display only publications (excluding theses), sorted by year (most recent first) {% endcomment %}
-  {% assign sorted_pubs = site.data.pubs | sort: 'year' | reverse %}
   {% for pub in sorted_pubs %}
-    {% if pub.authors contains 'Emran Poh' %}
-      {% include components/cards/selected-work-card.html work=pub type='pub' %}
-    {% endif %}
+    {% include components/cards/selected-work-card.html work=pub type='pub' %}
   {% endfor %}
   </div>
   <script>
+    (function() {
+      var grid = document.getElementById('publications-grid');
+      var buttons = document.querySelectorAll('.pub-filter-btn');
+      if (!grid || !buttons.length) return;
+
+      buttons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var filter = this.getAttribute('data-filter');
+          buttons.forEach(function(b) {
+            b.classList.toggle('active', b.getAttribute('data-filter') === filter);
+            b.setAttribute('aria-pressed', b.getAttribute('data-filter') === filter ? 'true' : 'false');
+          });
+          grid.querySelectorAll('.work-grid-item').forEach(function(item) {
+            var tagsAttr = item.getAttribute('data-subject-tags');
+            var tags = tagsAttr ? tagsAttr.split('|') : [];
+            var show = filter === 'all' || tags.indexOf(filter) !== -1;
+            item.style.display = show ? '' : 'none';
+          });
+        });
+      });
+    })();
+
     document.getElementById('publications-grid')?.addEventListener('click', function(e) {
       var btn = e.target.closest('.work-bib-btn');
       if (!btn) return;
@@ -31,7 +70,7 @@
         btn.textContent = 'Copied';
         btn.setAttribute('aria-label', 'Copied to clipboard');
         setTimeout(function() {
-          btn.textContent = 'Bib';
+          btn.textContent = 'bib';
           if (label) btn.setAttribute('aria-label', label);
         }, 1500);
       });

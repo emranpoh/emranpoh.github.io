@@ -1,0 +1,28 @@
+# Academic and professional service roles
+# Add your program committee, reviewer, and other service activities here
+
+services:
+  - year: "2026"
+    role: "External Reviewer"
+    venue: "CHI Poster 2026"
+
+  - year: "2025"
+    role: "External Reviewer"
+    venue: "CHI 2026"
+
+  - year: "2025"
+    role: "External Reviewer"
+    venues:
+      - "ICHEC 2025"
+
+  - year: "2025"
+    role: "Student Volunteer"
+    venue: "ICHEC 2025"
+
+  - year: "2026"
+    role: "Organising Team"
+    venue: "Future CS Education Workshop 2.0"
+
+  - year: "2025"
+    role: "Volunteer"
+    venue: "NUS-Google Workshop: Future of CS Education"

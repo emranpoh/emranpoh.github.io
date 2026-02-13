@@ -1,0 +1,18 @@
+# Grants and scholarships
+# Add your funding, awards, and financial support here
+
+grants:
+  - year: "2025"
+    name: "SMU PhD Scholarship"
+    source: "Singapore Management University"
+    description: "Competitive scholarship covering registration and subsidised tuition fees, with monthly living stipend for the first 4 years of PhD candidature"
+
+  - year: "2022"
+    name: "NUS MComp Study Award"
+    source: "National University of Singapore"
+    description: "Merit-based scholarship awarded to top-performing Master's applicants"
+
+  - year: "2020"
+    name: "MENDAKI Anugerah Cemerlang Award"
+    source: "MENDAKI"
+    description: "Academic excellence award for achieving first-class honours"

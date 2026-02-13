@@ -13,9 +13,11 @@
   emoji: "📝"
   url: "/publications/chi01"
   bib: ""
+  tags:
+    - name: "pdf"
+      url: "/assets/pdfs/showitdontsayit_multimodal_software_guidance.pdf"
   abstract: "[ABSTRACT TO BE ADDED]"
   citation: "Emran Poh, Yueyue Hou, Tianyi Zhang, Jiannan Li. Proceedings of the 2026 ACM Conference on Human Factors in Computing Systems (CHI '26)"
-  tags: []
   work-tags:
     - "Research"
     - "Paper"
@@ -38,6 +40,7 @@
   is-selected: true
   emoji: "👥"
   url: "/publications/art01"
+  doi: "10.1109/ISMAR-Adjunct60411.2023.00019"
   bib: ""
   pdf: "/assets/pdfs/sample.pdf"
   abstract: "We present a system that supports artefact awareness in partially-replicated workspaces, enabling users to maintain awareness of shared objects and their states across different physical locations."
@@ -51,8 +54,7 @@
     - "Paper"
   subject-tags:
     - "mixed reality"
-    - "interaction design"
-    - "3d interface"
+    - "3d interaction design"
     - "collaborative systems"
   tagline: ""
 
@@ -69,6 +71,7 @@
   institution: "immersification"
   emoji: "🚗"
   url: "/publications/int01"
+  doi: "10.1145/3581961.3610373"
   bib: |
     @inproceedings{lee2023intvrsection,
       title={IntVRsection: Virtual reality environment for evaluating signalized and unsignalized intersection scenarios},
@@ -86,8 +89,7 @@
     - "Paper"
   subject-tags:
     - "mixed reality"
-    - "interaction design"
-    - "3d interface"
+    - "3d interaction design"
   tagline: ""
 
 - title: "Mixed Reality for Engineering Design Review Using Finite Element Analysis"
@@ -104,6 +106,7 @@
   is-selected: true
   emoji: "🔍"
   url: "/publications/mr01"
+  doi: "10.1109/ISMAR-Adjunct57072.2022.00136"
   bib: |
     @inproceedings{poh2022mixed,
       title={Mixed reality for engineering design review using finite element analysis},
@@ -122,8 +125,7 @@
     - "Paper"
   subject-tags:
     - "mixed reality"
-    - "interaction design"
-    - "3d interface"
+    - "3d interaction design"
   tagline: ""
 
 - title: "Mixed Reality for Mechanical Design and Assembly Planning"
@@ -139,6 +141,7 @@
   image: "mr4assembly.jpg"
   emoji: "⚙️"
   url: "/publications/mr02"
+  doi: "10.1007/978-3-031-19679-9_72"
   bib: |
     @inproceedings{poh2022mixed,
       title={Mixed Reality for Mechanical Design and Assembly Planning},
@@ -157,8 +160,7 @@
     - "Paper"
   subject-tags:
     - "mixed reality"
-    - "interaction design"
-    - "3d interface"
+    - "3d interaction design"
   tagline: ""
 
 - title: "Mixed Reality Interface for Load Application in Finite Element Analysis"
@@ -174,6 +176,7 @@
   institution: "immersification"
   emoji: "📊"
   url: "/publications/mr03"
+  doi: "10.1007/978-3-030-77626-8_32"
   bib: ""
   abstract: "This work introduces a mixed reality interface for applying loads in finite element analysis, providing an intuitive way to interact with and visualize load applications in 3D space."
   citation: "@inproceedings{10.1007/978-3-030-77626-8_32,\nauthor = {Poh, Emran and Liong, Kyrin and Lee, Jeannie S. A.},\ntitle = {Mixed Reality Interface for Load Application in Finite Element Analysis},\nyear = {2021},\nisbn = {978-3-030-77625-1},\npublisher = {Springer-Verlag},\naddress = {Berlin, Heidelberg},\nurl = {https://doi.org/10.1007/978-3-030-77626-8_32},\ndoi = {10.1007/978-3-030-77626-8_32},\nabstract = {Finite Element Analysis (FEA) is an integral process in manufacturing design, providing assurance of quality and structural integrity of a manufactured item. FEA involves conducting rigorous stress simulations on a designed model to study its structural behaviour when under specific loading scenarios. Current FEA tools involve viewing and manipulating the 3D model displayed on a monitor screen. A Mixed Reality (MR) user interface allowing for direct manipulation and specification of loading scenarios on a designed model was developed, thus enabling design engineers to find new ways of interacting and visualising FEA results for analysis and thus reducing unnecessary prototyping costs. Three gesture interfaces were developed to allow application of load parameters on a surface of a model, namely: Point-Apply, Point-Hold, and Point-Drag. A pilot evaluation was conducted to study the suitability of each as an interface designed for engineers. Results suggest that Point-Hold is empirically the most usable interface compared to the other interfaces.},\nbooktitle = {Social Computing and Social Media: Experience Design and Social Network Analysis        : 13th International Conference, SCSM 2021, Held as Part of the 23rd HCI International Conference, HCII 2021, Virtual Event, July 24–29, 2021, Proceedings, Part  I},\npages = {470–483},\nnumpages = {14},\nkeywords = {Finite Element Analysis, Mixed reality, Gesture, 3D user interface, Digital twin}\n}"
@@ -184,8 +187,7 @@
     - "Paper"
   subject-tags:
     - "mixed reality"
-    - "interaction design"
-    - "3d interface"
+    - "3d interaction design"
     - "gesture interaction"
   tagline: ""
 
@@ -204,9 +206,9 @@
   abstract: "We investigate the potential of holographic displays for improving design visualization, exploring how holographic technology can enhance the understanding and communication of design concepts."
   tags:
     - name: "pdf"
-      url: "https://irr.singaporetech.edu.sg/articles/conference_contribution/Designing_with_Holograms_A_Preliminary_Study_On_Improving_Design_Visualisation_Through_Holographic_Display/23651547/1/files/41505537.pdf"
+      url: "/assets/pdfs/newriis.pdf"
   work-tags:
     - "Paper"
   subject-tags:
-    - "3d interface"
+    - "3d interaction design"
   tagline: ""

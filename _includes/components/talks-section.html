@@ -1,0 +1,15 @@
+{% comment %} Talks + Presentations Section Component
+   Displays talks and presentations from site.data.presentations (with images)
+{% endcomment %}
+{% assign sorted_talks = site.data.presentations.presentations | sort: 'date' | reverse %}
+
+<section class="talks-section-container" aria-labelledby="talks-heading">
+  <div class="intro-block" style="margin-bottom: 1.5rem; text-align: left;">
+    <p id="talks-heading">talks + presentations</p>
+  </div>
+  <div class="talks-grid" id="talks-grid">
+    {% for talk in sorted_talks %}
+      {% include components/cards/selected-work-card.html work=talk type='presentation' %}
+    {% endfor %}
+  </div>
+</section>

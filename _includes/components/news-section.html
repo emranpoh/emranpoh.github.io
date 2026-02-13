@@ -1,20 +1,23 @@
 {% comment %} News Section Component - displays upcoming events (greyed) and news items in a scrollable list {% endcomment %}
 {% assign sorted_news = site.data.news.news_items | sort: 'date' | reverse %}
 {% assign upcoming = site.data.news.upcoming_events | sort: 'date' %}
+{% assign upcoming_count = upcoming.size %}
+{% assign news_visible_count = 3 | minus: upcoming_count %}
+{% if news_visible_count < 0 %}{% assign news_visible_count = 0 %}{% endif %}
 
-<section class="news-section-container">
+<section class="news-section-container" aria-labelledby="news-heading">
   <div class="intro-block" style="margin-bottom: 1.5rem; text-align: left;">
-    <p>news</p>
+    <p id="news-heading">news</p>
   </div>
-  <div class="news-list">
+  <div class="news-list" id="news-list">
     {% if upcoming.size > 0 %}
     {% for event in upcoming %}
       {% assign parts = event.date | split: "-" %}
       {% assign month_num = parts[1] %}
       {% capture month_name %}{% case month_num %}{% when '01' %}Jan{% when '02' %}Feb{% when '03' %}Mar{% when '04' %}Apr{% when '05' %}May{% when '06' %}Jun{% when '07' %}Jul{% when '08' %}Aug{% when '09' %}Sep{% when '10' %}Oct{% when '11' %}Nov{% when '12' %}Dec{% else %}{{ month_num }}{% endcase %}{% endcapture %}
-    <div class="news-card upcoming">
+    <div class="news-card upcoming{% if forloop.index > 3 %} news-card-hidden{% endif %}" {% if forloop.index > 3 %}data-news-hidden{% endif %}>
       <div class="news-icon conference">
-        <i class="fas fa-calendar-alt"></i>
+        <i class="fas fa-calendar-alt" aria-hidden="true"></i>
       </div>
       <div class="news-content">
         <div class="news-meta">
@@ -29,9 +32,9 @@
     {% endfor %}
     {% endif %}
     {% for news in sorted_news %}
-    <div class="news-card">
+    <div class="news-card{% if forloop.index > news_visible_count %} news-card-hidden{% endif %}" {% if forloop.index > news_visible_count %}data-news-hidden{% endif %}>
       <div class="news-icon {{ news.type }}">
-        <i class="fas {% if news.type == 'award' %}fa-trophy{% elsif news.type == 'publication' %}fa-file-alt{% elsif news.type == 'talk' %}fa-comments{% elsif news.type == 'education' %}fa-graduation-cap{% elsif news.type == 'conference' %}fa-users{% elsif news.type == 'art' %}fa-palette{% else %}fa-star{% endif %}"></i>
+        <i class="fas {% if news.type == 'award' %}fa-trophy{% elsif news.type == 'publication' %}fa-file-alt{% elsif news.type == 'talk' %}fa-comments{% elsif news.type == 'education' %}fa-graduation-cap{% elsif news.type == 'conference' %}fa-users{% elsif news.type == 'art' %}fa-palette{% else %}fa-star{% endif %}" aria-hidden="true"></i>
       </div>
       <div class="news-content">
         <div class="news-meta">
@@ -40,10 +43,39 @@
           {% if news.location %}<span class="news-category">{{ news.location }}</span>{% endif %}
         </div>
         <div class="news-text">
-          {{ news.title | markdownify }}{% if news.link %} <a href="{{ news.link }}" class="news-link" target="_blank" rel="noopener" aria-label="Read more"><i class="fas fa-link"></i></a>{% endif %}
+          {{ news.title | markdownify }}{% if news.link %} <a href="{{ news.link }}" class="news-link" target="_blank" rel="noopener" aria-label="Read more"><i class="fas fa-link" aria-hidden="true"></i></a>{% endif %}
         </div>
       </div>
     </div>
     {% endfor %}
   </div>
+  {% assign total_items = upcoming_count | plus: sorted_news.size %}
+  {% if total_items > 3 %}
+  <div class="news-show-more-wrap">
+    <button type="button" class="news-show-more-btn" aria-expanded="false" aria-controls="news-list" data-hidden-count="{{ sorted_news.size | minus: news_visible_count }}">
+      Show more
+    </button>
+  </div>
+  {% endif %}
 </section>
+
+<script>
+(function() {
+  var btn = document.querySelector('.news-show-more-btn');
+  var hiddenCards = document.querySelectorAll('.news-card[data-news-hidden]');
+  if (!btn || !hiddenCards.length) return;
+
+  var newsList = document.getElementById('news-list');
+  btn.addEventListener('click', function() {
+    var expanded = this.getAttribute('aria-expanded') === 'true';
+    hiddenCards.forEach(function(card) {
+      card.classList.toggle('news-card-hidden', expanded);
+    });
+    if (newsList) {
+      newsList.classList.toggle('news-list-expanded', !expanded);
+    }
+    this.textContent = expanded ? 'Show more' : 'Show less';
+    this.setAttribute('aria-expanded', !expanded);
+  });
+})();
+</script>

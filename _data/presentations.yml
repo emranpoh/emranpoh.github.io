@@ -12,6 +12,8 @@ presentations:
     year: 2024
     event: "Synteraction Lab Seminar"
     type: "seminar"
+    location: "NUS"
+    country: "Singapore"
     description: "A talk exploring themes of connection and isolation in Death Stranding, relating them to human-agent interaction."
     link: ""
     image: "eidh.png"
@@ -27,6 +29,8 @@ presentations:
     year: 2023
     event: "Synteraction Lab Seminar"
     type: "seminar"
+    location: "NUS"
+    country: "Singapore"
     description: "A critical commentary on the ethics of realism in XR, referencing Black Mirror."
     link: ""
     image: "xr-assault.png"
@@ -40,27 +44,30 @@ presentations:
     title: "Mixed Reality for Design Engineering & FEA"
     date: "2022-02-18"
     year: 2022
-    event: "Singapore Airshow"
-    type: "conference"
-    description: "Demonstration to aerospace industry experts on the potential of mixed reality for complex and dangerous assembly logistics. Showcased how MR can improve safety and precision in high-stakes manufacturing environments."
+    event: "Project Showcase at Singapore Airshow"
+    type: "showcase"
+    location: "Singapore Airshow"
+    country: "Singapore"
+    description: "Project showcase to aerospace industry experts on the potential of mixed reality for complex and dangerous assembly logistics. Demonstrated how MR can improve safety and precision in high-stakes manufacturing environments."
     image: "mr-1.jpg"
     link: ""
     institution: "singapore-airshow"
     tags: ["mixed-reality", "engineering", "fea", "demo"]
     work-tags:
-      - "Talk"
+      - "Project Showcase"
     
   - id: pres-004
-    title: "NYCU Visit"
+    title: "HCI Visit: HCI Research Gathering"
     date: "2025-12-01"
     year: 2025
     event: "Research Presentation"
     type: "seminar"
-    description: "Multi-university research exchange with HCI labs from National Yang Ming Chiao Tung University (Taiwan), Seoul National University, Hokkaido University, and SMU. Shared ongoing research work and fostered cross-institutional collaboration."
+    location: "National Yang Ming Chiao Tung University, Hsinchu"
+    country: "Taiwan"
+    description: "HCI research gathering with labs from National Yang Ming Chiao Tung University (Taiwan), Seoul National University, Hokkaido University, and SMU. Shared ongoing research work."
     link: ""
     image: "nycu.jpeg"
     institution: "nycu"
-    location: "National Yang Ming Chiao Tung University"
     is-selected: false
     tags: []
     work-tags:

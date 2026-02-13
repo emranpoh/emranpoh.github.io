@@ -1,0 +1,36 @@
+{% comment %} Service Section Component
+   Displays academic and professional service roles (PC, reviewer, volunteer, etc.)
+{% endcomment %}
+{% assign sorted_services = site.data.services.services | sort: 'year' | reverse %}
+
+<section class="service-section-container" aria-labelledby="service-heading">
+  <div class="intro-block" style="margin-bottom: 1.5rem; text-align: left;">
+    <p id="service-heading">service</p>
+  </div>
+  <div class="service-list">
+    {% for service in sorted_services %}
+    <div class="service-card">
+      <div class="service-icon">
+        <i class="fas fa-hands-helping"></i>
+      </div>
+      <div class="service-content">
+        <div class="service-meta">
+          <span class="service-year">{{ service.year }}</span>
+          {% if service.venues %}
+            <span class="service-venue">{{ service.venues | join: ", " }}</span>
+          {% elsif service.venue %}
+            <span class="service-venue">{{ service.venue }}</span>
+          {% endif %}
+        </div>
+        <div class="service-text">
+          {% if service.link %}
+            <a href="{{ service.link }}" target="_blank" rel="noopener">{{ service.role }}</a>
+          {% else %}
+            {{ service.role }}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>

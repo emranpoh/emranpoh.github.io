@@ -17,6 +17,23 @@
     }
   </script>
   <style>
+    .skip-link {
+      position: fixed;
+      top: -100%;
+      left: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: #1d1d1d;
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      z-index: 10000;
+      transition: top 0.2s;
+    }
+    .skip-link:focus {
+      top: 0.5rem;
+      outline: 2px solid currentColor;
+      outline-offset: 2px;
+    }
     .scroll-progress {
       position: fixed;
       top: 0;
@@ -35,17 +52,18 @@
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <!-- Scroll progress indicator -->
   <div class="scroll-progress" role="progressbar" aria-label="Page scroll progress" aria-valuemin="0" aria-valuemax="100">
     <div class="scroll-progress-fill" id="scroll-progress-fill" aria-hidden="true"></div>
   </div>
   <div class="desktop-wrapper">
     <!-- Top Navigation - Fixed at top -->
-    <div class="desktop-nav">
+    <nav class="desktop-nav" aria-label="Social links">
       {% include components/navigation.html %}
-    </div>
+    </nav>
     
-    <main class="content content-{{ page.id | default: page.title | replace: ' ', '-' | slice: 0, 5 }}" id="main-content">
+    <main class="content content-{{ page.id | default: page.title | replace: ' ', '-' | slice: 0, 5 }}" id="main-content" role="main">
       <div class="content-inner">
         {{ content }}
       </div>
@@ -63,6 +81,27 @@
       {% include components/publications-section.html %}
     </div>
     {% endif %}
+
+    <!-- Service Section - Full Width Below Publications -->
+    {% if page.id == 'emran' or page.title == 'Emran Poh' %}
+    <div class="service-section-wrapper">
+      {% include components/service-section.html %}
+    </div>
+    {% endif %}
+
+    <!-- Awards Section -->
+    {% if page.id == 'emran' or page.title == 'Emran Poh' %}
+    <div class="grants-section-wrapper">
+      {% include components/grants-section.html %}
+    </div>
+    {% endif %}
+
+    <!-- Talks + Presentations Section -->
+    {% if page.id == 'emran' or page.title == 'Emran Poh' %}
+    <div class="talks-section-wrapper">
+      {% include components/talks-section.html %}
+    </div>
+    {% endif %}
     
     <!-- Selected Works Section - Full Width Below Columns -->
     {% if page.id == 'emran' or page.title == 'Emran Poh' %}
@@ -71,16 +110,16 @@
     </div>
     {% endif %}
     
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
       <p>made with care in {{ site.location }}</p>
       <p>&copy; {{ 'now' | date: '%Y' }} {{ site.title | downcase }}</p>
     </footer>
   </div>
   
   <!-- Mobile Navigation -->
-  <div class="mobile-nav">
+  <nav class="mobile-nav" aria-label="Social links">
     {% include components/navigation.html %}
-  </div>
+  </nav>
 
   <script>
     // Scroll progress indicator

@@ -18,11 +18,11 @@ id: pubs
            {% if pub.images %}
            <div class="pub-image-gallery">
              {% for image in pub.images limit:4 %}
-             <img src="{{ '/assets/images/projects/' | append: image | relative_url }}" alt="">
+             <img src="{{ '/assets/images/projects/' | append: image | relative_url }}" alt="Cover image for {{ pub.title }}">
              {% endfor %}
            </div>
            {% elsif pub.image and pub.image != '' %}
-           <img src="{{ '/assets/images/projects/' | append: pub.image | relative_url }}" alt="">
+           <img src="{{ '/assets/images/projects/' | append: pub.image | relative_url }}" alt="Cover image for {{ pub.title }}">
            {% else %}
            <div class="placeholder-image"></div>
            {% endif %}
