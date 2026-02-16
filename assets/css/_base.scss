@@ -24,6 +24,11 @@
   display: none; /* WebKit */
 }
 
+/* Crosshair cursor for clickable elements */
+a, button, [role="button"], input[type="submit"], input[type="button"] {
+  cursor: crosshair;
+}
+
 body {
   font-family: 'Hanken Grotesk', sans-serif;
   line-height: 1.6;

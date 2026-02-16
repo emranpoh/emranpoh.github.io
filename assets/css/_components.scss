@@ -132,7 +132,7 @@
     border: none;
     border-radius: 4px;
     font-size: 14px;
-    cursor: pointer;
+    cursor: crosshair;
     transition: all 0.2s ease;
   }
 
@@ -185,6 +185,35 @@
 }
 
 /* Tags */
+.tag,
+.tag-overlay,
+.tag-container,
+.tag-container *,
+.subject-tag,
+.project-tag,
+.project-type-tag,
+.projtype-tag,
+.work-venue-tag,
+.work-tagline,
+.work-tag-item,
+.work-tags-overlay,
+.work-tags-overlay *,
+.work-tags-legend,
+.work-tags-legend *,
+.pub-tag,
+.pub-venue-tag,
+.tech-tag,
+.article-type-tag,
+.article-cite-tag,
+.article-venue-tag,
+.article-shape-tag,
+.category-tag {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
 .tag {
   display: inline-flex;
   align-items: center;
