@@ -46,6 +46,14 @@ id: landing
   padding-top: 1.5rem;
 }
 
+@media (min-width: 769px) {
+  .landing-wrapper {
+    align-items: center;
+    justify-content: center;
+    padding-top: 0;
+  }
+}
+
 .landing-container {
   position: relative;
   min-height: 24rem;
