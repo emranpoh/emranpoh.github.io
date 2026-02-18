@@ -119,6 +119,19 @@
         {% assign authors_with_bold = include.work.authors | replace: 'Emran Poh', '<strong>Emran Poh</strong>' %}
         <div class="work-authors-below">{{ authors_with_bold | raw }}</div>
         {% endif %}
+        {% if include.type == 'pub' %}
+        {% assign citation_text = include.work.citation | strip %}
+        {% if citation_text != '' %}
+          {% assign is_bibtex = citation_text | slice: 0, 1 %}
+          {% if is_bibtex != '@' %}
+        <div class="work-citation work-citation-desktop">{{ citation_text }}</div>
+          {% else %}
+        <div class="work-citation work-citation-desktop">{% if include.work.authors %}{{ include.work.authors }}. {% endif %}{% if include.work.year %}{{ include.work.year }}. {% endif %}{{ include.work.title }}. {% if include.work.venue %}{{ include.work.venue }}{% endif %}{% if include.work.doi %}. https://doi.org/{{ include.work.doi }}{% endif %}</div>
+          {% endif %}
+        {% else %}
+        <div class="work-citation work-citation-desktop">{% if include.work.authors %}{{ include.work.authors }}. {% endif %}{% if include.work.year %}{{ include.work.year }}. {% endif %}{{ include.work.title }}. {% if include.work.venue %}{{ include.work.venue }}{% endif %}{% if include.work.doi %}. https://doi.org/{{ include.work.doi }}{% endif %}</div>
+        {% endif %}
+        {% endif %}
         <div class="work-venue-tags">
           {% if include.work.venue_short %}
             {% assign venue_parts = include.work.venue_short | split: ' ' %}
@@ -151,14 +164,12 @@
           {% endfor %}
           {% endif %}
           {% endif %}
-        </div>
-        {% if include.work.subject-tags and include.work.subject-tags.size > 0 %}
-        <div class="work-concept-tags">
+          {% if include.work.subject-tags and include.work.subject-tags.size > 0 %}
           {% for tag in include.work.subject-tags %}
           <span class="subject-tag">{{ tag }}</span>
           {% endfor %}
+          {% endif %}
         </div>
-        {% endif %}
       </div>
     {% elsif include.type == 'project' %}
       {% comment %} Projects: image on top, title and info below {% endcomment %}
