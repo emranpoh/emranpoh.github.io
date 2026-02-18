@@ -39,10 +39,11 @@ id: landing
 <style>
 .landing-wrapper {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   min-height: 100vh;
   width: 100%;
+  padding-top: 1.5rem;
 }
 
 .landing-container {
@@ -149,16 +150,13 @@ id: landing
 
 @media (max-width: 768px) {
   .landing-wrapper {
-    min-height: 100vh;
-    height: 100vh;
-    height: 100dvh;
+    /* Constrain to viewport so the div doesn’t exceed screen height (desktop-wrapper has 32px top + 40px bottom padding) */
+    height: calc(100dvh - 72px);
+    min-height: 0;
+    max-height: calc(100dvh - 72px);
     overflow: hidden;
-    padding: 1rem 0;
+    padding: 0.5rem 0 1rem;
     box-sizing: border-box;
-  }
-  .landing-container {
-    transform: scale(0.72);
-    transform-origin: top center;
   }
 }
 </style>
