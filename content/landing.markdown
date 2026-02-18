@@ -146,4 +146,19 @@ id: landing
   color: #666;
   text-transform: lowercase;
 }
+
+@media (max-width: 768px) {
+  .landing-wrapper {
+    min-height: 100vh;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+    padding: 1rem 0;
+    box-sizing: border-box;
+  }
+  .landing-container {
+    transform: scale(0.72);
+    transform-origin: top center;
+  }
+}
 </style>
