@@ -89,7 +89,8 @@ body.layout-sidebar .main-content {
     }
   }
 
-  .content-emran {
+  .content-emran,
+  .content-works {
     flex-direction: column;
   }
 
@@ -258,6 +259,10 @@ section {
 
 /* Desktop wrapper styles */
 @media (min-width: 769px) {
+  body {
+    overflow-x: auto;
+  }
+
   .desktop-wrapper {
     width: 100%;
     max-width: 100%;
@@ -267,6 +272,7 @@ section {
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
+    overflow-x: visible;
   }
 
   /* Top nav: same width as main content */
@@ -607,12 +613,13 @@ section {
   color: #64748b;
 }
 
-/* Talks Section Wrapper - same width as main content, grid layout like publications */
+/* Talks Section Wrapper - centered, horizontally scrollable with visible scrollbar */
 @media (min-width: 769px) {
   .talks-section-wrapper {
     width: 100%;
     padding: 2rem 10rem;
     margin-top: 0;
+    overflow: visible;
   }
 
   .talks-section-wrapper .talks-section-container {
@@ -620,17 +627,22 @@ section {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
+    overflow: visible;
   }
 
   .talks-section-wrapper .talks-grid {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 1.5rem;
+    overflow-x: visible;
+    overflow-y: visible;
   }
 
   .talks-section-wrapper .talks-grid .work-grid-item,
   .talks-section-wrapper .work-grid-item[data-type="presentation"] {
-    width: calc((100% - 3rem) / 3);
+    width: calc((48rem - 3rem) / 3);
+    min-width: calc((48rem - 3rem) / 3);
+    flex-shrink: 0;
   }
 }
 
@@ -638,44 +650,120 @@ section {
   aspect-ratio: 1 / 1;
 }
 
-/* Section headers - a little bolder */
+/* Section headers - same size as intro text, bolder */
 .news-section-container .intro-block > p,
 .publications-section-container .intro-block > p,
 .service-section-container .intro-block > p,
 .grants-section-container .intro-block > p,
 .talks-section-container .intro-block > p,
 .selected-works-container .intro-block > p {
+  font-size: 1.1rem;
   font-weight: 600;
+}
+
+/* Publications page: citation text - less bold, italic, smaller */
+.publications-page .work-citation {
+  font-size: 0.6875rem !important;
+  font-weight: 400 !important;
+  font-style: italic !important;
+  color: #666;
+
+  &,
+  * {
+    font-weight: 400 !important;
+    font-style: italic !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .work-citation,
+  .work-citation-desktop {
+    display: none !important;
+  }
+}
+
+/* Publications intro line: text + filter buttons inline (override section header bold) */
+.publications-section-container .intro-block > p.publications-intro-line,
+.publications-intro-line {
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Publications page only: extra space beneath intro sentence */
+.publications-page .publications-section-container .intro-block.publications-intro-block {
+  margin-bottom: 4rem;
+}
+
+/* Inline in sentence: override .publications-filter-buttons flex */
+.publications-intro-line .publications-filter-inline {
+  display: inline;
+  margin-left: 0;
+}
+
+.publications-filter-inline .pub-filter-btn {
+  display: inline-block;
+  margin: 0 0.4rem 0 0;
+  padding: 0 0.4rem 0.2rem 0.4rem;
+  vertical-align: middle;
+  font-size: 0.9em;
+  font-weight: 400;
+  background: #f3f4f6;
+  border-radius: 0.25rem;
+  color: #9ca3af;
+  text-decoration: none;
+  cursor: crosshair;
+  transition: background 0.2s, color 0.2s;
+}
+
+.publications-filter-inline .pub-filter-btn:hover {
+  background: #e5e7eb;
+  color: #6b7280;
+}
+
+.publications-filter-inline .pub-filter-btn.active {
+  background: #e5e7eb;
+  color: #4b5563;
+}
+
+.publications-filter-inline .pub-filter-btn.active:hover {
+  background: #d1d5db;
+  color: #374151;
 }
 
 /* Publications filter buttons */
 .publications-filter-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.375rem;
+  gap: 0.6rem;
 }
 
 .pub-filter-btn {
   font-family: inherit;
   font-size: 0.75rem;
-  padding: 0.25rem 0.5rem;
+  padding: 0 0.5rem 0.25rem 0.5rem;
   border: none;
   border-radius: 0.25rem;
-  background: #e5e7eb;
-  color: #4b5563;
+  background: #f3f4f6;
+  color: #9ca3af;
   cursor: crosshair;
   transition: background 0.2s, color 0.2s;
   text-transform: lowercase;
 }
 
 .pub-filter-btn:hover {
-  background: #d1d5db;
-  color: #374151;
+  background: #e5e7eb;
+  color: #6b7280;
 }
 
 .pub-filter-btn.active {
-  background: #64748b;
-  color: white;
+  background: #e5e7eb;
+  color: #4b5563;
+}
+
+.pub-filter-btn.active:hover {
+  background: #d1d5db;
+  color: #374151;
 }
 
 /* BibTeX content - always hidden (clip technique works at all breakpoints) */
@@ -696,6 +784,24 @@ section {
   clip-path: inset(50%);
   white-space: nowrap;
   border: 0;
+}
+
+/* Publications grid wrapper and empty state */
+.publications-grid-wrapper {
+  position: relative;
+  margin-bottom: 0;
+}
+
+.publications-section-wrapper .publications-grid.publications-grid-horizontal {
+  margin-bottom: 0;
+}
+
+.publications-empty-state {
+  margin: 0;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+  color: #6b7280;
+  font-style: italic;
 }
 
 /* Base horizontal layout - applies at all breakpoints */
@@ -768,7 +874,7 @@ section {
 @media (min-width: 769px) {
   .publications-section-wrapper {
     width: 100%;
-    padding: 2rem 10rem;
+    padding: 2rem 0;
     margin-top: 0;
   }
   
@@ -792,12 +898,13 @@ section {
   }
 }
 
-/* Selected Works Wrapper - same width as main content */
+/* Selected Works Wrapper - centered, horizontally scrollable with visible scrollbar */
 @media (min-width: 769px) {
   .selected-works-wrapper {
     width: 100%;
     padding: 2rem 10rem;
     margin-top: 0;
+    overflow: visible;
   }
   
   .selected-works-wrapper .selected-works-container {
@@ -805,19 +912,23 @@ section {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
+    overflow: visible;
   }
 
-  /* Wider blocks = fewer per row, more rows */
   .selected-works-wrapper .selected-works {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 1.5rem;
+    overflow-x: visible;
+    overflow-y: visible;
   }
 
   .selected-works-wrapper .selected-works .work-grid-item,
   .selected-works-wrapper .work-grid-item[data-type="project"],
   .selected-works-wrapper .work-grid-item[data-type="presentation"] {
-    width: calc((100% - 3rem) / 3);
+    width: calc((48rem - 3rem) / 3);
+    min-width: calc((48rem - 3rem) / 3);
+    flex-shrink: 0;
   }
 }
 
@@ -867,6 +978,21 @@ section {
     padding: 0;
     margin-top: 1rem;
   }
+
+  /* Research page: stack columns on mobile */
+  body.page-research main.research-two-column {
+    flex-direction: column;
+    padding: 1rem 0;
+  }
+
+  body.page-research .research-column-intro {
+    width: 100%;
+    min-width: 0;
+  }
+
+  body.page-research .research-column-pubs {
+    width: 100%;
+  }
 }
 
 /* Desktop: main content and news centered with same width */
@@ -882,6 +1008,128 @@ section {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
+  }
+
+  /* Works page: full viewport width */
+  .content-works .content-inner {
+    max-width: 100%;
+  }
+
+  body.page-works main.content {
+    padding: 1rem 2rem;
+  }
+
+  body.page-works .desktop-nav {
+    padding: 1rem 2rem;
+  }
+
+  body.page-works .desktop-nav .nav-links-section,
+  body.page-works .desktop-nav .nav-buttons {
+    max-width: 100%;
+  }
+
+  body.page-works .talks-section-wrapper,
+  body.page-works .selected-works-wrapper {
+    padding: 1rem 2rem;
+    max-width: 100vw;
+  }
+
+  body.page-works .talks-section-wrapper .talks-section-container,
+  body.page-works .selected-works-wrapper .selected-works-container {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  body.page-works .talks-section-wrapper .talks-grid .work-grid-item,
+  body.page-works .talks-section-wrapper .work-grid-item[data-type="presentation"],
+  body.page-works .selected-works-wrapper .selected-works .work-grid-item,
+  body.page-works .selected-works-wrapper .work-grid-item[data-type="project"],
+  body.page-works .selected-works-wrapper .work-grid-item[data-type="presentation"] {
+    width: calc((48rem - 3rem) / 3);
+    min-width: calc((48rem - 3rem) / 3);
+  }
+
+  /* Research page: full viewport width (same as works page) */
+  body.page-research main.content {
+    padding: 1rem 2rem;
+  }
+
+  body.page-research .desktop-nav {
+    padding: 1rem 2rem;
+  }
+
+  body.page-research .desktop-nav .nav-links-section,
+  body.page-research .desktop-nav .nav-buttons {
+    max-width: 100%;
+  }
+
+  body.page-research .publications-section-wrapper {
+    padding: 1rem 2rem;
+    max-width: 100vw;
+  }
+
+  body.page-research .publications-section-wrapper .publications-section-container {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  body.page-research .content-inner {
+    max-width: 100%;
+  }
+
+  /* Research page: 20% intro, 80% publications */
+  body.page-research main.research-two-column {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    align-items: flex-start;
+    padding: 1rem 2rem;
+  }
+
+  body.page-research .research-column-intro {
+    flex: 0 0 20%;
+    width: 20%;
+  }
+
+  body.page-research .research-column-intro .intro-section {
+    margin-top: 0;
+  }
+
+  body.page-research .research-column-pubs {
+    flex: 0 0 80%;
+    width: 80%;
+    max-height: calc(100vh - 6rem);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e0 transparent;
+  }
+
+  body.page-research .research-column-pubs::-webkit-scrollbar {
+    display: block;
+    width: 6px;
+  }
+
+  body.page-research .research-column-pubs::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  body.page-research .research-column-pubs::-webkit-scrollbar-thumb {
+    background: #cbd5e0;
+    border-radius: 3px;
+  }
+
+  body.page-research .research-column-pubs::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+
+  body.page-research .research-column-pubs .publications-section-wrapper {
+    padding: 0;
+    max-width: 60%;
+  }
+
+  body.page-research .research-column-pubs .publications-section-container {
+    max-width: 100%;
+    padding: 0;
   }
 
   #main-content {
@@ -929,7 +1177,7 @@ section {
   }
   
   .work-list .work-item::before {
-    content: "•";
+    content: "↳";
     position: absolute;
     left: 0;
     color: #666;
@@ -958,7 +1206,7 @@ section {
   }
   
   .work-item.work-section-header::before {
-    content: "•";
+    content: "↳";
   }
   
   .work-list .work-item.work-sub-item {
@@ -967,7 +1215,7 @@ section {
   }
   
   .work-list .work-item.work-sub-item::before {
-    content: "•";
+    content: "↳";
     left: 2rem;
   }
   

@@ -1,0 +1,20 @@
+{% comment %} My publications span [filter buttons]. Used in research page intro and in publications-section (non-research). {% endcomment %}
+{% assign filter_author_pubs = site.data.pubs | where_exp: "pub", "pub.authors contains 'Emran Poh'" %}
+{% assign filter_all_tags = "" | split: "," %}
+{% for pub in filter_author_pubs %}
+  {% if pub.subject-tags %}
+    {% for tag in pub.subject-tags %}
+      {% assign tag_clean = tag | strip %}
+      {% unless filter_all_tags contains tag_clean %}
+        {% assign filter_all_tags = filter_all_tags | push: tag_clean %}
+      {% endunless %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+{% assign filter_all_tags = filter_all_tags | sort %}
+<p id="publications-heading" class="publications-intro-line" style="margin: 0;">
+  My publications span
+  <span class="publications-filter-buttons publications-filter-inline" role="group" aria-label="Filter publications by concept">
+    {% for tag in filter_all_tags %}<button type="button" class="pub-filter-btn active" data-filter="{{ tag }}" aria-pressed="true">{{ tag }}</button>{% endfor %}<button type="button" class="pub-filter-btn active" data-filter="all" aria-pressed="true">all of the above</button>.
+  </span>
+</p>

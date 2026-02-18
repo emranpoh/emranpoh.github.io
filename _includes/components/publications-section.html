@@ -21,44 +21,96 @@
 {% endfor %}
 {% assign all_tags = all_tags | sort %}
 
-<section class="publications-section-container" aria-labelledby="publications-heading">
-  <div class="intro-block" style="margin-bottom: 1rem; text-align: left; display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem;">
-    <p id="publications-heading" style="margin: 0;">{% if include.selected_only %}selected publications{% else %}publications{% endif %}</p>
-    {% unless include.selected_only %}
-    <div class="publications-filter-buttons" role="group" aria-label="Filter publications by concept">
-      <button type="button" class="pub-filter-btn active" data-filter="all" aria-pressed="true">all</button>
-      {% for tag in all_tags %}
-      <button type="button" class="pub-filter-btn" data-filter="{{ tag }}" aria-pressed="false">{{ tag }}</button>
-      {% endfor %}
-    </div>
-    {% endunless %}
+<section class="publications-section-container{% if include.selected_only %} publications-selected-only{% endif %}" aria-labelledby="publications-heading">
+  {% unless page.id == 'research' %}
+  <div class="intro-block publications-intro-block" style="margin-bottom: {% if include.selected_only %}1rem{% else %}4rem{% endif %}; text-align: left;">
+    {% if include.selected_only %}
+    <p id="publications-heading" style="margin: 0;">selected publications</p>
+    {% else %}
+    {% include components/publications-filter-line.html %}
+    {% endif %}
   </div>
-  <div class="publications-grid publications-grid-horizontal" id="publications-grid">
+  {% endunless %}
+  <div class="publications-grid-wrapper">
+    <p class="publications-empty-state" id="publications-empty-state" aria-live="polite" style="display: none;">No filters selected.</p>
+    <div class="publications-grid publications-grid-horizontal" id="publications-grid">
   {% for pub in sorted_pubs %}
     {% include components/cards/selected-work-card.html work=pub type='pub' %}
   {% endfor %}
+    </div>
   </div>
   <script>
     (function() {
       var grid = document.getElementById('publications-grid');
-      var buttons = document.querySelectorAll('.pub-filter-btn');
+      var buttons = document.querySelectorAll('.publications-filter-buttons .pub-filter-btn');
       if (!grid || !buttons.length) return;
+
+      function applyFilters() {
+        var activeTags = [];
+        buttons.forEach(function(b) {
+          if (b.classList.contains('active')) {
+            activeTags.push(b.getAttribute('data-filter'));
+          }
+        });
+        var showAll = activeTags.indexOf('all') !== -1;
+        var visibleCount = 0;
+        grid.querySelectorAll('.work-grid-item').forEach(function(item) {
+          var tagsAttr = item.getAttribute('data-subject-tags');
+          var tags = tagsAttr ? tagsAttr.split('|') : [];
+          var show = showAll || (activeTags.length > 0 && tags.some(function(t) { return activeTags.indexOf(t) !== -1; }));
+          item.style.display = show ? '' : 'none';
+          if (show) visibleCount++;
+        });
+        var emptyEl = document.getElementById('publications-empty-state');
+        if (emptyEl) {
+          emptyEl.style.display = visibleCount === 0 ? '' : 'none';
+        }
+      }
 
       buttons.forEach(function(btn) {
         btn.addEventListener('click', function() {
           var filter = this.getAttribute('data-filter');
-          buttons.forEach(function(b) {
-            b.classList.toggle('active', b.getAttribute('data-filter') === filter);
-            b.setAttribute('aria-pressed', b.getAttribute('data-filter') === filter ? 'true' : 'false');
-          });
-          grid.querySelectorAll('.work-grid-item').forEach(function(item) {
-            var tagsAttr = item.getAttribute('data-subject-tags');
-            var tags = tagsAttr ? tagsAttr.split('|') : [];
-            var show = filter === 'all' || tags.indexOf(filter) !== -1;
-            item.style.display = show ? '' : 'none';
-          });
+          var wasActive = this.classList.contains('active');
+          this.classList.toggle('active', !wasActive);
+          this.setAttribute('aria-pressed', !wasActive ? 'true' : 'false');
+          if (filter === 'all') {
+            if (wasActive) {
+              buttons.forEach(function(b) {
+                if (b.getAttribute('data-filter') !== 'all') {
+                  b.classList.remove('active');
+                  b.setAttribute('aria-pressed', 'false');
+                }
+              });
+            } else {
+              buttons.forEach(function(b) {
+                b.classList.add('active');
+                b.setAttribute('aria-pressed', 'true');
+              });
+            }
+          } else {
+            var allBtn = document.querySelector('.publications-filter-buttons .pub-filter-btn[data-filter="all"]');
+            if (wasActive) {
+              if (allBtn && allBtn.classList.contains('active')) {
+                allBtn.classList.remove('active');
+                allBtn.setAttribute('aria-pressed', 'false');
+              }
+            } else {
+              var allConceptTagsActive = true;
+              buttons.forEach(function(b) {
+                if (b.getAttribute('data-filter') !== 'all' && !b.classList.contains('active')) {
+                  allConceptTagsActive = false;
+                }
+              });
+              if (allBtn && allConceptTagsActive) {
+                allBtn.classList.add('active');
+                allBtn.setAttribute('aria-pressed', 'true');
+              }
+            }
+          }
+          applyFilters();
         });
       });
+      applyFilters();
     })();
 
     document.getElementById('publications-grid')?.addEventListener('click', function(e) {
