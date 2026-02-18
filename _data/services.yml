@@ -13,11 +13,11 @@ services:
   - year: "2025"
     role: "External Reviewer"
     venues:
-      - "ICHEC 2025"
+      - "ICHEC 2025 (International Conference on Human-Engaged Computing)"
 
   - year: "2025"
     role: "Student Volunteer"
-    venue: "ICHEC 2025"
+    venue: "ICHEC 2025 (International Conference on Human-Engaged Computing)"
 
   - year: "2026"
     role: "Organising Team"
@@ -26,3 +26,11 @@ services:
   - year: "2025"
     role: "Volunteer"
     venue: "NUS-Google Workshop: Future of CS Education"
+
+  - year: "2017-2020"
+    role: "Instructor"
+    venue: "Bukit Batok Community Emergency and Engagement Committee"
+
+  - year: "2015-2020"
+    role: "Volunteer"
+    venue: "People's Action Party Bukit Batok Branch"

@@ -49,8 +49,7 @@ bundle exec jekyll serve
 ├── _data/           # all my data files (pubs, projects, etc.)
 ├── _includes/       # reusable components
 ├── _layouts/        # page templates
-├── _posts/          # blog posts
-├── content/         # main content pages
+├── content/         # main content pages (including posts in content/posts/)
 ├── assets/          # images, css, fonts
 └── _site/          # generated site (don't touch this)
 ```
@@ -62,7 +61,7 @@ honestly, this is my personal site so i'm not really expecting contributions, bu
 ## contact me
 
 - 📧 email: emranpoh@gmail.com
-- 💼 work email: emranpoh@smu.edu.sg
+- 💼 work email: emran.poh.2025@smu.edu.sg
 - 🐦 twitter: [@emranpoh_](https://twitter.com/emranpoh_)
 - 💼 linkedin: [emranpoh](https://linkedin.com/in/emranpoh)
 - 🎓 google scholar: [wYcrORkAAAAJ](https://scholar.google.com/citations?user=wYcrORkAAAAJ)

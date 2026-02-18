@@ -15,7 +15,7 @@
 # Site Information
 title: Emran Poh
 email: emranpoh@gmail.com
-work_email: emranpoh@smu.edu.sg
+work_email: emran.poh.2025@smu.edu.sg
 description: >-
   HAI PhD Student + Designer
 baseurl: ""
@@ -96,6 +96,7 @@ defaults:
 
 # Exclude from processing
 exclude:
+  - _posts/
   - .sass-cache/
   - .jekyll-cache/
   - gemfiles/
