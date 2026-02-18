@@ -6,3 +6,6 @@ vendor/
 node_modules/
 *.log
 .DS_Store
+
+# CV LaTeX files
+cv/
