@@ -1,8 +1,10 @@
 ---
-layout: post
+layout: posts/post
 title: "Vibe Coding: The Art of Programming with Your Thoughts (Almost)"
 date: 2025-03-09 12:00:00 +0800
 categories: programming ai
+slug: vibe-coding
+permalink: /content/posts/vibe-coding/
 ---
 
 # Vibe Coding: The Art of Programming with Your Thoughts (Almost)
@@ -107,4 +109,4 @@ The key is starting small and building up your intuition for how to communicate 
 
 Most importantly, remember that this is still the early days. The tools are getting better every month, and we're all still figuring out the best practices together. The developers who start experimenting now will be the ones who shape how this technology evolves.
 
-Programming has always been about translating human ideas into machine instructions. Vibe coding just makes that translation a lot more direct – and a lot more fun. The future of software development is looking pretty bright, and it speaks our language. 
+Programming has always been about translating human ideas into machine instructions. Vibe coding just makes that translation a lot more direct – and a lot more fun. The future of software development is looking pretty bright, and it speaks our language.

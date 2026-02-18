@@ -28,5 +28,4 @@ Beyond my professional work, I'm passionate about:
 ## Get in Touch
 
 Feel free to reach out if you'd like to collaborate or just chat about any of these topics. You can find me on:
-- [GitHub](https://github.com/emranpoh)
 - Email: emranpoh@gmail.com

@@ -5,6 +5,4 @@ permalink: /research/
 id: research
 ---
 
-<header class="page-header">
-  <h1 class="page-title">research</h1>
-</header>
+{% include components/intro.html research_page=true %}
