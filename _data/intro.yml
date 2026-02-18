@@ -1,11 +1,20 @@
 paragraphs:
-  - "**CS PhD Student + Designer**"
+  - "**CS PhD Student**"
   - "I'm currently pursuing my Ph.D. in Computer Science at Singapore Management University, working on human-agent interactions with [Li Jiannan](https://jchrisli.github.io/) as part of the [SMU-HCI](https://smuhci.com/) community. Before my Ph.D., I was a Research Engineer at Singapore Institute of Technology with [Jeannie Lee](https://www.gla.ac.uk/schools/computing/staff/jeanniele/) and [Kyrin Liong](https://www.singaporetech.edu.sg/directory/faculty/kyrin-liong-yushan). I completed my Master of Computing at National University of Singapore working with [Zhao Shengdong](https://shengdongzhao.com/) and [Tony Tang](https://hcitang.github.io/), and my BSc (Hons) in Computing Science from University of Glasgow under Jeannie Lee's supervision."
 
 university: "Singapore Management University"
 
+# Intro split: current, past
+current:
+  - "I'm currently pursuing my Ph.D. in Computer Science at Singapore Management University, working on human-agent interactions with [Li Jiannan](https://jchrisli.github.io/) as part of the [SMU-HCI](https://smuhci.com/) community."
+
+past:
+  - "I completed my Master of Computing at National University of Singapore working with [Zhao Shengdong](https://shengdongzhao.com/) and [Tony Tang](https://hcitang.github.io/)."
+  - "Before my Ph.D., I was a Research Engineer at Singapore Institute of Technology with [Jeannie Lee](https://www.gla.ac.uk/schools/computing/staff/jeanniele/) and [Kyrin Liong](https://www.singaporetech.edu.sg/directory/faculty/kyrin-liong-yushan)."
+  - "BSc (Hons) in Computing Science from University of Glasgow under Jeannie Lee's supervision."
+
 research:
-  - "I **research** human–AI collaboration for creativity and learning — and how to make AI systems more expressive and interpretable so they’re actually useful in educational contexts."
+  - "I research human–AI collaboration for creativity and learning — and how to make AI systems more expressive and interpretable so they’re actually useful in educational contexts."
 
 teaching:
   - "I **teach** interaction design and programming courses, and enjoy sharing knowledge with students and professionals. I am particularly interested in AI Tutor design to enhance learning experiences through intelligent human-agent collaboration."

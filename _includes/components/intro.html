@@ -10,11 +10,10 @@
           <div class="intro-meta">
             <span class="intro-pronouns">he/him</span>
           </div>
-          <div class="intro-location intro-location-inline" aria-label="from Singapore">🇸🇬</div>
         </div>
         {% assign first_para = site.data.intro.paragraphs[0] %}
         <div class="intro-block">
-          {{ first_para | markdownify }}
+          {% unless site.data.intro.current %}{{ first_para | markdownify }}{% endunless %}
           {% if site.data.intro.university %}
           <div class="intro-university">{{ site.data.intro.university }}</div>
           {% endif %}
@@ -23,18 +22,52 @@
           <div class="intro-email-line">
             <span class="intro-email">emran.poh.2025 [at] smu.edu.sg</span>
           </div>
-          <div class="intro-location intro-location-bottom">from 🇸🇬 Singapore</div>
         </div>
       </div>
     </div>
   </div>
   <div class="intro-content intro-content-below">
+    {% if include.research_page and site.data.intro.research %}
+    <div class="intro-subsection intro-research-lead">
+      <div class="intro-subsection-label">research</div>
+      {% for item in site.data.intro.research %}
+      <div class="intro-subsection-item">
+        <span class="intro-subsection-item-content">{{ item | markdownify }}</span>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="intro-subsection intro-publications-filter">
+      {% include components/publications-filter-line.html %}
+    </div>
+    {% endif %}
+    {% if site.data.intro.current %}
+    <div class="intro-subsection intro-current">
+      <div class="intro-subsection-label">current</div>
+      {% for item in site.data.intro.current %}
+      <div class="intro-subsection-item">
+        <span class="intro-subsection-item-content">{{ item | markdownify }}</span>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% if site.data.intro.past %}
+    <div class="intro-subsection intro-past">
+      <div class="intro-subsection-label">past</div>
+      {% for item in site.data.intro.past %}
+      <div class="intro-subsection-item">
+        <span class="intro-subsection-item-content">{{ item | markdownify }}</span>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% unless site.data.intro.current or site.data.intro.past %}
     {% assign pursuing_para = site.data.intro.paragraphs[1] %}
     <div class="intro-education-subsection">
       <div class="intro-education-item">
         <span class="intro-education-item-content">{{ pursuing_para | markdownify }}</span>
       </div>
     </div>
+    {% unless include.research_page %}
     {% if site.data.intro.research %}
     <div class="intro-research-subsection">
       {% for item in site.data.intro.research %}
@@ -62,5 +95,7 @@
       {% endfor %}
     </div>
     {% endif %}
+    {% endunless %}
+    {% endunless %}
   </div>
 </section> 
