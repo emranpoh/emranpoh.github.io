@@ -5,14 +5,36 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: transparent;
+  background: #fff;
   padding: 0.75rem 1rem;
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
   z-index: 1000;
+  border-top: 1px solid #e5e7eb;
+  box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.05);
 }
 
 @media (max-width: 768px) {
   .mobile-nav {
     display: block;
+  }
+  .mobile-nav .nav-links-section {
+    max-width: 100%;
+    padding: 0;
+  }
+  .mobile-nav .nav-links-grid {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .mobile-nav .nav-left {
+    flex: 1 1 auto;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .mobile-nav .nav-right {
+    order: 0;
+    margin-left: 0;
   }
   .desktop-top-nav {
     display: none;
