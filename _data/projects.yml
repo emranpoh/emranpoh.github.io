@@ -95,6 +95,7 @@
 
 - title: "CS4240"
   subtitle: "Interaction Design for Virtual and Augmented Reality"
+  tile_summary: "CS4240 Interaction Design for Virtual and Augmented Reality"
   image: "CS4240.jpg"
   year: 2023
   start-year: 2023
@@ -102,5 +103,7 @@
   role: "Graduate Teaching Assistant"
   description: "Graduate Teaching Assistant providing personalized guidance for 20+ students across 13 VR-based educational game projects. Led teams to win prizes at the 22nd SoC Term Project Showcase (STePS)"
   url: "/projects/cs4240"
+  modal_link_url: "https://nusmods.com/courses/CS4240/interaction-design-for-virtual-and-augmented-reality"
+  modal_link_label: "CS4240 Interaction Design for Virtual and Augmented Reality"
   work-tags:
     - "Teaching"

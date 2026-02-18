@@ -87,7 +87,30 @@
 {% assign work_title_alt = include.work.title_short | default: include.work.title %}
 {% assign work_img_alt = work_title_alt | prepend: 'Cover image for ' %}
 
-<div class="work-grid-item" data-type="{{ include.type }}" data-year="{{ work_year }}" {% if include.type == 'pub' and include.work.subject-tags %}data-subject-tags="{{ include.work.subject-tags | join: '|' }}"{% endif %}>
+{% comment %} Data for mobile detail modal {% endcomment %}
+{% assign modal_title = include.work.title | escape %}
+{% assign modal_desc = include.work.description | default: include.work.subtitle | default: '' | escape %}
+{% assign modal_event = include.work.event | default: '' | escape %}
+{% assign modal_location = work_location | escape %}
+{% assign modal_date = include.work.date | date: '%B %d, %Y' | default: include.work.year | default: '' %}
+{% assign modal_image = '' %}
+{% if include.work.image and include.work.image != '' %}
+  {% assign modal_image = '/assets/images/projects/' | append: include.work.image | relative_url %}
+{% endif %}
+{% assign modal_link_url = include.work.modal_link_url | default: work_url %}
+{% assign modal_link_label = include.work.modal_link_label | default: 'View' | escape %}
+
+<div class="work-grid-item" data-type="{{ include.type }}" data-year="{{ work_year }}" {% if include.type == 'pub' and include.work.subject-tags %}data-subject-tags="{{ include.work.subject-tags | join: '|' }}"{% endif %}
+  data-work-title="{{ modal_title }}"
+  data-work-description="{{ modal_desc }}"
+  data-work-event="{{ modal_event }}"
+  data-work-location="{{ modal_location }}"
+  data-work-date="{{ modal_date }}"
+  data-work-image="{{ modal_image }}"
+  data-work-url="{{ work_url }}"
+  data-work-link-url="{{ modal_link_url }}"
+  data-work-link-label="{{ modal_link_label }}"
+  data-work-role="{% if include.work.role %}{{ include.work.role | escape }}{% endif %}">
   <div class="work-link">
     {% if include.type == 'pub' or include.type == 'thesis' %}
       {% comment %} Publications and Theses: image on top, title below, total tile is square {% endcomment %}
@@ -104,6 +127,7 @@
         {% endif %}
       </div>
       <div class="work-title-below">
+        <div class="work-tile-summary" aria-hidden="true">{% if include.work.tile_summary %}{{ include.work.tile_summary }}{% elsif include.type == 'pub' and include.work.title_short %}{{ include.work.title_short }}{% else %}{{ include.work.title }}{% endif %}</div>
         {% if include.type == 'pub' %}
         <div class="work-title-text">{{ include.work.title }}</div>
         {% elsif include.work.title_short %}
@@ -195,6 +219,7 @@
         {% endif %}
       </div>
       <div class="work-title-below">
+        <div class="work-tile-summary" aria-hidden="true">{% if include.work.tile_summary %}{{ include.work.tile_summary }}{% else %}{{ include.work.title }}{% endif %}</div>
         <div class="work-title-text">{{ include.work.title }}</div>
         {% if include.work.description %}
           <div class="work-description">{{ include.work.description }}</div>
@@ -233,6 +258,7 @@
         {% endif %}
       </div>
       <div class="work-title-below">
+        <div class="work-tile-summary" aria-hidden="true">{% if include.work.tile_summary %}{{ include.work.tile_summary }}{% else %}{{ include.work.title }}{% endif %}</div>
         <div class="work-title-text">{{ include.work.title }}</div>
         {% if include.work.description %}
           <div class="work-description">{{ include.work.description }}</div>

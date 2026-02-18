@@ -89,6 +89,10 @@
   </nav>
   {% endunless %}
 
+  {% if page.id == 'emran' or page.title == 'Emran Poh' or page.id == 'works' %}
+  {% include components/work-detail-modal.html %}
+  {% endif %}
+
   <script>
     // Scroll progress indicator (not shown on landing page)
     (function() {

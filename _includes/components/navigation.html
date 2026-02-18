@@ -174,8 +174,12 @@
   color: white;
 }
 
-/* Mobile-specific styles (bottom bar) */
+/* Mobile-specific styles (bottom bar): only name (back to emran), LinkedIn, Google Scholar */
 @media (max-width: 768px) {
+  .mobile-nav .nav-link-with-text {
+    display: none !important;
+  }
+  
   .mobile-nav .nav-buttons {
     margin-bottom: 0;
     background: transparent;
@@ -201,12 +205,13 @@
   
   .mobile-nav .nav-name-link {
     font-size: 0.875rem;
+    text-transform: lowercase;
   }
   .mobile-nav .nav-name-full {
-    display: none;
+    display: inline;
   }
   .mobile-nav .nav-name-short {
-    display: inline;
+    display: none;
   }
   
   .mobile-nav .nav-left,

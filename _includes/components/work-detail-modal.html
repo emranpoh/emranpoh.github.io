@@ -1,0 +1,198 @@
+{% comment %} Mobile-only modal: tap a work tile to open full detail. {% endcomment %}
+<div id="work-detail-modal" class="work-detail-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="work-detail-modal-title">
+  <div class="work-detail-modal-overlay" id="work-detail-modal-overlay"></div>
+  <div class="work-detail-modal-content">
+    <button type="button" class="work-detail-modal-close" id="work-detail-modal-close" aria-label="Close">×</button>
+    <div class="work-detail-modal-body">
+      <div id="work-detail-modal-image-wrap" class="work-detail-modal-image-wrap" style="display: none;">
+        <img id="work-detail-modal-image" src="" alt="" class="work-detail-modal-image">
+      </div>
+      <h2 id="work-detail-modal-title" class="work-detail-modal-title"></h2>
+      <div id="work-detail-modal-meta" class="work-detail-modal-meta"></div>
+      <div id="work-detail-modal-description" class="work-detail-modal-description"></div>
+      <a id="work-detail-modal-link" href="#" class="work-detail-modal-link" style="display: none;">View</a>
+    </div>
+  </div>
+</div>
+
+<style>
+.work-detail-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+.work-detail-modal.is-open {
+  display: flex;
+}
+.work-detail-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+.work-detail-modal-content {
+  position: relative;
+  background: #fff;
+  border-radius: 12px;
+  max-width: 24rem;
+  width: 100%;
+  max-height: calc(100vh - 2rem);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+.work-detail-modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: none;
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 50%;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #333;
+  cursor: pointer;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.work-detail-modal-close:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+.work-detail-modal-body {
+  overflow-y: auto;
+  padding: 1.25rem 1.25rem 2rem;
+  -webkit-overflow-scrolling: touch;
+}
+.work-detail-modal-image-wrap {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f5f5f5;
+  margin-bottom: 1rem;
+}
+.work-detail-modal-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  vertical-align: middle;
+}
+.work-detail-modal-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111;
+  margin: 0 0 0.5rem;
+  line-height: 1.3;
+}
+.work-detail-modal-meta {
+  font-size: 0.8125rem;
+  color: #666;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+.work-detail-modal-meta span + span::before {
+  content: " · ";
+}
+.work-detail-modal-description {
+  font-size: 0.9375rem;
+  color: #333;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+.work-detail-modal-link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #e5e7eb;
+  color: #333;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.work-detail-modal-link:hover {
+  background: #d1d5db;
+}
+</style>
+
+<script>
+(function() {
+  var modal = document.getElementById('work-detail-modal');
+  var overlay = document.getElementById('work-detail-modal-overlay');
+  var closeBtn = document.getElementById('work-detail-modal-close');
+  var imageWrap = document.getElementById('work-detail-modal-image-wrap');
+  var imageEl = document.getElementById('work-detail-modal-image');
+  var titleEl = document.getElementById('work-detail-modal-title');
+  var metaEl = document.getElementById('work-detail-modal-meta');
+  var descEl = document.getElementById('work-detail-modal-description');
+  var linkEl = document.getElementById('work-detail-modal-link');
+
+  function openModal(item) {
+    var title = item.getAttribute('data-work-title') || '';
+    var desc = item.getAttribute('data-work-description') || '';
+    var event = item.getAttribute('data-work-event') || '';
+    var location = item.getAttribute('data-work-location') || '';
+    var date = item.getAttribute('data-work-date') || '';
+    var image = item.getAttribute('data-work-image') || '';
+    var url = item.getAttribute('data-work-link-url') || item.getAttribute('data-work-url') || '';
+    var linkLabel = item.getAttribute('data-work-link-label') || 'View';
+    var role = item.getAttribute('data-work-role') || '';
+
+    titleEl.textContent = title;
+    descEl.textContent = desc;
+    if (desc) descEl.style.display = 'block'; else descEl.style.display = 'none';
+
+    var metaParts = [date, event, location, role].filter(Boolean);
+    metaEl.innerHTML = metaParts.map(function(p) { return '<span>' + p + '</span>'; }).join('');
+    metaEl.style.display = metaParts.length ? 'block' : 'none';
+
+    if (image) {
+      imageEl.src = image;
+      imageEl.alt = title;
+      imageWrap.style.display = 'block';
+    } else {
+      imageWrap.style.display = 'none';
+    }
+
+    var hasLink = url && (typeof url === 'string') && url.trim() !== '' && url.trim() !== '#';
+    if (hasLink) {
+      linkEl.href = url.trim();
+      linkEl.textContent = linkLabel;
+      linkEl.style.display = 'inline-block';
+      if (url.trim().startsWith('http')) linkEl.setAttribute('target', '_blank'); else linkEl.removeAttribute('target');
+    } else {
+      linkEl.style.display = 'none';
+    }
+
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (overlay) overlay.addEventListener('click', closeModal);
+
+  /* Modal opening disabled – descriptions are shown on tiles */
+  // document.addEventListener('click', handleClick, true);
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+  });
+})();
+</script>
