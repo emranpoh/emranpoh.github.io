@@ -5,17 +5,12 @@
         <li><a href="{{ '/' | relative_url }}" class="sidebar-nav-link {% if page.url == '/' %}active{% endif %}" aria-label="Home"><i class="fas fa-home" aria-hidden="true"></i></a></li>
         <li><a href="{{ '/works' | relative_url }}" class="sidebar-nav-link {% if page.url contains '/works' %}active{% endif %}" aria-label="Works"><i class="fas fa-layer-group" aria-hidden="true"></i></a></li>
         <li><a href="{{ '/' | relative_url }}" class="sidebar-nav-link {% if page.url == '/' %}active{% endif %}" aria-label="About">about</a></li>
-        <li><a href="{{ '/research' | relative_url }}" class="sidebar-nav-link {% if page.url contains '/research' %}active{% endif %}" aria-label="Publications">publications</a></li>
-        <li><a href="{{ '/experience' | relative_url }}" class="sidebar-nav-link {% if page.url contains '/experience' %}active{% endif %}" aria-label="Experience"><i class="fas fa-briefcase" aria-hidden="true"></i></a></li>
+        <li><a href="{{ '/research' | relative_url }}" class="sidebar-nav-link {% if page.url contains '/research' %}active{% endif %}" aria-label="Research">research</a></li>
+        <li><a href="{{ '/assets/pdfs/emran-cv.pdf' | relative_url }}" class="sidebar-nav-link" aria-label="CV" target="_blank" rel="noopener noreferrer"><i class="fas fa-briefcase" aria-hidden="true"></i></a></li>
       </ul>
     </nav>
     <div class="sidebar-footer">
       <div class="sidebar-social">
-        {% if site.github_username %}
-        <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener noreferrer" class="sidebar-social-link" aria-label="GitHub profile">
-          <i class="fab fa-github" aria-hidden="true"></i>
-        </a>
-        {% endif %}
         {% if site.linkedin_username %}
         <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener noreferrer" class="sidebar-social-link" aria-label="LinkedIn profile">
           <i class="fab fa-linkedin" aria-hidden="true"></i>

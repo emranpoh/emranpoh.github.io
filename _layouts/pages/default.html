@@ -14,7 +14,7 @@
     }
   </script>
 </head>
-<body>
+<body class="{% if page.url == '/404.html' %}page-error{% endif %}{% if page.id == 'works' %} page-works{% endif %}{% if page.id == 'research' %} page-research{% endif %}">
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <!-- Scroll progress indicator -->
   <div class="scroll-progress" role="progressbar" aria-label="Page scroll progress" aria-valuemin="0" aria-valuemax="100">
@@ -22,71 +22,70 @@
   </div>
   <div class="desktop-wrapper">
     <!-- Top Navigation - Fixed at top -->
+    {% unless page.id == 'landing' %}
     <nav class="desktop-nav" aria-label="Social links">
       {% include components/navigation.html %}
     </nav>
+    {% endunless %}
     
+    {% unless page.id == 'works' %}
+    {% if page.id == 'research' %}
+    <main class="content content-research research-two-column" id="main-content" role="main">
+      <div class="research-column research-column-intro">
+        <div class="content-inner">
+          {{ content }}
+        </div>
+      </div>
+      <div class="research-column research-column-pubs">
+        <div class="publications-section-wrapper">
+          {% include components/publications-section.html %}
+        </div>
+      </div>
+    </main>
+    {% else %}
     <main class="content content-{{ page.id | default: page.title | replace: ' ', '-' | slice: 0, 5 }}" id="main-content" role="main">
       <div class="content-inner">
         {{ content }}
       </div>
     </main>
 
-    {% if page.id == 'emran' or page.title == 'Emran Poh' %}
-    <div class="news-section-wrapper">
-      {% include components/news-section.html %}
-    </div>
-    {% endif %}
-
     <!-- Publications Section - Full Width Below Columns -->
-    {% if page.id == 'emran' or page.title == 'Emran Poh' or page.id == 'research' %}
+    {% if page.id == 'emran' or page.title == 'Emran Poh' %}
     <div class="publications-section-wrapper">
-      {% if page.id == 'emran' or page.title == 'Emran Poh' %}
-        {% include components/publications-section.html selected_only=true %}
-      {% else %}
-        {% include components/publications-section.html %}
-      {% endif %}
+      {% include components/publications-section.html selected_only=true %}
     </div>
     {% endif %}
-
-    <!-- Service Section - Full Width Below Publications -->
-    {% if page.id == 'emran' or page.title == 'Emran Poh' %}
-    <div class="service-section-wrapper">
-      {% include components/service-section.html %}
-    </div>
     {% endif %}
-
-    <!-- Awards Section -->
-    {% if page.id == 'emran' or page.title == 'Emran Poh' %}
-    <div class="grants-section-wrapper">
-      {% include components/grants-section.html %}
-    </div>
-    {% endif %}
+    {% endunless %}
 
     <!-- Talks + Presentations Section -->
-    {% if page.id == 'emran' or page.title == 'Emran Poh' %}
-    <div class="talks-section-wrapper">
+    {% if page.id == 'emran' or page.title == 'Emran Poh' or page.id == 'works' %}
+    <div class="talks-section-wrapper"{% if page.id == 'works' %} id="main-content" role="main"{% endif %}>
       {% include components/talks-section.html %}
     </div>
     {% endif %}
     
     <!-- Selected Works Section - Full Width Below Columns -->
-    {% if page.id == 'emran' or page.title == 'Emran Poh' %}
+    {% if page.id == 'emran' or page.title == 'Emran Poh' or page.id == 'works' %}
     <div class="selected-works-wrapper">
       {% include components/selected-works.html %}
     </div>
     {% endif %}
     
+    {% unless page.id == 'landing' %}
     <footer class="footer" role="contentinfo">
       <p>made with care in {{ site.location }}</p>
       <p>&copy; {{ 'now' | date: '%Y' }} {{ site.title | downcase }}</p>
     </footer>
+    {% endunless %}
   </div>
   
   <!-- Mobile Navigation -->
+  {% unless page.id == 'landing' %}
   <nav class="mobile-nav" aria-label="Social links">
     {% include components/navigation.html %}
   </nav>
+  {% endunless %}
 
   <script>
     // Scroll progress indicator
