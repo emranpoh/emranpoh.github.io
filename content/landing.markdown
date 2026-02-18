@@ -1,7 +1,7 @@
 ---
 layout: pages/default
 title: landing
-permalink: /landing/
+permalink: /
 id: landing
 ---
 
