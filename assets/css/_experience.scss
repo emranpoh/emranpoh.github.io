@@ -1,0 +1,240 @@
+// Experience page styles - matches main page intro aesthetic
+.experience-page-content {
+  .intro-block {
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .intro-block p {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: lowercase;
+    color: #333;
+  }
+}
+
+.experience-section {
+  margin-bottom: 2rem;
+}
+
+.experience-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+}
+
+.experience-year {
+  width: 70px;
+  padding: 0.5rem 0.75rem 0.5rem 0;
+  color: #94a3b8;
+  font-weight: 500;
+  font-size: 0.875rem;
+  vertical-align: top;
+  text-align: right;
+  box-sizing: border-box;
+}
+
+.experience-year-mobile {
+  display: none;
+  color: #94a3b8;
+  font-weight: 500;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.experience-year.current-year,
+.experience-year-mobile.current-year {
+  color: #64748b;
+}
+
+.experience-table .experience-content {
+  padding: 0.5rem 0;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.experience-table .experience-content strong {
+  color: #333;
+  font-weight: 600;
+}
+
+.experience-org-location {
+  color: #64748b;
+  font-weight: 400;
+}
+
+.experience-org-location a {
+  color: #64748b;
+  text-decoration: underline;
+}
+
+.experience-org-location a:hover {
+  color: #475569;
+}
+
+.experience-table .experience-content a {
+  color: #666;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #000;
+  }
+}
+
+.edu-label {
+  font-size: 0.9em;
+  font-weight: 400;
+  margin-right: 0.25em;
+  color: #94a3b8;
+}
+
+.notable-list-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 0.75em;
+  margin-bottom: 0.25em;
+  color: #333;
+}
+
+.notable-list {
+  margin: 0 0 0.5em 0;
+  padding-left: 1.2em;
+  list-style: none;
+}
+
+.notable-list li {
+  margin-bottom: 0.25em;
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.notable-list li::before {
+  content: "↳ ";
+  margin-right: 0.35em;
+  color: #64748b;
+}
+
+.notable-date {
+  color: #64748b;
+  font-weight: 500;
+  margin-right: 0.5em;
+  font-variant-numeric: tabular-nums;
+}
+
+.course-term-inline {
+  font-size: 0.95em;
+  color: #94a3b8;
+  font-weight: 600;
+  margin-right: 0.5em;
+  display: none;
+}
+
+.citations {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.citation-label {
+  font-weight: 500;
+  color: #475569;
+  margin-right: 0.5rem;
+}
+
+.citation-list {
+  list-style: none;
+  padding-left: 1rem;
+  margin: 0.5rem 0;
+}
+
+.citation-list li::before {
+  content: "↳ ";
+  margin-right: 0.35em;
+  color: #64748b;
+}
+
+.citation-link {
+  color: #666;
+  text-decoration: underline;
+  transition: color 0.2s;
+
+  &:hover {
+    color: #000;
+  }
+}
+
+.pub-link {
+  color: #666;
+  text-decoration: underline;
+  transition: color 0.2s;
+
+  &:hover {
+    color: #000;
+  }
+}
+
+.pub-authors {
+  font-size: 0.875rem;
+  color: #475569;
+  margin: 0.25rem 0;
+}
+
+.pub-venue {
+  font-size: 0.875rem;
+  font-style: italic;
+  color: #64748b;
+}
+
+.pub-tags {
+  margin-top: 0.5rem;
+}
+
+.pub-tag {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.25rem;
+  background-color: #e2e8f0;
+  color: #475569;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: #cbd5e1;
+    color: #334155;
+  }
+}
+
+.section-divider {
+  border: none;
+  border-top: 1px solid #e2e8f0;
+  margin: 2rem 0;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .experience-year {
+    display: none;
+  }
+
+  .experience-year-mobile {
+    display: block;
+  }
+
+  .experience-table .experience-content {
+    padding: 0.75rem 0 0.75rem 0;
+  }
+
+  .course-term-inline {
+    display: inline;
+    margin-right: 0.3em;
+  }
+}

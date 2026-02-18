@@ -588,12 +588,12 @@
   background-color: #5c5c5c;
 }
 
-/* Footer */
+/* Footer - same padding as navbar (.desktop-nav uses 1rem 2rem) */
 footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 2rem 2rem 2rem;
+  padding: 1rem 2rem;
   border-top: none;
   background: transparent;
   font-size: 0.875rem;

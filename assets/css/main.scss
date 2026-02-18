@@ -1,7 +1,7 @@
 ---
 ---
 
-@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap');
 
 // Import all CSS modules
 @import "base";
@@ -15,6 +15,7 @@
 @import "publication";
 @import "works";
 @import "teach";
+@import "experience";
 @import "masonry";
 @import "research-theme";
 
@@ -55,6 +56,71 @@
       font-size: 14px;
     }
   }
+}
+
+/* 404 Error Page */
+.error-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  text-align: center;
+  padding: 2rem;
+}
+
+.error-code {
+  font-size: clamp(4rem, 12vw, 8rem);
+  font-weight: 200;
+  letter-spacing: -0.02em;
+  color: #333;
+  margin: 0 0 0.5rem 0;
+  line-height: 1;
+}
+
+.error-message {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #444;
+  margin: 0 0 0.5rem 0;
+}
+
+.error-description {
+  font-size: 1rem;
+  color: #666;
+  margin: 0 0 2rem 0;
+  max-width: 360px;
+}
+
+.error-home-link {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  background-color: #333;
+  color: white;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.error-home-link:hover {
+  background-color: #555;
+}
+
+/* Sticky footer flush to bottom */
+.desktop-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.desktop-wrapper .footer {
+  margin-top: auto;
+}
+
+/* 404 page: ensure main grows */
+body.page-error main.content {
+  flex: 1;
 }
 
 /* Desktop Profile */
