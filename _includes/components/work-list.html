@@ -8,9 +8,9 @@
     {% assign teaching_items = '' | split: '' %}
     {% assign all_work_items = '' | split: '' %}
     
-    {% comment %} Add publications where Emran Poh is an author {% endcomment %}
+    {% comment %} Add publications where Emran Poh is an author (exclude under review) {% endcomment %}
     {% for pub in site.data.pubs %}
-      {% if pub.authors contains 'Emran Poh' %}
+      {% if pub.authors contains 'Emran Poh' and pub.status != 'under review' and pub.status != 'submitted' %}
         {% if pub.title_short contains 'MR4' or pub.institution == 'immersification' %}
           {% assign industry_items = industry_items | push: pub %}
         {% else %}

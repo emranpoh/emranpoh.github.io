@@ -3,7 +3,7 @@
   <h2 class="section-title">papers</h2>
   <div class="pub-pagination-indicators">
     {% if site.data.pubs %}
-      {% assign sorted_publications = site.data.pubs | sort: 'year' | reverse %}
+      {% assign sorted_publications = site.data.pubs | where_exp: "pub", "pub.status != 'under review' and pub.status != 'submitted'" | sort: 'year' | reverse %}
       {% for pub in sorted_publications %}
         <span class="pub-indicator"></span>
       {% endfor %}
@@ -13,7 +13,7 @@
   
   <div class="publications-list-scrollable">
     {% if site.data.pubs %}
-      {% assign sorted_publications = site.data.pubs | sort: 'year' | reverse %}
+      {% assign sorted_publications = site.data.pubs | where_exp: "pub", "pub.status != 'under review' and pub.status != 'submitted'" | sort: 'year' | reverse %}
       {% if include.limit %}
         {% assign publications = sorted_publications | slice: 0, include.limit %}
       {% else %}

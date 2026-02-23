@@ -2,7 +2,8 @@
   <section class="publications-list-section">
     <h2 class="section-title">Publications</h2>
     <div class="w-full mt-4 pubs-list">
-      {% for pub in site.data.pubs %}
+      {% assign visible_pubs = site.data.pubs | where_exp: "pub", "pub.authors contains 'Emran Poh'" | where_exp: "pub", "pub.status != 'under review' and pub.status != 'submitted'" %}
+      {% for pub in visible_pubs %}
         {% assign author_list = pub.authors | split: ',' %}
         {% assign first_author = author_list[0] | strip %}
         {% if first_author contains 'Emran Poh' %}

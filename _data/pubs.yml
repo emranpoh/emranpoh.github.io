@@ -26,6 +26,66 @@
   subject-tags:
     - "learning science"
     - "multimodal interaction"
+  keywords:
+    - "Multimodal Instruction"
+    - "Software Learning"
+    - "Learner Agency"
+    - "Visual Annotations"
+    - "Cognitive Load Theory"
+    - "Adaptive Tutoring Systems"
+    - "Digital Territoriality"
+  tagline: ""
+
+- title: "When Not to Help: A Human-Teaching Lens on AI Tutoring"
+  title_short: "When Not to Help"
+  authors: "Emran Poh and Jiannan Li"
+  type: "Workshop Paper"
+  venue: "CHI 2026 Workshop: Understanding and Engaging Critical Resistance to AI in Education"
+  venue_short: "CHI '26 Workshop"
+  location: "Barcelona, Spain"
+  year: 2026
+  status: "published"
+  institution: "smuhci"
+  image: ""
+  is-selected: false
+  emoji: "📚"
+  url: "/publications/chi02"
+  doi: ""
+  bib: ""
+  abstract: ""
+  citation: ""
+  work-tags:
+    - "Research"
+    - "Paper"
+  subject-tags:
+    - "learning science"
+    - "AI in education"
+  tagline: ""
+
+- title: "'Desire Paths' in AI-Guided Software Learning"
+  title_short: "Desire Paths in AI-Guided Software Learning"
+  authors: "Emran Poh and Jiannan Li"
+  type: "Position Paper"
+  venue: "CHI 2026 Workshop"
+  venue_short: "CHI '26 Workshop"
+  location: "Barcelona, Spain"
+  year: 2026
+  status: "under review"
+  institution: "smuhci"
+  image: ""
+  is-selected: false
+  emoji: "🛤️"
+  url: "/publications/chi03"
+  doi: ""
+  bib: ""
+  abstract: ""
+  citation: ""
+  work-tags:
+    - "Research"
+    - "Paper"
+  subject-tags:
+    - "learning science"
+    - "software learning"
   tagline: ""
 
 - title: "Supporting Artefact Awareness for Partially-Replicated Workspaces"
@@ -58,6 +118,10 @@
     - "mixed reality"
     - "3d interaction design"
     - "collaborative systems"
+  keywords:
+    - "artefact awareness"
+    - "social collaboration"
+    - "cross reality"
   tagline: ""
 
 - title: "IntVRsection: Virtual Reality Environment for Evaluating Signalized and Unsignalized Intersection Scenarios"
@@ -92,6 +156,11 @@
   subject-tags:
     - "mixed reality"
     - "3d interaction design"
+  keywords:
+    - "external human machine interface"
+    - "pedestrian crossing"
+    - "autonomous vehicles"
+    - "virtual reality"
   tagline: ""
 
 - title: "Mixed Reality for Engineering Design Review Using Finite Element Analysis"
@@ -163,6 +232,12 @@
   subject-tags:
     - "mixed reality"
     - "3d interaction design"
+  keywords:
+    - "Assembly planning"
+    - "Mixed reality"
+    - "Gesture"
+    - "3D user interface"
+    - "Digital twin"
   tagline: ""
 
 - title: "Mixed Reality Interface for Load Application in Finite Element Analysis"
@@ -191,6 +266,12 @@
     - "mixed reality"
     - "3d interaction design"
     - "gesture interaction"
+  keywords:
+    - "Finite Element Analysis"
+    - "Mixed reality"
+    - "Gesture"
+    - "3D user interface"
+    - "Digital twin"
   tagline: ""
 
 - title: "Designing with Holograms – A Preliminary Study on Improving Design Visualisation Through Holographic Display"

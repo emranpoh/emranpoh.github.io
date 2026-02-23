@@ -7,6 +7,19 @@ settings:
   sort_order: "newest_first"  # Options: newest_first, oldest_first
 
 news_items:
+  - id: news-013
+    title: "Paper accepted to CHI 2026 Workshop: 'When Not to Help: A Human-Teaching Lens on AI Tutoring'"
+    date: "2026-02-24"
+    category: "Publication"
+    location: "Barcelona, Spain"
+    tags: ["chi", "publication", "hci", "ai education", "workshop"]
+    featured: true
+    type: "publication"
+    institution: "acm"
+    summary: "Our paper on when AI tutors should (and shouldn't) help, from a human-teaching perspective, was accepted to the CHI 2026 workshop on Understanding and Engaging Critical Resistance to AI in Education."
+    content: |
+      Paper accepted to the CHI 2026 workshop on Understanding and Engaging Critical Resistance to AI in Education. We draw on human-teaching literature to think about when AI tutoring systems should hold back from helping — and why that matters for learning.
+
   - id: news-007
     title: "Helping run [Future CS Education Workshop 2.0](https://futuredu.student.ai4sg.org/home) — on the organising team"
     date: "2026-01-25"

@@ -2,25 +2,24 @@
     <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
         <h2 style="margin-bottom: 0; font-size: 1rem; font-weight: normal; text-transform: lowercase;">research</h2>
         <div style="display: flex; gap: 0.5rem;">
-            {% assign sorted_pubs = site.data.pubs | sort: "year" | reverse %}
-            {% for pub in sorted_pubs %}
+            {% assign visible_pubs = site.data.pubs | where_exp: "pub", "pub.authors contains 'Emran Poh'" | where_exp: "pub", "pub.status != 'under review' and pub.status != 'submitted'" | sort: "year" | reverse %}
+            {% for pub in visible_pubs %}
                 <div style="width: 0.75rem; height: 0.75rem; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; opacity: {% if forloop.index > 3 %}0.2{% else %}1{% endif %};">{{ pub.emoji }}</div>
             {% endfor %}
         </div>
     </div>
     <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-        {% assign sorted_publications = site.data.pubs | sort: "year" | reverse %}
+        {% assign sorted_publications = site.data.pubs | where_exp: "pub", "pub.authors contains 'Emran Poh'" | where_exp: "pub", "pub.status != 'under review' and pub.status != 'submitted'" | sort: "year" | reverse %}
         {% for pub in sorted_publications %}
             {% assign author_list = pub.authors | split: ',' %}
             {% assign first_author = author_list[0] | strip %}
-            {% if first_author contains 'Emran Poh' %}
-        <div style="display: flex; flex-direction: column; background-color: #f7f7f7; border-radius: 0.5rem; border: 1px solid #e9ecef;">
+        <div class="mobile-pub-card{% unless pub.image %} mobile-pub-card-no-image{% endunless %}" style="display: flex; flex-direction: column; background-color: #f7f7f7; border-radius: 0.5rem; border: 1px solid #e9ecef;">
             {% if pub.image and pub.image != '' %}
             <div style="border-radius: 0.5rem 0.5rem 0 0; overflow: hidden; aspect-ratio: 3 / 2;">
                 <img class="pub-image" src="{{ site.baseurl }}/assets/images/projects/{{ pub.image }}" alt="Cover image for {{ pub.title }}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 0.5rem 0.5rem 0 0;">
             </div>
             {% else %}
-            <div class="placeholder-image" style="border-radius: 0.5rem 0.5rem 0 0; aspect-ratio: 3 / 2; background-color: #e0e0e0; display: flex; align-items: center; justify-content: center;"></div>
+            <div class="placeholder-image" style="border-radius: 0.5rem 0.5rem 0 0; background-color: #f5f5f5; display: flex; align-items: center; justify-content: center;"></div>
             {% endif %}
             <div style="display: flex; flex-direction: column; padding: 1rem;">
                 <a href="{{ pub.url | relative_url }}" style="text-decoration: none; color: inherit;">
@@ -42,7 +41,6 @@
                 </a>
             </div>
         </div>
-            {% endif %}
         {% endfor %}
     </div>
     <div style="display: flex; justify-content: center; margin-top: 2rem;">

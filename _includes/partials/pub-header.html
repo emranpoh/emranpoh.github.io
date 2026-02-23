@@ -4,6 +4,9 @@
         <p class="pub-authors">{{ page.authors }}</p>
         <p class="pub-venue">{{ page.venue }}</p>
         <div class="pub-tags">
+            {% if page.status == "under review" or page.status == "submitted" %}
+            <span class="pub-tag pub-tag-status">Under Review</span>
+            {% endif %}
             <span class="pub-tag">{{ page.year }}</span>
             {% if page.venue_short %}
             <span class="pub-tag">{{ page.venue_short }}</span>
@@ -52,6 +55,12 @@
     padding: 0.25rem 0.75rem;
     border-radius: 9999px;
     font-size: 0.875rem;
+}
+
+.pub-tag-status {
+    background-color: #fef3c7;
+    color: #b45309;
+    font-weight: 500;
 }
 
 .pub-tag-link {

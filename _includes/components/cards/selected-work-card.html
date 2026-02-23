@@ -144,6 +144,9 @@
         <div class="work-authors-below">{{ authors_with_bold | raw }}</div>
         {% endif %}
         <div class="work-venue-tags">
+          {% if include.work.status == "under review" or include.work.status == "submitted" %}
+          <span class="subject-tag status-tag status-under-review">Under Review</span>
+          {% endif %}
           {% if include.work.venue_short %}
             {% assign venue_parts = include.work.venue_short | split: ' ' %}
             {% assign venue_name = venue_parts[0] %}
@@ -178,6 +181,11 @@
           {% if include.work.subject-tags and include.work.subject-tags.size > 0 %}
           {% for tag in include.work.subject-tags %}
           <span class="subject-tag">{{ tag }}</span>
+          {% endfor %}
+          {% endif %}
+          {% if include.work.keywords and include.work.keywords.size > 0 %}
+          {% for kw in include.work.keywords %}
+          <span class="paper-keyword-tag">{{ kw }}</span>
           {% endfor %}
           {% endif %}
         </div>

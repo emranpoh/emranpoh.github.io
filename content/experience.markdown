@@ -135,7 +135,7 @@ id: experience
   <p id="publications-heading">publications</p>
 </div>
 <table class="experience-table">
-    {% assign sorted_pubs = site.data.pubs | sort: 'year' | reverse %}
+    {% assign sorted_pubs = site.data.pubs | where_exp: "pub", "pub.status != 'under review' and pub.status != 'submitted'" | sort: 'year' | reverse %}
     {% assign current_year = 0 %}
     {% for pub in sorted_pubs %}
         {% assign author_list = pub.authors | split: ',' %}

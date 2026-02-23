@@ -171,7 +171,8 @@
 
         <!-- Publications Section -->
         <div class="section-content publications-section">
-            {% assign grouped_pubs = site.data.pubs | group_by: "year" | sort: "name" | reverse %}
+            {% assign visible_pubs = site.data.pubs | where_exp: "pub", "pub.status != 'under review' and pub.status != 'submitted'" %}
+{% assign grouped_pubs = visible_pubs | group_by: "year" | sort: "name" | reverse %}
             <div class="year-groups" style="display: flex; flex-direction: row; gap: 1rem; width: 100%;">
                 {% for year_group in grouped_pubs %}
                 <div class="year-group" data-year="{{ year_group.name }}" style="display: flex; flex-direction: column; gap: 0.25rem;">
@@ -190,7 +191,7 @@
                                     <span lang="en" style="font-size: 0.75rem; color: #666; overflow-wrap: break-word; word-wrap: break-word; word-break: break-all; -webkit-hyphens: auto; -ms-hyphens: auto; -moz-hyphens: auto; hyphens: auto; max-width: 30vw; text-align: left;">{{ pub.title }}</span>
                                 </div>
                                 <div style="position: absolute; bottom: 0.25rem; left: 0; display: flex; flex-direction: column; gap: 0.125rem;">
-                                    {% if pub.status != "submitted" %}
+                                    {% if pub.status != "submitted" and pub.status != "under review" %}
                                     {% if pub.venue_short %}<span lang="en" style="font-size: 0.625rem; color: #aaa; text-align: left; overflow-wrap: break-word; word-wrap: break-word; word-break: break-all; -webkit-hyphens: auto; -ms-hyphens: auto; -moz-hyphens: auto; hyphens: auto; max-width: 30vw;">{{ pub.venue_short }} {{ pub.year }}</span>{% endif %}
                                     {% else %}
                                         <span style="font-size: 0.625rem; color: #aaa; text-transform: capitalize;">({{ pub.status }})</span>

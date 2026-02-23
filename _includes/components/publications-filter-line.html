@@ -1,5 +1,5 @@
 {% comment %} My publications span [filter buttons]. Used in research page intro and in publications-section (non-research). {% endcomment %}
-{% assign filter_author_pubs = site.data.pubs | where_exp: "pub", "pub.authors contains 'Emran Poh'" %}
+{% assign filter_author_pubs = site.data.pubs | where_exp: "pub", "pub.authors contains 'Emran Poh'" | where_exp: "pub", "pub.status != 'under review' and pub.status != 'submitted'" %}
 {% assign filter_all_tags = "" | split: "," %}
 {% for pub in filter_author_pubs %}
   {% if pub.subject-tags %}
