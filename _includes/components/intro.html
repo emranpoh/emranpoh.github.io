@@ -53,11 +53,9 @@
     {% if site.data.intro.past %}
     <div class="intro-subsection intro-past">
       <div class="intro-subsection-label">past</div>
-      {% for item in site.data.intro.past %}
-      <div class="intro-subsection-item">
-        <span class="intro-subsection-item-content">{{ item | markdownify }}</span>
+      <div class="intro-subsection-item intro-past-paragraph">
+        <span class="intro-subsection-item-content">{{ site.data.intro.past | join: ' ' | markdownify }}</span>
       </div>
-      {% endfor %}
     </div>
     {% endif %}
     {% unless site.data.intro.current or site.data.intro.past %}

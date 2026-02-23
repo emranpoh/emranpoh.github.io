@@ -22,7 +22,7 @@
           {% elsif project.projtype == 'research'%}
             🧪
           {% elsif project.projtype == 'blog'%}
-            <i class="fa fa-pencil"></i>
+            {% include icon.html name="pencil" %}
           {% else %}
             {{ project.projtype }}
           {% endif %}
@@ -40,11 +40,11 @@
                     {% elsif tag.name == 'web' or tag.type == 'web' %}
                       🌐
                     {% elsif tag.name == 'project' or tag.type == 'project' %}
-                      <i class="fa fa-code"></i>
+                      {% include icon.html name="code" %}
                     {% elsif tag.name == 'workshop' or tag.type == 'workshop' %}
-                      <i class="fa fa-users"></i>
+                      {% include icon.html name="users" %}
                     {% elsif tag.name == 'blog' or tag.type == 'blog' %}
-                      <i class="fa fa-pencil"></i>
+                      {% include icon.html name="pencil" %}
                     {% else %}
                       {{ tag.name }}
                     {% endif %}

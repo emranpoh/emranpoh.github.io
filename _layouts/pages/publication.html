@@ -9,7 +9,7 @@ layout: pages/default
 <div class="publication-image">
     <img src="{{ '/assets/images/projects/' | append: page.image | relative_url }}" 
             alt="{{ page.title }}" 
-            class="publication-image__img">
+            class="publication-image__img" loading="lazy">
 </div>
 {% endif %}
 

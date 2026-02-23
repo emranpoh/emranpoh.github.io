@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="profile-location">
-                <i class="fas fa-map-marker-alt"></i>
+                {% include icon.html name="map-marker-alt" %}
                 <span>{{ site.location }}</span>
             </div>
         </div>
@@ -75,7 +75,7 @@
     color: #666;
 }
 
-.profile-location i {
+.profile-location .icon {
     font-size: 0.8125rem;
 }
 
@@ -113,7 +113,7 @@
         font-size: 0.75rem;
     }
     
-    .profile-location i {
+    .profile-location .icon {
         font-size: 0.75rem;
     }
 }

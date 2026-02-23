@@ -10,7 +10,7 @@
             {% endif %}
             {% if page.doi %}
             <a href="https://doi.org/{{ page.doi }}" target="_blank" class="pub-tag pub-tag-link">
-                <i class="fas fa-file-alt"></i>
+                {% include icon.html name="file-alt" %}
                 DOI
             </a>
             {% endif %}
@@ -59,7 +59,7 @@
     transition: background-color 0.2s;
 }
 
-.pub-tag-link i {
+.pub-tag-link .icon {
     margin-right: 0.5rem;
 }
 </style> 

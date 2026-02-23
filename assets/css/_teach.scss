@@ -1,5 +1,5 @@
 // Teach page styles - Desktop
-@media (min-width: 769px) {
+@include tablet-up {
   .teaching-content {
     margin: 0 auto;
     padding: 2rem 0;
@@ -73,7 +73,7 @@
 }
 
 // Mobile overrides
-@media (max-width: 768px) {
+@include mobile {
   .teaching-content {
     margin: 0 auto;
     padding: 1rem 0;

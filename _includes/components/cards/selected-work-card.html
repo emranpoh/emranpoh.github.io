@@ -116,7 +116,7 @@
       {% comment %} Publications and Theses: image on top, title below, total tile is square {% endcomment %}
       <div class="work-image">
         {% if include.work.image and include.work.image != '' %}
-          <img src="{{ '/assets/images/projects/' | append: include.work.image | relative_url }}" alt="{{ work_img_alt }}">
+          <img src="{{ '/assets/images/projects/' | append: include.work.image | relative_url }}" alt="{{ work_img_alt }}" loading="lazy">
         {% else %}
           <div class="placeholder-image" aria-hidden="true"></div>
         {% endif %}
@@ -142,19 +142,6 @@
         {% if include.work.authors %}
         {% assign authors_with_bold = include.work.authors | replace: 'Emran Poh', '<strong>Emran Poh</strong>' %}
         <div class="work-authors-below">{{ authors_with_bold | raw }}</div>
-        {% endif %}
-        {% if include.type == 'pub' %}
-        {% assign citation_text = include.work.citation | strip %}
-        {% if citation_text != '' %}
-          {% assign is_bibtex = citation_text | slice: 0, 1 %}
-          {% if is_bibtex != '@' %}
-        <div class="work-citation work-citation-desktop">{{ citation_text }}</div>
-          {% else %}
-        <div class="work-citation work-citation-desktop">{% if include.work.authors %}{{ include.work.authors }}. {% endif %}{% if include.work.year %}{{ include.work.year }}. {% endif %}{{ include.work.title }}. {% if include.work.venue %}{{ include.work.venue }}{% endif %}{% if include.work.doi %}. https://doi.org/{{ include.work.doi }}{% endif %}</div>
-          {% endif %}
-        {% else %}
-        <div class="work-citation work-citation-desktop">{% if include.work.authors %}{{ include.work.authors }}. {% endif %}{% if include.work.year %}{{ include.work.year }}. {% endif %}{{ include.work.title }}. {% if include.work.venue %}{{ include.work.venue }}{% endif %}{% if include.work.doi %}. https://doi.org/{{ include.work.doi }}{% endif %}</div>
-        {% endif %}
         {% endif %}
         <div class="work-venue-tags">
           {% if include.work.venue_short %}
@@ -183,7 +170,7 @@
           {% if include.work.tags %}
           {% for tag in include.work.tags %}
           {% if tag.name == 'pdf' and tag.url %}
-          <a href="{{ tag.url | relative_url }}" target="_blank" rel="noopener noreferrer" class="subject-tag work-doi-btn" aria-label="View PDF">pdf</a>
+          <a href="{{ tag.url | relative_url }}" target="_blank" rel="noopener noreferrer" class="subject-tag work-pdf-btn" aria-label="View PDF">pdf</a>
           {% endif %}
           {% endfor %}
           {% endif %}
@@ -203,12 +190,12 @@
           <div class="work-image-grid">
             {% for img in include.work.images %}
               <div class="work-image-grid-item">
-                <img src="{{ '/assets/images/projects/' | append: img | relative_url }}" alt="{{ work_img_alt }}">
+                <img src="{{ '/assets/images/projects/' | append: img | relative_url }}" alt="{{ work_img_alt }}" loading="lazy">
               </div>
             {% endfor %}
           </div>
         {% elsif include.work.image and include.work.image != '' %}
-          <img src="{{ '/assets/images/projects/' | append: include.work.image | relative_url }}" alt="{{ work_img_alt }}">
+          <img src="{{ '/assets/images/projects/' | append: include.work.image | relative_url }}" alt="{{ work_img_alt }}" loading="lazy">
         {% else %}
           <div class="placeholder-image" aria-hidden="true"></div>
         {% endif %}
@@ -247,7 +234,7 @@
       {% comment %} Presentations: image on top, title and info below {% endcomment %}
       <div class="work-image">
         {% if include.work.image and include.work.image != '' %}
-          <img src="{{ '/assets/images/projects/' | append: include.work.image | relative_url }}" alt="{{ work_img_alt }}">
+          <img src="{{ '/assets/images/projects/' | append: include.work.image | relative_url }}" alt="{{ work_img_alt }}" loading="lazy">
         {% else %}
           <div class="placeholder-image" aria-hidden="true"></div>
         {% endif %}
@@ -281,7 +268,7 @@
       {% comment %} Other works: title overlaid on image {% endcomment %}
       <div class="work-image">
         {% if include.work.image and include.work.image != '' %}
-          <img src="{{ '/assets/images/projects/' | append: include.work.image | relative_url }}" alt="{{ work_img_alt }}">
+          <img src="{{ '/assets/images/projects/' | append: include.work.image | relative_url }}" alt="{{ work_img_alt }}" loading="lazy">
         {% else %}
           <div class="placeholder-image" aria-hidden="true"></div>
         {% endif %}

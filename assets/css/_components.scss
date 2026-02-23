@@ -43,7 +43,7 @@
 }
 
 // Desktop navigation styles
-@media (min-width: 769px) {
+@include tablet-up {
   .nav-buttons {
     display: flex;
     gap: 0.75rem;
@@ -93,7 +93,7 @@
   }
 }
 
-@media (min-width: 769px) {
+@include tablet-up {
   .nav-buttons {
     gap: 1.5rem;
   }
@@ -108,7 +108,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@include desktop {
   .nav-buttons {
     gap: 2rem;
   }
@@ -124,7 +124,7 @@
 }
 
 /* Buttons - Desktop */
-@media (min-width: 769px) {
+@include tablet-up {
   .filter-btn, .works-nav-button {
     font-family: 'Hanken Grotesk', sans-serif !important;
     padding: 8px 16px;
@@ -274,7 +274,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@include mobile {
   .tag {
     font-size: 10px;
   }

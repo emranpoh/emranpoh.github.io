@@ -7,14 +7,16 @@
       {% assign one_month_ago_date = one_month_ago | date: '%s' %}
       {% if news_date >= one_month_ago_date %}
       <div class="news-card">
+          {% assign icon_name = 'star' %}
+          {% if news.type == 'award' %}{% assign icon_name = 'trophy' %}{% elsif news.type == 'publication' %}{% assign icon_name = 'file-alt' %}{% elsif news.type == 'talk' %}{% assign icon_name = 'comments' %}{% elsif news.type == 'education' %}{% assign icon_name = 'graduation-cap' %}{% endif %}
           <div class="news-icon {{ news.type }}">
-              <i class="fas {% if news.type == 'award' %}fa-trophy{% elsif news.type == 'publication' %}fa-file-alt{% elsif news.type == 'talk' %}fa-comments{% elsif news.type == 'education' %}fa-graduation-cap{% else %}fa-star{% endif %}"></i>
+              {% include icon.html name=icon_name %}
           </div>
           <div class="news-content">
               <div class="news-text">{{ news.title }}</div>
               {% if news.link %}
               <a href="{{ news.link }}" class="news-link" target="_blank">
-                  <i class="fas fa-external-link-alt"></i>
+                  {% include icon.html name="external-link-alt" %}
               </a>
               {% endif %}
           </div>

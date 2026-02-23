@@ -22,15 +22,19 @@
 {% assign all_tags = all_tags | sort %}
 
 <section class="publications-section-container{% if include.selected_only %} publications-selected-only{% endif %}" aria-labelledby="publications-heading">
-  {% unless page.id == 'research' %}
-  <div class="intro-block publications-intro-block" style="margin-bottom: {% if include.selected_only %}1rem{% else %}4rem{% endif %}; text-align: left;">
-    {% if include.selected_only %}
-    <p id="publications-heading" style="margin: 0;">selected publications</p>
-    {% else %}
-    {% include components/publications-filter-line.html %}
-    {% endif %}
+  {% if page.id == 'research' %}
+  <div class="publications-research-header" style="margin-bottom: 1rem;">
+    <h2 id="publications-heading" class="publications-research-title" style="margin: 0; font-size: 1rem; font-weight: normal; text-transform: lowercase;">papers</h2>
   </div>
-  {% endunless %}
+  {% elsif include.selected_only %}
+  <div class="intro-block publications-intro-block" style="margin-bottom: 1rem; text-align: left;">
+    <p id="publications-heading" style="margin: 0;">selected publications</p>
+  </div>
+  {% else %}
+  <div class="intro-block publications-intro-block" style="margin-bottom: 4rem; text-align: left;">
+    {% include components/publications-filter-line.html %}
+  </div>
+  {% endif %}
   <div class="publications-grid-wrapper">
     <p class="publications-empty-state" id="publications-empty-state" aria-live="polite" style="display: none;">No filters selected.</p>
     <div class="publications-grid publications-grid-horizontal" id="publications-grid">

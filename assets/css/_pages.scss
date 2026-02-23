@@ -1,5 +1,5 @@
 // Page-specific styles - Desktop
-@media (min-width: 769px) {
+@include tablet-up {
   /* Projects */
   .projects-grid {
     /* No display property, Masonry will handle layout */
@@ -53,7 +53,7 @@
 }
 
 /* Projects List View - Desktop */
-@media (min-width: 769px) {
+@include tablet-up {
   .projects-list {
     display: flex;
     flex-direction: column;
@@ -175,7 +175,7 @@
 }
 
 // Desktop publication styles
-@media (min-width: 769px) {
+@include tablet-up {
   .pub-venue-tag {
     font-size: 11px !important;
     color: #888;
@@ -414,7 +414,7 @@
 }
 
 /* Responsive Publications */
-@media (max-width: 768px) {
+@include mobile {
   .pub-item {
     flex-direction: column;
     gap: 16px;
@@ -429,7 +429,7 @@
   }
 }
 
-@media (max-width: 600px) {
+@include mobile {
   .pub-compact-item {
     flex-direction: column;
     gap: 8px;
@@ -447,7 +447,7 @@
 }
 
 /* News - Desktop */
-@media (min-width: 769px) {
+@include tablet-up {
   .news-desktop-section {
     width: 100%;
     margin: 32px 0;
@@ -546,14 +546,14 @@
     display: none;
   }
 
-  @media (max-width: 1200px) {
+  @include tablet {
     .news-grid {
       grid-template-columns: repeat(3, 1fr);
     }
   }
 }
 
-@media (max-width: 992px) {
+@include tablet {
   .news-grid {
     grid-template-columns: repeat(2, 1fr);
   }

@@ -1,6 +1,6 @@
 // Home page specific styles
 // Desktop styles
-@media (min-width: 769px) {
+@include tablet-up {
   .main-content {
     max-width: 100%;
     margin: 0 auto;
@@ -53,7 +53,7 @@
     .work-title-below .subject-tag {
       font-size: 0.75rem !important;
     }
-    @media (max-width: 768px) {
+    @include mobile {
       .work-location-overlay .work-location {
         font-size: 0.75rem !important;
       }
@@ -128,14 +128,14 @@
         text-align: right !important;
       }
       
-      a .fa-arrow-right,
-      a .fa-layer-group {
+      a .icon,
+      a .icon-layer-group {
         color: #0078ff;
         transition: color 0.2s ease;
       }
       
-      a:hover .fa-arrow-right,
-      a:hover .fa-layer-group {
+      a:hover .icon,
+      a:hover .icon-layer-group {
         color: #0066cc;
       }
     }
@@ -216,7 +216,7 @@
 }
 
 // Tablet breakpoint (iPad) - 3 columns layout
-@media (min-width: 769px) and (max-width: 1024px) {
+@include tablet {
   .selected-works,
   .publications-grid {
     gap: 1.5rem;
@@ -245,7 +245,7 @@
 }
 
 // Mobile overrides
-@media (max-width: 768px) {
+@include mobile {
   .selected-works-container {
     margin: 1rem 0 0 0;
     
@@ -273,14 +273,14 @@
     }
     
     .selected-works + .intro-block {
-      a .fa-arrow-right,
-      a .fa-layer-group {
+      a .icon,
+      a .icon-layer-group {
         color: #0078ff;
         transition: color 0.2s ease;
       }
       
-      a:hover .fa-arrow-right,
-      a:hover .fa-layer-group {
+      a:hover .icon,
+      a:hover .icon-layer-group {
         color: #0066cc;
       }
     }
@@ -369,7 +369,7 @@
     box-sizing: border-box;
   }
   
-  @media (max-width: 768px) {
+  @include mobile {
     top: 0.5rem;
     left: 0.5rem;
     gap: 0.375rem;
@@ -402,7 +402,7 @@
     transition: opacity 0.2s ease;
   }
   
-  @media (max-width: 768px) {
+  @include mobile {
     top: 0.5rem;
     right: 0.5rem;
     
@@ -425,7 +425,7 @@
   display: inline !important;
   visibility: visible !important;
   
-  @media (max-width: 768px) {
+  @include mobile {
     font-size: 0.6875rem;
     }
 }
@@ -440,7 +440,7 @@
   opacity: 0;
   transition: opacity 0.2s ease;
   
-  @media (max-width: 768px) {
+  @include mobile {
     font-size: 0.6875rem;
   }
 }
@@ -643,7 +643,7 @@
   text-decoration: none;
   z-index: 10;
   
-  @media (max-width: 768px) {
+  @include mobile {
     font-size: 0.875rem;
     bottom: 0.5rem;
     left: 0.5rem;
@@ -658,7 +658,7 @@
   opacity: 0;
   transition: opacity 0.2s ease;
   
-  @media (max-width: 768px) {
+  @include mobile {
     font-size: 0.75rem !important;
   }
 }
@@ -681,7 +681,7 @@
   border-radius: 4px;
   backdrop-filter: blur(4px);
   
-  @media (max-width: 768px) {
+  @include mobile {
     bottom: 0.5rem;
     left: 0.5rem;
     font-size: 0.6875rem;
@@ -701,7 +701,7 @@
   opacity: 1;
   transition: opacity 0.2s ease;
   
-  @media (max-width: 768px) {
+  @include mobile {
     bottom: 0.5rem;
     right: 0.5rem;
     font-size: 0.6875rem;
@@ -800,20 +800,22 @@
     margin-top: 0.125rem;
   }
 
-  /* Shared DOI/BibTeX button styles */
+  /* DOI / Bib / PDF links - uppercase, no outline, neutral */
   .work-doi-btn,
-  .work-bib-btn {
+  .work-bib-btn,
+  .work-pdf-btn {
     display: inline-block;
     font-size: 0.75rem;
     font-weight: 500;
     color: #374151;
     padding: 0.125rem 0.375rem;
-    background: #fefefe;
-    border: 1px solid #9ca3af;
+    background: transparent;
+    border: none;
     border-radius: 0.25rem;
     cursor: crosshair;
     font-family: inherit;
-    text-transform: lowercase;
+    text-transform: uppercase;
+    transition: background 0.2s ease, color 0.2s ease, text-decoration 0.2s ease;
   }
 
   .work-doi-btn {
@@ -821,10 +823,14 @@
   }
 
   .work-doi-btn:hover,
-  .work-bib-btn:hover {
-    background: #f3f4f6;
-    border-color: #9ca3af;
+  .work-bib-btn:hover,
+  .work-pdf-btn:hover {
+    background: #e5e7eb;
     color: #1f2937;
+  }
+
+  .work-doi-btn:hover {
+    text-decoration: underline;
   }
 
   .work-bib-wrap {
@@ -862,42 +868,8 @@
       
       &.venue-tag {
         text-transform: none;
-        
-        // Conference color coding - softer colors
-        &.venue-chi {
-          background: #B8D4F0;
-          color: #2C5F8D;
-        }
-        
-        &.venue-ismaradjunct {
-          background: #D4B8E8;
-          color: #6B3A8A;
-        }
-        
-        &.venue-autoui {
-          background: #F5C99D;
-          color: #B8732A;
-        }
-        
-        &.venue-hcii {
-          background: #B8E6D1;
-          color: #2D7A52;
-        }
-        
-        &.venue-newriis {
-          background: #B8E6DE;
-          color: #2D7A6F;
-        }
-        
-        &.venue-nus {
-          background: #E5E5E5;
-          color: #666;
-        }
-        
-        &.venue-uofg {
-          background: #E5E5E5;
-          color: #666;
-        }
+        background: #e5e5e5;
+        color: #555;
       }
     }
   }
@@ -910,7 +882,7 @@
     margin-top: 0.5rem;
   }
   
-  @media (max-width: 768px) {
+  @include mobile {
     font-size: 0.8125rem;
     padding: 0.625rem 0;
     gap: 0.375rem;
@@ -981,7 +953,7 @@
   opacity: 1;
   transition: opacity 0.2s ease;
   
-  @media (max-width: 768px) {
+  @include mobile {
     bottom: 0.5rem;
     right: 0.5rem;
     font-size: 0.6875rem;
@@ -1032,7 +1004,7 @@
   margin: 0;
 }
 
-@media (max-width: 768px) {
+@include mobile {
   .navbar {
     display: none;
   }
@@ -1179,7 +1151,7 @@
   }
 }
 
-@media (min-width: 769px) {
+@include tablet-up {
   .mobile-projects-section,
   .mobile-publications-section,
   .mobile-experience-section {
@@ -1302,7 +1274,7 @@
 }
 
 /* Article Gallery Styles - Desktop */
-@media (min-width: 769px) {
+@include tablet-up {
   .article-gallery {
     margin: 3rem 0;
     width: 100%;
@@ -1576,7 +1548,7 @@
 }
 
 /* Mobile styles for article gallery */
-@media (max-width: 768px) {
+@include mobile {
   .article-gallery {
     margin: 2rem 0;
   }

@@ -9,8 +9,10 @@
   <div class="news-list" id="news-list">
     {% for news in sorted_news %}
     <div class="news-card{% if forloop.index > news_visible_count %} news-card-hidden{% endif %}" {% if forloop.index > news_visible_count %}data-news-hidden{% endif %}>
+      {% assign icon_name = 'star' %}
+        {% if news.type == 'award' %}{% assign icon_name = 'trophy' %}{% elsif news.type == 'publication' %}{% assign icon_name = 'file-alt' %}{% elsif news.type == 'talk' %}{% assign icon_name = 'comments' %}{% elsif news.type == 'education' %}{% assign icon_name = 'graduation-cap' %}{% elsif news.type == 'conference' %}{% assign icon_name = 'users' %}{% elsif news.type == 'art' %}{% assign icon_name = 'palette' %}{% endif %}
       <div class="news-icon {{ news.type }}">
-        <i class="fas {% if news.type == 'award' %}fa-trophy{% elsif news.type == 'publication' %}fa-file-alt{% elsif news.type == 'talk' %}fa-comments{% elsif news.type == 'education' %}fa-graduation-cap{% elsif news.type == 'conference' %}fa-users{% elsif news.type == 'art' %}fa-palette{% else %}fa-star{% endif %}" aria-hidden="true"></i>
+        {% include icon.html name=icon_name %}
       </div>
       <div class="news-content">
         <div class="news-meta">
@@ -19,7 +21,7 @@
           {% if news.location %}<span class="news-category">{{ news.location }}</span>{% endif %}
         </div>
         <div class="news-text">
-          {{ news.title | markdownify }}{% if news.link %} <a href="{{ news.link }}" class="news-link" target="_blank" rel="noopener" aria-label="Read more"><i class="fas fa-link" aria-hidden="true"></i></a>{% endif %}
+          {{ news.title | markdownify }}{% if news.link %} <a href="{{ news.link }}" class="news-link" target="_blank" rel="noopener" aria-label="Read more">{% include icon.html name="link" %}</a>{% endif %}
         </div>
       </div>
     </div>

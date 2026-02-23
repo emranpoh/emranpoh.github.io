@@ -2,7 +2,7 @@
 // Scoped to body.layout-masonry to avoid affecting home page
 // Body and .mobile-nav styles come from _mobile-works.scss
 
-@media (min-width: 769px) {
+@include tablet-up {
   body.layout-masonry {
     .work-list-title {
       font-size: 1.25rem;

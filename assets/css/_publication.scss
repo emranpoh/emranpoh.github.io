@@ -1,5 +1,5 @@
 // Publication detail page styles - Desktop
-@media (min-width: 769px) {
+@include tablet-up {
   .content-block {
     max-width: 1200px;
     margin: 0 auto;
@@ -108,7 +108,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@include mobile {
   .publication-content {
     font-size: 1rem;
   }

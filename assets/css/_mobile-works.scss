@@ -12,7 +12,7 @@
   border-top: 1px solid #e5e7eb;
 }
 
-@media (max-width: 768px) {
+@include mobile {
   .mobile-nav {
     display: block;
   }
@@ -46,7 +46,7 @@
   }
 }
 
-@media (min-width: 769px) {
+@include tablet-up {
   body {
     margin: 0;
     padding: 0;
@@ -86,7 +86,6 @@
     outline: none;
     border: none;
     width: 100%;
-    padding: 0;
   }
   
   /* Works panel specific styles */

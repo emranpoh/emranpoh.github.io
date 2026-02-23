@@ -1,5 +1,5 @@
 // Project detail page styles - Desktop
-@media (min-width: 769px) {
+@include tablet-up {
   .project-detail {
     max-width: 800px;
     margin: 0 auto;
@@ -159,7 +159,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@include mobile {
   .project-header h1 {
     font-size: 2rem;
   }

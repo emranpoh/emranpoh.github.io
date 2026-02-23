@@ -44,7 +44,7 @@
 }
 
 // Responsive adjustments
-@media (max-width: 768px) {
+@include mobile {
   .research-section {
     padding: 1rem 0;
   }

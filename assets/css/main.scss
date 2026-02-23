@@ -1,7 +1,7 @@
 ---
 ---
 
-@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap');
+@import "variables";
 
 // Import all CSS modules
 @import "base";
@@ -21,7 +21,7 @@
 
 // Additional styles that don't fit into modules
 // Desktop hello-text styles
-@media (min-width: 769px) {
+@include tablet-up {
   .hello-text {
     user-select: none;
     -webkit-user-select: none;
@@ -48,7 +48,7 @@
 }
 
 // Mobile hello-text styles
-@media (max-width: 768px) {
+@include mobile {
   .hello-text {
     font-size: 14px !important;
 
@@ -129,7 +129,31 @@ body.page-error main.content {
   flex-direction: column;
   gap: 1rem;
 
-  @media (max-width: 768px) {
+  @include mobile {
     display: none;
   }
+}
+
+/* Hide citation text on research page publication cards */
+body.page-research .research-column-pubs .work-citation.work-citation-desktop,
+body.page-research .research-column-pubs .work-citation,
+body.page-research .research-column-pubs .work-citation-desktop {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 0 !important;
+  font-size: 0 !important;
+}
+
+/* Hide short title on research page - show full title only */
+body.page-research .research-column-pubs .work-tile-summary {
+  display: none !important;
+}
+
+/* Unbold pub titles on research page */
+body.page-research .research-column-pubs .work-title-text {
+  font-weight: 400;
 }
