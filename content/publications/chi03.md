@@ -1,7 +1,7 @@
 ---
 layout: pages/publication
 title: "'Desire Paths' in AI-Guided Software Learning"
-authors: "Emran Poh and Jiannan Li"
+authors: "Emran Poh"
 venue: "CHI 2026 Workshop"
 venue_short: "CHI '26 Workshop"
 year: 2026
