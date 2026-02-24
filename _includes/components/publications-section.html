@@ -2,7 +2,7 @@
    Displays only publications where Emran Poh is an author
    When selected_only=true (main page), shows only pubs with is-selected: true
 {% endcomment %}
-{% assign author_pubs = site.data.pubs | where_exp: "pub", "pub.authors contains 'Emran Poh'" | where_exp: "pub", "pub.status != 'under review' and pub.status != 'submitted'" %}
+{% assign author_pubs = site.data.pubs | where_exp: "pub", "pub.authors contains 'Emran Poh'" | where_exp: "pub", "pub.status != 'under review'" | where_exp: "pub", "pub.status != 'submitted'" %}
 {% if include.selected_only %}
   {% assign author_pubs = author_pubs | where: "is-selected", true %}
 {% endif %}

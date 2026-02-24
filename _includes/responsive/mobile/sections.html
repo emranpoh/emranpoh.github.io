@@ -171,7 +171,7 @@
 
         <!-- Publications Section -->
         <div class="section-content publications-section">
-            {% assign visible_pubs = site.data.pubs | where_exp: "pub", "pub.status != 'under review' and pub.status != 'submitted'" %}
+            {% assign visible_pubs = site.data.pubs | where_exp: "pub", "pub.status != 'under review'" | where_exp: "pub", "pub.status != 'submitted'" %}
 {% assign grouped_pubs = visible_pubs | group_by: "year" | sort: "name" | reverse %}
             <div class="year-groups" style="display: flex; flex-direction: row; gap: 1rem; width: 100%;">
                 {% for year_group in grouped_pubs %}
