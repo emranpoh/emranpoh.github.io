@@ -1,0 +1,59 @@
+{% comment %} Combined Works Masonry
+   Merges talks + projects into a single masonry grid, sorted by year (newest first)
+{% endcomment %}
+{% assign sorted_talks = site.data.presentations.presentations | sort: 'date' | reverse %}
+{% assign all_projects = '' | split: '' %}
+{% for project in site.data.projects %}
+  {% assign all_projects = all_projects | push: project %}
+{% endfor %}
+{% if site.projects %}
+  {% for project_page in site.projects %}
+    {% assign all_projects = all_projects | push: project_page %}
+  {% endfor %}
+{% endif %}
+
+{% comment %} Collect all years from both sources {% endcomment %}
+{% assign all_years = '' | split: '' %}
+{% for talk in sorted_talks %}
+  {% assign y = talk.date | date: '%Y' | default: talk.year | append: '' %}
+  {% unless all_years contains y %}
+    {% assign all_years = all_years | push: y %}
+  {% endunless %}
+{% endfor %}
+{% for project in all_projects %}
+  {% assign py = project.year | default: project.start-year | default: project.end-year | default: 0 | append: '' %}
+  {% unless all_years contains py %}
+    {% assign all_years = all_years | push: py %}
+  {% endunless %}
+{% endfor %}
+{% assign all_years = all_years | sort | reverse %}
+
+<section class="works-masonry-container" aria-label="Works">
+  <div class="works-masonry-grid" id="works-masonry">
+    {% for year_str in all_years %}
+      {% assign year_num = year_str | plus: 0 %}
+      {% comment %} Presentations for this year {% endcomment %}
+      {% for talk in sorted_talks %}
+        {% assign talk_year = talk.date | date: '%Y' | plus: 0 %}
+        {% assign talk_year_alt = talk.year | default: 0 | plus: 0 %}
+        {% if talk_year == year_num or talk_year_alt == year_num %}
+          {% include components/cards/selected-work-card.html work=talk type='presentation' %}
+        {% endif %}
+      {% endfor %}
+      {% comment %} Projects for this year {% endcomment %}
+      {% for project in all_projects %}
+        {% assign proj_year = project.year | default: project.start-year | default: project.end-year | default: 0 | plus: 0 %}
+        {% if proj_year == year_num %}
+          {% if project.authors %}
+            {% assign work_type = 'pub' %}
+          {% elsif project.type == 'Thesis' %}
+            {% assign work_type = 'thesis' %}
+          {% else %}
+            {% assign work_type = 'project' %}
+          {% endif %}
+          {% include components/cards/selected-work-card.html work=project type=work_type %}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  </div>
+</section>

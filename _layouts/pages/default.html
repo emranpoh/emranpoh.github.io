@@ -62,15 +62,19 @@
     {% endif %}
     {% endunless %}
 
-    <!-- Talks + Presentations Section -->
-    {% if page.id == 'emran' or page.title == 'Emran Poh' or page.id == 'works' %}
-    <div class="talks-section-wrapper"{% if page.id == 'works' %} id="main-content" role="main"{% endif %}>
+    <!-- Talks + Presentations Section (emran/landing only; works uses combined masonry) -->
+    {% if page.id == 'emran' or page.title == 'Emran Poh' %}
+    <div class="talks-section-wrapper">
       {% include components/talks-section.html %}
     </div>
     {% endif %}
     
-    <!-- Selected Works Section - Full Width Below Columns -->
-    {% if page.id == 'emran' or page.title == 'Emran Poh' or page.id == 'works' %}
+    <!-- Selected Works Section (emran/landing) OR Combined Masonry (works page) -->
+    {% if page.id == 'works' %}
+    <div class="works-masonry-wrapper" id="main-content" role="main">
+      {% include components/works-masonry.html %}
+    </div>
+    {% elsif page.id == 'emran' or page.title == 'Emran Poh' %}
     <div class="selected-works-wrapper">
       {% include components/selected-works.html %}
     </div>
@@ -78,7 +82,6 @@
     
     {% unless page.id == 'landing' %}
     <footer class="footer" role="contentinfo">
-      <p>made with care in {{ site.location }}</p>
       <p>&copy; {{ 'now' | date: '%Y' }} {{ site.title | downcase }}</p>
     </footer>
     {% endunless %}
