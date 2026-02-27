@@ -7,19 +7,9 @@
   {% assign author_pubs = author_pubs | where: "is-selected", true %}
 {% endif %}
 {% assign sorted_pubs = author_pubs | sort: 'year' | reverse %}
-{% comment %} Collect unique subject-tags (concept tags) from all publications {% endcomment %}
-{% assign all_tags = "" | split: "," %}
-{% for pub in author_pubs %}
-  {% if pub.subject-tags %}
-    {% for tag in pub.subject-tags %}
-      {% assign tag_clean = tag | strip %}
-      {% unless all_tags contains tag_clean %}
-        {% assign all_tags = all_tags | push: tag_clean %}
-      {% endunless %}
-    {% endfor %}
-  {% endif %}
-{% endfor %}
-{% assign all_tags = all_tags | sort %}
+{% assign pub_types_workshop = "Workshop Paper|Position Paper|Poster|Late-Breaking Poster" | split: "|" %}
+{% assign pubs_workshop = sorted_pubs | where_exp: "pub", "pub_types_workshop contains pub.type" %}
+{% assign pubs_main = sorted_pubs | where_exp: "pub", "pub.type != 'Workshop Paper' and pub.type != 'Position Paper' and pub.type != 'Poster' and pub.type != 'Late-Breaking Poster'" %}
 
 <section class="publications-section-container{% if include.selected_only %} publications-selected-only{% endif %}" aria-labelledby="publications-heading">
   {% if page.id == 'research' %}
@@ -31,111 +21,68 @@
     <p id="publications-heading" style="margin: 0;">selected publications</p>
   </div>
   {% else %}
-  <div class="intro-block publications-intro-block" style="margin-bottom: 4rem; text-align: left;">
-    {% include components/publications-filter-line.html %}
+  <div class="publications-split-sections">
+    <div class="publications-subsection">
+      <h2 class="publications-subsection-title">publications</h2>
+      <div class="publications-grid-wrapper">
+        <div class="publications-grid publications-grid-horizontal" id="publications-grid">
+          {% for pub in pubs_main %}
+            {% include components/cards/selected-work-card.html work=pub type='pub' %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="publications-subsection">
+      <h2 class="publications-subsection-title">position, workshop, and poster papers</h2>
+      <div class="publications-grid-wrapper">
+        <div class="publications-grid publications-grid-horizontal" id="publications-grid-workshop">
+          {% for pub in pubs_workshop %}
+            {% include components/cards/selected-work-card.html work=pub type='pub' %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
   </div>
   {% endif %}
+  {% if include.selected_only %}
   <div class="publications-grid-wrapper">
-    <p class="publications-empty-state" id="publications-empty-state" aria-live="polite" style="display: none;">No filters selected.</p>
     <div class="publications-grid publications-grid-horizontal" id="publications-grid">
   {% for pub in sorted_pubs %}
     {% include components/cards/selected-work-card.html work=pub type='pub' %}
   {% endfor %}
     </div>
   </div>
+  {% endif %}
+  {% unless include.selected_only %}
   <script>
     (function() {
-      var grid = document.getElementById('publications-grid');
-      var buttons = document.querySelectorAll('.publications-filter-buttons .pub-filter-btn');
-      if (!grid || !buttons.length) return;
-
-      function applyFilters() {
-        var activeTags = [];
-        buttons.forEach(function(b) {
-          if (b.classList.contains('active')) {
-            activeTags.push(b.getAttribute('data-filter'));
-          }
+      function attachBibHandler(gridId) {
+        var grid = document.getElementById(gridId);
+        if (!grid) return;
+        grid.addEventListener('click', function(e) {
+          var btn = e.target.closest('.work-bib-btn');
+          if (!btn) return;
+          e.preventDefault();
+          e.stopPropagation();
+          var wrap = btn.closest('.work-bib-wrap');
+          var el = wrap ? wrap.querySelector('.work-bib-content') : null;
+          if (!el) return;
+          var text = el.textContent.trim();
+          if (!text) return;
+          navigator.clipboard.writeText(text).then(function() {
+            var label = btn.getAttribute('aria-label');
+            btn.textContent = 'Copied';
+            btn.setAttribute('aria-label', 'Copied to clipboard');
+            setTimeout(function() {
+              btn.textContent = 'bib';
+              if (label) btn.setAttribute('aria-label', label);
+            }, 1500);
+          });
         });
-        var showAll = activeTags.indexOf('all') !== -1;
-        var visibleCount = 0;
-        grid.querySelectorAll('.work-grid-item').forEach(function(item) {
-          var tagsAttr = item.getAttribute('data-subject-tags');
-          var tags = tagsAttr ? tagsAttr.split('|') : [];
-          var show = showAll || (activeTags.length > 0 && tags.some(function(t) { return activeTags.indexOf(t) !== -1; }));
-          item.style.display = show ? '' : 'none';
-          if (show) visibleCount++;
-        });
-        var emptyEl = document.getElementById('publications-empty-state');
-        if (emptyEl) {
-          emptyEl.style.display = visibleCount === 0 ? '' : 'none';
-        }
       }
-
-      buttons.forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          var filter = this.getAttribute('data-filter');
-          var wasActive = this.classList.contains('active');
-          this.classList.toggle('active', !wasActive);
-          this.setAttribute('aria-pressed', !wasActive ? 'true' : 'false');
-          if (filter === 'all') {
-            if (wasActive) {
-              buttons.forEach(function(b) {
-                if (b.getAttribute('data-filter') !== 'all') {
-                  b.classList.remove('active');
-                  b.setAttribute('aria-pressed', 'false');
-                }
-              });
-            } else {
-              buttons.forEach(function(b) {
-                b.classList.add('active');
-                b.setAttribute('aria-pressed', 'true');
-              });
-            }
-          } else {
-            var allBtn = document.querySelector('.publications-filter-buttons .pub-filter-btn[data-filter="all"]');
-            if (wasActive) {
-              if (allBtn && allBtn.classList.contains('active')) {
-                allBtn.classList.remove('active');
-                allBtn.setAttribute('aria-pressed', 'false');
-              }
-            } else {
-              var allConceptTagsActive = true;
-              buttons.forEach(function(b) {
-                if (b.getAttribute('data-filter') !== 'all' && !b.classList.contains('active')) {
-                  allConceptTagsActive = false;
-                }
-              });
-              if (allBtn && allConceptTagsActive) {
-                allBtn.classList.add('active');
-                allBtn.setAttribute('aria-pressed', 'true');
-              }
-            }
-          }
-          applyFilters();
-        });
-      });
-      applyFilters();
+      attachBibHandler('publications-grid');
+      attachBibHandler('publications-grid-workshop');
     })();
-
-    document.getElementById('publications-grid')?.addEventListener('click', function(e) {
-      var btn = e.target.closest('.work-bib-btn');
-      if (!btn) return;
-      e.preventDefault();
-      e.stopPropagation();
-      var wrap = btn.closest('.work-bib-wrap');
-      var el = wrap?.querySelector('.work-bib-content');
-      if (!el) return;
-      var text = el.textContent.trim();
-      if (!text) return;
-      navigator.clipboard.writeText(text).then(function() {
-        var label = btn.getAttribute('aria-label');
-        btn.textContent = 'Copied';
-        btn.setAttribute('aria-label', 'Copied to clipboard');
-        setTimeout(function() {
-          btn.textContent = 'bib';
-          if (label) btn.setAttribute('aria-label', label);
-        }, 1500);
-      });
-    });
   </script>
+  {% endunless %}
 </section>

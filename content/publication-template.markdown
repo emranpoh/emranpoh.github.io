@@ -7,7 +7,7 @@ year: 2026
 status: "accepted"
 doi: ""
 image: ""
-permalink: /research/template/
+permalink: /research/publication-template/
 tags:
   - name: "HCI"
     url: "/research/#hci"

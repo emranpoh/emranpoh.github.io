@@ -1,12 +1,9 @@
 // Deterministic SVG selector for placeholder images based on title hash
 document.addEventListener('DOMContentLoaded', function() {
-  // List of 5 SVG filenames (user will add these to assets/images/projects/)
+  // Placeholder SVGs in assets/images/projects/ (use only those that exist)
   const placeholderSvgs = [
     'placeholder-1.svg',
-    'placeholder-2.svg',
-    'placeholder-3.svg',
-    'placeholder-4.svg',
-    'placeholder-5.svg'
+    'placeholder-2.svg'
   ];
   
   // Get the path to assets (works with or without baseurl)
@@ -49,6 +46,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const workImage = placeholder.closest('.work-image');
     if (workImage && !title) {
       const titleElement = workImage.querySelector('.work-title-overlay');
+      if (titleElement) {
+        title = titleElement.textContent.trim();
+      }
+    }
+    
+    // Look for title in publication-detail (individual research page hero)
+    const publicationDetail = placeholder.closest('.publication-detail');
+    if (publicationDetail && !title) {
+      const titleElement = publicationDetail.querySelector('.pub-title');
       if (titleElement) {
         title = titleElement.textContent.trim();
       }

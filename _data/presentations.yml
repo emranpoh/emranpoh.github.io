@@ -16,7 +16,7 @@ presentations:
     country: "Singapore"
     description: "A talk exploring themes of connection and isolation in Death Stranding, relating them to human-agent interaction."
     link: ""
-    image: "eidh.png"
+    image: "death-stranding-seminar.png"
     institution: "nus-hci"
     is-selected: false
     tags: ["death-stranding", "hci", "gaming", "connection"]
@@ -49,7 +49,7 @@ presentations:
     location: "Singapore Airshow"
     country: "Singapore"
     description: "Project showcase to aerospace industry experts on the potential of mixed reality for complex and dangerous assembly logistics. Demonstrated how MR can improve safety and precision in high-stakes manufacturing environments."
-    image: "mr-1.jpg"
+    image: "singapore-airshow-mr.jpg"
     link: ""
     institution: "singapore-airshow"
     tags: ["mixed-reality", "engineering", "fea", "demo"]
@@ -66,7 +66,7 @@ presentations:
     country: "Taiwan"
     description: "HCI research gathering with labs from National Yang Ming Chiao Tung University (Taiwan), Seoul National University, Hokkaido University, and SMU. Shared ongoing research work."
     link: ""
-    image: "nycu.jpeg"
+    image: "nycu-hci-meetup.jpeg"
     institution: "nycu"
     is-selected: false
     tags: []

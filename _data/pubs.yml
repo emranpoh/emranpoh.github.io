@@ -8,7 +8,7 @@
   year: 2026
   status: "published"
   institution: "smuhci"
-  image: "showit.png"
+  image: "show-it-software-guidance.png"
   is-selected: true
   emoji: "📝"
   url: "/research/show-it-software-guidance"
@@ -41,6 +41,7 @@
   type: "Workshop Paper"
   venue: "CHI 2026 Workshop: Understanding and Engaging Critical Resistance to AI in Education"
   venue_short: "CHI 26 Workshop"
+  workshop_name: "Understanding and Engaging Critical Resistance to AI in Education"
   location: "Barcelona, Spain"
   year: 2026
   status: "published"
@@ -131,7 +132,7 @@
   location: "Ingolstadt, Germany"
   year: 2023
   status: "published"
-  image: "intvr.png"
+  image: "intvrsection.png"
   institution: "immersification"
   emoji: "🚗"
   url: "/research/intvrsection"
@@ -170,7 +171,7 @@
   location: "Singapore"
   year: 2022
   status: "published"
-  image: "loadtable_fea.png"
+  image: "mr-fea-load-table.png"
   institution: "immersification"
   is-selected: true
   emoji: "🔍"
@@ -207,7 +208,7 @@
   year: 2022
   status: "published"
   institution: "immersification"
-  image: "mr4assembly.jpg"
+  image: "mr-assembly-planning.jpg"
   emoji: "⚙️"
   url: "/research/mr-assembly-planning"
   doi: "10.1007/978-3-031-19679-9_72"
@@ -247,7 +248,7 @@
   location: ""
   year: 2021
   status: "published"
-  image: "mr4fea.PNG"
+  image: "mr-fea-load-application.png"
   institution: "immersification"
   emoji: "📊"
   url: "/research/mr-load-application-fea"
@@ -279,7 +280,7 @@
   venue_short: "NewRIIS"
   location: ""
   year: 2021
-  image: "newriis.png"
+  image: "designing-with-holograms.png"
   institution: "immersification"
   emoji: "🖼️"
   url: "/research/designing-with-holograms"

@@ -148,12 +148,16 @@ body.page-research .research-column-pubs .work-citation-desktop {
   font-size: 0 !important;
 }
 
-/* Hide short title on research page - show full title only */
-body.page-research .research-column-pubs .work-tile-summary {
+/* Hide short title in pub list section - show full title only */
+body.page-research .research-column-pubs .work-tile-summary,
+.publications-section-wrapper .work-tile-summary,
+.publications-section-container .work-tile-summary {
   display: none !important;
 }
 
-/* Unbold pub titles on research page */
-body.page-research .research-column-pubs .work-title-text {
+/* Unbold pub titles in pub list section */
+body.page-research .research-column-pubs .work-title-text,
+.publications-section-wrapper .work-title-text,
+.publications-section-container .work-title-text {
   font-weight: 400;
 }

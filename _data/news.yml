@@ -127,7 +127,7 @@ news_items:
     conference: "CHI 2025"
     conference_link: "https://chi2025.acm.org/"
     institution: "acm"
-    image: "fbb97622-7af3-4f4a-9080-a6baf4209100.jpg"
+    image: "chi-2025-yokohama.jpg"
     summary: "Went to CHI 2025 in Yokohama — my first CHI. Talks, demos, and meeting a lot of the HCI community."
     content: |
       First time at CHI, and it was in Yokohama. Great to finally be there in person, see the work everyone's doing, and meet folks from the community.
@@ -168,7 +168,7 @@ news_items:
       Gave a talk at NUS-HCI Lab on emptiness, isolation, death, and hope — drawing parallels from Kojima's Death Stranding for human connection.
 
   - id: news-011
-    title: "Gave a talk on [How to Use XR for Physical Assault](/projects/xr01) at NUS-HCI Lab"
+    title: "Gave a talk on [How to Use XR for Physical Assault](/projects/xr-ethics-black-mirror) at NUS-HCI Lab"
     date: "2023-06-23"
     category: "Talk"
     tags: ["talk", "xr", "ethics", "black-mirror", "nus-hci"]

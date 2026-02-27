@@ -1,5 +1,5 @@
 - title: "Be-Longing"
-  image: "belonging.png"
+  image: "be-longing.png"
   subtitle: "A site-specific, augmented reality (AR) experiential artwork"
   year: 2023
   start-year: 2023
@@ -10,7 +10,7 @@
   label: "ART INSTALLATION"
   location: "University Town, NUS"
   description: "Site-specific AR artwork on UTown Green, NUS. Participants light AR sparklers with their phones, releasing AR balloons that float in the sky, celebrating community and connection. Ongoing permanent installation."
-  url: "/projects/art02"
+  url: "/projects/be-longing"
   tags:
     - name: "web"
       type: "web"
@@ -24,10 +24,10 @@
 
 - title: "Geylang Drip City Brand Development"
   subtitle: "Freelance Creative Consultant for Got Drip? Coffee Company"
-  image: "z10.png"
+  image: "geylang-drip-city.png"
   # images:
     # - "gdc.png"
-    # - "z10.png"
+    # - "geylang-drip-city.png"
     # - "meal_3.png"
     # - "cold-brew-trio.png"
   year: 2023
@@ -36,14 +36,14 @@
   projtype: "art"
   emoji: "🎨"
   label: "DESIGN"
-  url: "/projects/des01"
+  url: "/projects/geylang-drip-city"
   work-tags:
     - "Design"
 
 - title: "Notifications: Reimagined"
   module: "CS4249 Phenomena and Theories of Human-Computer Interaction"
   subtitle: "CS4249 Phenomena and Theories of Human-Computer Interaction. with Yash Gajaria, Ng Yu Zhong, Jasper Mai, Hyeyeon Yun"
-  image: "notifs.png"
+  image: "notifications-reimagined.png"
   year: 2019
   start-year: 2019
   end-year: 2019
@@ -60,7 +60,7 @@
   subtitle: "Educational Programming Workshop"
   location: "Linguaspark"
   role: "Instructor"
-  image: "mcc.png"
+  image: "minecraft-coding-camp.png"
   year: 2024
   start-year: 2024
   end-year: 2024
@@ -68,7 +68,7 @@
   emoji: "⛏️"
   description: "An educational coding camp using Minecraft as a platform to teach programming concepts to students. The camp combines game-based learning with hands-on coding exercises to make programming accessible and engaging to 6 students aged 10-13 over 4 days."
   url: "/projects/minecraft-coding"
-  # pdf: "/assets/images/projects/mcc.png"
+  # pdf: "/assets/images/projects/minecraft-coding-camp.png"
   tags:
     - name: "education"
       type: "education"
@@ -80,7 +80,7 @@
 
 - title: "Front Office System (FOS) for Hotel Management Mobile App"
   subtitle: "UX Lead for a collective project of 20 students"
-  image: "fos.png"
+  image: "front-office-system.png"
   year: 2018
   start-year: 2018
   end-year: 2018
@@ -96,13 +96,13 @@
 - title: "CS4240"
   subtitle: "Interaction Design for Virtual and Augmented Reality"
   tile_summary: "CS4240 Interaction Design for Virtual and Augmented Reality"
-  image: "CS4240.jpg"
+  image: "cs4240-vr-ar.jpg"
   year: 2023
   start-year: 2023
   end-year: 2023
   role: "Graduate Teaching Assistant"
   description: "Graduate Teaching Assistant providing personalized guidance for 20+ students across 13 VR-based educational game projects. Led teams to win prizes at the 22nd SoC Term Project Showcase (STePS)"
-  url: "/projects/cs4240"
+  url: "/projects/cs4240-vr-ar"
   modal_link_url: "https://nusmods.com/courses/CS4240/interaction-design-for-virtual-and-augmented-reality"
   modal_link_label: "CS4240 Interaction Design for Virtual and Augmented Reality"
   work-tags:

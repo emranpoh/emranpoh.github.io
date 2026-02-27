@@ -16,12 +16,17 @@ layout: pages/default
 <article class="publication-detail">
   {% include partials/pub-header.html pub=matched_pub %}
 
-  {% if page.image %}
+  {% if page.image and page.image != '' %}
   <hr class="publication-divider">
   <div class="publication-image">
       <img src="{{ '/assets/images/projects/' | append: page.image | relative_url }}" 
               alt="{{ page.title }}" 
               class="publication-image__img" loading="lazy">
+  </div>
+  {% else %}
+  <hr class="publication-divider">
+  <div class="publication-image publication-hero-placeholder-wrap">
+    {% include placeholder-hero.svg %}
   </div>
   {% endif %}
 
@@ -81,16 +86,20 @@ layout: pages/default
     });
   </script>
 
-  {% if matched_pub and (matched_pub.subject-tags or matched_pub.keywords) %}
+  {% if matched_pub %}
+  {% assign pub_subject_tags = matched_pub["subject-tags"] %}
+  {% assign pub_keywords = matched_pub.keywords %}
+  {% endif %}
+  {% if matched_pub and pub_subject_tags or matched_pub and pub_keywords %}
   <section class="publication-keywords">
     <div class="pub-tags pub-keywords">
-      {% if matched_pub.subject-tags %}
-        {% for tag in matched_pub.subject-tags %}
+      {% if pub_subject_tags %}
+        {% for tag in pub_subject_tags %}
         <span class="pub-tag">{{ tag }}</span>
         {% endfor %}
       {% endif %}
-      {% if matched_pub.keywords %}
-        {% for kw in matched_pub.keywords %}
+      {% if pub_keywords %}
+        {% for kw in pub_keywords %}
         <span class="pub-tag">{{ kw }}</span>
         {% endfor %}
       {% endif %}

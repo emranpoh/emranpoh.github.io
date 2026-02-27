@@ -1,6 +1,6 @@
 <header class="pub-header">
     {% if page.venue_short %}
-    <p class="pub-venue-short">{{ page.venue_short }}</p>
+    <p class="pub-venue-short">{{ page.venue_short }}{% if page.workshop_name and page.workshop_name != '' %}: <span class="pub-workshop-inline">{{ page.workshop_name }}</span>{% endif %}</p>
     {% endif %}
     <h1 class="pub-title">{{ page.title }}</h1>
     <div class="pub-meta">
@@ -26,6 +26,11 @@
     letter-spacing: 0.08em;
     color: #6b7280;
     margin: 0 0 0.5rem;
+    line-height: 1.4;
+}
+
+.pub-venue-short .pub-workshop-inline {
+    text-transform: none;
 }
 
 .pub-title {

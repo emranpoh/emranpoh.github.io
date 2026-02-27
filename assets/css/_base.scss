@@ -51,14 +51,26 @@ body {
   margin: 0 auto;
   height: 100vh;
   scroll-behavior: smooth;
-  
+
+  /* Gentle fade-in on load */
+  animation: page-fade-in 0.6s ease-out forwards;
+
   /* Hide scrollbar permanently but keep scrolling */
   overflow-y: auto;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* Internet Explorer 10+ */
-  
+
   &::-webkit-scrollbar {
     display: none; /* WebKit */
+  }
+}
+
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 

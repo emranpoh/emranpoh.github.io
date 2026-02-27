@@ -12,9 +12,11 @@
   {% endif %}
 {% endfor %}
 {% assign filter_all_tags = filter_all_tags | sort %}
+<div class="publications-intro-block-hr">
 <p id="publications-heading" class="publications-intro-line" style="margin: 0;">
   My publications span
   <span class="publications-filter-buttons publications-filter-inline" role="group" aria-label="Filter publications by concept">
     {% for tag in filter_all_tags %}<button type="button" class="pub-filter-btn active" data-filter="{{ tag }}" aria-pressed="true">{{ tag }}</button>{% endfor %}<button type="button" class="pub-filter-btn active" data-filter="all" aria-pressed="true">all of the above</button>.
   </span>
 </p>
+</div>

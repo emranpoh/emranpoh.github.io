@@ -6,7 +6,7 @@ venue: "2026 ACM Conference on Human Factors in Computing Systems (CHI '26)"
 venue_short: "CHI 26"
 year: 2026
 status: "accepted"
-image: "showit-hero.png"
+image: "show-it-software-guidance-hero.png"
 permalink: /research/show-it-software-guidance/
 tags:
   - name: "HCI"

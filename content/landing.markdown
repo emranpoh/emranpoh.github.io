@@ -9,6 +9,7 @@ id: landing
 <div class="landing-container">
   <div class="landing-name">{{ site.title }}</div>
   <div class="landing-subtitle">cs phd @ smu-hai lab</div>
+  <div class="landing-tagline">multimodal adaptive tutoring<br>+ creativity support tools</div>
   <div class="landing-email">emran.poh.2025[at]smu.edu.sg</div>
   <div class="landing-buttons-wrap">
   <a href="{{ '/research' | relative_url }}" class="landing-btn landing-btn-research" aria-label="Research">
@@ -17,7 +18,7 @@ id: landing
   </a>
   <a href="{{ '/research/show-it-software-guidance' | relative_url }}" class="landing-btn landing-btn-showit" aria-label="Showit CHI 26">
     <span class="landing-btn-num">2</span>
-    <img src="{{ '/assets/images/showit-manuscript.png' | relative_url }}" alt="Showit Manuscript" class="landing-btn-img">
+    <img src="{{ '/assets/images/show-it-manuscript.png' | relative_url }}" alt="Showit Manuscript" class="landing-btn-img">
   </a>
   <a href="{{ '/assets/pdfs/emran-cv.pdf' | relative_url }}" class="landing-btn landing-btn-cv" target="_blank" rel="noopener noreferrer" aria-label="CV">
     <span class="landing-btn-num">3</span>
@@ -80,6 +81,14 @@ id: landing
   font-size: 0.875rem;
   font-weight: 400;
   color: #666;
+  text-transform: lowercase;
+  margin-bottom: 0.25rem;
+}
+
+.landing-tagline {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: #888;
   text-transform: lowercase;
   margin-bottom: 0.25rem;
 }

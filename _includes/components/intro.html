@@ -1,16 +1,50 @@
 <section class="w-full intro-section">
   <div class="intro-container">
-    <div class="intro-image">
-      <img src="{{ '/assets/images/projects/me.jpeg' | relative_url }}" alt="Emran Poh" class="intro-placeholder-image">
+    {% if include.research_page and site.data.intro.research %}
+    <div class="intro-image-research-row">
+      <div class="intro-image-column">
+        <div class="intro-image">
+          <img src="{{ '/assets/images/projects/me.jpeg' | relative_url }}" alt="Emran Poh" class="intro-placeholder-image">
+        </div>
+        <div class="intro-meta-bottom">
+          {% if site.data.intro.university %}
+          <div class="intro-university">{{ site.data.intro.university }}</div>
+          {% endif %}
+          <div class="intro-email-line"><span class="intro-email">emran.poh.2025 [at] smu.edu.sg</span></div>
+        </div>
+      </div>
+      <div class="intro-image-research-content">
+        <div class="intro-name-pronouns intro-name-above">
+          <div class="intro-name">{{ site.title }}</div>
+        </div>
+        {% if site.data.intro.current or site.data.intro.past %}
+        {% assign intro_para_items = site.data.intro.current | concat: site.data.intro.past %}
+        <div class="intro-current-above">
+          <div class="intro-subsection-item">
+            <span class="intro-subsection-item-content">{{ intro_para_items | join: ' ' | markdownify }}</span>
+          </div>
+        </div>
+        {% endif %}
+        <div class="intro-subsection intro-research-lead">
+          {% for item in site.data.intro.research %}
+          <div class="intro-subsection-item">
+            <span class="intro-subsection-item-content">{{ item | markdownify }}</span>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% else %}
+    <div class="intro-image-name-row">
+      <div class="intro-image">
+        <img src="{{ '/assets/images/projects/me.jpeg' | relative_url }}" alt="Emran Poh" class="intro-placeholder-image">
+      </div>
+      <div class="intro-name-pronouns intro-name-above">
+        <div class="intro-name">{{ site.title }}</div>
+      </div>
     </div>
     <div class="intro-content">
       <div class="h-64 mb-4 introduction">
-        <div class="intro-name-pronouns">
-          <div class="intro-name">{{ site.title }}</div>
-          <div class="intro-meta">
-            <span class="intro-pronouns">he/him</span>
-          </div>
-        </div>
         {% assign first_para = site.data.intro.paragraphs[0] %}
         <div class="intro-block">
           {% unless site.data.intro.current %}{{ first_para | markdownify }}{% endunless %}
@@ -25,38 +59,21 @@
         </div>
       </div>
     </div>
+    {% endif %}
   </div>
   <div class="intro-content intro-content-below">
     {% if include.research_page and site.data.intro.research %}
-    <div class="intro-subsection intro-research-lead">
-      <div class="intro-subsection-label">research</div>
-      {% for item in site.data.intro.research %}
-      <div class="intro-subsection-item">
-        <span class="intro-subsection-item-content">{{ item | markdownify }}</span>
-      </div>
-      {% endfor %}
-    </div>
-    <div class="intro-subsection intro-publications-filter">
-      {% include components/publications-filter-line.html %}
-    </div>
+    {% comment %} research is in intro-image-research-row above {% endcomment %}
     {% endif %}
-    {% if site.data.intro.current %}
-    <div class="intro-subsection intro-current">
-      <div class="intro-subsection-label">current</div>
-      {% for item in site.data.intro.current %}
+    {% if site.data.intro.current or site.data.intro.past %}
+    {% unless include.research_page %}
+    {% assign background_items = site.data.intro.current | concat: site.data.intro.past %}
+    <div class="intro-subsection intro-background">
       <div class="intro-subsection-item">
-        <span class="intro-subsection-item-content">{{ item | markdownify }}</span>
-      </div>
-      {% endfor %}
-    </div>
-    {% endif %}
-    {% if site.data.intro.past %}
-    <div class="intro-subsection intro-past">
-      <div class="intro-subsection-label">past</div>
-      <div class="intro-subsection-item intro-past-paragraph">
-        <span class="intro-subsection-item-content">{{ site.data.intro.past | join: ' ' | markdownify }}</span>
+        <span class="intro-subsection-item-content">{{ background_items | join: ' ' | markdownify }}</span>
       </div>
     </div>
+    {% endunless %}
     {% endif %}
     {% unless site.data.intro.current or site.data.intro.past %}
     {% assign pursuing_para = site.data.intro.paragraphs[1] %}
