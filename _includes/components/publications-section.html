@@ -8,8 +8,8 @@
 {% endif %}
 {% assign sorted_pubs = author_pubs | sort: 'year' | reverse %}
 {% assign pub_types_workshop = "Workshop Paper|Position Paper|Poster|Late-Breaking Poster" | split: "|" %}
-{% assign pubs_workshop = sorted_pubs | where_exp: "pub", "pub_types_workshop contains pub.type" %}
-{% assign pubs_main = sorted_pubs | where_exp: "pub", "pub.type != 'Workshop Paper' and pub.type != 'Position Paper' and pub.type != 'Poster' and pub.type != 'Late-Breaking Poster'" %}
+{% assign pubs_workshop = sorted_pubs | where_exp: "item", "pub_types_workshop contains item.type" %}
+{% assign pubs_main = sorted_pubs | where_exp: "item", "item.type != 'Workshop Paper'" | where_exp: "item", "item.type != 'Position Paper'" | where_exp: "item", "item.type != 'Poster'" | where_exp: "item", "item.type != 'Late-Breaking Poster'" %}
 
 <section class="publications-section-container{% if include.selected_only %} publications-selected-only{% endif %}" aria-labelledby="publications-heading">
   {% if page.id == 'research' %}

@@ -9,7 +9,7 @@ id: landing
 <div class="landing-container">
   <div class="landing-name">{{ site.title }}</div>
   <div class="landing-subtitle">cs phd @ smu-hai lab</div>
-  <div class="landing-tagline">multimodal adaptive tutoring<br>+ creativity support tools</div>
+  <div class="landing-tagline">ai tutoring + creativity tools</div>
   <div class="landing-email">emran.poh.2025[at]smu.edu.sg</div>
   <div class="landing-buttons-wrap">
   <a href="{{ '/research' | relative_url }}" class="landing-btn landing-btn-research" aria-label="Research">
