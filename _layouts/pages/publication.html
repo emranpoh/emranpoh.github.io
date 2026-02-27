@@ -2,24 +2,99 @@
 layout: pages/default
 ---
 
+{% assign current_url = page.permalink | default: page.url %}
+{% assign current_url_norm = current_url | replace: 'index.html', '' | append: '/' | replace: '//', '/' %}
+
+{% assign matched_pub = nil %}
+{% for pub in site.data.pubs %}
+  {% assign pub_url_norm = pub.url | replace: 'index.html', '' | append: '/' | replace: '//', '/' %}
+  {% if pub_url_norm == current_url_norm %}
+    {% assign matched_pub = pub %}
+  {% endif %}
+{% endfor %}
+
 <article class="publication-detail">
-{% include partials/pub-header.html %}
+  {% include partials/pub-header.html pub=matched_pub %}
 
-{% if page.image %}
-<div class="publication-image">
-    <img src="{{ '/assets/images/projects/' | append: page.image | relative_url }}" 
-            alt="{{ page.title }}" 
-            class="publication-image__img" loading="lazy">
-</div>
-{% endif %}
+  {% if page.image %}
+  <hr class="publication-divider">
+  <div class="publication-image">
+      <img src="{{ '/assets/images/projects/' | append: page.image | relative_url }}" 
+              alt="{{ page.title }}" 
+              class="publication-image__img" loading="lazy">
+  </div>
+  {% endif %}
 
-{% if page.abstract %}
-<div class="publication-abstract">
-    <p class="publication-abstract__text">{{ page.abstract }}</p>
-</div>
-{% endif %}
+  <div class="publication-body">
+    <aside class="publication-sidebar">
+      {% if matched_pub and matched_pub.tags %}
+        {% for tag in matched_pub.tags %}
+          {% if tag.name == "pdf" and tag.url %}
+          <a href="{{ tag.url | relative_url }}" target="_blank" class="pub-preprint-btn">view preprint</a>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+      <button type="button" class="pub-copy-bib-btn" aria-label="Copy BibTeX">copy bibtex</button>
+      {% assign bib_content = page.bib | default: matched_pub.bib %}
+      {% if bib_content %}
+      <span class="pub-bib-data" aria-hidden="true">{{ bib_content }}</span>
+      {% endif %}
+    </aside>
+    <div class="publication-main">
+      <div class="publication-content">
+        {% if matched_pub and matched_pub.abstract %}
+        <p class="publication-abstract">{{ matched_pub.abstract }}</p>
+        {% endif %}
 
-<div class="publication-content">
-{{ content }}
-</div>
+        {{ content }}
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelector('.pub-copy-bib-btn')?.addEventListener('click', function() {
+        var text = null;
+        var dataEl = document.querySelector('.pub-bib-data');
+        if (dataEl) { text = dataEl.textContent.trim(); }
+        if (!text) {
+          var code = document.querySelector('.publication-detail pre code.language-bibtex, .publication-detail pre code[class*="bibtex"]');
+          if (code) { text = code.textContent.trim(); }
+        }
+        if (!text) {
+          var pres = document.querySelectorAll('.publication-detail pre');
+          for (var i = 0; i < pres.length; i++) {
+            var block = pres[i].querySelector('code') || pres[i];
+            var t = block.textContent.trim();
+            if (t && /^@\w+\s*\{/.test(t)) { text = t; break; }
+          }
+        }
+        if (!text) return;
+        navigator.clipboard.writeText(text).then(function() {
+          var btn = document.querySelector('.pub-copy-bib-btn');
+          var original = btn.textContent;
+          btn.textContent = 'Copied!';
+          btn.setAttribute('aria-label', 'Copied to clipboard');
+          setTimeout(function() { btn.textContent = original; btn.setAttribute('aria-label', 'Copy BibTeX'); }, 1500);
+        });
+      });
+    });
+  </script>
+
+  {% if matched_pub and (matched_pub.subject-tags or matched_pub.keywords) %}
+  <section class="publication-keywords">
+    <div class="pub-tags pub-keywords">
+      {% if matched_pub.subject-tags %}
+        {% for tag in matched_pub.subject-tags %}
+        <span class="pub-tag">{{ tag }}</span>
+        {% endfor %}
+      {% endif %}
+      {% if matched_pub.keywords %}
+        {% for kw in matched_pub.keywords %}
+        <span class="pub-tag">{{ kw }}</span>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </section>
+  {% endif %}
 </article>

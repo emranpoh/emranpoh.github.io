@@ -167,6 +167,24 @@
   }
 }
 
+/* Notes page placeholder sizing */
+.content-notes .placeholder-image {
+  width: 100%;
+  max-width: 100%;
+  height: 200px;
+  margin: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-notes .placeholder-image .placeholder-svg {
+  width: 40%;
+  height: auto;
+  max-width: 200px;
+  max-height: 160px;
+}
+
 .pub-content {
   padding: 12px 8px;
   display: flex;
@@ -224,15 +242,16 @@
   color: #666; /* Same color as the meta text */
 }
 
-.pub-authors {
-  font-size: 12px !important;
+/* Compact publication listings (cards/list items) */
+.pub-item .pub-authors {
+  font-size: 12px;
   font-weight: 400;
   color: #444;
   margin: 0 0 2px 0;
 }
 
-.pub-venue {
-  font-size: 11px !important;
+.pub-item .pub-venue {
+  font-size: 11px;
   color: #666;
   font-style: italic;
   font-weight: 400;
@@ -244,6 +263,53 @@
   gap: 6px;
   flex-wrap: wrap;
   margin-top: 6px;
+}
+
+/* Notes template: concept/keyword tags */
+.content-notes .pub-tags {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.content-notes .pub-tag {
+  display: inline-flex;
+  align-items: center;
+  background-color: #f3f4f6;
+  color: #374151;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  cursor: default;
+}
+
+.content-notes .pub-tag:hover {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+/* Notes template: BibTeX block */
+.content-notes pre,
+.content-notes pre code {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.content-notes pre {
+  background-color: #f5f5f5;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+}
+
+/* Ensure the BibTeX container itself has a visible background,
+ * regardless of whether the class is on a div or the code element. */
+.content-notes .language-bibtex,
+.content-notes pre code.language-bibtex {
+  display: block;
+  background-color: #f3f4f6;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
 }
 
 /* Publications Gallery */
@@ -596,7 +662,16 @@ footer {
   padding: 1rem 2rem;
   border-top: none;
   background: transparent;
-  font-size: 0.875rem;
+  font-size: 0.5rem;
+}
+
+@include tablet-up {
+  footer {
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
 }
 
 .footer-links {
@@ -615,7 +690,7 @@ footer {
 }
 
 .powered-by-text {
-  font-size: 12px;
+  font-size: 0.4375rem;
   color: #333;
   user-select: none;
   -webkit-user-select: none;

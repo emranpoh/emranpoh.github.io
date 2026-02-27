@@ -1,7 +1,7 @@
 ---
 layout: masonry
 title: research
-permalink: /publications/
+permalink: /research/
 id: pubs
 ---
 

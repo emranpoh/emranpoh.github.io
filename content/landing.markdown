@@ -15,7 +15,7 @@ id: landing
     <span class="landing-btn-num">1</span>
     <img src="{{ '/assets/images/book.png' | relative_url }}" alt="Research" class="landing-btn-img">
   </a>
-  <a href="{{ '/assets/pdfs/showitdontsayit_multimodal_software_guidance.pdf' | relative_url }}" class="landing-btn landing-btn-showit" target="_blank" rel="noopener noreferrer" aria-label="Showit Manuscript">
+  <a href="{{ '/research/show-it-software-guidance' | relative_url }}" class="landing-btn landing-btn-showit" aria-label="Showit CHI 26">
     <span class="landing-btn-num">2</span>
     <img src="{{ '/assets/images/showit-manuscript.png' | relative_url }}" alt="Showit Manuscript" class="landing-btn-img">
   </a>

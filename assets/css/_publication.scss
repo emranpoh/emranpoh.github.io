@@ -1,3 +1,77 @@
+// Publication detail page styles (all viewports)
+.publication-body {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.publication-sidebar {
+  flex: 0 0 auto;
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pub-bib-data {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.publication-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.publication-abstract {
+  font-size: 0.5rem;
+  font-weight: 350;
+  line-height: 1.5;
+  color: #000;
+  margin: 0 0 1.5rem;
+}
+
+// Keywords: match pub list (.work-venue-tags .subject-tag)
+.publication-detail .pub-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.publication-detail .pub-keywords .pub-tag {
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  color: #718096;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  border: 1px solid #e0e0e0;
+  font-size: 0.875rem;
+  cursor: default;
+}
+
+.publication-detail pre,
+.publication-detail pre code {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.publication-detail pre {
+  background-color: #f5f5f5;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+}
+
 // Publication detail page styles - Desktop
 @include tablet-up {
   .content-block {
@@ -9,6 +83,36 @@
     max-width: 800px;
     margin: 0 auto;
     padding: 2rem 1rem;
+  }
+
+  .publication-detail .pub-preprint-btn,
+  .publication-detail .pub-copy-bib-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+    font-size: 1rem;
+    color: #4b5563 !important;
+    text-decoration: none;
+    font-family: inherit;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    background: none;
+    border: none;
+    padding: 0;
+
+    &:hover {
+      color: #374151 !important;
+    }
+  }
+
+  .publication-detail .pub-copy-bib-btn {
+    text-align: left;
+  }
+
+  .publication-divider {
+    border: 0;
+    border-top: 1px solid #e5e7eb;
+    margin: 1.5rem 0 1.75rem;
   }
 
   .publication-header {
@@ -34,29 +138,17 @@
   }
 
   .publication-image__img {
+    display: block;
     width: 100%;
-    max-height: 320px;
     height: auto;
-    object-fit: contain;
+    object-fit: cover;
     border-radius: 8px;
-  }
-
-  .publication-abstract {
-    margin: 2rem 0;
-    padding: 1.5rem;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-  }
-
-  .publication-abstract__text {
-    margin: 0;
-    line-height: 1.6;
-    color: #4b5563;
   }
 
   .publication-content {
     line-height: 1.6;
     font-size: 1.125rem;
+    font-weight: 350;
   }
 
   .publication-content p {
@@ -109,8 +201,20 @@
 }
 
 @include mobile {
+  .publication-body {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .publication-sidebar {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
   .publication-content {
     font-size: 1rem;
+    font-weight: 350;
   }
   
   .publication-content h2 {

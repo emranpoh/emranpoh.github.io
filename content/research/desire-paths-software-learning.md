@@ -8,7 +8,7 @@ year: 2026
 status: "under review"
 doi: ""
 image: ""
-permalink: /publications/chi03/
+permalink: /research/desire-paths-software-learning/
 tags:
   - name: "HCI"
     url: "/research/#hci"

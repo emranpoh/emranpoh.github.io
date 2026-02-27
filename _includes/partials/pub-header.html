@@ -1,15 +1,13 @@
 <header class="pub-header">
+    {% if page.venue_short %}
+    <p class="pub-venue-short">{{ page.venue_short }}</p>
+    {% endif %}
     <h1 class="pub-title">{{ page.title }}</h1>
     <div class="pub-meta">
         <p class="pub-authors">{{ page.authors }}</p>
-        <p class="pub-venue">{{ page.venue }}</p>
         <div class="pub-tags">
             {% if page.status == "under review" or page.status == "submitted" %}
             <span class="pub-tag pub-tag-status">Under Review</span>
-            {% endif %}
-            <span class="pub-tag">{{ page.year }}</span>
-            {% if page.venue_short %}
-            <span class="pub-tag">{{ page.venue_short }}</span>
             {% endif %}
             {% if page.doi %}
             <a href="https://doi.org/{{ page.doi }}" target="_blank" class="pub-tag pub-tag-link">
@@ -22,29 +20,38 @@
 </header>
 
 <style>
+.pub-venue-short {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #6b7280;
+    margin: 0 0 0.5rem;
+}
+
 .pub-title {
     font-size: 2.5rem;
     line-height: 1.2;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     font-weight: 700;
+}
+
+.pub-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
 }
 
 .pub-authors {
     font-size: 1.25rem;
+    font-weight: 350;
     color: #4a5568;
-    margin-bottom: 0.75rem;
-}
-
-.pub-venue {
-    font-size: 1.125rem;
-    color: #718096;
-    margin-bottom: 0.5rem;
+    margin: 0;
 }
 
 .pub-tags {
     display: flex;
     gap: 0.5rem;
-    margin-bottom: 1rem;
+    margin: 0;
 }
 
 .pub-tag {

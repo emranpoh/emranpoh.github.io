@@ -3,7 +3,7 @@
   authors: "Emran Poh, Yueyue Hou, Tianyi Zhang, and Jiannan Li"
   type: "Full Paper"
   venue: "2026 ACM Conference on Human Factors in Computing Systems (CHI '26)"
-  venue_short: "CHI"
+  venue_short: "CHI 26"
   location: ""
   year: 2026
   status: "published"
@@ -11,13 +11,12 @@
   image: "showit.png"
   is-selected: true
   emoji: "📝"
-  url: "/publications/chi01"
-  doi: "10.1145/3772318.3791200"
+  url: "/research/show-it-software-guidance"
   bib: ""
   tags:
     - name: "pdf"
       url: "/assets/pdfs/showitdontsayit_multimodal_software_guidance.pdf"
-  abstract: "[ABSTRACT TO BE ADDED]"
+  abstract: "Designing adaptive tutoring systems for software learning presents challenges in determining appropriate instructional modalities. To inform the design of such systems, we conducted an observational study of ten human teacher-student pairs (N=10), where experienced design software users taught novices two new graphic design software features through multi-step procedures. These lessons were limited to three communication channels (speech, visual annotations, and remote screen control) to mimic possible AI tutor modalities. We found that annotations complement speech with spatial precision and remote control complements it with spatial and temporal precision, but both cause intrusion to learner agency. Teachers adaptively select modalities to balance the need for instruction progress with students’ cognitive engagement and sense of digital territory ownership. Our results provide further support to the contiguity principles and the value of agency in learning, while suggesting precision-agency trade-off and digital territoriality as new design constraints for adaptive software guidance."
   citation: |
     Emran Poh, Yueyue Hou, Tianyi Zhang, and Jiannan Li. 2026. 'Show It, Don't Just Say It': The Complementary Effects of Instruction Multimodality for Software Guidance. In Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems (CHI '26), April 13–17, 2026, Barcelona, Spain. ACM, New York, NY, USA, 18 pages. https://doi.org/10.1145/3772318.3791200
   work-tags:
@@ -41,7 +40,7 @@
   authors: "Emran Poh"
   type: "Workshop Paper"
   venue: "CHI 2026 Workshop: Understanding and Engaging Critical Resistance to AI in Education"
-  venue_short: "CHI '26 Workshop"
+  venue_short: "CHI 26 Workshop"
   location: "Barcelona, Spain"
   year: 2026
   status: "published"
@@ -49,10 +48,9 @@
   image: ""
   is-selected: false
   emoji: "📚"
-  url: "/publications/chi02"
-  doi: ""
+  url: "/research/when-not-to-help"
   bib: ""
-  abstract: ""
+  abstract: "We invert the usual question about GenAI in education: rather than ask how to deploy new capabilities, we ask what role GenAI should play given what we know about effective human teaching. This position draws on an observational study of ten teacher-student pairs using speech, visual annotations, and remote screen control to teach Figma to novices. Teachers consistently showed restraint---avoiding high-precision modalities when it would undermine learning---which we interpret as pedagogical wisdom, not inefficiency. We argue this reveals a precision-agency tradeoff and digital territoriality as design constraints for GenAI tutors. We contribute empirical evidence of how teachers balance help with learner agency, methodological guidance for evaluation under authentic motivation, and implications for metrics and design process that treat restraint and friction as valid design goals."
   citation: ""
   work-tags:
     - "Research"
@@ -75,7 +73,7 @@
   image: ""
   is-selected: false
   emoji: "🛤️"
-  url: "/publications/chi03"
+  url: "/research/desire-paths-software-learning"
   doi: ""
   bib: ""
   abstract: ""
@@ -101,7 +99,7 @@
   image: "artefact-awareness.png"
   is-selected: true
   emoji: "👥"
-  url: "/publications/art01"
+  url: "/research/artefact-awareness-workspaces"
   doi: "10.1109/ISMAR-Adjunct60411.2023.00019"
   bib: ""
   pdf: "/assets/pdfs/sample.pdf"
@@ -136,7 +134,7 @@
   image: "intvr.png"
   institution: "immersification"
   emoji: "🚗"
-  url: "/publications/int01"
+  url: "/research/intvrsection"
   doi: "10.1145/3581961.3610373"
   bib: |
     @inproceedings{lee2023intvrsection,
@@ -176,7 +174,7 @@
   institution: "immersification"
   is-selected: true
   emoji: "🔍"
-  url: "/publications/mr01"
+  url: "/research/mr-fea-design-review"
   doi: "10.1109/ISMAR-Adjunct57072.2022.00136"
   bib: |
     @inproceedings{poh2022mixed,
@@ -211,7 +209,7 @@
   institution: "immersification"
   image: "mr4assembly.jpg"
   emoji: "⚙️"
-  url: "/publications/mr02"
+  url: "/research/mr-assembly-planning"
   doi: "10.1007/978-3-031-19679-9_72"
   bib: |
     @inproceedings{poh2022mixed,
@@ -252,7 +250,7 @@
   image: "mr4fea.PNG"
   institution: "immersification"
   emoji: "📊"
-  url: "/publications/mr03"
+  url: "/research/mr-load-application-fea"
   doi: "10.1007/978-3-030-77626-8_32"
   bib: ""
   abstract: "This work introduces a mixed reality interface for applying loads in finite element analysis, providing an intuitive way to interact with and visualize load applications in 3D space."
@@ -284,7 +282,7 @@
   image: "newriis.png"
   institution: "immersification"
   emoji: "🖼️"
-  url: "/publications/hol01"
+  url: "/research/designing-with-holograms"
   bib: ""
   abstract: "We investigate the potential of holographic displays for improving design visualization, exploring how holographic technology can enhance the understanding and communication of design concepts."
   tags:

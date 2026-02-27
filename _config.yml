@@ -65,7 +65,7 @@ collections:
     permalink: /projects/:name/
   publications:
     output: true
-    permalink: /publications/:title/
+    permalink: /research/:title/
 
 # Default Front Matter
 defaults:
@@ -89,7 +89,7 @@ defaults:
     values:
       layout: "pages/project"
   - scope:
-      path: "content/publications"
+      path: "content/research"
       type: "publications"
     values:
       layout: "pages/publication"
