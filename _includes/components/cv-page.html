@@ -1,0 +1,226 @@
+{% comment %} Online CV - renders from _data/cv.yml {% endcomment %}
+{% assign cv = site.data.cv %}
+
+<article class="cv-page">
+  <header class="cv-header">
+    {% if cv.research_interests %}
+    <p class="cv-interests"><strong>Research interests:</strong> {{ cv.research_interests }}</p>
+    {% endif %}
+  </header>
+
+  <nav class="cv-content-nav" aria-label="CV contents">
+    <ul>
+      {% if cv.education and cv.education.size > 0 %}<li><a href="#education">Education</a></li>{% endif %}
+      {% if cv.professional and cv.professional.size > 0 %}<li><a href="#experience">Experience</a></li>{% endif %}
+      {% assign cv_pubs_check = site.data.pubs | where_exp: "pub", "pub.authors contains 'Emran Poh'" | where_exp: "pub", "pub.status != 'under review'" | where_exp: "pub", "pub.status != 'submitted'" %}
+      {% if cv_pubs_check.size > 0 %}<li><a href="#publications">Publications</a></li>{% endif %}
+      {% assign cv_presentations_check = site.data.presentations.presentations %}
+      {% if cv_presentations_check.size > 0 %}<li><a href="#presentations-talks">Presentations & Talks</a></li>{% endif %}
+      {% if cv.mentoring_interns and cv.mentoring_interns.size > 0 %}<li><a href="#mentoring-interns">Mentoring & Interns</a></li>{% endif %}
+      {% if cv.teaching and cv.teaching.size > 0 %}<li><a href="#teaching">Teaching</a></li>{% endif %}
+      {% if cv.service and cv.service.size > 0 %}<li><a href="#service">Service</a></li>{% endif %}
+      {% if cv.membership and cv.membership.size > 0 %}<li><a href="#membership">Membership</a></li>{% endif %}
+      {% if cv.scholarships and cv.scholarships.size > 0 %}<li><a href="#scholarships-awards">Scholarships & Awards</a></li>{% endif %}
+      {% if cv.skills and cv.skills.size > 0 %}<li><a href="#skills">Skills</a></li>{% endif %}
+      {% if cv.languages and cv.languages.size > 0 %}<li><a href="#languages">Languages</a></li>{% endif %}
+    </ul>
+  </nav>
+
+  {% if cv.education and cv.education.size > 0 %}
+  <section class="cv-section" id="education">
+    <h2 class="cv-section-title">Education</h2>
+    {% for item in cv.education %}
+    <div class="cv-item">
+      <div class="cv-item-header">
+        <span class="cv-item-title">{{ item.title }}</span>
+        <span class="cv-item-date">
+          {% if item.current %}Present{% else %}{{ item.start_year }}{% if item.end_year %}–{{ item.end_year }}{% endif %}{% endif %}
+        </span>
+      </div>
+      <div class="cv-item-org">{{ item.organization }}{% if item.location %}, {{ item.location }}{% endif %}</div>
+      {% if item.advisor %}<div class="cv-item-meta">Advisor: {{ item.advisor | markdownify }}</div>{% endif %}
+      {% if item.thesis and item.thesis != '' %}<div class="cv-item-meta">Thesis: {{ item.thesis }}</div>{% endif %}
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% if cv.professional and cv.professional.size > 0 %}
+  <section class="cv-section" id="experience">
+    <h2 class="cv-section-title">Experience</h2>
+    {% for item in cv.professional %}
+    <div class="cv-item">
+      <div class="cv-item-header">
+        <span class="cv-item-title">{{ item.title }}</span>
+        <span class="cv-item-date">
+          {% if item.current %}Present{% else %}
+          {% assign sm = item.start_month | default: '' %}
+          {% assign sy = item.start_year %}
+          {% assign em = item.end_month | default: '' %}
+          {% assign ey = item.end_year %}
+          {% if sm != '' %}{{ sm }}/{% endif %}{{ sy }}–{% if em != '' %}{{ em }}/{% endif %}{{ ey }}{% endif %}
+        </span>
+      </div>
+      <div class="cv-item-org">
+        {% if item.link %}<a href="{{ item.link }}" target="_blank" rel="noopener noreferrer">{{ item.organization }}</a>{% else %}{{ item.organization }}{% endif %}
+        {% if item.location %}, {{ item.location }}{% endif %}
+      </div>
+      <div class="cv-item-desc">{{ item.description | markdownify }}</div>
+      {% if item.notable_presentations %}
+      <ul class="cv-item-list">
+        {% for np in item.notable_presentations %}<li>{% if np.label %}{{ np.label }}: {% endif %}{{ np.title }}</li>{% endfor %}
+      </ul>
+      {% endif %}
+      {% if item.notable_projects %}
+      <p class="cv-item-list-label">{{ item.notable_projects_label | default: "Selected outputs" }}:</p>
+      <ul class="cv-item-list">
+        {% for np in item.notable_projects %}<li>{{ np.title }}</li>{% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% assign cv_pubs = site.data.pubs | where_exp: "pub", "pub.authors contains 'Emran Poh'" | where_exp: "pub", "pub.status != 'under review'" | where_exp: "pub", "pub.status != 'submitted'" | sort: "year" | reverse %}
+  {% if cv_pubs.size > 0 %}
+  <section class="cv-section" id="publications">
+    <h2 class="cv-section-title">Publications</h2>
+    {% for pub in cv_pubs %}
+    <div class="cv-item cv-item-compact cv-pub">
+      <div class="cv-pub-authors" data-highlight-name="Emran Poh">{{ pub.authors }}</div>
+      <div class="cv-pub-title">
+        {% if pub.url %}<a href="{{ pub.url | relative_url }}">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif %}
+      </div>
+      <div class="cv-pub-venue">{{ pub.venue }}{% if pub.year %} ({{ pub.year }}){% endif %}{% if pub.location and pub.location != '' %}. {{ pub.location }}{% endif %}</div>
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% assign cv_presentations = site.data.presentations.presentations | sort: "date" | reverse %}
+  {% if cv_presentations.size > 0 %}
+  <section class="cv-section" id="presentations-talks">
+    <h2 class="cv-section-title">Presentations & Talks</h2>
+    {% for pres in cv_presentations %}
+    <div class="cv-item cv-item-compact">
+      <div class="cv-item-header">
+        <span class="cv-item-title">{{ pres.title }}</span>
+        <span class="cv-item-date">{{ pres.year }}</span>
+      </div>
+      <div class="cv-item-org">{{ pres.event }}{% if pres.location %}, {{ pres.location }}{% endif %}{% if pres.country %}, {{ pres.country }}{% endif %}</div>
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% if cv.mentoring_interns and cv.mentoring_interns.size > 0 %}
+  {% assign sorted_mentoring = cv.mentoring_interns | sort: "start_year" | reverse %}
+  <section class="cv-section" id="mentoring-interns">
+    <h2 class="cv-section-title">Mentoring & Interns</h2>
+    {% for item in sorted_mentoring %}
+    <div class="cv-item cv-item-compact">
+      <div class="cv-item-header">
+        <span class="cv-item-title">{{ item.name }}{% if item.role %} — {{ item.role }}{% endif %}</span>
+        <span class="cv-item-date">{{ item.start_year }}{% if item.end_year and item.end_year != item.start_year %}–{{ item.end_year }}{% endif %}</span>
+      </div>
+      <div class="cv-item-org">{{ item.organization | default: item.context }}{% if item.location %}, {{ item.location }}{% endif %}</div>
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% if cv.teaching and cv.teaching.size > 0 %}
+  <section class="cv-section" id="teaching">
+    <h2 class="cv-section-title">Teaching</h2>
+    {% for item in cv.teaching %}
+    <div class="cv-item">
+      <div class="cv-item-header">
+        <span class="cv-item-title">{{ item.role }} — {{ item.course }}</span>
+        <span class="cv-item-date">{% if item.term %}{{ item.term }}{% endif %}{% if item.year %} {{ item.year }}{% endif %}</span>
+      </div>
+      <div class="cv-item-org">{{ item.organization }}{% if item.location %}, {{ item.location }}{% endif %}</div>
+      {% if item.instructor %}<div class="cv-item-meta">Instructor: {{ item.instructor | markdownify }}</div>{% endif %}
+      {% if item.description %}<div class="cv-item-desc">{{ item.description | markdownify }}</div>{% endif %}
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% if cv.service and cv.service.size > 0 %}
+  <section class="cv-section" id="service">
+    <h2 class="cv-section-title">Service</h2>
+    {% for item in cv.service %}
+    <div class="cv-item cv-item-compact">
+      <div class="cv-item-header">
+        <span class="cv-item-title">{{ item.title }}</span>
+        <span class="cv-item-date">{{ item.start_year }}{% if item.end_year and item.end_year != item.start_year %}–{{ item.end_year }}{% endif %}</span>
+      </div>
+      <div class="cv-item-org">{{ item.organization }}{% if item.location %}, {{ item.location }}{% endif %}</div>
+      {% if item.description and item.description != '' %}<div class="cv-item-desc">{{ item.description | markdownify }}</div>{% endif %}
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% if cv.membership and cv.membership.size > 0 %}
+  <section class="cv-section" id="membership">
+    <h2 class="cv-section-title">Membership</h2>
+    {% for item in cv.membership %}
+    <div class="cv-item cv-item-compact">
+      <div class="cv-item-header">
+        <span class="cv-item-title">{{ item.name }}{% if item.organization %} — {{ item.organization }}{% endif %}</span>
+        <span class="cv-item-date">{% if item.current %}{{ item.start_year }}–Present{% else %}{{ item.start_year }}{% if item.end_year %}–{{ item.end_year }}{% endif %}{% endif %}</span>
+      </div>
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% if cv.scholarships and cv.scholarships.size > 0 %}
+  {% assign sorted_scholarships = cv.scholarships | sort: "year" | reverse %}
+  <section class="cv-section" id="scholarships-awards">
+    <h2 class="cv-section-title">Scholarships & Awards</h2>
+    {% for item in sorted_scholarships %}
+    <div class="cv-item cv-item-compact">
+      <div class="cv-item-header">
+        <span class="cv-item-title">{{ item.name }}</span>
+        <span class="cv-item-date">{{ item.year }}</span>
+      </div>
+      {% if item.amount %}<div class="cv-item-meta">{{ item.amount }}</div>{% endif %}
+      {% if item.description %}<div class="cv-item-desc">{{ item.description }}</div>{% endif %}
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% if cv.skills and cv.skills.size > 0 %}
+  <section class="cv-section" id="skills">
+    <h2 class="cv-section-title">Skills</h2>
+    <p class="cv-skills">{{ cv.skills | join: ", " }}</p>
+  </section>
+  {% endif %}
+
+  {% if cv.languages and cv.languages.size > 0 %}
+  <section class="cv-section" id="languages">
+    <h2 class="cv-section-title">Languages</h2>
+    <ul class="cv-languages">
+      {% for lang in cv.languages %}
+      <li>{{ lang.language }} — {{ lang.speaking_fluency }} (spoken), {{ lang.writing_fluency }} (written)</li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+</article>
+
+<script>
+(function() {
+  document.querySelectorAll('.cv-pub-authors[data-highlight-name]').forEach(function(el) {
+    var name = el.getAttribute('data-highlight-name');
+    if (name && el.textContent.indexOf(name) !== -1) {
+      el.innerHTML = el.textContent.replace(new RegExp(name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'), '<strong class="cv-author-me"><u>' + name + '</u></strong>');
+    }
+  });
+})();
+</script>

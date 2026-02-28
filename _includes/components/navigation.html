@@ -13,13 +13,13 @@
     <div class="nav-right">
       <!-- Desktop Socials -->
       <span class="nav-socials-desktop">
-        <a href="{{ '/assets/pdfs/emran-cv.pdf' | relative_url }}" class="nav-link nav-link-with-text" aria-label="CV" target="_blank" rel="noopener noreferrer"><span class="nav-link-text">cv</span></a>
+        <a href="{{ '/cv' | relative_url }}" class="nav-link nav-link-with-text {% if page.id == 'cv' %}active{% endif %}" aria-label="CV"><span class="nav-link-text">cv</span></a>
         <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener noreferrer" class="nav-link" aria-label="LinkedIn profile">{% include icon.html name="linkedin" %}</a>
         <a href="https://scholar.google.com/citations?user={{ site.scholar_id }}" target="_blank" rel="noopener noreferrer" class="nav-link" aria-label="Google Scholar profile"><img src="{{ '/assets/images/scholar.svg' | relative_url }}" alt="" style="width: 1.25rem; height: 1.25rem;"></a>
       </span>
       <!-- Mobile Socials -->
       <span class="nav-socials-mobile">
-        <a href="{{ '/assets/pdfs/emran-cv.pdf' | relative_url }}" class="nav-link nav-link-with-text nav-cv" aria-label="CV" target="_blank" rel="noopener noreferrer"><span class="nav-link-text">cv</span></a>
+        <a href="{{ '/cv' | relative_url }}" class="nav-link nav-link-with-text nav-cv {% if page.id == 'cv' %}active{% endif %}" aria-label="CV"><span class="nav-link-text">cv</span></a>
         <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener noreferrer" class="nav-link" aria-label="LinkedIn profile">{% include icon.html name="linkedin" %}</a>
         <a href="https://scholar.google.com/citations?user={{ site.scholar_id }}" target="_blank" rel="noopener noreferrer" class="nav-link" aria-label="Google Scholar profile"><img src="{{ '/assets/images/scholar.svg' | relative_url }}" alt="" style="width: 1.25rem; height: 1.25rem;"></a>
       </span>

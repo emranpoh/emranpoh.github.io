@@ -20,7 +20,7 @@ id: landing
     <span class="landing-btn-num">2</span>
     <img src="{{ '/assets/images/show-it-manuscript.png' | relative_url }}" alt="Showit Manuscript" class="landing-btn-img">
   </a>
-  <a href="{{ '/assets/pdfs/emran-cv.pdf' | relative_url }}" class="landing-btn landing-btn-cv" target="_blank" rel="noopener noreferrer" aria-label="CV">
+  <a href="{{ '/cv' | relative_url }}" class="landing-btn landing-btn-cv" aria-label="CV">
     <span class="landing-btn-num">3</span>
     <img src="{{ '/assets/images/cv.png' | relative_url }}" alt="CV" class="landing-btn-img">
   </a>

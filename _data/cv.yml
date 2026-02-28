@@ -1,4 +1,4 @@
-research_interests: "Agent-assisted Creative Workflows, Collaborative Systems for Intimacy"
+research_interests: "Human-AI interaction in learning and creative contexts; AI tutoring and creativity tools; selective AI that preserves human agency"
 
 professional:
   - start_month: "01"
@@ -6,26 +6,27 @@ professional:
     end_month: "05"
     end_year: "2025"
     current: false
-    title: "User Experience Research Engineer"
+    title: "Research Engineer"
     organization: "Singapore Management University"
     location: "Singapore"
-    description: "Working on human-agent interactions and human-computer interaction research under [Li Jiannan](https://jchrisli.github.io/). Focus on collaborative interactions and user experience design."
-    link: "https://jchrisli.github.io/"
+    description: "Working on human-agent interactions and HCI research under [Li Jiannan](https://jchrisli.github.io/). Building and studying AI-assisted creative workflows and collaborative systems; methods include prototyping, user studies, and thematic analysis."
 
   - start_month: "01"
     start_year: "2023"
     end_month: "02"
     end_year: "2024"
     title: "Research Project Manager"
-    organization: "Synteraction Lab (formerly National University of Singapore Human-Computer Interaction Lab), National University of Singapore"
+    organization: "Synteraction Lab (formerly NUS-HCI Lab), National University of Singapore"
     location: "Singapore"
     description: |
       *Collaborative Artefact Awareness for Partially-Replicated Workspaces*
       - Developed an artefact awareness interaction framework for cross-reality collaboration, and evaluated its effectiveness through exploratory and pilot studies.
     notable_presentations:
       - date: "0124"
+        label: "Lab talk"
         title: "Emptiness, Isolation, Death: Parallels from Kojima's Death Stranding for Human Connection"
       - date: "0623"
+        label: "Lab talk"
         title: "'How to use Extended Reality for Physical Assault' — A Less-than-Optimistic Commentary of 'The Ethics of Realism in Virtual and Augmented Reality' through Netflix's Black Mirror"
 
   - start_month: "02"
@@ -43,7 +44,7 @@ professional:
     start_year: "2021"
     end_month: "12"
     end_year: "2022"
-    title: "User Experience Research Engineer"
+    title: "Research Engineer"
     organization: "Center for Immersification"
     location: "Singapore"
     description: |
@@ -60,6 +61,7 @@ professional:
         title: "2022 Singapore Airshow"
       - date: "0921"
         title: "Infocomm Media Development Authority Educational Visit"
+    notable_projects_label: "Selected talks/demonstrations"
 
   - start_month: "01"
     start_year: "2021"
@@ -90,6 +92,25 @@ professional:
     location: "Singapore"
     description: |
       Coordinated with an in-house designer in various front-end projects such as client-side web development, user interface, and user experience design for various clients such as YouTube and General Electric, from web design to online advertisement design
+
+# Interns supervised and people mentored
+mentoring_interns:
+  - name: "Kwa Jiehui"
+    organization: "University of California, Los Angeles"
+    start_year: "2023"
+    end_year: "2024"
+  - name: "Tan Peikai"
+    organization: "University of Glasgow"
+    start_year: "2020"
+    end_year: "2021"
+  - name: "Krystal Yamin"
+    organization: "Singapore Institute of Technology"
+    start_year: "2020"
+    end_year: "2021"
+  - name: "Samir Patro"
+    organization: "Birla Institute of Technology and Science, Pilani"
+    start_year: "2022"
+    end_year: "2023"
 
 service:
   - start_month: ""
@@ -123,7 +144,7 @@ service:
     title: "Student Volunteer"
     organization: "International Conference on Human-Engaged Computing 2025"
     location: "Singapore"
-    description: "Student volunteer at International Conference on Human-Engaged Computing 2025 in November 2025."
+    description: ""
 
   - start_month: "01"
     start_year: "2026"
@@ -161,6 +182,16 @@ service:
     location: "Singapore"
     description: "Volunteer at the Meet-The-People Session at Bukit Batok every Friday assisting and advising residents on issues such as, but not limited to, job-matching, financial assistance, seeking rental homes, and medical and legal aid."
 
+membership:
+  - name: "Student Member"
+    organization: "Institute of Electrical and Electronics Engineers (IEEE)"
+    start_year: "2023"
+    current: true
+  - name: "Student Member"
+    organization: "Association for Computing Machinery (ACM)"
+    start_year: "2025"
+    current: true
+
 teaching:
   - term: "Summer 23, Winter 23"
     year: "2023"
@@ -168,7 +199,7 @@ teaching:
     role: "Graduate Teaching Assistant"
     organization: "School of Computing, National University of Singapore"
     location: "Singapore"
-    instructor: "Zhao Shengdong"
+    instructor: "[Zhao Shengdong](https://shengdongzhao.com/)"
     description: "Assisted and conducted a six-day professional certification course to a group of 20 industry professionals"
   - term: "Fall 23"
     year: "2023"
@@ -176,7 +207,8 @@ teaching:
     role: "Graduate Teaching Assistant"
     organization: "School of Computing, National University of Singapore"
     location: "Singapore"
-    instructor: "Zhao Shengdong"
+    instructor: "[Zhao Shengdong](https://shengdongzhao.com/)"
+    description: "Assisted with tutorials and project supervision for undergraduate interaction design course."
   - term: "Spring 23"
     year: "2023"
     course: "CS4240 Interaction Design for Virtual and Augmented Reality"
@@ -192,14 +224,14 @@ teaching:
     role: "Instructor"
     organization: "Center for Immersification, Singapore Institute of Technology"
     location: "Singapore"
-    description: "Monthly z-axis, Delivered an informative one-day crash course on LaTeX to fellow lab researchers and faculty members"
+    description: "Delivered an informative one-day crash course on LaTeX to fellow lab researchers and faculty members"
   - term: "0425"
     year: "2025"
     course: "Minecraft Coding Camp"
     role: "Instructor"
     organization: "Lucidspark"
     location: "Singapore"
-    description: "Instructor for Minecraft Coding Camp at Lucidspark."
+    description: "Taught block-based coding and computational thinking to school-aged participants using Minecraft."
 
 education:
   - start_month: ""
@@ -211,7 +243,7 @@ education:
     organization: "Singapore Management University"
     location: "Singapore"
     thesis: ""
-    advisor: "Jiannan Li"
+    advisor: "[Jiannan Li](https://jchrisli.github.io/)"
   - start_month: ""
     start_year: "2022"
     end_month: ""
@@ -220,7 +252,7 @@ education:
     organization: "National University of Singapore"
     location: "Singapore"
     thesis: "Understanding Artefact Awareness for Partially-Replicated Workspace"
-    advisor: "Anthony Tang, Jeannie Lee, Zhao Shengdong"
+    advisor: "[Anthony Tang](https://hcitang.github.io/), [Jeannie Lee](https://scholar.google.com/citations?user=_Ttzw8kAAAAJ&hl=en), [Zhao Shengdong](https://shengdongzhao.com/)"
   - start_month: ""
     start_year: "2018"
     end_month: ""
@@ -229,14 +261,29 @@ education:
     organization: "University of Glasgow"
     location: "Singapore"
     thesis: "3D User Interface in Mixed Reality for Engineering Design Finite Element Analysis"
-    advisor: "Kyrin Liong, Jeannie Lee"
+    advisor: "[Kyrin Liong](https://scholar.google.com/citations?user=5F-C6c0AAAAJ&hl=en), [Jeannie Lee](https://scholar.google.com/citations?user=_Ttzw8kAAAAJ&hl=en)"
+  - start_month: ""
+    start_year: "2013"
+    end_month: ""
+    end_year: "2016"
+    title: "Diploma in Infocomm Security Management"
+    organization: "School of Computing, Singapore Polytechnic"
+    location: "Singapore"
 
 skills:
   - "User Experience Research"
   - "Human-Computer Interaction"
   - "Immersive Technologies"
   - "Interactive Systems Design"
-  - "[Add more relevant skills]"
+  - "Figma"
+  - "Unity"
+  - "Android Development"
+  - "Mixed Reality (HoloLens, ARCore)"
+  - "Study Design"
+  - "Contextual Inquiry"
+  - "Thematic Analysis"
+  - "Python"
+  - "R"
 
 languages:
   - language: "English"
