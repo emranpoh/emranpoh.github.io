@@ -168,13 +168,40 @@ description: "CS PhD student at SMU-HAI Lab. Research in human-AI interaction, A
 
 @media (max-width: 768px) {
   .landing-wrapper {
+    align-items: center;
     /* Constrain to viewport so the div doesn’t exceed screen height (desktop-wrapper has 32px top + 40px bottom padding) */
-    height: calc(100dvh - 72px);
+    height: 100%;
     min-height: 0;
-    max-height: calc(100dvh - 72px);
     overflow: hidden;
     padding: 0.5rem 0 1rem;
     box-sizing: border-box;
+  }
+}
+
+/* Prevent scroll on landing page (mobile/tablet) - body and wrapper must fit viewport */
+@media (max-width: 768px) {
+  body.page-landing {
+    overflow: hidden;
+    height: 100dvh;
+  }
+  body.page-landing .desktop-wrapper {
+    height: 100dvh;
+    min-height: 100dvh;
+    max-height: 100dvh;
+    overflow: hidden;
+    padding: 1rem;
+  }
+  body.page-landing main.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+  body.page-landing .content-inner {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
   }
 }
 </style>
