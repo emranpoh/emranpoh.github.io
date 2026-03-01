@@ -1,14 +1,12 @@
-# Personal website
+# emran poh
 
-Source for my academic personal site: research, projects, and CV.
+cs phd @ smu-hai lab · ai tutoring + creativity tools
 
-## Tech stack
+personal site: [emranpoh.github.io](https://emranpoh.github.io)
 
-- **Jekyll** – static site generator
-- **GitHub Pages** – hosting
-- **SCSS** – styles (custom layout and components)
+---
 
-## Run locally
+## run locally
 
 ```bash
 git clone https://github.com/emranpoh/emranpoh.github.io.git
@@ -17,19 +15,20 @@ bundle install
 bundle exec jekyll serve
 ```
 
-Open http://localhost:4000 in your browser.
+open http://localhost:4000
 
-## Structure
+## stack
 
-- `_data/` – data (publications, projects, intro, etc.)
-- `_includes/` – reusable components and layouts
-- `_layouts/` – page templates
-- `content/` – pages and posts (`content/posts/`)
-- `assets/` – CSS, images, fonts
-- `_site/` – built output (generated, not committed)
+jekyll · github pages · scss
 
-## Contact
+## structure
 
-- Email: emranpoh@gmail.com  
-- Work: emran.poh.2025@smu.edu.sg  
-- [LinkedIn](https://linkedin.com/in/emranpoh) · [Google Scholar](https://scholar.google.com/citations?user=wYcrORkAAAAJ)
+- `_data/` — publications, projects, cv, intro
+- `_includes/` — components and partials
+- `_layouts/` — page templates
+- `content/` — pages (landing, research, cv, works)
+- `assets/` — css, images, fonts
+
+## contact
+
+emran.poh.2025[at]smu.edu.sg · [linkedin](https://linkedin.com/in/emranpoh) · [google scholar](https://scholar.google.com/citations?user=wYcrORkAAAAJ)
