@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://emranpoh.github.io/sitemap.xml

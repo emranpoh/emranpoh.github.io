@@ -1,8 +1,9 @@
 ---
 layout: masonry
-title: research
+title: Research
 permalink: /research/
 id: pubs
+description: "Research publications and projects in human-AI interaction, HCI, and AI tutoring by Emran Poh."
 ---
 
 {% include components/intro.html research_page=true %}

@@ -1,8 +1,9 @@
 ---
 layout: pages/default
-title: landing
+title: Emran Poh
 permalink: /
 id: landing
+description: "CS PhD student at SMU-HAI Lab. Research in human-AI interaction, AI tutoring, and creativity tools."
 ---
 
 <div class="landing-wrapper">
