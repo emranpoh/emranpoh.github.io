@@ -33,9 +33,10 @@ layout: pages/default
   </div>
   <hr class="publication-divider">
   {% endif %}
-  {% if page.image and page.image != '' %}
+  {% assign pub_image = page.image | default: matched_pub.image %}
+  {% if pub_image and pub_image != '' %}
   <div class="publication-image">
-      <img src="{{ '/assets/images/projects/' | append: page.image | relative_url }}" 
+      <img src="{{ '/assets/images/projects/' | append: pub_image | relative_url }}" 
               alt="{{ page.title }}" 
               class="publication-image__img" loading="lazy">
   </div>
