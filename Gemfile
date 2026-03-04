@@ -10,6 +10,9 @@ source "https://rubygems.org"
 
 # Jekyll
 gem "jekyll", "~> 4.3"
+gem "csv"
+gem "base64"
+gem "bigdecimal"
 
 # Theme
 gem "minima", "~> 2.5"

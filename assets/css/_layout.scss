@@ -880,6 +880,11 @@ section {
 }
 
 @include mobile {
+  .publications-subsection-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+
   .publications-section-wrapper .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"] .work-link {
     flex-direction: column;
   }
@@ -1141,6 +1146,11 @@ section {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
+  }
+
+  /* Publication pages: same width as publication-detail (800px) */
+  .content-inner:has(.publication-detail) {
+    max-width: 800px;
   }
 
   /* Works page: full viewport width */

@@ -1,4 +1,38 @@
 // Publication detail page styles (all viewports)
+.publication-detail .pub-location-date {
+  font-size: 0.8125rem;
+  color: #9ca3af;
+  margin: 0 0 1rem;
+  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.publication-detail .pub-location-date-line {
+  display: block;
+}
+
+.publication-detail .pub-location-date-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.publication-detail .pub-location-date-right {
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.publication-detail .pub-location-date .pub-sep {
+  margin: 0 0.35em;
+  opacity: 0.7;
+}
+
+
 .publication-body {
   display: flex;
   gap: 2rem;
@@ -101,7 +135,7 @@
   .publication-detail {
     max-width: 800px;
     margin: 0 auto;
-    padding: 2rem 1rem;
+    padding: 3.5rem 1rem 2rem;
   }
 
   .publication-detail .pub-preprint-btn,
@@ -168,6 +202,7 @@
     line-height: 1.6;
     font-size: 1.125rem;
     font-weight: 350;
+    padding-top: 1.5rem;
   }
 
   .publication-content p {

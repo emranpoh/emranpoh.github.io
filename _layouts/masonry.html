@@ -18,13 +18,9 @@
     }
   </script>
 </head>
-<body class="layout-masonry">
+<body class="layout-masonry layout-sidebar">
+  {% include components/sidebar.html %}
   <div class="desktop-wrapper">
-    <!-- Top Navigation - Fixed at top -->
-    <div class="desktop-nav">
-      {% include components/navigation.html %}
-    </div>
-    
     <div class="main-column">
       <main class="content content-{{ page.id | default: page.title | replace: ' ', '-' | slice: 0, 5 }}" id="main-content">
         {{ content }}
@@ -34,11 +30,6 @@
     <footer class="footer">
       <p>&copy; {{ 'now' | date: '%Y' }} {{ site.title | downcase }}</p>
     </footer>
-  </div>
-  
-  <!-- Mobile Navigation -->
-  <div class="mobile-nav">
-    {% include components/navigation.html %}
   </div>
 
   <script>

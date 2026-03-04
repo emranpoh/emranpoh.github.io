@@ -316,9 +316,9 @@
       padding: 0 !important;
     }
 
-    /* Publications page: same narrow width as main page */
+    /* Publications page: same width as publication page (800px) */
     .main-column main.content.content-pubs {
-      max-width: 48rem !important;
+      max-width: 800px !important;
       width: 100% !important;
       margin-left: auto !important;
       margin-right: auto !important;

@@ -3,7 +3,7 @@ layout: pages/publication
 title: "'Show It, Don't Just Say It': The Complementary Effects of Instruction Multimodality for Software Guidance"
 authors: "Emran Poh, Yueyue Hou, Tianyi Zhang, and Jiannan Li"
 venue: "2026 ACM Conference on Human Factors in Computing Systems (CHI '26)"
-venue_short: "CHI 26"
+venue_short: ""
 year: 2026
 status: "accepted"
 image: "show-it-software-guidance-hero.png"
@@ -22,4 +22,4 @@ bib: |
   }
 ---
 
-Directive multimodal instruction can speed up task completion but may narrow learners to a prescribed path. We discuss balancing step-by-step support with open-ended exploration, with implications for tutorials, in-product guidance, and human–AI copilots.
+This paper had many concerns that were not included in the study which I explore in [show it : some extra thoughts](/content/posts/show-it-some-extra-thoughts/).

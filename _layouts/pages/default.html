@@ -17,7 +17,7 @@
     }
   </script>
 </head>
-<body class="{% if page.url == '/404.html' %}page-error{% endif %}{% if page.id == 'landing' %} page-landing{% endif %}{% if page.id == 'works' %} page-works{% endif %}{% if page.id == 'research' %} page-research{% endif %}{% if page.id == 'cv' %} page-cv{% endif %}">
+<body class="layout-sidebar{% if page.url == '/404.html' %} page-error{% endif %}{% if page.id == 'landing' %} page-landing{% endif %}{% if page.id == 'works' %} page-works{% endif %}{% if page.id == 'research' %} page-research{% endif %}{% if page.id == 'cv' %} page-cv{% endif %}">
   <a href="#main-content" class="skip-link">Skip to main content</a>
   {% unless page.id == 'landing' %}
   <!-- Scroll progress indicator -->
@@ -25,13 +25,10 @@
     <div class="scroll-progress-fill" id="scroll-progress-fill" aria-hidden="true"></div>
   </div>
   {% endunless %}
+  {% unless page.id == 'landing' %}
+  {% include components/sidebar.html %}
+  {% endunless %}
   <div class="desktop-wrapper">
-    <!-- Top Navigation - Fixed at top -->
-    {% unless page.id == 'landing' %}
-    <nav class="desktop-nav" aria-label="Social links">
-      {% include components/navigation.html %}
-    </nav>
-    {% endunless %}
     
     {% unless page.id == 'works' %}
     {% if page.id == 'research' %}
@@ -88,13 +85,6 @@
     {% endunless %}
   </div>
   
-  <!-- Mobile Navigation -->
-  {% unless page.id == 'landing' %}
-  <nav class="mobile-nav" aria-label="Social links">
-    {% include components/navigation.html %}
-  </nav>
-  {% endunless %}
-
   {% if ((page.id == 'emran' or page.title == 'Emran Poh') and page.id != 'landing') or page.id == 'works' %}
   {% include components/work-detail-modal.html %}
   {% endif %}

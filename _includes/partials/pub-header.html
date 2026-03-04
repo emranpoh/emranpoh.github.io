@@ -1,12 +1,20 @@
 <header class="pub-header">
-    {% if page.venue_short %}
-    <p class="pub-venue-short">{{ page.venue_short }}{% if page.workshop_name and page.workshop_name != '' %}: <span class="pub-workshop-inline">{{ page.workshop_name }}</span>{% endif %}</p>
+    {% assign pub = include.pub %}
+    {% assign venue_short = page.venue_short | default: pub.venue_short %}
+    {% assign wn = page.workshop_name | default: pub.workshop_name %}
+    {% if venue_short or wn %}
+    <p class="pub-venue-short">{% if venue_short %}{{ venue_short }}{% endif %}{% if venue_short and wn and wn != '' %} · {{ wn }}{% elsif wn and wn != '' %}{{ wn }}{% endif %}</p>
     {% endif %}
     <h1 class="pub-title">{{ page.title }}</h1>
     <div class="pub-meta">
+        {% if page.authors and page.authors != '' %}
         <p class="pub-authors">{{ page.authors }}</p>
+        {% elsif page.date %}
+        <p class="pub-meta-date"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time></p>
+        {% endif %}
         <div class="pub-tags">
-            {% if page.status == "under review" or page.status == "submitted" %}
+            {% assign pub_status = page.status | default: pub.status %}
+            {% if pub_status == "under review" or pub_status == "submitted" %}
             <span class="pub-tag pub-tag-status">Under Review</span>
             {% endif %}
             {% if page.doi %}
@@ -21,16 +29,31 @@
 
 <style>
 .pub-venue-short {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #6b7280;
-    margin: 0 0 0.5rem;
-    line-height: 1.4;
+    letter-spacing: 0.1em;
+    color: #9ca3af;
+    margin: 0 0 0.25rem;
+    line-height: 1.5;
+    font-weight: 400;
 }
 
 .pub-venue-short .pub-workshop-inline {
     text-transform: none;
+}
+
+.pub-backlink-tag {
+    margin: 0 0 0.5rem;
+}
+
+.pub-backlink-tag .pub-tag-link {
+    text-transform: lowercase;
+    font-weight: 400;
+    color: #718096 !important;
+}
+
+.pub-backlink-tag .pub-tag-link:hover {
+    color: #374151 !important;
 }
 
 .pub-title {

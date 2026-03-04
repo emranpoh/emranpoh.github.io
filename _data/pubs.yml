@@ -5,6 +5,10 @@
   venue: "2026 ACM Conference on Human Factors in Computing Systems (CHI '26)"
   venue_short: "CHI 26"
   location: "Barcelona, Spain"
+  date: "April 13–17, 2026"
+  session: "CHI Day 4 · 10:00–10:12 AM (CEST)"
+  day_start: "D4 · 10:00 AM"
+  room: "P1 - Room 121"
   year: 2026
   status: "published"
   institution: "smuhci"
@@ -15,7 +19,9 @@
   bib: ""
   tags:
     - name: "pdf"
-      url: "/assets/pdfs/showitdontsayit_multimodal_software_guidance.pdf"
+      url: "https://arxiv.org/abs/2603.02567"
+    - name: "program"
+      url: "https://programs.sigchi.org/chi/2026/program/content/223481"
   abstract: "Designing adaptive tutoring systems for software learning presents challenges in determining appropriate instructional modalities. To inform the design of such systems, we conducted an observational study of ten human teacher-student pairs (N=10), where experienced design software users taught novices two new graphic design software features through multi-step procedures. These lessons were limited to three communication channels (speech, visual annotations, and remote screen control) to mimic possible AI tutor modalities. We found that annotations complement speech with spatial precision and remote control complements it with spatial and temporal precision, but both cause intrusion to learner agency. Teachers adaptively select modalities to balance the need for instruction progress with students’ cognitive engagement and sense of digital territory ownership. Our results provide further support to the contiguity principles and the value of agency in learning, while suggesting precision-agency trade-off and digital territoriality as new design constraints for adaptive software guidance."
   citation: |
     Emran Poh, Yueyue Hou, Tianyi Zhang, and Jiannan Li. 2026. 'Show It, Don't Just Say It': The Complementary Effects of Instruction Multimodality for Software Guidance. In Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems (CHI '26), April 13–17, 2026, Barcelona, Spain. ACM, New York, NY, USA, 18 pages. https://doi.org/10.1145/3772318.3791200
@@ -43,15 +49,23 @@
   venue_short: "CHI 26 Workshop"
   workshop_name: "Understanding and Engaging Critical Resistance to AI in Education"
   location: "Barcelona, Spain"
+  date: "April 13–17, 2026"
+  session: "CHI Day 1 · 2:15-6:00 PM (CEST)"
+  day_start: "D1 · 2:15 PM"
+  room: "P1 - Room 122"
   year: 2026
-  status: "published"
+  status: "accepted"
+  status_note: "under revision"
   institution: "smuhci"
   image: ""
   is-selected: false
   emoji: "📚"
   url: "/research/when-not-to-help"
   bib: ""
-  abstract: "We invert the usual question about GenAI in education: rather than ask how to deploy new capabilities, we ask what role GenAI should play given what we know about effective human teaching. This position draws on an observational study of ten teacher-student pairs using speech, visual annotations, and remote screen control to teach Figma to novices. Teachers consistently showed restraint---avoiding high-precision modalities when it would undermine learning---which we interpret as pedagogical wisdom, not inefficiency. We argue this reveals a precision-agency tradeoff and digital territoriality as design constraints for GenAI tutors. We contribute empirical evidence of how teachers balance help with learner agency, methodological guidance for evaluation under authentic motivation, and implications for metrics and design process that treat restraint and friction as valid design goals."
+  tags:
+    - name: "pdf"
+      url: "/assets/pdfs/when-not-to-help.pdf"
+  abstract: "We invert the usual question about GenAI in education: rather than ask how to deploy new capabilities, we ask what role GenAI should play given what we know about effective human teaching. This position draws on an observational study of ten teacher-student pairs using speech, visual annotations, and remote screen control to teach Figma to novices. Teachers consistently showed restraint—avoiding high-precision modalities when it would undermine learning—which we interpret as pedagogical wisdom, not inefficiency. We argue this reveals a precision-agency tradeoff and digital territoriality as design constraints for GenAI tutors. We contribute empirical evidence of how teachers balance help with learner agency, methodological guidance for evaluation under authentic motivation, and implications for metrics and design process that treat restraint and friction as valid design goals."
   citation: ""
   work-tags:
     - "Research"
@@ -65,20 +79,28 @@
   title_short: "Desire Paths in AI-Guided Software Learning"
   authors: "Emran Poh"
   type: "Position Paper"
-  venue: "CHI 2026 Workshop"
+  venue: "CHI 2026 Workshop: Human-AI-UI Interactions Across Modalities"
   venue_short: "CHI '26 Workshop"
+  workshop_name: "Human-AI-UI Interactions Across Modalities"
   location: "Barcelona, Spain"
+  date: "April 13–17, 2026"
+  session: "CHI Day 2 · 2:15-6:00 PM (CEST)"
+  day_start: "D2 · 2:15 PM"
+  room: "P1 - Room 122"
   year: 2026
-  status: "under review"
+  status: "accepted"
   institution: "smuhci"
   image: ""
   is-selected: false
   emoji: "🛤️"
-  url: "/research/desire-paths-software-learning"
+  url: "/research/desire-paths-in-learning"
   doi: ""
   bib: ""
-  abstract: ""
+  abstract: "Learners who deviate from prescribed instructional paths are not necessarily failing—they may be revealing signal about themselves, the curriculum, and the interface. Yet AI tutoring agents for software learning typically treat deviation as error to be corrected. We argue this framing is fundamentally misaligned with how learning actually unfolds. Drawing on the urban planning concept of desire paths—informal trails that emerge when pedestrians route around formal walkways—we reframe learner deviations as meaningful signals of unmet needs, prior knowledge, and curriculum gaps. We ground this argument in an empirical study of human software tutors teaching Figma, which reveals that expert tutors already read and respond to desire paths by fluidly shifting across instructional modalities—speech, visual annotation, and remote screen control—in response to learner behavior. We offer a preliminary taxonomy of deviation types, argue that the Human↔Agent↔UI triangle in learning contexts must be redesigned around negotiated path-finding rather than path enforcement, and argue that the field needs frameworks and empirical study of adaptive multimodal intervention design for tutoring systems to make this negotiation possible."
   citation: ""
+  tags:
+    - name: "pdf"
+      url: "/assets/pdfs/desire-paths.pdf"
   work-tags:
     - "Research"
     - "Paper"
@@ -94,6 +116,7 @@
   venue: "2023 IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct)"
   venue_short: "ISMAR-Adjunct"
   location: "Sydney, Australia"
+  date: "October 16–20, 2023"
   year: 2023
   status: "published"
   institution: "nus-hci"
@@ -130,6 +153,7 @@
   venue: "AutomotiveUI '23 Adjunct: Adjunct Proceedings of the 15th International Conference on Automotive User Interfaces and Interactive Vehicular Applications"
   venue_short: "AutoUI"
   location: "Ingolstadt, Germany"
+  date: "September 18–21, 2023"
   year: 2023
   status: "published"
   image: "intvrsection.png"
@@ -169,6 +193,7 @@
   venue: "2022 IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct)"
   venue_short: "ISMAR-Adjunct"
   location: "Singapore"
+  date: "October 17–21, 2022"
   year: 2022
   status: "published"
   image: "mr-fea-load-table.png"
@@ -205,6 +230,7 @@
   venue: "24th International Conference on Human-Computer Interaction, HCII 2022"
   venue_short: "HCII"
   location: "Online"
+  date: "June 26–July 1, 2022"
   year: 2022
   status: "published"
   institution: "immersification"
@@ -245,7 +271,8 @@
   type: "Full Paper"
   venue: "Innovations in Social Computing and Digital Transformation, International Conference on Human-Computer Interaction 2021"
   venue_short: "HCII"
-  location: ""
+  location: "Virtual"
+  date: "July 24–29, 2021"
   year: 2021
   status: "published"
   image: "mr-fea-load-application.png"
@@ -278,7 +305,8 @@
   authors: "Emran Poh, A. Tan, V. Balachandran, Jeannie Lee, and Kyrin Liong"
   venue: "NewRIIS Research Conference (NewRIIS 2021)"
   venue_short: "NewRIIS"
-  location: ""
+  location: "Singapore"
+  date: "2021"
   year: 2021
   image: "designing-with-holograms.png"
   institution: "immersification"

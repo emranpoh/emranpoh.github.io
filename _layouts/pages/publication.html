@@ -16,15 +16,30 @@ layout: pages/default
 <article class="publication-detail">
   {% include partials/pub-header.html pub=matched_pub %}
 
-  {% if page.image and page.image != '' %}
   <hr class="publication-divider">
+  {% if matched_pub and matched_pub.location or matched_pub and matched_pub.date or matched_pub and matched_pub.session or matched_pub and matched_pub.room %}
+  <div class="pub-location-date">
+    {% if matched_pub.session or matched_pub.date %}
+    <span class="pub-location-date-line pub-location-date-row">
+      <span class="pub-location-date-left">{% if matched_pub.session %}{{ matched_pub.session }}{% elsif matched_pub.date %}{{ matched_pub.date }}{% endif %}</span>
+    </span>
+    {% endif %}
+    {% if matched_pub.room or matched_pub.location %}
+    <span class="pub-location-date-line pub-location-date-row">
+      <span class="pub-location-date-left">{% if matched_pub.room %}{{ matched_pub.room }}{% endif %}</span>
+      {% if matched_pub.location %}<span class="pub-location-date-right">{{ matched_pub.location }}</span>{% endif %}
+    </span>
+    {% endif %}
+  </div>
+  <hr class="publication-divider">
+  {% endif %}
+  {% if page.image and page.image != '' %}
   <div class="publication-image">
       <img src="{{ '/assets/images/projects/' | append: page.image | relative_url }}" 
               alt="{{ page.title }}" 
               class="publication-image__img" loading="lazy">
   </div>
   {% else %}
-  <hr class="publication-divider">
   <div class="publication-image publication-hero-placeholder-wrap">
     {% include placeholder-hero.svg %}
   </div>
@@ -35,7 +50,10 @@ layout: pages/default
       {% if matched_pub and matched_pub.tags %}
         {% for tag in matched_pub.tags %}
           {% if tag.name == "pdf" and tag.url %}
-          <a href="{{ tag.url | relative_url }}" target="_blank" class="pub-preprint-btn">view preprint</a>
+          <a href="{% if tag.url contains 'http' %}{{ tag.url }}{% else %}{{ tag.url | relative_url }}{% endif %}" target="_blank" rel="noopener noreferrer" class="pub-preprint-btn">view preprint</a>
+          {% endif %}
+          {% if tag.name == "program" and tag.url %}
+          <a href="{{ tag.url }}" target="_blank" rel="noopener noreferrer" class="pub-preprint-btn">view program</a>
           {% endif %}
         {% endfor %}
       {% endif %}
