@@ -118,7 +118,7 @@ service:
     end_month: ""
     end_year: "2026"
     title: "External Reviewer"
-    organization: "Conference on Human Factors in Computing Systems Poster 2026"
+    organization: "CHI Posters"
     description: ""
 
   - start_month: ""

@@ -141,7 +141,6 @@
       </div>
       <div class="cv-item-org">{{ item.organization }}{% if item.location %}, {{ item.location }}{% endif %}</div>
       {% if item.instructor %}<div class="cv-item-meta">Instructor: {{ item.instructor | markdownify }}</div>{% endif %}
-      {% if item.description %}<div class="cv-item-desc">{{ item.description | markdownify }}</div>{% endif %}
     </div>
     {% endfor %}
   </section>

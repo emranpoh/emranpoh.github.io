@@ -6,6 +6,7 @@
   "scripts": {
     "build": "bundle exec jekyll build && NODE_ENV=production postcss _site/assets/css/main.css -o _site/assets/css/main.css",
     "serve": "bundle exec jekyll serve",
+    "serve:live": "docker compose up",
     "watch": "bundle exec jekyll serve --watch",
     "css:build": "bundle exec jekyll build && NODE_ENV=production postcss _site/assets/css/main.css -o _site/assets/css/main.css",
     "css:watch": "postcss _site/assets/css/main.css -o _site/assets/css/main.css --watch",

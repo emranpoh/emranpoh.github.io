@@ -4,7 +4,7 @@
 services:
   - year: "2026"
     role: "External Reviewer"
-    venue: "CHI Poster 2026"
+    venue: "CHI Posters"
 
   - year: "2025"
     role: "External Reviewer"
