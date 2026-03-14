@@ -4,7 +4,7 @@
 services:
   - year: "2026"
     role: "External Reviewer"
-    venue: "CHI Posters"
+    venue: "CHI EA 2026"
 
   - year: "2025"
     role: "External Reviewer"
@@ -13,11 +13,11 @@ services:
   - year: "2025"
     role: "External Reviewer"
     venues:
-      - "ICHEC 2025 (International Conference on Human-Engaged Computing)"
+      - "ICHEC 2025"
 
   - year: "2025"
     role: "Student Volunteer"
-    venue: "ICHEC 2025 (International Conference on Human-Engaged Computing)"
+    venue: "ICHEC 2025"
 
   - year: "2026"
     role: "Organising Team"

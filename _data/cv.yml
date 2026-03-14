@@ -118,7 +118,7 @@ service:
     end_month: ""
     end_year: "2026"
     title: "External Reviewer"
-    organization: "CHI Posters"
+    organization: "CHI EA 2026"
     description: ""
 
   - start_month: ""
@@ -126,7 +126,7 @@ service:
     end_month: ""
     end_year: "2025"
     title: "External Reviewer"
-    organization: "Conference on Human Factors in Computing Systems 2026"
+    organization: "CHI 2026"
     description: ""
 
   - start_month: ""
@@ -134,7 +134,7 @@ service:
     end_month: ""
     end_year: "2025"
     title: "External Reviewer"
-    organization: "International Conference on Human-Engaged Computing 2025"
+    organization: "ICHEC 2025"
     description: ""
 
   - start_month: ""
@@ -142,8 +142,7 @@ service:
     end_month: ""
     end_year: "2025"
     title: "Student Volunteer"
-    organization: "International Conference on Human-Engaged Computing 2025"
-    location: "Singapore"
+    organization: "ICHEC 2025"
     description: ""
 
   - start_month: "01"
@@ -193,7 +192,7 @@ membership:
     current: true
 
 teaching:
-  - term: "Summer 23, Winter 23"
+  - term: "May, Dec"
     year: "2023"
     course: "Professional Certificate in User Interface and Interaction Design"
     role: "Graduate Teaching Assistant"
@@ -201,7 +200,7 @@ teaching:
     location: "Singapore"
     instructor: "[Zhao Shengdong](https://shengdongzhao.com/)"
     description: "Assisted and conducted a six-day professional certification course to a group of 20 industry professionals"
-  - term: "Fall 23"
+  - term: "Aug"
     year: "2023"
     course: "CS3240 Interaction Design"
     role: "Graduate Teaching Assistant"
@@ -209,7 +208,7 @@ teaching:
     location: "Singapore"
     instructor: "[Zhao Shengdong](https://shengdongzhao.com/)"
     description: "Assisted with tutorials and project supervision for undergraduate interaction design course."
-  - term: "Spring 23"
+  - term: "Jan"
     year: "2023"
     course: "CS4240 Interaction Design for Virtual and Augmented Reality"
     role: "Graduate Teaching Assistant"
@@ -225,7 +224,7 @@ teaching:
     organization: "Center for Immersification, Singapore Institute of Technology"
     location: "Singapore"
     description: "Delivered an informative one-day crash course on LaTeX to fellow lab researchers and faculty members"
-  - term: "0425"
+  - term: "Apr"
     year: "2025"
     course: "Minecraft Coding Camp"
     role: "Instructor"

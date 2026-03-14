@@ -22,4 +22,4 @@ bib: |
   }
 ---
 
-This paper had many concerns that were not included in the study which I explore in [show it : some extra thoughts](/content/posts/show-it-some-extra-thoughts/).
+This paper had many concerns that were not included in the study which I explore in [show it : some extra thoughts](/content/posts/show-it-some-extra-thoughts/), and is part of a small cluster of teaching-and-guidance work: [When Not to Help: A Human-Teaching Lens on AI Tutoring](/research/when-not-to-help/) and ['Desire Paths' in AI-Guided Software Learning](/research/desire-paths-in-learning/) — how learners carve their own routes through guidance.

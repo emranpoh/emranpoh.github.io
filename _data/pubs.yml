@@ -57,7 +57,7 @@
   status: "accepted"
   status_note: "under revision"
   institution: "smuhci"
-  image: ""
+  image: "when-not-to-help.png"
   is-selected: false
   emoji: "📚"
   url: "/research/when-not-to-help"

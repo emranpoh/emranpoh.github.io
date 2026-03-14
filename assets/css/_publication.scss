@@ -106,6 +106,73 @@
   border-radius: 0.5rem;
 }
 
+// Inline related work cards inside publication content
+.publication-detail .related-work-block {
+  margin: 2rem 0 0;
+  padding: 1.25rem 1.5rem;
+  border-radius: 1rem;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+}
+
+.publication-detail .related-work-heading {
+  font-size: 0.875rem;
+  text-transform: lowercase;
+  letter-spacing: 0.04em;
+  color: #6b7280;
+  margin: 0 0 0.75rem;
+}
+
+.publication-detail .related-work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem;
+}
+
+.publication-detail .related-work-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-radius: 0.85rem;
+  text-decoration: none;
+  background: white;
+  border: 1px solid #e5e7eb;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease, background-color 0.15s ease;
+  color: inherit;
+}
+
+.publication-detail .related-work-card:hover {
+  border-color: #d1d5db;
+  background-color: #f9fafb;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+  transform: translateY(-1px);
+}
+
+.publication-detail .related-work-thumb {
+  width: 100%;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.publication-detail .related-work-thumb img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.publication-detail .related-work-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: lowercase;
+}
+
+.publication-detail .related-work-sub {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
 // Publication hero placeholder (inline SVG, no external asset)
 .publication-image.publication-hero-placeholder-wrap {
   background-color: #e0e0e0;

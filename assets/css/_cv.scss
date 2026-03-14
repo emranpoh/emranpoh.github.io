@@ -148,6 +148,12 @@
   line-height: 1.6;
   color: #444;
   margin: 0.5rem 0 0;
+}
+
+/* Hide descriptions in Experience and Service sections */
+#experience .cv-item-desc,
+#service .cv-item-desc {
+  display: none !important;
 
   p {
     margin: 0 0 0.5rem;

@@ -10,7 +10,8 @@
     "watch": "bundle exec jekyll serve --watch",
     "css:build": "bundle exec jekyll build && NODE_ENV=production postcss _site/assets/css/main.css -o _site/assets/css/main.css",
     "css:watch": "postcss _site/assets/css/main.css -o _site/assets/css/main.css --watch",
-    "optimize:images": "node scripts/optimize-images.js"
+    "optimize:images": "node scripts/optimize-images.js",
+    "favicon": "node scripts/generate-favicon.js"
   },
   "repository": {
     "type": "git",

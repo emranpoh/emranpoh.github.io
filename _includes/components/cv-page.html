@@ -37,7 +37,7 @@
           {% if item.current %}Present{% else %}{{ item.start_year }}{% if item.end_year %}–{{ item.end_year }}{% endif %}{% endif %}
         </span>
       </div>
-      <div class="cv-item-org">{{ item.organization }}{% if item.location %}, {{ item.location }}{% endif %}</div>
+      <div class="cv-item-org">{{ item.organization }}</div>
       {% if item.advisor %}<div class="cv-item-meta">Advisor: {{ item.advisor | markdownify }}</div>{% endif %}
       {% if item.thesis and item.thesis != '' %}<div class="cv-item-meta">Thesis: {{ item.thesis }}</div>{% endif %}
     </div>
@@ -53,19 +53,12 @@
       <div class="cv-item-header">
         <span class="cv-item-title">{{ item.title }}</span>
         <span class="cv-item-date">
-          {% if item.current %}Present{% else %}
-          {% assign sm = item.start_month | default: '' %}
-          {% assign sy = item.start_year %}
-          {% assign em = item.end_month | default: '' %}
-          {% assign ey = item.end_year %}
-          {% if sm != '' %}{{ sm }}/{% endif %}{{ sy }}–{% if em != '' %}{{ em }}/{% endif %}{{ ey }}{% endif %}
+          {% if item.current %}Present{% else %}{{ item.start_year }}{% if item.end_year and item.end_year != item.start_year %}–{{ item.end_year }}{% endif %}{% endif %}
         </span>
       </div>
       <div class="cv-item-org">
         {% if item.link %}<a href="{{ item.link }}" target="_blank" rel="noopener noreferrer">{{ item.organization }}</a>{% else %}{{ item.organization }}{% endif %}
-        {% if item.location %}, {{ item.location }}{% endif %}
       </div>
-      <div class="cv-item-desc">{{ item.description | markdownify }}</div>
       {% if item.notable_presentations %}
       <ul class="cv-item-list">
         {% for np in item.notable_presentations %}<li>{% if np.label %}{{ np.label }}: {% endif %}{{ np.title }}</li>{% endfor %}
@@ -92,7 +85,7 @@
       <div class="cv-pub-title">
         {% if pub.url %}<a href="{{ pub.url | relative_url }}">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif %}
       </div>
-      <div class="cv-pub-venue">{{ pub.venue }}{% if pub.year %} ({{ pub.year }}){% endif %}{% if pub.location and pub.location != '' %}. {{ pub.location }}{% endif %}</div>
+      <div class="cv-pub-venue">{{ pub.venue }}{% if pub.year %} ({{ pub.year }}){% endif %}</div>
     </div>
     {% endfor %}
   </section>
@@ -108,7 +101,7 @@
         <span class="cv-item-title">{{ pres.title }}</span>
         <span class="cv-item-date">{{ pres.year }}</span>
       </div>
-      <div class="cv-item-org">{{ pres.event }}{% if pres.location %}, {{ pres.location }}{% endif %}{% if pres.country %}, {{ pres.country }}{% endif %}</div>
+      <div class="cv-item-org">{{ pres.event }}</div>
     </div>
     {% endfor %}
   </section>
@@ -124,7 +117,7 @@
         <span class="cv-item-title">{{ item.name }}{% if item.role %} — {{ item.role }}{% endif %}</span>
         <span class="cv-item-date">{{ item.start_year }}{% if item.end_year and item.end_year != item.start_year %}–{{ item.end_year }}{% endif %}</span>
       </div>
-      <div class="cv-item-org">{{ item.organization | default: item.context }}{% if item.location %}, {{ item.location }}{% endif %}</div>
+      <div class="cv-item-org">{{ item.organization | default: item.context }}</div>
     </div>
     {% endfor %}
   </section>
@@ -139,8 +132,7 @@
         <span class="cv-item-title">{{ item.role }} — {{ item.course }}</span>
         <span class="cv-item-date">{% if item.term %}{{ item.term }}{% endif %}{% if item.year %} {{ item.year }}{% endif %}</span>
       </div>
-      <div class="cv-item-org">{{ item.organization }}{% if item.location %}, {{ item.location }}{% endif %}</div>
-      {% if item.instructor %}<div class="cv-item-meta">Instructor: {{ item.instructor | markdownify }}</div>{% endif %}
+      <div class="cv-item-org">{{ item.organization }}</div>
     </div>
     {% endfor %}
   </section>
@@ -149,16 +141,39 @@
   {% if cv.service and cv.service.size > 0 %}
   <section class="cv-section" id="service">
     <h2 class="cv-section-title">Service</h2>
+    {% assign reviewer_orgs = "" | split: "" %}
     {% for item in cv.service %}
+      {% if item.title == "External Reviewer" %}
+        {% assign reviewer_orgs = reviewer_orgs | push: item.organization %}
+      {% else %}
+        {% if reviewer_orgs.size > 0 %}
+    <div class="cv-item cv-item-compact">
+      <div class="cv-item-header">
+        <span class="cv-item-title">External Reviewer</span>
+        <span class="cv-item-date"></span>
+      </div>
+      <div class="cv-item-org">{{ reviewer_orgs | join: ", " | replace: " 2026", " 26" | replace: " 2025", " 25" }}</div>
+    </div>
+        {% assign reviewer_orgs = "" | split: "" %}
+        {% endif %}
     <div class="cv-item cv-item-compact">
       <div class="cv-item-header">
         <span class="cv-item-title">{{ item.title }}</span>
-        <span class="cv-item-date">{{ item.start_year }}{% if item.end_year and item.end_year != item.start_year %}–{{ item.end_year }}{% endif %}</span>
+        <span class="cv-item-date">{% unless item.title == "Student Volunteer" %}{{ item.start_year }}{% if item.end_year and item.end_year != item.start_year %}–{{ item.end_year }}{% endif %}{% endunless %}</span>
       </div>
-      <div class="cv-item-org">{{ item.organization }}{% if item.location %}, {{ item.location }}{% endif %}</div>
-      {% if item.description and item.description != '' %}<div class="cv-item-desc">{{ item.description | markdownify }}</div>{% endif %}
+      <div class="cv-item-org">{{ item.organization | replace: " 2026", " 26" | replace: " 2025", " 25" }}</div>
     </div>
+      {% endif %}
     {% endfor %}
+    {% if reviewer_orgs.size > 0 %}
+    <div class="cv-item cv-item-compact">
+      <div class="cv-item-header">
+        <span class="cv-item-title">External Reviewer</span>
+        <span class="cv-item-date"></span>
+      </div>
+      <div class="cv-item-org">{{ reviewer_orgs | join: ", " | replace: " 2026", " 26" | replace: " 2025", " 25" }}</div>
+    </div>
+    {% endif %}
   </section>
   {% endif %}
 
@@ -187,7 +202,6 @@
         <span class="cv-item-date">{{ item.year }}</span>
       </div>
       {% if item.amount %}<div class="cv-item-meta">{{ item.amount }}</div>{% endif %}
-      {% if item.description %}<div class="cv-item-desc">{{ item.description }}</div>{% endif %}
     </div>
     {% endfor %}
   </section>
@@ -205,7 +219,7 @@
     <h2 class="cv-section-title">Languages</h2>
     <ul class="cv-languages">
       {% for lang in cv.languages %}
-      <li>{{ lang.language }} — {{ lang.speaking_fluency }} (spoken), {{ lang.writing_fluency }} (written)</li>
+      <li>{{ lang.language }} — {{ lang.speaking_fluency }} (spoken){% if lang.writing_fluency and lang.writing_fluency != "None" and lang.writing_fluency != "none" %}, {{ lang.writing_fluency }} (written){% endif %}</li>
       {% endfor %}
     </ul>
   </section>
