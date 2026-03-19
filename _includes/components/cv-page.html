@@ -75,7 +75,7 @@
   </section>
   {% endif %}
 
-  {% assign cv_pubs = site.data.pubs | where_exp: "pub", "pub.authors contains 'Emran Poh'" | where_exp: "pub", "pub.status != 'under review'" | where_exp: "pub", "pub.status != 'submitted'" | sort: "year" | reverse %}
+  {% assign cv_pubs = site.data.pubs | where_exp: "pub", "pub.authors contains 'Emran Poh'" | where_exp: "pub", "pub.status != 'under review'" | where_exp: "pub", "pub.status != 'submitted'" | sort: "sort_key" | reverse %}
   {% if cv_pubs.size > 0 %}
   <section class="cv-section" id="publications">
     <h2 class="cv-section-title">Publications</h2>

@@ -147,6 +147,9 @@
           {% if include.work.status == "under review" or include.work.status == "submitted" %}
           <span class="subject-tag status-tag status-under-review">Under Review</span>
           {% endif %}
+          {% if include.work.status == "conditionally accepted" %}
+          <span class="subject-tag status-tag status-conditionally-accepted">Conditionally Accepted</span>
+          {% endif %}
           {% if include.work.venue_short %}
             {% assign venue_parts = include.work.venue_short | split: ' ' %}
             {% assign venue_name = venue_parts[0] %}

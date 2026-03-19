@@ -944,6 +944,33 @@ section {
   .publications-section-wrapper .work-grid-item[data-type="pub"] {
     width: calc((100% - 1.5rem) / 2);
   }
+
+  /* Research page: square-format publication tiles */
+  .publications-page .publications-section-wrapper .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"] .work-link {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .publications-page .publications-section-wrapper .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"] .work-image {
+    width: 100%;
+    max-width: none;
+    aspect-ratio: 1;
+  }
+
+  .publications-page .publications-section-wrapper .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"] .work-image img,
+  .publications-page .publications-section-wrapper .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"] .work-image .placeholder-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .publications-page .publications-section-wrapper .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"]:has(.placeholder-image) .work-image {
+    aspect-ratio: 1;
+  }
+
+  .publications-page .publications-section-wrapper .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"] .work-title-below {
+    flex: 0 0 auto;
+  }
 }
 
 /* Selected Works Wrapper - centered, horizontally scrollable with visible scrollbar */

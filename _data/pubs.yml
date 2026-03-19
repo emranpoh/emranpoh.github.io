@@ -1,3 +1,53 @@
+- title: "Not Too Early, Not All at Once: Design Tensions in AI-Mediated Self-Disclosure in Online Dating"
+  title_short: "Not Too Early, Not All at Once"
+  authors: "Pei-Hua Tsai, Tianyi Zhang, Emran Poh, Anthony Tang, and Yung-Ju Chang"
+  type: "Full Paper"
+  venue: "2026 ACM Conference on Designing Interactive Systems (DIS '26)"
+  venue_short: "DIS 26"
+  year: 2026
+  sort_key: "202607"
+  status: "conditionally accepted"
+  institution: "smuhci"
+  image: ""
+  is-selected: false
+  emoji: "💬"
+  url: "/research/not-too-early-ai-mediated-self-disclosure"
+  bib: ""
+  abstract: ""
+  work-tags:
+    - "Research"
+    - "Paper"
+  subject-tags:
+    - "online dating"
+    - "AI-mediated communication"
+    - "self-disclosure"
+  tagline: ""
+
+- title: "'Grandpa, Can You Speak Nicer?': Envisioned Chatbot Roles and Design Tensions in Intergenerational Communication Conflicts"
+  title_short: "Grandpa, Can You Speak Nicer?"
+  authors: "Tianyi Zhang, Emran Poh, Yueyue Hou, Yi-Chieh Lee, Renwen Zhang, Jiannan Li, and Anthony Tang"
+  type: "Full Paper"
+  venue: "2026 ACM Conference on Designing Interactive Systems (DIS '26)"
+  venue_short: "DIS 26"
+  year: 2026
+  sort_key: "202607"
+  status: "conditionally accepted"
+  institution: "smuhci"
+  image: ""
+  is-selected: false
+  emoji: "👴"
+  url: "/research/grandpa-speak-nicer-chatbot"
+  bib: ""
+  abstract: ""
+  work-tags:
+    - "Research"
+    - "Paper"
+  subject-tags:
+    - "intergenerational communication"
+    - "chatbot design"
+    - "family conflict"
+  tagline: ""
+
 - title: "'Show It, Don't Just Say It': The Complementary Effects of Instruction Multimodality for Software Guidance"
   title_short: "Show It, Don't Just Say It"
   authors: "Emran Poh, Yueyue Hou, Tianyi Zhang, and Jiannan Li"
@@ -10,6 +60,7 @@
   day_start: "D4 · 10:00 AM"
   room: "P1 - Room 121"
   year: 2026
+  sort_key: "202604"
   status: "published"
   institution: "smuhci"
   image: "show-it-software-guidance.png"
@@ -54,6 +105,7 @@
   day_start: "D1 · 2:15 PM"
   room: "P1 - Room 122"
   year: 2026
+  sort_key: "202604"
   status: "accepted"
   status_note: "under revision"
   institution: "smuhci"
@@ -88,6 +140,7 @@
   day_start: "D2 · 2:15 PM"
   room: "P1 - Room 122"
   year: 2026
+  sort_key: "202604"
   status: "accepted"
   institution: "smuhci"
   image: "desire-paths.png"
@@ -118,6 +171,7 @@
   location: "Sydney, Australia"
   date: "October 16–20, 2023"
   year: 2023
+  sort_key: "202310"
   status: "published"
   institution: "nus-hci"
   image: "artefact-awareness.png"
@@ -155,6 +209,7 @@
   location: "Ingolstadt, Germany"
   date: "September 18–21, 2023"
   year: 2023
+  sort_key: "202309"
   status: "published"
   image: "intvrsection.png"
   institution: "immersification"
@@ -195,6 +250,7 @@
   location: "Singapore"
   date: "October 17–21, 2022"
   year: 2022
+  sort_key: "202210"
   status: "published"
   image: "mr-fea-load-table.png"
   institution: "immersification"
@@ -232,6 +288,7 @@
   location: "Online"
   date: "June 26–July 1, 2022"
   year: 2022
+  sort_key: "202206"
   status: "published"
   institution: "immersification"
   image: "mr-assembly-planning.jpg"
@@ -274,6 +331,7 @@
   location: "Virtual"
   date: "July 24–29, 2021"
   year: 2021
+  sort_key: "202107"
   status: "published"
   image: "mr-fea-load-application.png"
   institution: "immersification"
@@ -308,6 +366,7 @@
   location: "Singapore"
   date: "2021"
   year: 2021
+  sort_key: "202112"
   image: "designing-with-holograms.png"
   institution: "immersification"
   emoji: "🖼️"

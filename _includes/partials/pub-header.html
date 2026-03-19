@@ -17,6 +17,9 @@
             {% if pub_status == "under review" or pub_status == "submitted" %}
             <span class="pub-tag pub-tag-status">Under Review</span>
             {% endif %}
+            {% if pub_status == "conditionally accepted" %}
+            <span class="pub-tag pub-tag-conditionally-accepted">Conditionally Accepted</span>
+            {% endif %}
             {% if page.doi %}
             <a href="https://doi.org/{{ page.doi }}" target="_blank" class="pub-tag pub-tag-link">
                 {% include icon.html name="file-alt" %}
@@ -95,6 +98,12 @@
 .pub-tag-status {
     background-color: #fef3c7;
     color: #b45309;
+    font-weight: 500;
+}
+
+.pub-tag-conditionally-accepted {
+    background-color: #dbeafe;
+    color: #1d4ed8;
     font-weight: 500;
 }
 

@@ -6,7 +6,7 @@
 {% if include.selected_only %}
   {% assign author_pubs = author_pubs | where: "is-selected", true %}
 {% endif %}
-{% assign sorted_pubs = author_pubs | sort: 'year' | reverse %}
+{% assign sorted_pubs = author_pubs | sort: 'sort_key' | reverse %}
 {% assign pub_types_workshop = "Workshop Paper|Position Paper|Poster|Late-Breaking Poster" | split: "|" %}
 {% assign pubs_workshop = sorted_pubs | where_exp: "item", "pub_types_workshop contains item.type" %}
 {% assign pubs_main = sorted_pubs | where_exp: "item", "item.type != 'Workshop Paper'" | where_exp: "item", "item.type != 'Position Paper'" | where_exp: "item", "item.type != 'Poster'" | where_exp: "item", "item.type != 'Late-Breaking Poster'" %}
