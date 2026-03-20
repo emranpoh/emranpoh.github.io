@@ -26,6 +26,9 @@ name_arabic: "ڤوه عمران"
 year: 2025
 location: Singapore
 profile_image: /assets/images/projects/me.jpeg
+# Set to true to show the intro headshot again (me.jpeg) and the left column
+# (university + email) on the research intro layout.
+show_profile_photo: false
 
 # Social Media
 github_username: emranpoh

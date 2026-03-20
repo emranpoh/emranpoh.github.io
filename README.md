@@ -1,6 +1,6 @@
 # emran poh
 
-cs phd @ smu-hai lab · ai tutoring + creativity tools
+cs phd @ smu-hai lab · learning, creative tools, and what AI should leave to people
 
 personal site: [emranpoh.github.io](https://emranpoh.github.io)
 

@@ -10,6 +10,8 @@ description: "Research publications and projects in human-AI interaction, HCI, a
 
 <hr class="intro-publications-divider" aria-hidden="true">
 
+{% include components/research-in-progress.html %}
+
 <div class="publications-section-wrapper publications-page">
-  {% include components/publications-section.html %}
+  {% include components/publications-section.html exclude_institution="immersification" %}
 </div>

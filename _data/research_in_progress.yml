@@ -1,0 +1,8 @@
+# Ongoing threads for the /research/ page ("in progress" section).
+# Edit or remove items anytime; empty list hides the whole section.
+# Markdown allowed in each line (e.g. **bold**, [links](url)).
+
+items:
+  - "Working on **when optional help becomes default** in learning tools — designs that keep struggle, reflection, and human teaching moves legible."
+  - "Exploring **annotation and explanation** as places where human effort should stay visible as models get more capable."
+  - "Prototyping **creative tools for children’s exploration** — play, tinkering, and open-ended making — with a lighter-touch AI default so curiosity and agency stay in the foreground."

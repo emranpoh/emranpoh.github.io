@@ -6,6 +6,59 @@
   width: 100%;
 }
 
+.intro-publications-divider.research-in-progress-divider {
+  margin: 1.5rem 0 2rem;
+}
+
+/* /research/ — tentative threads before the papers list */
+.research-in-progress {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.research-in-progress-heading {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  font-weight: normal;
+  text-transform: lowercase;
+  color: #333;
+}
+
+.research-in-progress-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.research-in-progress-item {
+  font-size: 1rem;
+  font-weight: 350;
+  line-height: 1.5;
+  color: #333;
+  margin-bottom: 0.5rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  p {
+    margin: 0;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+  }
+
+  a {
+    color: #666;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #000;
+    }
+  }
+}
+
 // Intro text: match publication abstract (1rem, font-weight 350, line-height 1.5)
 .intro-section .intro-subsection-item,
 .intro-section .intro-subsection-item-content,
@@ -269,6 +322,12 @@
   gap: 1rem;
   width: 100%;
   margin-top: 0.5rem;
+}
+
+// No left column (photo + affiliation hidden): main intro uses full width
+.intro-image-research-row.intro-research-row-no-side .intro-image-research-content {
+  width: 100%;
+  max-width: 100%;
 }
 
 .intro-image-research-content {

@@ -1,5 +1,5 @@
 {% comment %} Combined Works Masonry
-   Merges talks + projects into a single masonry grid, sorted by year (newest first)
+   Talks + projects + Immersification (MR/FEA / engineering) pubs — same pubs excluded from main /research/ list
 {% endcomment %}
 {% assign sorted_talks = site.data.presentations.presentations | sort: 'date' | reverse %}
 {% assign all_projects = '' | split: '' %}
@@ -12,7 +12,10 @@
   {% endfor %}
 {% endif %}
 
-{% comment %} Collect all years from both sources {% endcomment %}
+{% assign works_eng_pubs = site.data.pubs | where_exp: "pub", "pub.authors contains 'Emran Poh'" | where_exp: "pub", "pub.status != 'under review'" | where_exp: "pub", "pub.status != 'submitted'" | where_exp: "pub", "pub.institution == 'immersification'" %}
+{% assign sorted_works_eng_pubs = works_eng_pubs | sort: 'sort_key' | reverse %}
+
+{% comment %} Collect all years from talks, projects, and engineering pubs {% endcomment %}
 {% assign all_years = '' | split: '' %}
 {% for talk in sorted_talks %}
   {% assign y = talk.date | date: '%Y' | default: talk.year | append: '' %}
@@ -26,9 +29,15 @@
     {% assign all_years = all_years | push: py %}
   {% endunless %}
 {% endfor %}
+{% for pub in sorted_works_eng_pubs %}
+  {% assign y = pub.year | append: '' %}
+  {% unless all_years contains y %}
+    {% assign all_years = all_years | push: y %}
+  {% endunless %}
+{% endfor %}
 {% assign all_years = all_years | sort | reverse %}
 
-<section class="works-masonry-container" aria-label="Works">
+<section class="works-masonry-container" aria-label="Other works">
   <div class="works-masonry-grid" id="works-masonry">
     {% for year_str in all_years %}
       {% assign year_num = year_str | plus: 0 %}
@@ -54,6 +63,39 @@
           {% include components/cards/selected-work-card.html work=project type=work_type %}
         {% endif %}
       {% endfor %}
+      {% comment %} Immersification lab publications (MR/FEA, engineering visualization) {% endcomment %}
+      {% for pub in sorted_works_eng_pubs %}
+        {% assign pub_y = pub.year | default: 0 | plus: 0 %}
+        {% if pub_y == year_num %}
+          {% include components/cards/selected-work-card.html work=pub type='pub' %}
+        {% endif %}
+      {% endfor %}
     {% endfor %}
   </div>
 </section>
+
+<script>
+(function() {
+  var grid = document.getElementById('works-masonry');
+  if (!grid) return;
+  grid.addEventListener('click', function(e) {
+    var btn = e.target.closest('.work-bib-btn');
+    if (!btn) return;
+    e.preventDefault();
+    e.stopPropagation();
+    var wrap = btn.closest('.work-bib-wrap');
+    var el = wrap ? wrap.querySelector('.work-bib-content') : null;
+    if (!el) return;
+    var text = el.textContent.trim();
+    if (!text) return;
+    navigator.clipboard.writeText(text).then(function() {
+      btn.textContent = 'Copied';
+      btn.setAttribute('aria-label', 'Copied to clipboard');
+      setTimeout(function() {
+        btn.textContent = 'bib';
+        btn.setAttribute('aria-label', 'Copy BibTeX');
+      }, 1500);
+    });
+  });
+})();
+</script>

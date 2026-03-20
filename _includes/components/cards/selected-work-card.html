@@ -276,7 +276,7 @@
         {% endif %}
       </div>
     {% else %}
-      {% comment %} Other works: title overlaid on image {% endcomment %}
+      {% comment %} Fallback: title overlaid on image {% endcomment %}
       <div class="work-image">
         {% if include.work.image and include.work.image != '' %}
           <img src="{{ '/assets/images/projects/' | append: include.work.image | relative_url }}" alt="{{ work_img_alt }}" loading="lazy">

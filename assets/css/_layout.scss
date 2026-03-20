@@ -858,12 +858,27 @@ section {
   aspect-ratio: unset;
 }
 
+/* Research /pubs: square thumb on the side (override placeholder unset + stretch) */
+.publications-section-wrapper.publications-page .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"]:has(.placeholder-image) .work-link {
+  align-items: flex-start;
+}
+
+.publications-section-wrapper.publications-page .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"]:has(.placeholder-image) .work-image {
+  aspect-ratio: 1 / 1;
+}
+
 .publications-section-wrapper .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"] .work-image {
   flex: 0 0 auto;
   width: 30%;
   max-width: 200px;
   aspect-ratio: 3 / 2;
   border-radius: 8px;
+}
+
+/* Selected publications: square thumbnails (same row layout as other horizontal lists, 1:1 image) */
+.publications-section-wrapper .publications-section-container.publications-selected-only .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"] .work-image,
+.publications-section-wrapper .publications-section-container.publications-selected-only .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"]:has(.placeholder-image) .work-image {
+  aspect-ratio: 1 / 1;
 }
 
 .publications-section-wrapper .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"] .work-image img,
@@ -899,6 +914,26 @@ section {
   .publications-section-wrapper .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"] .work-image {
     width: 100%;
     max-width: none;
+  }
+
+  /* Research /pubs on mobile: still image left, text right; compact square thumb */
+  .publications-section-wrapper.publications-page .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"] .work-link {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .publications-section-wrapper.publications-page .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"]:has(.placeholder-image) .work-link {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .publications-section-wrapper.publications-page .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"] .work-image,
+  .publications-section-wrapper.publications-page .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"]:has(.placeholder-image) .work-image {
+    flex: 0 0 auto;
+    width: 5.5rem;
+    aspect-ratio: 1 / 1;
+    align-self: flex-start;
   }
 }
 
@@ -945,31 +980,34 @@ section {
     width: calc((100% - 1.5rem) / 2);
   }
 
-  /* Research page: square-format publication tiles */
-  .publications-page .publications-section-wrapper .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"] .work-link {
-    flex-direction: column;
-    align-items: stretch;
+  /* Research page: square thumbnail on the left, details on the right (horizontal row) */
+  .publications-section-wrapper.publications-page .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"] .work-link {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.25rem;
   }
 
-  .publications-page .publications-section-wrapper .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"] .work-image {
-    width: 100%;
-    max-width: none;
-    aspect-ratio: 1;
+  .publications-section-wrapper.publications-page .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"] .work-image {
+    flex: 0 0 auto;
+    width: clamp(6rem, 18vw, 8.75rem);
+    max-width: 200px;
+    aspect-ratio: 1 / 1;
   }
 
-  .publications-page .publications-section-wrapper .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"] .work-image img,
-  .publications-page .publications-section-wrapper .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"] .work-image .placeholder-image {
+  .publications-section-wrapper.publications-page .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"] .work-image img,
+  .publications-section-wrapper.publications-page .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"] .work-image .placeholder-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 
-  .publications-page .publications-section-wrapper .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"]:has(.placeholder-image) .work-image {
-    aspect-ratio: 1;
+  .publications-section-wrapper.publications-page .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"]:has(.placeholder-image) .work-image {
+    aspect-ratio: 1 / 1;
   }
 
-  .publications-page .publications-section-wrapper .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"] .work-title-below {
-    flex: 0 0 auto;
+  .publications-section-wrapper.publications-page .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"] .work-title-below {
+    flex: 1;
+    min-width: 0;
   }
 }
 
@@ -1227,7 +1265,8 @@ section {
   }
 
   body.page-works .works-masonry-grid .work-grid-item[data-type="project"] .work-image,
-  body.page-works .works-masonry-grid .work-grid-item[data-type="presentation"] .work-image {
+  body.page-works .works-masonry-grid .work-grid-item[data-type="presentation"] .work-image,
+  body.page-works .works-masonry-grid .work-grid-item[data-type="pub"] .work-image {
     aspect-ratio: unset;
     height: auto;
   }
@@ -1235,7 +1274,9 @@ section {
   body.page-works .works-masonry-grid .work-grid-item[data-type="project"] .work-image img,
   body.page-works .works-masonry-grid .work-grid-item[data-type="project"] .work-image .placeholder-image,
   body.page-works .works-masonry-grid .work-grid-item[data-type="presentation"] .work-image img,
-  body.page-works .works-masonry-grid .work-grid-item[data-type="presentation"] .work-image .placeholder-image {
+  body.page-works .works-masonry-grid .work-grid-item[data-type="presentation"] .work-image .placeholder-image,
+  body.page-works .works-masonry-grid .work-grid-item[data-type="pub"] .work-image img,
+  body.page-works .works-masonry-grid .work-grid-item[data-type="pub"] .work-image .placeholder-image {
     width: 100%;
     height: auto;
     object-fit: contain;

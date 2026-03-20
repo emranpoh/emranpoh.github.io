@@ -33,7 +33,7 @@
   sort_key: "202607"
   status: "conditionally accepted"
   institution: "smuhci"
-  image: ""
+  image: "intergen.png"
   is-selected: false
   emoji: "👴"
   url: "/research/grandpa-speak-nicer-chatbot"
@@ -63,7 +63,7 @@
   sort_key: "202604"
   status: "published"
   institution: "smuhci"
-  image: "show-it-software-guidance.png"
+  image: "showit.png"
   is-selected: true
   emoji: "📝"
   url: "/research/show-it-software-guidance"
@@ -254,7 +254,7 @@
   status: "published"
   image: "mr-fea-load-table.png"
   institution: "immersification"
-  is-selected: true
+  is-selected: false
   emoji: "🔍"
   url: "/research/mr-fea-design-review"
   doi: "10.1109/ISMAR-Adjunct57072.2022.00136"

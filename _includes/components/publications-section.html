@@ -1,8 +1,16 @@
 {% comment %} Publications Section Component
    Displays only publications where Emran Poh is an author
    When selected_only=true (main page), shows only pubs with is-selected: true
+   Optional: institution_filter="immersification" — only that institution
+   Optional: exclude_institution="immersification" — hide that institution (e.g. archival MR/FEA off /research/)
 {% endcomment %}
 {% assign author_pubs = site.data.pubs | where_exp: "pub", "pub.authors contains 'Emran Poh'" | where_exp: "pub", "pub.status != 'under review'" | where_exp: "pub", "pub.status != 'submitted'" %}
+{% if include.institution_filter %}
+  {% assign author_pubs = author_pubs | where_exp: "pub", "pub.institution == include.institution_filter" %}
+{% endif %}
+{% if include.exclude_institution %}
+  {% assign author_pubs = author_pubs | where_exp: "pub", "pub.institution != include.exclude_institution" %}
+{% endif %}
 {% if include.selected_only %}
   {% assign author_pubs = author_pubs | where: "is-selected", true %}
 {% endif %}
@@ -12,18 +20,14 @@
 {% assign pubs_main = sorted_pubs | where_exp: "item", "item.type != 'Workshop Paper'" | where_exp: "item", "item.type != 'Position Paper'" | where_exp: "item", "item.type != 'Poster'" | where_exp: "item", "item.type != 'Late-Breaking Poster'" %}
 
 <section class="publications-section-container{% if include.selected_only %} publications-selected-only{% endif %}" aria-labelledby="publications-heading">
-  {% if page.id == 'research' %}
-  <div class="publications-research-header" style="margin-bottom: 1rem;">
-    <h2 id="publications-heading" class="publications-research-title" style="margin: 0; font-size: 1rem; font-weight: normal; text-transform: lowercase;">papers</h2>
-  </div>
-  {% elsif include.selected_only %}
+  {% if include.selected_only %}
   <div class="intro-block publications-intro-block" style="margin-bottom: 1rem; text-align: left;">
     <p id="publications-heading" style="margin: 0;">selected publications</p>
   </div>
   {% else %}
   <div class="publications-split-sections">
     <div class="publications-subsection">
-      <h2 class="publications-subsection-title">publications</h2>
+      <h2 id="publications-heading" class="publications-subsection-title">publications</h2>
       <div class="publications-grid-wrapper">
         <div class="publications-grid publications-grid-horizontal" id="publications-grid">
           {% for pub in pubs_main %}

@@ -1,7 +1,7 @@
 ---
 layout: pages/default
-title: Works
+title: Other works
 permalink: /works/
 id: works
-description: "Selected projects and works by Emran Poh — HCI, interactive systems, and creative technology."
+description: "Projects, talks, and other work by Emran Poh — including earlier mixed-reality & FEA / engineering publications (Immersification) alongside HCI and creative technology."
 ---

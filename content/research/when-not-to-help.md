@@ -15,4 +15,4 @@ tags:
     url: "/research/#ai"
 ---
 
-This paper had many concerns that were not included in the study which I explore in [show it : some extra thoughts](/content/posts/show-it-some-extra-thoughts/).
+This paper had many concerns that were not included in the study.

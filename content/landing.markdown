@@ -3,14 +3,14 @@ layout: pages/default
 title: Emran Poh
 permalink: /
 id: landing
-description: "CS PhD student at SMU-HAI Lab. Research in human-AI interaction, AI tutoring, and creativity tools."
+description: "CS PhD student at SMU-HAI Lab. Learning, creative tools, and what AI should leave to people."
 ---
 
 <div class="landing-wrapper">
 <div class="landing-container">
   <div class="landing-name">{{ site.title }}</div>
   <div class="landing-subtitle">cs phd @ smu-hai lab</div>
-  <div class="landing-tagline">ai tutoring + creativity tools</div>
+  <div class="landing-tagline">learning, creative tools, and what AI should leave to people</div>
   <div class="landing-email">emran.poh.2025[at]smu.edu.sg</div>
   <div class="landing-buttons-wrap">
   <a href="{{ '/research' | relative_url }}" class="landing-btn landing-btn-research" aria-label="Research">
@@ -25,16 +25,16 @@ description: "CS PhD student at SMU-HAI Lab. Research in human-AI interaction, A
     <span class="landing-btn-num">3</span>
     <img src="{{ '/assets/images/cv.png' | relative_url }}" alt="CV" class="landing-btn-img">
   </a>
-  <a href="{{ '/works' | relative_url }}" class="landing-btn landing-btn-works" aria-label="Works">
+  <a href="{{ '/works' | relative_url }}" class="landing-btn landing-btn-works" aria-label="Other works">
     <span class="landing-btn-num">4</span>
-    <img src="{{ '/assets/images/laptop.png' | relative_url }}" alt="Works" class="landing-btn-img">
+    <img src="{{ '/assets/images/laptop.png' | relative_url }}" alt="Other works" class="landing-btn-img">
   </a>
   <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" class="landing-btn landing-btn-linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
     <span class="landing-btn-num">5</span>
     <img src="{{ '/assets/images/contact.png' | relative_url }}" alt="LinkedIn" class="landing-btn-img">
   </a>
   </div>
-  <div class="landing-legend">(1) research (2) showit-manuscript (3) cv (4) works (5) linkedin</div>
+  <div class="landing-legend">(1) research (2) showit-manuscript (3) cv (4) other works (5) linkedin</div>
 </div>
 </div>
 

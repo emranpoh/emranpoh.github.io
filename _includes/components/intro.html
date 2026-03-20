@@ -1,7 +1,8 @@
 <section class="w-full intro-section">
   <div class="intro-container">
     {% if include.research_page and site.data.intro.research %}
-    <div class="intro-image-research-row">
+    <div class="intro-image-research-row{% unless site.show_profile_photo %} intro-research-row-no-side{% endunless %}">
+      {% if site.show_profile_photo %}
       <div class="intro-image-column">
         <div class="intro-image">
           <img src="{{ '/assets/images/projects/me.jpeg' | relative_url }}" alt="Emran Poh" class="intro-placeholder-image">
@@ -13,6 +14,7 @@
           <div class="intro-email-line"><span class="intro-email">emran.poh.2025 [at] smu.edu.sg</span></div>
         </div>
       </div>
+      {% endif %}
       <div class="intro-image-research-content">
         <div class="intro-name-pronouns intro-name-above">
           <div class="intro-name">{{ site.title }}</div>
@@ -36,9 +38,11 @@
     </div>
     {% else %}
     <div class="intro-image-name-row">
+      {% if site.show_profile_photo %}
       <div class="intro-image">
         <img src="{{ '/assets/images/projects/me.jpeg' | relative_url }}" alt="Emran Poh" class="intro-placeholder-image">
       </div>
+      {% endif %}
       <div class="intro-name-pronouns intro-name-above">
         <div class="intro-name">{{ site.title }}</div>
       </div>

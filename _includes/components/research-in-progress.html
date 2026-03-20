@@ -1,0 +1,16 @@
+{% comment %} Renders when site.data.research_in_progress.items is non-empty. {% endcomment %}
+{% assign wip = nil %}
+{% if site.data.research_in_progress and site.data.research_in_progress.items %}
+  {% assign wip = site.data.research_in_progress.items %}
+{% endif %}
+{% if wip and wip.size > 0 %}
+<section class="research-in-progress" aria-labelledby="research-in-progress-heading">
+  <h2 id="research-in-progress-heading" class="research-in-progress-heading">in progress</h2>
+  <ul class="research-in-progress-list">
+    {% for item in wip %}
+    <li class="research-in-progress-item">{{ item | markdownify }}</li>
+    {% endfor %}
+  </ul>
+</section>
+<hr class="intro-publications-divider research-in-progress-divider" aria-hidden="true">
+{% endif %}
