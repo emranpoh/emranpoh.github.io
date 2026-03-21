@@ -20,11 +20,10 @@ body.layout-sidebar .main-content {
   .mobile-section {
     display: block !important;
   }
-  /* Mobile pub cards with placeholder: equal height for image area and title */
+  /* Legacy mobile pub list: column stack — avoid 1fr/1fr grid (adds empty space under the text) */
   .mobile-pub-card-no-image {
-    display: grid !important;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr;
+    display: flex !important;
+    flex-direction: column;
   }
 }
 
@@ -904,36 +903,33 @@ section {
     flex-direction: column;
   }
 
-  /* Placeholder-only on mobile: equal height for image area and title */
-  .publications-section-wrapper .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"]:has(.placeholder-image) .work-link {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr;
-  }
+  /* Placeholder cards: same column flex as real thumbnails — avoid 1fr/1fr grid rows, which reserve a second row as tall as the image and leave a huge gap under the text */
 
   .publications-section-wrapper .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"] .work-image {
     width: 100%;
     max-width: none;
   }
 
-  /* Research /pubs on mobile: still image left, text right; compact square thumb */
+  /* /research/ listing: match other horizontal grids — full-width image on top, text below (not thumbnail + text in a row) */
   .publications-section-wrapper.publications-page .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"] .work-link {
-    flex-direction: row;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: stretch;
     gap: 1rem;
-  }
-
-  .publications-section-wrapper.publications-page .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"]:has(.placeholder-image) .work-link {
-    display: flex;
-    flex-direction: row;
   }
 
   .publications-section-wrapper.publications-page .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"] .work-image,
   .publications-section-wrapper.publications-page .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"]:has(.placeholder-image) .work-image {
+    width: 100%;
+    max-width: none;
     flex: 0 0 auto;
-    width: 5.5rem;
     aspect-ratio: 1 / 1;
-    align-self: flex-start;
+  }
+
+  .publications-section-wrapper.publications-page .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"] .work-image img,
+  .publications-section-wrapper.publications-page .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"] .work-image .placeholder-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 
