@@ -53,19 +53,23 @@
     </main>
 
     <!-- Publications Section - Full Width Below Columns -->
-    {% if (page.id == 'emran' or page.title == 'Emran Poh') and page.id != 'landing' %}
+    {% if page.id != 'landing' %}
+      {% if page.id == 'emran' or page.title == 'Emran Poh' %}
     <div class="publications-section-wrapper">
       {% include components/publications-section.html selected_only=true %}
     </div>
+      {% endif %}
     {% endif %}
     {% endif %}
     {% endunless %}
 
     <!-- Talks + Presentations Section (emran only; works uses combined masonry) -->
-    {% if (page.id == 'emran' or page.title == 'Emran Poh') and page.id != 'landing' %}
+    {% if page.id != 'landing' %}
+      {% if page.id == 'emran' or page.title == 'Emran Poh' %}
     <div class="talks-section-wrapper">
       {% include components/talks-section.html %}
     </div>
+      {% endif %}
     {% endif %}
     
     <!-- Selected Works Section (emran/landing) OR Combined Masonry (works page) -->
@@ -73,10 +77,12 @@
     <div class="works-masonry-wrapper" id="main-content" role="main">
       {% include components/works-masonry.html %}
     </div>
-    {% elsif (page.id == 'emran' or page.title == 'Emran Poh') and page.id != 'landing' %}
+    {% elsif page.id != 'landing' %}
+      {% if page.id == 'emran' or page.title == 'Emran Poh' %}
     <div class="selected-works-wrapper">
       {% include components/selected-works.html %}
     </div>
+      {% endif %}
     {% endif %}
     
     {% unless page.id == 'landing' %}
@@ -86,8 +92,12 @@
     {% endunless %}
   </div>
   
-  {% if ((page.id == 'emran' or page.title == 'Emran Poh') and page.id != 'landing') or page.id == 'works' %}
+  {% if page.id == 'works' %}
   {% include components/work-detail-modal.html %}
+  {% elsif page.id != 'landing' %}
+    {% if page.id == 'emran' or page.title == 'Emran Poh' %}
+  {% include components/work-detail-modal.html %}
+    {% endif %}
   {% endif %}
 
   <script>

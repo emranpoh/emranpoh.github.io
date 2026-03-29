@@ -1,0 +1,21 @@
+{% comment %}
+  Renders venue acceptance from structured data or legacy string.
+  Params: work (required), acceptance_override (optional), format (optional):
+    - default / compact: "1705/6730 (25.3%)"
+    - title: "1705 accepted of 6730 submissions (25.3%)" for tooltips
+{% endcomment %}
+{% assign w = include.work %}
+{% assign acc = include.acceptance_override | default: w.acceptance %}
+{% assign fmt = include.format | default: 'compact' %}
+{% if acc.accepted and acc.total and acc.total > 0 %}
+  {% assign _x = acc.accepted | times: 1000 | divided_by: acc.total %}
+  {% assign _p1 = _x | divided_by: 10 %}
+  {% assign _p2 = _x | modulo: 10 %}
+  {% if fmt == 'title' %}
+    {{ acc.accepted }} accepted of {{ acc.total }} submissions ({{ _p1 }}.{{ _p2 }}%)
+  {% else %}
+    {{ acc.accepted }}/{{ acc.total }} ({{ _p1 }}.{{ _p2 }}%)
+  {% endif %}
+{% elsif w.acceptance_rate and w.acceptance_rate != '' %}
+  {{ w.acceptance_rate }}
+{% endif %}

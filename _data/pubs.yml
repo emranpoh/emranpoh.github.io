@@ -62,6 +62,9 @@
   year: 2026
   sort_key: "202604"
   status: "published"
+  acceptance:
+    accepted: 1705
+    total: 6730
   institution: "smuhci"
   image: "showit.png"
   is-selected: true

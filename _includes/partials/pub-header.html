@@ -20,6 +20,16 @@
             {% if pub_status == "conditionally accepted" %}
             <span class="pub-tag pub-tag-conditionally-accepted">Conditionally Accepted</span>
             {% endif %}
+            {% capture pub_acceptance_compact %}
+            {% include partials/pub-acceptance-render.html work=pub acceptance_override=page.acceptance %}
+            {% endcapture %}
+            {% assign pub_acceptance_compact = pub_acceptance_compact | strip %}
+            {% if pub_acceptance_compact != '' %}
+            {% capture pub_acceptance_tip %}
+            {% include partials/pub-acceptance-render.html work=pub acceptance_override=page.acceptance format='title' %}
+            {% endcapture %}
+            <span class="pub-tag pub-tag-acceptance-rate" title="{{ pub_acceptance_tip | strip | replace: '"', '&#34;' }}">{{ pub_acceptance_compact }}</span>
+            {% endif %}
             {% if page.doi %}
             <a href="https://doi.org/{{ page.doi }}" target="_blank" class="pub-tag pub-tag-link">
                 {% include icon.html name="file-alt" %}
@@ -105,6 +115,13 @@
     background-color: #dbeafe;
     color: #1d4ed8;
     font-weight: 500;
+}
+
+.pub-tag-acceptance-rate {
+    background-color: #f1f5f9;
+    color: #64748b;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
 }
 
 .pub-tag-link {

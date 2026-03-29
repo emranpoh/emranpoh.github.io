@@ -216,8 +216,15 @@
 
 /* Keywords/subject-tags: standardize to lowercase across site */
 .pub-tag,
-.subject-tag:not(.venue-tag):not(.status-tag) {
+.subject-tag:not(.venue-tag):not(.status-tag):not(.acceptance-rate-tag) {
   text-transform: lowercase;
+}
+
+.subject-tag.acceptance-rate-tag {
+  font-variant-numeric: tabular-nums;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  color: #64748b;
 }
 
 .tag {

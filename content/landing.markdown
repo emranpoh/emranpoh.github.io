@@ -34,7 +34,7 @@ description: "CS PhD student at SMU-HAI Lab. Learning, creative tools, and what 
     <img src="{{ '/assets/images/contact.png' | relative_url }}" alt="LinkedIn" class="landing-btn-img">
   </a>
   </div>
-  <div class="landing-legend">(1) research (2) showit-manuscript (3) cv (4) other works (5) linkedin</div>
+  <div class="landing-legend">(1) research (2) showit-dontjustsayit (3) cv (4) other works (5) linkedin</div>
 </div>
 </div>
 

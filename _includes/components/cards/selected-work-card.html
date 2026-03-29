@@ -163,6 +163,16 @@
               <span class="subject-tag venue-tag venue-{{ venue_class }}">{{ include.work.venue_short }} {{ year_short }}</span>
             {% endif %}
           {% endif %}
+          {% capture acceptance_compact %}
+          {% include partials/pub-acceptance-render.html work=include.work %}
+          {% endcapture %}
+          {% assign acceptance_compact = acceptance_compact | strip %}
+          {% if acceptance_compact != '' %}
+          {% capture acceptance_tip %}
+          {% include partials/pub-acceptance-render.html work=include.work format='title' %}
+          {% endcapture %}
+          <span class="subject-tag acceptance-rate-tag" title="{{ acceptance_tip | strip | replace: '"', '&#34;' }}">{{ acceptance_compact }}</span>
+          {% endif %}
           {% if include.type == 'pub' and (include.work.doi or include.work.bib or include.work.tags) %}
           {% if include.work.doi and include.work.doi != '' %}
           <a href="https://doi.org/{{ include.work.doi }}" target="_blank" rel="noopener noreferrer" class="subject-tag work-doi-btn" aria-label="View DOI: {{ include.work.doi }}">doi</a>
