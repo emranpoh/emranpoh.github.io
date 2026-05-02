@@ -17,22 +17,6 @@ layout: pages/default
   {% include partials/pub-header.html pub=matched_pub %}
 
   <hr class="publication-divider">
-  {% if matched_pub and matched_pub.location or matched_pub and matched_pub.date or matched_pub and matched_pub.session or matched_pub and matched_pub.room %}
-  <div class="pub-location-date">
-    {% if matched_pub.session or matched_pub.date %}
-    <span class="pub-location-date-line pub-location-date-row">
-      <span class="pub-location-date-left">{% if matched_pub.session %}{{ matched_pub.session }}{% elsif matched_pub.date %}{{ matched_pub.date }}{% endif %}</span>
-    </span>
-    {% endif %}
-    {% if matched_pub.room or matched_pub.location %}
-    <span class="pub-location-date-line pub-location-date-row">
-      <span class="pub-location-date-left">{% if matched_pub.room %}{{ matched_pub.room }}{% endif %}</span>
-      {% if matched_pub.location %}<span class="pub-location-date-right">{{ matched_pub.location }}</span>{% endif %}
-    </span>
-    {% endif %}
-  </div>
-  <hr class="publication-divider">
-  {% endif %}
   {% assign pub_image = page.image | default: matched_pub.image %}
   {% if pub_image and pub_image != '' %}
   <div class="publication-image">

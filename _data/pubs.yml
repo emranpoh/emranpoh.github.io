@@ -56,9 +56,6 @@
   venue_short: "CHI 26"
   location: "Barcelona, Spain"
   date: "April 13–17, 2026"
-  session: "CHI Day 4 · 10:00–10:12 AM (CEST)"
-  day_start: "D4 · 10:00 AM"
-  room: "P1 - Room 121"
   year: 2026
   sort_key: "202604"
   status: "published"
@@ -104,9 +101,6 @@
   workshop_name: "Understanding and Engaging Critical Resistance to AI in Education"
   location: "Barcelona, Spain"
   date: "April 13–17, 2026"
-  session: "CHI Day 1 · 2:15-6:00 PM (CEST)"
-  day_start: "D1 · 2:15 PM"
-  room: "P1 - Room 122"
   year: 2026
   sort_key: "202604"
   status: "accepted"
@@ -139,9 +133,6 @@
   workshop_name: "Human-AI-UI Interactions Across Modalities"
   location: "Barcelona, Spain"
   date: "April 13–17, 2026"
-  session: "CHI Day 2 · 2:15-6:00 PM (CEST)"
-  day_start: "D2 · 2:15 PM"
-  room: "P1 - Room 122"
   year: 2026
   sort_key: "202604"
   status: "accepted"

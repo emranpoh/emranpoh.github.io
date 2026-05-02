@@ -9,19 +9,10 @@
     <a href="{{ '/research' | relative_url }}" class="nav-link nav-link-with-text {% if page.url contains '/research' %}{% unless page.url contains 'show-it-software-guidance' or page.url contains 'when-not-to-help' or page.url contains 'desire-paths-in-learning' %}active{% endunless %}{% endif %}" aria-label="Research"><span class="nav-link-text">emran</span></a>
     <a href="{{ '/works' | relative_url }}" class="nav-link nav-link-with-text {% if page.url contains '/works' %}active{% endif %}" aria-label="Other works"><span class="nav-link-text">other works</span></a>
     <div class="sidebar-nav-group">
-      <span class="sidebar-nav-header">chi 26</span>
-      {% assign chi_pub_urls = "/research/show-it-software-guidance,/research/desire-paths-in-learning,/research/when-not-to-help" | split: "," %}
-      {% assign chi_pub_labels = "show it don't just say it,desire paths in learning,when not to help" | split: "," %}
-      {% for url in chi_pub_urls %}
-        {% assign idx = forloop.index0 %}
-        {% assign pub_url = url | strip %}
-        {% assign pub_label = chi_pub_labels[idx] | strip %}
-        {% assign chi_pub = site.data.pubs | where: "url", pub_url | first %}
-        <a href="{{ pub_url | relative_url }}" class="nav-link nav-link-with-text nav-link-with-sublabel {% if page.url contains pub_url %}active{% endif %}" aria-label="{{ pub_label }}">
-          <span class="nav-link-text">{{ pub_label }}</span>
-          {% if chi_pub and chi_pub.room and chi_pub.day_start %}
-          <span class="nav-sublabel">{{ chi_pub.day_start }} · {{ chi_pub.room }}</span>
-          {% endif %}
+      <span class="sidebar-nav-header">publications</span>
+      {% for item in site.data.chi_nav.links %}
+        <a href="{{ item.url | relative_url }}" class="nav-link nav-link-with-text {% if page.url contains item.url %}active{% endif %}" aria-label="{{ item.label }}">
+          <span class="nav-link-text">{{ item.label }}</span>
         </a>
       {% endfor %}
     </div>
@@ -88,7 +79,6 @@
 .sidebar-nav-header {
   font-size: 0.6875rem;
   font-weight: 400;
-  text-transform: uppercase;
   letter-spacing: 0.05em;
   color: #9ca3af;
   margin-top: 0.625rem;
