@@ -180,15 +180,18 @@
     color: #4b5563 !important;
     text-decoration: none;
     font-family: inherit;
-    cursor: pointer;
     transition: color 0.2s ease;
     background: none;
     border: none;
     padding: 0;
+  }
 
-    &:hover {
-      color: #374151 !important;
-    }
+  .publication-detail .pub-preprint-btn:hover {
+    color: #1d4ed8 !important;
+  }
+
+  .publication-detail .pub-copy-bib-btn:hover {
+    color: #374151 !important;
   }
 
   .publication-detail .pub-copy-bib-btn {
@@ -364,10 +367,18 @@
     color: #4b5563 !important;
     text-decoration: none;
     font-family: inherit;
-    cursor: pointer;
     background: none;
     border: none;
     padding: 0.5rem 0;
+    transition: color 0.2s ease;
+  }
+
+  .publication-detail .pub-preprint-btn:hover {
+    color: #1d4ed8 !important;
+  }
+
+  .publication-detail .pub-copy-bib-btn:hover {
+    color: #374151 !important;
   }
 
   .publication-detail .pub-preprint-btn + .pub-copy-bib-btn::before {

@@ -143,6 +143,21 @@
         {% assign authors_with_bold = include.work.authors | replace: 'Emran Poh', '<strong>Emran Poh</strong>' %}
         <div class="work-authors-below">{{ authors_with_bold | raw }}</div>
         {% endif %}
+        {% if include.type == 'pub' %}
+        {% if include.work.abstract_short and include.work.abstract_short != '' %}
+          {% assign tile_abstract = include.work.abstract_short %}
+        {% elsif include.work.abstract and include.work.abstract != '' %}
+          {% assign tile_abstract = include.work.abstract %}
+        {% else %}
+          {% assign tile_abstract = '' %}
+        {% endif %}
+        {% if include.work.status == "conditionally accepted" %}
+          {% assign tile_abstract = '' %}
+        {% endif %}
+        {% if tile_abstract != '' %}
+        <p class="work-pub-abstract">{{ tile_abstract }}</p>
+        {% endif %}
+        {% endif %}
         <div class="work-venue-tags">
           {% if include.work.status == "under review" or include.work.status == "submitted" %}
           <span class="subject-tag status-tag status-under-review">Under Review</span>
@@ -150,7 +165,19 @@
           {% if include.work.status == "conditionally accepted" %}
           <span class="subject-tag status-tag status-conditionally-accepted">Conditionally Accepted</span>
           {% endif %}
-          {% if include.work.venue_short %}
+          {% if include.work.workshop_name and include.work.workshop_name != '' and include.work.venue_short %}
+            {% assign venue_parts_ws = include.work.venue_short | split: ' ' %}
+            {% assign venue_name_ws = venue_parts_ws[0] %}
+            {% assign venue_class_ws = venue_name_ws | downcase | replace: '-', '' | replace: "'", '' %}
+            {% assign year_str_ws = include.work.year | append: '' %}
+            {% assign year_short_ws = year_str_ws | slice: -2, 2 %}
+            {% if include.work.venue_short contains year_short_ws %}
+              <span class="subject-tag venue-tag venue-{{ venue_class_ws }}">{{ include.work.venue_short }}</span>
+            {% else %}
+              <span class="subject-tag venue-tag venue-{{ venue_class_ws }}">{{ include.work.venue_short }} {{ year_short_ws }}</span>
+            {% endif %}
+            <span class="subject-tag workshop-name-tag">{{ include.work.workshop_name }}</span>
+          {% elsif include.work.venue_short %}
             {% assign venue_parts = include.work.venue_short | split: ' ' %}
             {% assign venue_name = venue_parts[0] %}
             {% assign venue_class = venue_name | downcase | replace: '-', '' | replace: "'", '' %}
@@ -174,8 +201,19 @@
           <span class="subject-tag acceptance-rate-tag" title="{{ acceptance_tip | strip | replace: '"', '&#34;' }}">{{ acceptance_compact }}</span>
           {% endif %}
           {% if include.type == 'pub' and (include.work.doi or include.work.bib or include.work.tags) %}
-          {% if include.work.doi and include.work.doi != '' %}
-          <a href="https://doi.org/{{ include.work.doi }}" target="_blank" rel="noopener noreferrer" class="subject-tag work-doi-btn" aria-label="View DOI: {{ include.work.doi }}">doi</a>
+          {% assign work_doi_href = nil %}
+          {% if include.work.tags %}
+          {% for tag in include.work.tags %}
+          {% if work_doi_href == nil and tag.name == 'doi' and tag.url %}
+          {% assign work_doi_href = tag.url %}
+          {% endif %}
+          {% endfor %}
+          {% endif %}
+          {% if work_doi_href == nil and include.work.doi and include.work.doi != '' %}
+          {% capture work_doi_href %}https://doi.org/{{ include.work.doi }}{% endcapture %}
+          {% endif %}
+          {% if work_doi_href %}
+          <a href="{{ work_doi_href }}" target="_blank" rel="noopener noreferrer" class="subject-tag work-doi-btn" aria-label="View publication DOI">doi</a>
           {% endif %}
           {% if include.work.bib and include.work.bib != '' %}
           <span class="work-bib-wrap">

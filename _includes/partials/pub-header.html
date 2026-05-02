@@ -2,8 +2,25 @@
     {% assign pub = include.pub %}
     {% assign venue_short = page.venue_short | default: pub.venue_short %}
     {% assign wn = page.workshop_name | default: pub.workshop_name %}
+    {% assign pub_year_line = page.year | default: pub.year %}
     {% if venue_short or wn %}
-    <p class="pub-venue-short">{% if venue_short %}{{ venue_short }}{% endif %}{% if venue_short and wn and wn != '' %} · {{ wn }}{% elsif wn and wn != '' %}{{ wn }}{% endif %}</p>
+    {% if wn and wn != '' and venue_short %}
+    <p class="pub-venue-short pub-venue-short-tags">
+      {% assign vpartsh = venue_short | split: ' ' %}
+      {% assign yh = pub_year_line | append: '' %}
+      {% assign ysh = yh | slice: -2, 2 %}
+      {% if venue_short contains ysh %}
+      <span class="subject-tag venue-tag venue-{{ vpartsh[0] | downcase | replace: '-', '' | replace: "'", '' }}">{{ venue_short }}</span>
+      {% else %}
+      <span class="subject-tag venue-tag venue-{{ vpartsh[0] | downcase | replace: '-', '' | replace: "'", '' }}">{{ venue_short }} {{ ysh }}</span>
+      {% endif %}
+      <span class="subject-tag workshop-name-tag">{{ wn }}</span>
+    </p>
+    {% elsif venue_short %}
+    <p class="pub-venue-short">{{ venue_short }}</p>
+    {% elsif wn %}
+    <p class="pub-venue-short">{{ wn }}</p>
+    {% endif %}
     {% endif %}
     <h1 class="pub-title">{{ page.title }}</h1>
     <div class="pub-meta">
@@ -30,8 +47,19 @@
             {% endcapture %}
             <span class="pub-tag pub-tag-acceptance-rate" title="{{ pub_acceptance_tip | strip | replace: '"', '&#34;' }}">{{ pub_acceptance_compact }}</span>
             {% endif %}
-            {% if page.doi %}
-            <a href="https://doi.org/{{ page.doi }}" target="_blank" class="pub-tag pub-tag-link">
+            {% assign header_doi_url = nil %}
+            {% if pub and pub.tags %}
+            {% for tag in pub.tags %}
+            {% if header_doi_url == nil and tag.name == 'doi' and tag.url %}
+            {% assign header_doi_url = tag.url %}
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+            {% if header_doi_url == nil and page.doi %}
+            {% capture header_doi_url %}https://doi.org/{{ page.doi }}{% endcapture %}
+            {% endif %}
+            {% if header_doi_url %}
+            <a href="{{ header_doi_url }}" target="_blank" rel="noopener noreferrer" class="pub-tag pub-tag-link">
                 {% include icon.html name="file-alt" %}
                 DOI
             </a>
@@ -49,6 +77,22 @@
     margin: 0 0 0.25rem;
     line-height: 1.5;
     font-weight: 400;
+}
+
+.pub-venue-short-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: flex-start;
+    text-transform: none;
+    letter-spacing: normal;
+    color: #1d1d1d;
+}
+
+.pub-venue-short-tags .subject-tag {
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: normal;
 }
 
 .pub-venue-short .pub-workshop-inline {
@@ -126,7 +170,12 @@
 
 .pub-tag-link {
     text-decoration: none;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.pub-tags a.pub-tag-link:hover {
+    background-color: #dbeafe;
+    color: #1d4ed8;
 }
 
 .pub-tag-link .icon {

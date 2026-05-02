@@ -3,7 +3,7 @@
   authors: "Pei-Hua Tsai, Tianyi Zhang, Emran Poh, Anthony Tang, and Yung-Ju Chang"
   type: "Full Paper"
   venue: "2026 ACM Conference on Designing Interactive Systems (DIS '26)"
-  venue_short: "DIS 26"
+  venue_short: "DIS 26 Papers"
   year: 2026
   sort_key: "202607"
   status: "conditionally accepted"
@@ -14,6 +14,7 @@
   url: "/research/not-too-early-ai-mediated-self-disclosure"
   bib: ""
   abstract: ""
+  abstract_short: "We study design tensions when AI systems mediate self-disclosure in online dating, focusing on pacing and initiation so technology supports rather than rushes intimacy. The work reframes timing and granularity of automated prompts as core interaction design problems for relationship-seeking contexts."
   work-tags:
     - "Research"
     - "Paper"
@@ -28,7 +29,7 @@
   authors: "Tianyi Zhang, Emran Poh, Yueyue Hou, Yi-Chieh Lee, Renwen Zhang, Jiannan Li, and Anthony Tang"
   type: "Full Paper"
   venue: "2026 ACM Conference on Designing Interactive Systems (DIS '26)"
-  venue_short: "DIS 26"
+  venue_short: "DIS 26 Papers"
   year: 2026
   sort_key: "202607"
   status: "conditionally accepted"
@@ -39,6 +40,7 @@
   url: "/research/grandpa-speak-nicer-chatbot"
   bib: ""
   abstract: ""
+  abstract_short: "We examine how families envision chatbots intervening in intergenerational conflict and the roles, risks, and etiquette those visions imply. Findings highlight design tensions between mediation, respect, and autonomy when conversational agents enter sensitive family talk."
   work-tags:
     - "Research"
     - "Paper"
@@ -53,7 +55,7 @@
   authors: "Emran Poh, Yueyue Hou, Tianyi Zhang, and Jiannan Li"
   type: "Full Paper"
   venue: "2026 ACM Conference on Human Factors in Computing Systems (CHI '26)"
-  venue_short: "CHI 26"
+  venue_short: "CHI 26 Papers"
   location: "Barcelona, Spain"
   date: "April 13–17, 2026"
   year: 2026
@@ -67,13 +69,15 @@
   is-selected: true
   emoji: "📝"
   url: "/research/show-it-software-guidance"
+  doi: "10.1145/3772318.3791200"
   bib: ""
   tags:
-    - name: "pdf"
-      url: "https://arxiv.org/abs/2603.02567"
+    - name: "doi"
+      url: "https://dl.acm.org/doi/full/10.1145/3772318.3791200"
     - name: "program"
       url: "https://programs.sigchi.org/chi/2026/program/content/223481"
   abstract: "Designing adaptive tutoring systems for software learning presents challenges in determining appropriate instructional modalities. To inform the design of such systems, we conducted an observational study of ten human teacher-student pairs (N=10), where experienced design software users taught novices two new graphic design software features through multi-step procedures. These lessons were limited to three communication channels (speech, visual annotations, and remote screen control) to mimic possible AI tutor modalities. We found that annotations complement speech with spatial precision and remote control complements it with spatial and temporal precision, but both cause intrusion to learner agency. Teachers adaptively select modalities to balance the need for instruction progress with students’ cognitive engagement and sense of digital territory ownership. Our results provide further support to the contiguity principles and the value of agency in learning, while suggesting precision-agency trade-off and digital territoriality as new design constraints for adaptive software guidance."
+  abstract_short: "In an observational study of expert–novice graphic design tutoring, speech, annotations, and remote control each trade precision for learner agency and sense of control over the shared workspace. Teachers mix modalities adaptively, supporting contiguity principles while motivating precision–agency trade-offs and digital territoriality as design constraints for adaptive software guidance."
   citation: |
     Emran Poh, Yueyue Hou, Tianyi Zhang, and Jiannan Li. 2026. 'Show It, Don't Just Say It': The Complementary Effects of Instruction Multimodality for Software Guidance. In Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems (CHI '26), April 13–17, 2026, Barcelona, Spain. ACM, New York, NY, USA, 18 pages. https://doi.org/10.1145/3772318.3791200
   work-tags:
@@ -97,7 +101,7 @@
   authors: "Emran Poh"
   type: "Workshop Paper"
   venue: "CHI 2026 Workshop: Understanding and Engaging Critical Resistance to AI in Education"
-  venue_short: "CHI 26 Workshop"
+  venue_short: "CHI 26 Workshops"
   workshop_name: "Understanding and Engaging Critical Resistance to AI in Education"
   location: "Barcelona, Spain"
   date: "April 13–17, 2026"
@@ -115,6 +119,7 @@
     - name: "pdf"
       url: "/assets/pdfs/when-not-to-help.pdf"
   abstract: "We invert the usual question about GenAI in education: rather than ask how to deploy new capabilities, we ask what role GenAI should play given what we know about effective human teaching. This position draws on an observational study of ten teacher-student pairs using speech, visual annotations, and remote screen control to teach Figma to novices. Teachers consistently showed restraint—avoiding high-precision modalities when it would undermine learning—which we interpret as pedagogical wisdom, not inefficiency. We argue this reveals a precision-agency tradeoff and digital territoriality as design constraints for GenAI tutors. We contribute empirical evidence of how teachers balance help with learner agency, methodological guidance for evaluation under authentic motivation, and implications for metrics and design process that treat restraint and friction as valid design goals."
+  abstract_short: "We flip the usual question from how to ship GenAI tutors to what role they should play given how effective human teachers withhold intrusive help to protect agency. Grounded in observational Figma tutoring, we argue restraint and friction can be virtues and outline evaluation and design implications for AI systems in education."
   citation: ""
   work-tags:
     - "Research"
@@ -129,7 +134,7 @@
   authors: "Emran Poh"
   type: "Position Paper"
   venue: "CHI 2026 Workshop: Human-AI-UI Interactions Across Modalities"
-  venue_short: "CHI '26 Workshop"
+  venue_short: "CHI 26 Workshops"
   workshop_name: "Human-AI-UI Interactions Across Modalities"
   location: "Barcelona, Spain"
   date: "April 13–17, 2026"
@@ -144,6 +149,7 @@
   doi: ""
   bib: ""
   abstract: "Learners who deviate from prescribed instructional paths are not necessarily failing—they may be revealing signal about themselves, the curriculum, and the interface. Yet AI tutoring agents for software learning typically treat deviation as error to be corrected. We argue this framing is fundamentally misaligned with how learning actually unfolds. Drawing on the urban planning concept of desire paths—informal trails that emerge when pedestrians route around formal walkways—we reframe learner deviations as meaningful signals of unmet needs, prior knowledge, and curriculum gaps. We ground this argument in an empirical study of human software tutors teaching Figma, which reveals that expert tutors already read and respond to desire paths by fluidly shifting across instructional modalities—speech, visual annotation, and remote screen control—in response to learner behavior. We offer a preliminary taxonomy of deviation types, argue that the Human↔Agent↔UI triangle in learning contexts must be redesigned around negotiated path-finding rather than path enforcement, and argue that the field needs frameworks and empirical study of adaptive multimodal intervention design for tutoring systems to make this negotiation possible."
+  abstract_short: "We borrow the idea of desire paths to reframe learner deviation in software training as informative signal—not error to stamp out—about needs, prior knowledge, and curriculum fit. Evidence from human Figma tutors shows experts already negotiate paths by shifting speech, annotation, and remote control rather than enforcing one rigid route."
   citation: ""
   tags:
     - name: "pdf"
@@ -162,6 +168,7 @@
   type: "Position Paper"
   venue: "2023 IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct)"
   venue_short: "ISMAR-Adjunct"
+  workshop_name: "1st Joint Workshop on Cross Reality"
   location: "Sydney, Australia"
   date: "October 16–20, 2023"
   year: 2023
@@ -174,12 +181,9 @@
   url: "/research/artefact-awareness-workspaces"
   doi: "10.1109/ISMAR-Adjunct60411.2023.00019"
   bib: ""
-  pdf: "/assets/pdfs/sample.pdf"
   abstract: "We present a system that supports artefact awareness in partially-replicated workspaces, enabling users to maintain awareness of shared objects and their states across different physical locations."
+  abstract_short: "Cross-reality remote collaboration often yields partially replicated workspaces where artefacts drift out of sync across sites and collaborators lose mutual visibility of manipulations. We outline artefact awareness support so teams retain shared understanding of objects and changes despite asymmetric physical access."
   citation: "@INPROCEEDINGS{10322229,\n  author={Poh, Emran and Tang, Anthony and Lee, Jeannie S. and Shengdong, Zhao},\n  booktitle={2023 IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct)}, \n  title={Supporting Artefact Awareness in Partially-Replicated Workspaces}, \n  year={2023},\n  volume={},\n  number={},\n  pages={55-59},\n  keywords={Human computer interaction;Social computing;Collaboration;X reality;Human-centered computing Collaborative and social computing theory;concepts and paradigms;H;uman-centered computing Computer supported cooperative work;Human-centered computing Computer supported cooperative work;Human-centered computing Interaction design},\n  doi={10.1109/ISMAR-Adjunct60411.2023.00019}\n}"
-  tags:
-    - name: "pdf"
-      url: "https://ieeexplore.ieee.org/abstract/document/10322229/"
   work-tags:
     - "Research"
     - "Design"
@@ -219,6 +223,7 @@
       year={2023}
     }
   abstract: "IntVRsection is a virtual reality environment designed for evaluating and testing intersection scenarios, providing a safe and controlled environment for studying driver behavior and interaction patterns."
+  abstract_short: "IntVRsection is a VR environment for pedestrian-focused studies at signalized and unsignalized intersections at roughly life scale with surrounding traffic. It enables safer, repeatable evaluations of autonomous-vehicle behaviors and external HMIs than simpler desktop or abstract scenarios alone."
   tags:
     - name: "doi"
       url: "https://dl.acm.org/doi/abs/10.1145/3581961.3610373"
@@ -262,6 +267,7 @@
       organization={IEEE}
     }
   abstract: "This work explores the use of mixed reality for engineering design review, specifically focusing on the visualization and interaction with finite element analysis results in an immersive environment."
+  abstract_short: "We investigate mixed reality for engineering design reviews so teams can inspect finite element analysis results immersively alongside the modeled geometry. The aim is clearer spatial grounding of stresses and deformations compared with conventional monitor-centric FEA workflows."
   citation: "@INPROCEEDINGS{9974521,\n  author={Poh, Emran and Liong, Kyrin and Lee, Jeannie S.A.},\n  booktitle={2022 IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct)}, \n  title={Mixed Reality for Engineering Design Review Using Finite Element Analysis}, \n  year={2022},\n  volume={},\n  number={},\n  pages={657-662},\n  keywords={Visualization;Solid modeling;Absorption;Virtual environments;Mixed reality;Virtual reality;Particle measurements;Mixed Reality;Finite Element Analysis;Design Review;Engineering},\n  doi={10.1109/ISMAR-Adjunct57072.2022.00136}\n}"
   tags:
     - name: "pdf"
@@ -299,6 +305,7 @@
       organization={Springer}
     }
   abstract: "We present a mixed reality system for mechanical design and assembly planning, enabling users to visualize and interact with 3D models in a physical space for improved assembly understanding."
+  abstract_short: "We build mixed reality tooling for design-for-manufacturing-and-assembly so planners can visualize parts and sequencing against real factory context, not only abstract VR scenes. Pilot feedback suggests practitioners find it usable and potentially cost-effective for tightening assembly plans."
   citation: "@InProceedings{10.1007/978-3-031-19679-9_72,\nauthor=\"Poh, Emran\nand Liong, Kyrin\nand Lee, Jeannie S. A.\",\neditor=\"Stephanidis, Constantine\nand Antona, Margherita\nand Ntoa, Stavroula\nand Salvendy, Gavriel\",\ntitle=\"Mixed Reality for Mechanical Design and Assembly Planning\",\nbooktitle=\"HCI International 2022 -- Late Breaking Posters\",\nyear=\"2022\",\npublisher=\"Springer Nature Switzerland\",\naddress=\"Cham\",\npages=\"572--579\",\nabstract=\"Design for Manufacturing and Assembly (DFMA) is a crucial design stage within the heavy vehicle manufacturing process that involves optimising the order and feasibility of the parts assembly process to reduce manufacturing complexity and overall cost. Existing work has focused on conducting DFMA within virtual environments to reduce manufacturing costs, but users are less able to relate and compare physical characteristics of a virtual component with real physical objects. Therefore, a Mixed Reality (MR) application is developed for engineers to visualise and manipulate assembly parts virtually, conduct and plan out an assembly within its intended physical environment. Two pilot evaluations were conducted with both engineering professionals and non-engineers to assess effectiveness of the software for assembly planning. Usability results suggest that the application is overall usable (M=56.1, SD=7.89), and participants felt a sense of involvement in the activity (M=13.1, SD=3.3). Engineering professionals see the application as a useful and cost-effective tool for optimising their mechanical assembly designs.\",\nisbn=\"978-3-031-19679-9\"\n}"
   tags:
     - name: "pdf"
@@ -334,6 +341,7 @@
   doi: "10.1007/978-3-030-77626-8_32"
   bib: ""
   abstract: "This work introduces a mixed reality interface for applying loads in finite element analysis, providing an intuitive way to interact with and visualize load applications in 3D space."
+  abstract_short: "We prototype mixed-reality gestures for specifying structural loads directly on 3D models during finite element analysis, bypassing purely mouse-driven dialogs. An early evaluation contrasts point-apply, point-hold, and point-drag variants, with point-hold appearing most usable for engineer-like tasks."
   citation: "@inproceedings{10.1007/978-3-030-77626-8_32,\nauthor = {Poh, Emran and Liong, Kyrin and Lee, Jeannie S. A.},\ntitle = {Mixed Reality Interface for Load Application in Finite Element Analysis},\nyear = {2021},\nisbn = {978-3-030-77625-1},\npublisher = {Springer-Verlag},\naddress = {Berlin, Heidelberg},\nurl = {https://doi.org/10.1007/978-3-030-77626-8_32},\ndoi = {10.1007/978-3-030-77626-8_32},\nabstract = {Finite Element Analysis (FEA) is an integral process in manufacturing design, providing assurance of quality and structural integrity of a manufactured item. FEA involves conducting rigorous stress simulations on a designed model to study its structural behaviour when under specific loading scenarios. Current FEA tools involve viewing and manipulating the 3D model displayed on a monitor screen. A Mixed Reality (MR) user interface allowing for direct manipulation and specification of loading scenarios on a designed model was developed, thus enabling design engineers to find new ways of interacting and visualising FEA results for analysis and thus reducing unnecessary prototyping costs. Three gesture interfaces were developed to allow application of load parameters on a surface of a model, namely: Point-Apply, Point-Hold, and Point-Drag. A pilot evaluation was conducted to study the suitability of each as an interface designed for engineers. Results suggest that Point-Hold is empirically the most usable interface compared to the other interfaces.},\nbooktitle = {Social Computing and Social Media: Experience Design and Social Network Analysis        : 13th International Conference, SCSM 2021, Held as Part of the 23rd HCI International Conference, HCII 2021, Virtual Event, July 24–29, 2021, Proceedings, Part  I},\npages = {470–483},\nnumpages = {14},\nkeywords = {Finite Element Analysis, Mixed reality, Gesture, 3D user interface, Digital twin}\n}"
   tags:
     - name: "pdf"
@@ -367,6 +375,7 @@
   url: "/research/designing-with-holograms"
   bib: ""
   abstract: "We investigate the potential of holographic displays for improving design visualization, exploring how holographic technology can enhance the understanding and communication of design concepts."
+  abstract_short: "We report a preliminary study on whether holographic displays can improve how designers visualize and communicate spatial concepts. Early observations motivate further work on when holograms complement versus complicate established design-review workflows."
   tags:
     - name: "pdf"
       url: "/assets/pdfs/newriis.pdf"

@@ -831,6 +831,20 @@ section {
   font-style: italic;
 }
 
+/* Publication listing grids (/research/, home selected pubs): text-only rows (no thumbnails) */
+.publications-section-wrapper .publications-grid.publications-grid-horizontal .work-grid-item[data-type="pub"] .work-image {
+  display: none;
+}
+
+/* Same listings: hide topic keywords + keyword pills (keep venue, status, acceptance, doi/bib/pdf) */
+.publications-section-wrapper .work-venue-tags .paper-keyword-tag {
+  display: none;
+}
+
+.publications-section-wrapper .work-venue-tags span.subject-tag:not(.venue-tag):not(.status-tag):not(.acceptance-rate-tag):not(.workshop-name-tag) {
+  display: none;
+}
+
 /* Base horizontal layout - applies at all breakpoints */
 .publications-section-wrapper .publications-grid.publications-grid-horizontal {
   display: flex;

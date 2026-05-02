@@ -2,8 +2,8 @@
 layout: pages/publication
 title: "'Desire Paths' in AI-Guided Software Learning"
 authors: "Emran Poh"
-venue: "CHI 2026 Workshop"
-venue_short: "CHI '26 Workshop"
+venue: "CHI 2026 Workshop: Human-AI-UI Interactions Across Modalities"
+venue_short: "CHI 26 Workshops"
 workshop_name: "Human-AI-UI Interactions Across Modalities"
 year: 2026
 status: "accepted"

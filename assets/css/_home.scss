@@ -766,6 +766,14 @@
     }
   }
 
+  .work-pub-abstract {
+    font-size: 0.8125rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #4a5568;
+    margin: 0;
+  }
+
   .work-citation {
     font-size: 0.6875rem !important;
     font-weight: 400 !important;
@@ -828,15 +836,9 @@
     text-decoration: none;
   }
 
-  .work-doi-btn:hover,
-  .work-bib-btn:hover,
-  .work-pdf-btn:hover {
+  .work-bib-btn:hover {
     background: #e5e7eb;
     color: #1f2937;
-  }
-
-  .work-doi-btn:hover {
-    text-decoration: underline;
   }
 
   .work-bib-wrap {
@@ -886,6 +888,36 @@
         text-transform: none;
         background: #e5e5e5;
         color: #555;
+      }
+
+      &.workshop-name-tag {
+        text-transform: none;
+        background: #e5e5e5;
+        color: #555;
+        line-height: 1.35;
+        max-width: 100%;
+      }
+
+      &.work-doi-btn,
+      &.work-pdf-btn {
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        color: #374151;
+        transition: background 0.2s ease, color 0.2s ease;
+
+        &:hover {
+          color: #1d4ed8;
+          background: #dbeafe;
+        }
+      }
+
+      &.work-doi-btn {
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
     

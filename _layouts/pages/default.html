@@ -52,13 +52,11 @@
       </div>
     </main>
 
-    <!-- Publications Section - Full Width Below Columns -->
-    {% if page.id != 'landing' %}
-      {% if page.id == 'emran' or page.title == 'Emran Poh' %}
-    <div class="publications-section-wrapper">
+    <!-- Publications Section - Full Width Below Columns (home + profile pages; thumbnails from pubs.yml) -->
+    {% if page.id == 'emran' or page.title == 'Emran Poh' %}
+    <div class="publications-section-wrapper landing-publications-below-fold">
       {% include components/publications-section.html selected_only=true %}
     </div>
-      {% endif %}
     {% endif %}
     {% endif %}
     {% endunless %}

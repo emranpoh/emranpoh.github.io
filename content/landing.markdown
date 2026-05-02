@@ -169,10 +169,8 @@ description: "CS PhD student at SMU-HAI Lab. Learning, creative tools, and what 
 @media (max-width: 768px) {
   .landing-wrapper {
     align-items: center;
-    /* Constrain to viewport so the div doesn’t exceed screen height (desktop-wrapper has 32px top + 40px bottom padding) */
-    height: 100%;
-    min-height: 0;
-    overflow: hidden;
+    min-height: min(24rem, 70dvh);
+    overflow: visible;
     padding: 0.5rem 0 1rem;
     box-sizing: border-box;
   }
@@ -181,15 +179,16 @@ description: "CS PhD student at SMU-HAI Lab. Learning, creative tools, and what 
 /* Prevent scroll on landing page (mobile/tablet) - body and wrapper must fit viewport */
 @media (max-width: 768px) {
   body.page-landing {
-    overflow: hidden;
-    height: 100dvh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    min-height: 100dvh;
   }
   body.page-landing .desktop-wrapper {
-    height: 100dvh;
     min-height: 100dvh;
-    max-height: 100dvh;
-    overflow: hidden;
+    max-height: none;
+    overflow: visible;
     padding: 1rem;
+    padding-bottom: 2rem;
   }
   body.page-landing main.content {
     flex: 1;

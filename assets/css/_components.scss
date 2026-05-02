@@ -216,7 +216,7 @@
 
 /* Keywords/subject-tags: standardize to lowercase across site */
 .pub-tag,
-.subject-tag:not(.venue-tag):not(.status-tag):not(.acceptance-rate-tag) {
+.subject-tag:not(.venue-tag):not(.status-tag):not(.acceptance-rate-tag):not(.work-doi-btn):not(.work-pdf-btn):not(.workshop-name-tag) {
   text-transform: lowercase;
 }
 
