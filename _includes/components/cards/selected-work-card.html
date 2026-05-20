@@ -20,6 +20,13 @@
   {% assign work_year = include.work.year %}
 {% endif %}
 
+{% assign pub_page_href = nil %}
+{% if include.type == 'pub' or include.type == 'thesis' %}
+  {% if work_url and work_url != '' and work_url != '#' %}
+    {% assign pub_page_href = work_url | relative_url %}
+  {% endif %}
+{% endif %}
+
 {% comment %} Determine label type {% endcomment %}
 {% if include.type == 'presentation' %}
   {% assign work_label = 'Talk' %}
@@ -100,7 +107,13 @@
 {% assign modal_link_url = include.work.modal_link_url | default: work_url %}
 {% assign modal_link_label = include.work.modal_link_label | default: 'View' | escape %}
 
-<div class="work-grid-item" data-type="{{ include.type }}" data-year="{{ work_year }}" {% if include.type == 'pub' and include.work.subject-tags %}data-subject-tags="{{ include.work.subject-tags | join: '|' }}"{% endif %}
+{% assign pub_cite_key = '' %}
+{% if include.type == 'pub' and include.show_pub_cite %}
+  {% capture pub_cite_key %}{% include partials/pub-cite-label.html pub=include.work exclude_institution=include.cite_exclude_institution %}{% endcapture %}
+  {% assign pub_cite_key = pub_cite_key | strip %}
+{% endif %}
+
+<div class="work-grid-item{% if pub_cite_key != '' %} work-grid-item--with-cite{% endif %}" data-type="{{ include.type }}" data-year="{{ work_year }}" {% if include.type == 'pub' and include.work.subject-tags %}data-subject-tags="{{ include.work.subject-tags | join: '|' }}"{% endif %}
   data-work-title="{{ modal_title }}"
   data-work-description="{{ modal_desc }}"
   data-work-event="{{ modal_event }}"
@@ -111,10 +124,21 @@
   data-work-link-url="{{ modal_link_url }}"
   data-work-link-label="{{ modal_link_label }}"
   data-work-role="{% if include.work.role %}{{ include.work.role | escape }}{% endif %}">
+  {% if pub_cite_key != '' %}
+  {% if pub_page_href %}
+  <a href="{{ pub_page_href }}" class="work-pub-cite-key" aria-label="Citation {{ pub_cite_key }}">{{ pub_cite_key }}</a>
+  {% else %}
+  <span class="work-pub-cite-key" aria-label="Citation {{ pub_cite_key }}">{{ pub_cite_key }}</span>
+  {% endif %}
+  {% endif %}
   <div class="work-link">
     {% if include.type == 'pub' or include.type == 'thesis' %}
       {% comment %} Publications and Theses: image on top, title below, total tile is square {% endcomment %}
+      {% if pub_page_href %}
+      <a href="{{ pub_page_href }}" class="work-image work-pub-page-link" aria-label="View {{ work_title_alt }}">
+      {% else %}
       <div class="work-image">
+      {% endif %}
         {% if include.work.image and include.work.image != '' %}
           <img src="{{ '/assets/images/projects/' | append: include.work.image | relative_url }}" alt="{{ work_img_alt }}" loading="lazy">
         {% else %}
@@ -125,16 +149,33 @@
           <span class="work-location">{{ work_location }}</span>
         </div>
         {% endif %}
+      {% if pub_page_href %}
+      </a>
+      {% else %}
       </div>
+      {% endif %}
       <div class="work-title-below">
         <div class="work-tile-summary" aria-hidden="true">{% if include.work.tile_summary %}{{ include.work.tile_summary }}{% elsif include.type == 'pub' and include.work.title_short %}{{ include.work.title_short }}{% else %}{{ include.work.title }}{% endif %}</div>
         {% if include.type == 'pub' %}
-        <div class="work-title-text">{{ include.work.title }}</div>
-        {% elsif include.work.title_short %}
-        <div class="work-title-text">{{ include.work.title_short }}</div>
-        <div class="work-title-subtitle">{{ include.work.title }}</div>
+        {% if pub_page_href %}
+        <a href="{{ pub_page_href }}" class="work-title-text work-pub-page-link">{{ include.work.title }}</a>
         {% else %}
         <div class="work-title-text">{{ include.work.title }}</div>
+        {% endif %}
+        {% elsif include.work.title_short %}
+        {% if pub_page_href %}
+        <a href="{{ pub_page_href }}" class="work-title-text work-pub-page-link">{{ include.work.title_short }}</a>
+        <div class="work-title-subtitle">{{ include.work.title }}</div>
+        {% else %}
+        <div class="work-title-text">{{ include.work.title_short }}</div>
+        <div class="work-title-subtitle">{{ include.work.title }}</div>
+        {% endif %}
+        {% else %}
+        {% if pub_page_href %}
+        <a href="{{ pub_page_href }}" class="work-title-text work-pub-page-link">{{ include.work.title }}</a>
+        {% else %}
+        <div class="work-title-text">{{ include.work.title }}</div>
+        {% endif %}
         {% endif %}
         {% if include.work.tagline and include.work.tagline != '' %}
         <div class="work-tagline">{{ include.work.tagline }}</div>
@@ -143,7 +184,7 @@
         {% assign authors_with_bold = include.work.authors | replace: 'Emran Poh', '<strong>Emran Poh</strong>' %}
         <div class="work-authors-below">{{ authors_with_bold | raw }}</div>
         {% endif %}
-        {% if include.type == 'pub' %}
+        {% if include.type == 'pub' and include.hide_pub_abstract != true %}
         {% if include.work.abstract_short and include.work.abstract_short != '' %}
           {% assign tile_abstract = include.work.abstract_short %}
         {% elsif include.work.abstract and include.work.abstract != '' %}
@@ -200,21 +241,8 @@
           {% endcapture %}
           <span class="subject-tag acceptance-rate-tag" title="{{ acceptance_tip | strip | replace: '"', '&#34;' }}">{{ acceptance_compact }}</span>
           {% endif %}
-          {% if include.type == 'pub' and (include.work.doi or include.work.bib or include.work.tags) %}
-          {% assign work_doi_href = nil %}
-          {% if include.work.tags %}
-          {% for tag in include.work.tags %}
-          {% if work_doi_href == nil and tag.name == 'doi' and tag.url %}
-          {% assign work_doi_href = tag.url %}
-          {% endif %}
-          {% endfor %}
-          {% endif %}
-          {% if work_doi_href == nil and include.work.doi and include.work.doi != '' %}
-          {% capture work_doi_href %}https://doi.org/{{ include.work.doi }}{% endcapture %}
-          {% endif %}
-          {% if work_doi_href %}
-          <a href="{{ work_doi_href }}" target="_blank" rel="noopener noreferrer" class="subject-tag work-doi-btn" aria-label="View publication DOI">doi</a>
-          {% endif %}
+          {% if include.type == 'pub' and (include.work.doi or include.work.doi_status == 'in progress' or include.work.bib or include.work.tags) %}
+          {% include partials/pub-doi-tag.html work=include.work variant='card' %}
           {% if include.work.bib and include.work.bib != '' %}
           <span class="work-bib-wrap">
             <button type="button" class="subject-tag work-bib-btn" aria-label="Copy BibTeX">bib</button>

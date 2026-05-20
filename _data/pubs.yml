@@ -6,7 +6,8 @@
   venue_short: "DIS 26 Papers"
   year: 2026
   sort_key: "202607"
-  status: "conditionally accepted"
+  status: "accepted"
+  doi_status: "in progress"
   institution: "smuhci"
   image: ""
   is-selected: false
@@ -32,7 +33,8 @@
   venue_short: "DIS 26 Papers"
   year: 2026
   sort_key: "202607"
-  status: "conditionally accepted"
+  status: "accepted"
+  doi_status: "in progress"
   institution: "smuhci"
   image: "intergen.png"
   is-selected: false
@@ -110,7 +112,7 @@
   status: "accepted"
   status_note: "under revision"
   institution: "smuhci"
-  image: "when-not-to-help.png"
+  image: ""
   is-selected: false
   emoji: "📚"
   url: "/research/when-not-to-help"
@@ -142,7 +144,7 @@
   sort_key: "202604"
   status: "accepted"
   institution: "smuhci"
-  image: "desire-paths.png"
+  image: ""
   is-selected: false
   emoji: "🛤️"
   url: "/research/desire-paths-in-learning"

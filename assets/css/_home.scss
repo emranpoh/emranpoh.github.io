@@ -40,7 +40,6 @@
     .work-title-below .work-title-text,
     .work-title-below .work-title-subtitle,
     .work-title-below .work-tagline,
-    .work-title-below .work-authors-below,
     .work-title-below .work-citation,
     .work-title-below .work-citation *,
     .work-title-below .work-description,
@@ -48,7 +47,11 @@
     .work-title-below .work-location-below {
       font-size: 0.875rem !important;
     }
+    .work-title-below .work-authors-below {
+      font-size: 0.9375rem !important;
+    }
     .work-title-below .work-doi-btn,
+    .work-title-below .work-doi-pending,
     .work-title-below .work-bib-btn,
     .work-title-below .subject-tag {
       font-size: 0.75rem !important;
@@ -61,7 +64,6 @@
       .work-title-below .work-title-text,
       .work-title-below .work-title-subtitle,
       .work-title-below .work-tagline,
-      .work-title-below .work-authors-below,
       .work-title-below .work-citation,
       .work-title-below .work-citation *,
       .work-title-below .work-description,
@@ -69,7 +71,11 @@
       .work-title-below .work-location-below {
         font-size: 0.875rem !important;
       }
+      .work-title-below .work-authors-below {
+        font-size: 0.9375rem !important;
+      }
       .work-title-below .work-doi-btn,
+      .work-title-below .work-doi-pending,
       .work-title-below .work-bib-btn,
       .work-title-below .subject-tag {
         font-size: 0.75rem !important;
@@ -755,10 +761,10 @@
   }
   
   .work-authors-below {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     font-weight: 400;
     color: #666;
-    line-height: 1.4;
+    line-height: 1.45;
     
     strong {
       color: #1d1d1d;
@@ -776,7 +782,6 @@
 
   .work-citation {
     font-size: 0.6875rem !important;
-    font-weight: 400 !important;
     font-style: italic !important;
     color: #666;
     line-height: 1.4;
@@ -784,7 +789,6 @@
 
     &,
     * {
-      font-weight: 400 !important;
       font-style: italic !important;
     }
   }
@@ -816,6 +820,7 @@
 
   /* DOI / Bib / PDF links - uppercase, no outline, neutral */
   .work-doi-btn,
+  .work-doi-pending,
   .work-bib-btn,
   .work-pdf-btn {
     display: inline-block;
@@ -834,6 +839,23 @@
 
   .work-doi-btn {
     text-decoration: none;
+  }
+
+  .work-doi-pending {
+    opacity: 0.55;
+    cursor: default;
+    pointer-events: auto;
+    user-select: none;
+    text-transform: none;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    display: inline-block;
+  }
+
+  .work-doi-pending:hover {
+    opacity: 1;
+    background: #e5e7eb;
+    color: #374151;
   }
 
   .work-bib-btn:hover {
@@ -899,12 +921,13 @@
       }
 
       &.work-doi-btn,
+      &.work-doi-pending,
       &.work-pdf-btn {
         font-weight: 500;
         text-transform: uppercase;
         letter-spacing: 0.02em;
         color: #374151;
-        transition: background 0.2s ease, color 0.2s ease;
+        transition: background 0.2s ease, color 0.2s ease, opacity 0.2s ease;
 
         &:hover {
           color: #1d4ed8;
@@ -917,6 +940,17 @@
 
         &:hover {
           text-decoration: underline;
+        }
+      }
+
+      &.work-doi-pending {
+        text-transform: none;
+        letter-spacing: 0.01em;
+
+        &:hover {
+          color: #374151;
+          background: #e5e7eb;
+          text-decoration: none;
         }
       }
     }
@@ -962,7 +996,7 @@
     }
     
     .work-authors-below {
-      font-size: 0.6875rem;
+      font-size: 0.8125rem;
     }
     
     .work-venue-tags,
@@ -1300,7 +1334,8 @@
     background: transparent;
     padding: 0 2rem 2rem 2rem;
     border-top: none;
-    text-align: center;
+    text-align: right;
+    justify-content: flex-end;
     font-size: 0.875rem;
     
     p {

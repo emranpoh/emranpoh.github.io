@@ -27,11 +27,11 @@
   {% else %}
   <div class="publications-split-sections">
     <div class="publications-subsection">
-      <h2 id="publications-heading" class="publications-subsection-title">publications</h2>
+      <h2 id="publications-heading" class="publications-subsection-title">selected publications</h2>
       <div class="publications-grid-wrapper">
         <div class="publications-grid publications-grid-horizontal" id="publications-grid">
           {% for pub in pubs_main %}
-            {% include components/cards/selected-work-card.html work=pub type='pub' %}
+            {% include components/cards/selected-work-card.html work=pub type='pub' show_pub_cite=true cite_exclude_institution=include.exclude_institution hide_pub_abstract=true %}
           {% endfor %}
         </div>
       </div>
@@ -41,7 +41,7 @@
       <div class="publications-grid-wrapper">
         <div class="publications-grid publications-grid-horizontal" id="publications-grid-workshop">
           {% for pub in pubs_workshop %}
-            {% include components/cards/selected-work-card.html work=pub type='pub' %}
+            {% include components/cards/selected-work-card.html work=pub type='pub' show_pub_cite=true cite_exclude_institution=include.exclude_institution hide_pub_abstract=true %}
           {% endfor %}
         </div>
       </div>
@@ -52,7 +52,7 @@
   <div class="publications-grid-wrapper">
     <div class="publications-grid publications-grid-horizontal" id="publications-grid">
   {% for pub in sorted_pubs %}
-    {% include components/cards/selected-work-card.html work=pub type='pub' %}
+    {% include components/cards/selected-work-card.html work=pub type='pub' hide_pub_abstract=true %}
   {% endfor %}
     </div>
   </div>

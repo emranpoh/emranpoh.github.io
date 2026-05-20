@@ -1,0 +1,36 @@
+{% comment %}
+  Renders a publication DOI link or a non-clickable pending state.
+  Params: work (required), page_doi (optional), variant: 'card' | 'header' (default 'card')
+{% endcomment %}
+{% assign w = include.work %}
+{% assign variant = include.variant | default: 'card' %}
+{% assign doi_href = nil %}
+{% if w and w.tags %}
+  {% for tag in w.tags %}
+    {% if doi_href == nil and tag.name == 'doi' and tag.url %}
+      {% assign doi_href = tag.url %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+{% if doi_href == nil and include.page_doi and include.page_doi != '' %}
+  {% capture doi_href %}https://doi.org/{{ include.page_doi }}{% endcapture %}
+{% endif %}
+{% if doi_href == nil and w.doi and w.doi != '' %}
+  {% capture doi_href %}https://doi.org/{{ w.doi }}{% endcapture %}
+{% endif %}
+{% if doi_href and doi_href != '' %}
+  {% if variant == 'header' %}
+  <a href="{{ doi_href }}" target="_blank" rel="noopener noreferrer" class="pub-tag pub-tag-link">
+    {% include icon.html name="file-alt" %}
+    DOI
+  </a>
+  {% else %}
+  <a href="{{ doi_href }}" target="_blank" rel="noopener noreferrer" class="subject-tag work-doi-btn" aria-label="View publication DOI">doi</a>
+  {% endif %}
+{% elsif w and w.doi_status == 'in progress' %}
+  {% if variant == 'header' %}
+  <span class="pub-tag pub-tag-doi-pending" aria-disabled="true" title="DOI pending">DOI Pending</span>
+  {% else %}
+  <span class="subject-tag work-doi-pending" aria-disabled="true" title="DOI pending">DOI Pending</span>
+  {% endif %}
+{% endif %}

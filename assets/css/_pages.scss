@@ -244,7 +244,7 @@
 
 /* Compact publication listings (cards/list items) */
 .pub-item .pub-authors {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
   color: #444;
   margin: 0 0 2px 0;
@@ -447,7 +447,7 @@
 }
 
 .pub-compact-authors {
-  font-size: 14px;
+  font-size: 15px;
   margin: 0 0 4px 0;
   color: #333;
 }
@@ -654,23 +654,30 @@
   background-color: #5c5c5c;
 }
 
-/* Footer - same padding as navbar (.desktop-nav uses 1rem 2rem) */
-footer {
+/* Footer - copyright aligned right */
+footer,
+.footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   padding: 1rem 2rem;
   border-top: none;
   background: transparent;
   font-size: 0.5rem;
+  text-align: right;
+  width: 100%;
+
+  p {
+    margin: 0;
+  }
 }
 
 @include tablet-up {
-  footer {
-    max-width: 48rem;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
+  footer,
+  .footer {
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 

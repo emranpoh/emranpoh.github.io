@@ -1,0 +1,31 @@
+{% comment %}
+  Outputs P# or S# for a publication, matching /research/ list order.
+  Params: pub (required), exclude_institution (optional, e.g. "immersification")
+{% endcomment %}
+{% assign target = include.pub %}
+{% if target %}
+  {% assign author_pubs = site.data.pubs | where_exp: "p", "p.authors contains 'Emran Poh'" | where_exp: "p", "p.status != 'under review'" | where_exp: "p", "p.status != 'submitted'" %}
+  {% if include.exclude_institution and include.exclude_institution != '' %}
+    {% assign author_pubs = author_pubs | where_exp: "p", "p.institution != include.exclude_institution" %}
+  {% endif %}
+  {% assign sorted_pubs = author_pubs | sort: 'sort_key' | reverse %}
+  {% assign pub_types_short = "Workshop Paper|Position Paper|Poster|Late-Breaking Poster" | split: "|" %}
+  {% assign pubs_main = sorted_pubs | where_exp: "item", "item.type != 'Workshop Paper'" | where_exp: "item", "item.type != 'Position Paper'" | where_exp: "item", "item.type != 'Poster'" | where_exp: "item", "item.type != 'Late-Breaking Poster'" %}
+  {% assign pubs_short = sorted_pubs | where_exp: "item", "pub_types_short contains item.type" %}
+  {% assign cite_label = nil %}
+  {% for p in pubs_main %}
+    {% if p.title_short == target.title_short %}
+      {% assign cite_label = 'P' | append: forloop.index %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+  {% if cite_label == nil %}
+    {% for p in pubs_short %}
+      {% if p.title_short == target.title_short %}
+        {% assign cite_label = 'S' | append: forloop.index %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+  {% if cite_label %}{{ cite_label }}{% endif %}
+{% endif %}

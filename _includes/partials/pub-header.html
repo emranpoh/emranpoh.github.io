@@ -47,23 +47,7 @@
             {% endcapture %}
             <span class="pub-tag pub-tag-acceptance-rate" title="{{ pub_acceptance_tip | strip | replace: '"', '&#34;' }}">{{ pub_acceptance_compact }}</span>
             {% endif %}
-            {% assign header_doi_url = nil %}
-            {% if pub and pub.tags %}
-            {% for tag in pub.tags %}
-            {% if header_doi_url == nil and tag.name == 'doi' and tag.url %}
-            {% assign header_doi_url = tag.url %}
-            {% endif %}
-            {% endfor %}
-            {% endif %}
-            {% if header_doi_url == nil and page.doi %}
-            {% capture header_doi_url %}https://doi.org/{{ page.doi }}{% endcapture %}
-            {% endif %}
-            {% if header_doi_url %}
-            <a href="{{ header_doi_url }}" target="_blank" rel="noopener noreferrer" class="pub-tag pub-tag-link">
-                {% include icon.html name="file-alt" %}
-                DOI
-            </a>
-            {% endif %}
+            {% include partials/pub-doi-tag.html work=pub page_doi=page.doi variant='header' %}
         </div>
     </div>
 </header>
@@ -127,7 +111,7 @@
 }
 
 .pub-authors {
-    font-size: 1.25rem;
+    font-size: 1.375rem;
     font-weight: 350;
     color: #4a5568;
     margin: 0;
@@ -180,5 +164,20 @@
 
 .pub-tag-link .icon {
     margin-right: 0.5rem;
+}
+
+.pub-tag-doi-pending {
+    opacity: 0.55;
+    cursor: default;
+    pointer-events: auto;
+    user-select: none;
+    font-weight: 500;
+    transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.pub-tag-doi-pending:hover {
+    opacity: 1;
+    background-color: #e5e7eb;
+    color: #4b5563;
 }
 </style> 

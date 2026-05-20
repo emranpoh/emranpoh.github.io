@@ -1,6 +1,6 @@
 # emran poh
 
-cs phd @ smu-hai lab · learning, creative tools, and what AI should leave to people
+cs phd @ smu-hai lab · software learning, instructional design, and human agency with ai
 
 personal site: [emranpoh.github.io](https://emranpoh.github.io)
 

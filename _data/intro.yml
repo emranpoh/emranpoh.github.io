@@ -13,7 +13,8 @@ past:
   - "BSc (Hons) in Computing Science from University of Glasgow under Prof. Jeannie Lee's supervision."
 
 research:
-  - "My research asks what we lose when AI does too much. I study human–AI interaction in learning and creative contexts — exploring how to make AI more expressive and capable, but not at the expense of the human efforts worth protecting. My work examines how teaching, annotating, and explaining shape cognition and collaboration, and what happens to those processes when AI absorbs them. I build systems, run studies, and develop theoretical frameworks to argue for a more selective AI — one that knows when to step back."
+  - "My research sits at the intersection of human–computer interaction, instructional design, and AI systems — broadly concerned with how people learn software and how AI can support that learning without undermining the learner's own agency. I build systems, run studies, and develop frameworks around when precise guidance helps versus when it substitutes for the learner, including ideas like the **precision–agency trade-off** and **digital territoriality** in shared workspaces."
+  - "Looking ahead, I am extending this focus into **collaborative and agentic** settings: when AI agents act on behalf of people in shared workspaces, joint decision-making, and coordinated tasks. I am interested in whose preferences an agent serves, what it surfaces or obscures, and how accountability, trust, and design can help humans remain meaningfully in control as agents take on more of the work."
 
 teaching:
   - "I **teach** interaction design and programming courses, and enjoy sharing knowledge with students and professionals. I am particularly interested in AI Tutor design to enhance learning experiences through intelligent human-agent collaboration."

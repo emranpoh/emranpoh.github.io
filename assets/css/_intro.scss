@@ -16,7 +16,8 @@
   margin-bottom: 0;
 }
 
-.research-in-progress-heading {
+.research-in-progress-heading,
+.publications-subsection-title {
   margin: 0 0 0.75rem;
   font-size: 1rem;
   font-weight: normal;
@@ -41,34 +42,71 @@
     margin-bottom: 0;
   }
 
-  p {
-    margin: 0;
-    font-size: inherit !important;
-    font-weight: inherit !important;
-    line-height: inherit !important;
+  .research-in-progress-line {
+    display: inline;
   }
 
-  a {
-    color: #666;
-    text-decoration: underline;
-    transition: color 0.2s ease;
+  .research-in-progress-text {
+    display: inline;
 
-    &:hover {
-      color: #000;
+    p {
+      display: inline;
+      margin: 0;
+      font-size: inherit !important;
+      line-height: inherit !important;
     }
+
+    a {
+      color: #666;
+      text-decoration: underline;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #000;
+      }
+    }
+  }
+
+  .research-in-progress-cites {
+    display: inline;
+    margin-left: 0.35em;
+    color: #666;
   }
 }
 
-// Intro text: match publication abstract (1rem, font-weight 350, line-height 1.5)
+.research-in-progress-cites a,
+.research-in-progress-paper-link {
+  font-size: inherit;
+  color: #666;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+  text-decoration: none !important;
+
+  &:link,
+  &:visited {
+    color: #666;
+    text-decoration: none !important;
+  }
+
+  &:hover,
+  &:focus,
+  &:focus-visible,
+  &:active {
+    color: #000;
+    text-decoration: none !important;
+  }
+}
+
+// Intro bio (education + research paragraphs): body copy size, normal weight
 .intro-section .intro-subsection-item,
 .intro-section .intro-subsection-item-content,
 .intro-section .intro-subsection-item p,
+.intro-section .intro-current-above .intro-subsection-item-content,
 .intro-section .intro-research-lead .intro-subsection-item-content,
 .intro-section .intro-background .intro-subsection-item-content,
-.intro-section .intro-block p,
-.intro-section p {
+.intro-section .intro-block p {
   font-size: 1rem !important;
-  font-weight: 350 !important;
+  font-weight: 400 !important;
   line-height: 1.5 !important;
 }
 
@@ -94,12 +132,12 @@
     // Content styles specific to intro section
     p {
       margin-bottom: 0.5rem;
-      font-size: 1.1rem;
+      font-size: 1rem;
       text-align: left;
     }
 
     .hello-text {
-      font-size: 1.1rem !important;
+      font-size: 1rem !important;
       user-select: none;
       -webkit-user-select: none;
       -moz-user-select: none;
@@ -168,7 +206,7 @@
 
     p {
       margin-bottom: 0.5rem;
-      font-size: 1.1rem;
+      font-size: 1rem;
       text-align: left;
     }
   }
@@ -437,12 +475,12 @@
 }
 
 .intro-education-item {
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.6;
 
   p {
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 }
 
@@ -465,13 +503,13 @@
 }
 
 .intro-subsection-item {
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 0.5rem;
 
   p {
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 }
 
@@ -511,12 +549,12 @@
 }
 
 .intro-research-item {
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.6;
 
   p {
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 }
 
@@ -552,12 +590,12 @@
 }
 
 .intro-teaching-item {
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.6;
 
   p {
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 }
 
@@ -593,12 +631,12 @@
 }
 
 .intro-others-item {
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.6;
 
   p {
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 }
 
@@ -745,7 +783,7 @@
 
 .intro-list-item {
   margin-bottom: 0.5rem;
-  font-size: 1.125rem;
+  font-size: 1rem;
 }
 
 .intro-table {
@@ -764,7 +802,7 @@
 }
 
 .intro-table-content {
-  font-size: 1.125rem;
+  font-size: 1rem;
   line-height: 1.5;
 }
 

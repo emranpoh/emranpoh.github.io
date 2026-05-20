@@ -8,7 +8,25 @@
   <h2 id="research-in-progress-heading" class="research-in-progress-heading">in progress</h2>
   <ul class="research-in-progress-list">
     {% for item in wip %}
-    <li class="research-in-progress-item">{{ item | markdownify }}</li>
+    {% if item.text %}
+      {% assign item_text = item.text %}
+      {% assign item_papers = item.papers %}
+    {% else %}
+      {% assign item_text = item %}
+      {% assign item_papers = nil %}
+    {% endif %}
+    <li class="research-in-progress-item">
+      <span class="research-in-progress-line">
+        <span class="research-in-progress-text">{{ item_text | markdownify }}</span>{% if item_papers and item_papers.size > 0 %}<span class="research-in-progress-cites">{% for paper_id in item_papers %}
+          {% assign pub = site.data.pubs | where: "title_short", paper_id | first %}
+          {% if pub %}
+            {% capture cite_key %}{% include partials/pub-cite-label.html pub=pub exclude_institution='immersification' %}{% endcapture %}
+            {% assign cite_key = cite_key | strip %}
+            <a href="{{ pub.url | relative_url }}" class="research-in-progress-paper-link" title="{{ pub.title_short }}">{% if cite_key != '' %}{{ cite_key }}{% else %}{{ pub.title_short }}{% endif %}</a>{% unless forloop.last %}, {% endunless %}
+          {% endif %}
+        {% endfor %}</span>{% endif %}
+      </span>
+    </li>
     {% endfor %}
   </ul>
 </section>

@@ -6,10 +6,9 @@
 <div class="sidebar" id="sidebar">
   <nav class="sidebar-nav" aria-label="Main navigation">
     <a href="{{ '/' | relative_url }}" class="nav-name-link {% if page.id == 'landing' or page.url == '/' or page.url == '/index.html' %}active{% endif %}" aria-label="Home"><img src="{{ '/assets/images/contact.png' | relative_url }}" alt="{{ site.title }}" class="nav-name-img"></a>
-    <a href="{{ '/research' | relative_url }}" class="nav-link nav-link-with-text {% if page.url contains '/research' %}{% unless page.url contains 'show-it-software-guidance' or page.url contains 'when-not-to-help' or page.url contains 'desire-paths-in-learning' %}active{% endunless %}{% endif %}" aria-label="Research"><span class="nav-link-text">emran</span></a>
+    <a href="{{ '/research' | relative_url }}" class="nav-link nav-link-with-text {% if page.url contains '/research' %}{% unless page.url contains 'show-it-software-guidance' or page.url contains 'when-not-to-help' or page.url contains 'desire-paths-in-learning' %}active{% endunless %}{% endif %}" aria-label="Research"><span class="nav-link-text">emran poh</span></a>
     <a href="{{ '/works' | relative_url }}" class="nav-link nav-link-with-text {% if page.url contains '/works' %}active{% endif %}" aria-label="Other works"><span class="nav-link-text">other works</span></a>
     <div class="sidebar-nav-group">
-      <span class="sidebar-nav-header">publications</span>
       {% for item in site.data.chi_nav.links %}
         <a href="{{ item.url | relative_url }}" class="nav-link nav-link-with-text {% if page.url contains item.url %}active{% endif %}" aria-label="{{ item.label }}">
           <span class="nav-link-text">{{ item.label }}</span>
@@ -74,19 +73,6 @@
   line-height: 1;
   font-weight: 400;
   margin-top: -0.125rem;
-}
-
-.sidebar-nav-header {
-  font-size: 0.6875rem;
-  font-weight: 400;
-  letter-spacing: 0.05em;
-  color: #9ca3af;
-  margin-top: 0.625rem;
-  margin-bottom: 0.125rem;
-}
-
-.sidebar-nav-group:first-child .sidebar-nav-header {
-  margin-top: 0;
 }
 
 .sidebar-divider {

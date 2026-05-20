@@ -1,8 +1,27 @@
 # Ongoing threads for the /research/ page ("in progress" section).
-# Edit or remove items anytime; empty list hides the whole section.
-# Markdown allowed in each line (e.g. **bold**, [links](url)).
+# Each item: `text` (markdown) and `papers` (title_short from _data/pubs.yml).
+# Related links render as P# (publications) or S# (workshop/position/poster), same order as /research/.
+# Empty list hides the whole section.
 
 items:
-  - "Working on **when optional help becomes default** in learning tools — designs that keep struggle, reflection, and human teaching moves legible."
-  - "Exploring **annotation and explanation** as places where human effort should stay visible as models get more capable."
-  - "Prototyping **creative tools for children’s exploration** — play, tinkering, and open-ended making — with a lighter-touch AI default so curiosity and agency stay in the foreground."
+  - text: "Working on **when optional help becomes default** in learning tools — designs that keep struggle, reflection, and human teaching moves legible."
+    papers:
+      - "When Not to Help"
+      - "Show It, Don't Just Say It"
+      - "Desire Paths in AI-Guided Software Learning"
+
+  - text: "Exploring **annotation and explanation** as places where human effort should stay visible as models get more capable."
+    papers:
+      - "Show It, Don't Just Say It"
+      - "When Not to Help"
+
+  - text: "Extending **human agency** into **collaborative and agentic** work — personal agents in shared workspaces and joint decisions, and how accountability and trust are distributed across human–agent teams."
+    papers:
+      - "Supporting Artefact Awareness"
+      - "Grandpa, Can You Speak Nicer?"
+      - "Not Too Early, Not All at Once"
+
+  - text: "Studying what agents **surface, obscure, and optimize for** when they mediate between people — and design principles that keep humans meaningfully in control."
+    papers:
+      - "Grandpa, Can You Speak Nicer?"
+      - "Not Too Early, Not All at Once"
