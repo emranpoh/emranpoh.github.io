@@ -25,8 +25,8 @@ name_chinese: "傅恩然"
 name_arabic: "ڤوه عمران"
 year: 2025
 location: Singapore
-profile_image: /assets/images/projects/me.jpeg
-# Set to true to show the intro headshot again (me.jpeg) and the left column
+profile_image: /assets/images/projects/me.webp
+# Set to true to show the intro headshot again (me.webp) and the left column
 # (university + email) on the research intro layout.
 show_profile_photo: false
 
@@ -99,6 +99,7 @@ defaults:
 
 # Exclude from processing
 exclude:
+  - assets/images-source/
   - _posts/
   - .sass-cache/
   - .jekyll-cache/

@@ -7,7 +7,7 @@ venue_short: "ISMAR-Adjunct"
 workshop_name: "1st Joint Workshop on Cross Reality"
 year: 2023
 doi: "10.1109/ISMAR-Adjunct60411.2023.00019"
-image: "artefact-awareness.png"
+image: "artefact-awareness.webp"
 permalink: /research/artefact-awareness-workspaces/
 tags:
   - name: "HCI"

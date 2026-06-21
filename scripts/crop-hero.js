@@ -10,7 +10,7 @@ const path = require('path');
 
 const fs = require('fs');
 const TARGET_ASPECT = 5 / 2; // 5:2 wide banner
-const INPUT = path.join(__dirname, '../assets/images/projects/when-not-to-help.png');
+const INPUT = path.join(__dirname, '../assets/images-source/projects/when-not-to-help.png');
 const TEMP = INPUT + '.cropped.png';
 
 async function main() {
@@ -38,6 +38,7 @@ async function main() {
 
   fs.renameSync(TEMP, INPUT);
   console.log(`Cropped to 5:2 (${extract.width}x${extract.height})`);
+  console.log('Run `npm run build:images` to regenerate WebP for the site.');
 }
 
 main().catch((err) => {

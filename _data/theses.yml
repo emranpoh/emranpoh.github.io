@@ -9,7 +9,7 @@
   year: 2024
   status: "completed"
   institution: "nus"
-  image: "artefact-awareness.png"
+  image: "artefact-awareness.webp"
   url: "/theses/mcomp"
   pdf: "/assets/pdfs/mcomp-thesis.pdf"
   abstract: "This thesis investigates supporting artefact awareness in mixed reality environments, focusing on how users can better understand and interact with digital and physical artefacts."
@@ -32,7 +32,7 @@
   year: 2018
   status: "completed"
   institution: "uofg"
-  image: "thesis-bsc.png"
+  image: "thesis-bsc.webp"
   url: "/theses/bsc"
   pdf: "/assets/pdfs/bsc-thesis.pdf"
   abstract: "This thesis explores the development of 3D user interfaces in mixed reality environments for engineering design finite element analysis applications."

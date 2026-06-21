@@ -7,7 +7,7 @@ venue_short: "CHI 26 Papers"
 year: 2026
 doi: "10.1145/3772318.3791200"
 status: "accepted"
-image: "show-it-software-guidance-hero.png"
+image: "show-it-software-guidance-hero.webp"
 permalink: /research/show-it-software-guidance/
 tags:
   - name: "HCI"

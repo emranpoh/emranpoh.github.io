@@ -35,7 +35,7 @@ news_items:
       Helping run Future CS Education Workshop 2.0 — a one-day workshop at NUS (with Google and NUS support) where we're centering student voices on how AI is changing CS education.
 
   - id: news-005
-    title: "Our paper 'Show it, Don't Just Say It' got conditionally accepted to CHI 2026 🇪🇸 🎉"
+    title: "Our paper 'Show it, Don't Just Say It' got accepted to CHI 2026 🇪🇸 🎉"
     date: "2026-01-15"
     category: "Publication"
     location: "Barcelona, Spain"
@@ -43,9 +43,9 @@ news_items:
     featured: true
     type: "publication"
     institution: "acm"
-    summary: "Got the notification — our paper is conditionally accepted to CHI 2026. Revising and looking forward to presenting."
+    summary: "Got the notification — our paper is accepted to CHI 2026. Revising and looking forward to presenting."
     content: |
-      Really chuffed — we got the conditional accept for CHI 2026. Now revising and looking forward to presenting in Spain.
+      Really chuffed — we got accepted to CHI 2026. Now revising and looking forward to presenting in Spain.
 
   - id: news-006
     title: "Volunteered at [NUS-Google Workshop: Future of CS Education and Curriculum in the AI Era](https://futuredu.ai4sg.org/)"
@@ -96,7 +96,7 @@ news_items:
     featured: true
     type: "conference"
     conference: "SG-HCI Meetup 2025"
-    image: "sghci-meetup-2025.jpeg"
+    image: "sghci-meetup-2025.webp"
     conference_link: "https://sghcimeetup25.notion.site/#1a91bd1704258010bc6afdf73378c1d1"
     institution: "smu"
     summary: "Joined the SG-HCI meetup at SMU — HCI folks from across Singapore sharing work and catching up."
@@ -127,7 +127,7 @@ news_items:
     conference: "CHI 2025"
     conference_link: "https://chi2025.acm.org/"
     institution: "acm"
-    image: "chi-2025-yokohama.jpg"
+    image: "chi-2025-yokohama.webp"
     summary: "Went to CHI 2025 in Yokohama — my first CHI. Talks, demos, and meeting a lot of the HCI community."
     content: |
       First time at CHI, and it was in Yokohama. Great to finally be there in person, see the work everyone's doing, and meet folks from the community.

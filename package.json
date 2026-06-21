@@ -4,7 +4,8 @@
   "description": "Personal website and portfolio",
   "main": "index.js",
   "scripts": {
-    "build": "bundle exec jekyll build && NODE_ENV=production postcss _site/assets/css/main.css -o _site/assets/css/main.css",
+    "build": "npm run build:images && bundle exec jekyll build && NODE_ENV=production postcss _site/assets/css/main.css -o _site/assets/css/main.css",
+    "build:images": "node scripts/build-images.js",
     "serve": "bundle exec jekyll serve",
     "serve:live": "docker compose up",
     "watch": "bundle exec jekyll serve --watch",

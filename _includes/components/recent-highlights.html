@@ -1,0 +1,18 @@
+{% comment %} Recent Highlights — dated list of recent news items.
+   Optional: limit (default 5)
+{% endcomment %}
+{% assign max = include.limit | default: 5 %}
+{% assign items = site.data.news.news_items | sort: 'date' | reverse %}
+
+<section class="recent-highlights" aria-labelledby="recent-highlights-heading">
+  <h2 id="recent-highlights-heading" class="highlights-title">recent highlights</h2>
+  <ul class="highlights-list">
+    {% for item in items limit: max %}
+      {% assign d = item.date | date: '%b %Y' | downcase %}
+      <li class="highlights-item">
+        <span class="highlights-date">{{ d }}</span>
+        <span class="highlights-text">{{ item.title | markdownify | remove: '<p>' | remove: '</p>' }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+</section>

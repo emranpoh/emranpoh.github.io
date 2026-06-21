@@ -1,24 +1,27 @@
 <section class="w-full intro-section">
   <div class="intro-container">
     {% if include.research_page and site.data.intro.research %}
-    <div class="intro-image-research-row{% unless site.show_profile_photo %} intro-research-row-no-side{% endunless %}">
-      {% if site.show_profile_photo %}
-      <div class="intro-image-column">
-        <div class="intro-image">
-          <img src="{{ '/assets/images/projects/me.jpeg' | relative_url }}" alt="Emran Poh" class="intro-placeholder-image">
-        </div>
-        <div class="intro-meta-bottom">
-          {% if site.data.intro.university %}
-          <div class="intro-university">{{ site.data.intro.university }}</div>
-          {% endif %}
-          <div class="intro-email-line"><span class="intro-email">emran.poh.2025 [at] smu.edu.sg</span></div>
-        </div>
+    <header class="intro-header">
+      <div class="intro-header-photo" aria-hidden="true"></div>
+      <div class="intro-header-text">
+        <h1 class="intro-header-name">{{ site.title }}</h1>
+        <p class="intro-header-role">CS PhD Student</p>
+        <p class="intro-header-affiliation">School of Computing and Information Systems · Singapore Management University</p>
+        <p class="intro-header-contact">emran.poh.2025 [at] smu.edu.sg</p>
+        <nav class="intro-header-nav" aria-label="Site navigation">
+          <a href="{{ '/works' | relative_url }}"{% if page.url contains '/works' %} class="active"{% endif %}>other works</a>
+          <a href="{{ '/cv' | relative_url }}"{% if page.id == 'cv' %} class="active"{% endif %}>cv</a>
+          {% for item in site.data.chi_nav.links %}
+            <a href="{{ item.url | relative_url }}"{% if page.url contains item.url %} class="active"{% endif %}>{{ item.label }}</a>
+          {% endfor %}
+          <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener noreferrer">linkedin</a>
+          <a href="https://scholar.google.com/citations?user={{ site.scholar_id }}" target="_blank" rel="noopener noreferrer">GScholar</a>
+        </nav>
       </div>
-      {% endif %}
+    </header>
+
+    <div class="intro-image-research-row intro-research-row-no-side">
       <div class="intro-image-research-content">
-        <div class="intro-name-pronouns intro-name-above">
-          <div class="intro-name">{{ site.title }}</div>
-        </div>
         {% if site.data.intro.current or site.data.intro.past %}
         {% assign intro_para_items = site.data.intro.current | concat: site.data.intro.past %}
         <div class="intro-current-above">
@@ -40,7 +43,7 @@
     <div class="intro-image-name-row">
       {% if site.show_profile_photo %}
       <div class="intro-image">
-        <img src="{{ '/assets/images/projects/me.jpeg' | relative_url }}" alt="Emran Poh" class="intro-placeholder-image">
+        <img src="{{ '/assets/images/projects/me.webp' | relative_url }}" alt="Emran Poh" class="intro-placeholder-image">
       </div>
       {% endif %}
       <div class="intro-name-pronouns intro-name-above">

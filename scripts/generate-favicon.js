@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Generate favicon sizes from assets/images/contact.png
+ * Generate favicon sizes from assets/images-source/contact.png
  * Outputs: favicon-16x16.png, favicon-32x32.png, apple-touch-icon.png
  */
 
@@ -9,7 +9,7 @@ const sharp = require('sharp');
 const path = require('path');
 const fs = require('fs');
 
-const INPUT = path.join(__dirname, '../assets/images/contact.png');
+const INPUT = path.join(__dirname, '../assets/images-source/contact.png');
 const OUTPUT_DIR = path.join(__dirname, '../assets/images');
 
 const SIZES = [

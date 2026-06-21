@@ -2,15 +2,15 @@
 
 /**
  * Image Optimization Script
- * Optimizes images in assets/images/projects directory
- * Reduces file size while maintaining visual quality
+ * Optimizes originals in assets/images-source/ (lossless PNG / JPEG recompression).
+ * Run `npm run build:images` afterwards to regenerate WebP for the site.
  */
 
 const sharp = require('sharp');
 const fs = require('fs');
 const path = require('path');
 
-const IMAGES_DIR = path.join(__dirname, '../assets/images/projects');
+const IMAGES_DIR = path.join(__dirname, '../assets/images-source');
 const SUPPORTED_FORMATS = ['.png', '.jpg', '.jpeg', '.PNG', '.JPG', '.JPEG'];
 
 // Optimization settings
@@ -103,6 +103,15 @@ async function optimizeImage(filePath) {
   }
 }
 
+function walkFiles(dir, files = []) {
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) walkFiles(full, files);
+    else files.push(full);
+  }
+  return files;
+}
+
 /**
  * Main function
  */
@@ -115,9 +124,8 @@ async function main() {
     process.exit(1);
   }
   
-  const files = fs.readdirSync(IMAGES_DIR);
-  const imageFiles = files.filter(file => {
-    const ext = path.extname(file);
+  const imageFiles = walkFiles(IMAGES_DIR).filter((filePath) => {
+    const ext = path.extname(filePath);
     return SUPPORTED_FORMATS.includes(ext);
   });
   
@@ -132,10 +140,9 @@ async function main() {
   let optimizedCount = 0;
   const results = [];
   
-  for (const file of imageFiles) {
-    const filePath = path.join(IMAGES_DIR, file);
+  for (const filePath of imageFiles) {
     const result = await optimizeImage(filePath);
-    results.push({ file, ...result });
+    results.push({ file: path.relative(IMAGES_DIR, filePath), ...result });
     
     if (result.optimized) {
       optimizedCount++;
@@ -149,6 +156,9 @@ async function main() {
   console.log(`   Images optimized: ${optimizedCount}`);
   console.log(`   Total space saved: ${formatBytes(totalSaved)}`);
   console.log('='.repeat(50));
+  if (optimizedCount > 0) {
+    console.log('\n💡 Run `npm run build:images` to regenerate WebP for the site.');
+  }
 }
 
 // Run the script

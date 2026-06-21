@@ -36,7 +36,7 @@
   status: "accepted"
   doi_status: "in progress"
   institution: "smuhci"
-  image: "intergen.png"
+  image: "intergen.webp"
   is-selected: false
   emoji: "👴"
   url: "/research/grandpa-speak-nicer-chatbot"
@@ -67,7 +67,7 @@
     accepted: 1705
     total: 6730
   institution: "smuhci"
-  image: "showit.png"
+  image: "showit.webp"
   is-selected: true
   emoji: "📝"
   url: "/research/show-it-software-guidance"
@@ -177,7 +177,7 @@
   sort_key: "202310"
   status: "published"
   institution: "nus-hci"
-  image: "artefact-awareness.png"
+  image: "artefact-awareness.webp"
   is-selected: true
   emoji: "👥"
   url: "/research/artefact-awareness-workspaces"
@@ -211,7 +211,7 @@
   year: 2023
   sort_key: "202309"
   status: "published"
-  image: "intvrsection.png"
+  image: "intvrsection.webp"
   institution: "immersification"
   emoji: "🚗"
   url: "/research/intvrsection"
@@ -253,7 +253,7 @@
   year: 2022
   sort_key: "202210"
   status: "published"
-  image: "mr-fea-load-table.png"
+  image: "mr-fea-load-table.webp"
   institution: "immersification"
   is-selected: false
   emoji: "🔍"
@@ -293,7 +293,7 @@
   sort_key: "202206"
   status: "published"
   institution: "immersification"
-  image: "mr-assembly-planning.jpg"
+  image: "mr-assembly-planning.webp"
   emoji: "⚙️"
   url: "/research/mr-assembly-planning"
   doi: "10.1007/978-3-031-19679-9_72"
@@ -336,7 +336,7 @@
   year: 2021
   sort_key: "202107"
   status: "published"
-  image: "mr-fea-load-application.png"
+  image: "mr-fea-load-application.webp"
   institution: "immersification"
   emoji: "📊"
   url: "/research/mr-load-application-fea"
@@ -371,7 +371,7 @@
   date: "2021"
   year: 2021
   sort_key: "202112"
-  image: "designing-with-holograms.png"
+  image: "designing-with-holograms.webp"
   institution: "immersification"
   emoji: "🖼️"
   url: "/research/designing-with-holograms"
