@@ -1,3 +1,7 @@
+$font-sans: 'Satoshi', system-ui, sans-serif;
+$font-body: 'Synonym', system-ui, sans-serif;
+$font-serif: $font-body; // alias — body copy stack
+
 // Three breakpoints only: mobile, tablet, desktop
 $bp-mobile-max: 768px;
 $bp-tablet-min: 769px;

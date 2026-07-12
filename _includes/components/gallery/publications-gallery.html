@@ -1,6 +1,6 @@
 <section class="publications-list-section">
 <div class="section-header">
-  <h2 class="section-title">papers</h2>
+  <h2 class="section-title type-section">papers</h2>
   <div class="pub-pagination-indicators">
     {% if site.data.pubs %}
       {% assign sorted_publications = site.data.pubs | where_exp: "pub", "pub.status != 'under review'" | where_exp: "pub", "pub.status != 'submitted'" | sort: 'sort_key' | reverse %}

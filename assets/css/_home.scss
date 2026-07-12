@@ -28,13 +28,13 @@
     }
   }
 
-  /* Selected publications: only 2 font sizes (0.875rem primary, 0.75rem secondary) */
+  /* Selected publications: two type sizes — sm primary, xs secondary */
   .publications-selected-only {
     .work-citation {
       display: none !important;
     }
     .work-location-overlay .work-location {
-      font-size: 0.75rem !important;
+      font-size: $text-xs !important;
     }
     .work-title-below,
     .work-title-below .work-title-text,
@@ -44,41 +44,19 @@
     .work-title-below .work-citation *,
     .work-title-below .work-description,
     .work-title-below .work-role,
-    .work-title-below .work-location-below {
-      font-size: 0.875rem !important;
-    }
+    .work-title-below .work-location-below,
     .work-title-below .work-authors-below {
-      font-size: 0.9375rem !important;
+      font-size: $text-sm !important;
     }
     .work-title-below .work-doi-btn,
     .work-title-below .work-doi-pending,
     .work-title-below .work-bib-btn,
     .work-title-below .subject-tag {
-      font-size: 0.75rem !important;
+      font-size: $text-xs !important;
     }
     @include mobile {
       .work-location-overlay .work-location {
-        font-size: 0.75rem !important;
-      }
-      .work-title-below,
-      .work-title-below .work-title-text,
-      .work-title-below .work-title-subtitle,
-      .work-title-below .work-tagline,
-      .work-title-below .work-citation,
-      .work-title-below .work-citation *,
-      .work-title-below .work-description,
-      .work-title-below .work-role,
-      .work-title-below .work-location-below {
-        font-size: 0.875rem !important;
-      }
-      .work-title-below .work-authors-below {
-        font-size: 0.9375rem !important;
-      }
-      .work-title-below .work-doi-btn,
-      .work-title-below .work-doi-pending,
-      .work-title-below .work-bib-btn,
-      .work-title-below .subject-tag {
-        font-size: 0.75rem !important;
+        font-size: $text-xs !important;
       }
     }
   }
@@ -148,9 +126,6 @@
   }
 
   .selected-works-header {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #1d1d1d;
     margin: 0 0 1.5rem 0;
   }
 
@@ -724,116 +699,64 @@
   opacity: 0;
 }
 
-// Publication title below image
+// Publication title below image — typography in _typography.scss; layout only here
 .work-title-below {
   padding: 0.75rem 0;
-  font-size: 0.875rem;
-  font-weight: 600;
-  line-height: 1.4;
-  color: #1d1d1d;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  
-  .work-title-text {
-    font-weight: 600;
-    line-height: 1.4;
-  }
 
   .work-title-subtitle {
-    font-size: 0.75rem;
-    font-weight: 400;
-    color: #666;
-    line-height: 1.4;
     margin-top: -0.25rem;
   }
-  
+
   .work-tagline {
-    font-size: 0.8125rem;
-    font-weight: 400;
     font-style: italic;
     color: #888;
-    line-height: 1.4;
     margin-top: 0.375rem;
     margin-bottom: 0.5rem;
   }
-  
-  .work-authors-below {
-    font-size: 0.875rem;
-    font-weight: 400;
-    color: #666;
-    line-height: 1.45;
-    
-    strong {
-      color: #1d1d1d;
-      font-weight: 600;
-    }
+
+  .work-authors-below strong {
+    color: #1d1d1d;
+    font-weight: $weight-semibold;
   }
 
   .work-pub-abstract {
-    font-size: 0.8125rem;
-    font-weight: 400;
-    line-height: 1.5;
     color: #4a5568;
     margin: 0;
   }
 
   .work-citation {
-    font-size: 0.6875rem !important;
-    font-style: italic !important;
-    color: #666;
-    line-height: 1.4;
     margin-top: 0.25rem;
+  }
 
-    &,
-    * {
-      font-style: italic !important;
-    }
-  }
-  
   .work-description {
-    font-size: 0.75rem;
-    font-weight: 400;
-    color: #666;
-    line-height: 1.4;
     margin-top: 0.25rem;
   }
-  
+
   .work-role {
-    font-size: 0.6875rem;
-    font-weight: 400;
-    color: #888;
-    line-height: 1.4;
     margin-top: 0.25rem;
     font-style: italic;
   }
 
   .work-location-below {
-    font-size: 0.6875rem;
-    font-weight: 400;
-    color: #888;
-    line-height: 1.4;
     margin-top: 0.125rem;
   }
 
-  /* DOI / Bib / PDF links - uppercase, no outline, neutral */
   .work-doi-btn,
   .work-doi-pending,
   .work-bib-btn,
   .work-pdf-btn {
     display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 500;
     color: #374151;
     padding: 0.125rem 0.375rem;
     background: transparent;
     border: none;
     border-radius: 0.25rem;
     cursor: crosshair;
-    font-family: inherit;
-    text-transform: uppercase;
     transition: background 0.2s ease, color 0.2s ease, text-decoration 0.2s ease;
   }
 
@@ -1155,8 +1078,7 @@
     margin-bottom: auto;
   }
   .profile-name {
-    font-size: 1.5rem;
-    font-weight: 700;
+    margin-bottom: 0.5rem;
   }
   .profile-title {
     font-size: 0.875rem;
@@ -1265,23 +1187,17 @@
     min-height: 0;
   }
   .profile-name {
-    font-size: 2.5rem;
-    font-weight: 800;
     margin-bottom: 0.5rem;
   }
-  .profile-title {
-    font-size: 1rem;
-    color: #666;
-    margin-bottom: 0.5rem;
-  }
+  .profile-title,
   .profile-email {
-    font-size: 1rem;
+    @include type-body;
     color: #666;
     margin-bottom: 0.5rem;
   }
   .introduction .hello-text {
-    font-size: 0.875rem;
-    line-height: 1.5;
+    @include type-body-sm;
+    line-height: $leading-normal;
     margin-bottom: 1rem;
   }
   .profile-container {
@@ -1379,10 +1295,7 @@
   }
 
   .section-title {
-    font-size: 1.75rem;
-    font-weight: 700;
     margin-bottom: 2rem;
-    color: #1d1d1d;
     text-align: left;
   }
 
@@ -1652,7 +1565,6 @@
   }
   
   .section-title {
-    font-size: 1.5rem;
     margin-bottom: 1.5rem;
   }
   

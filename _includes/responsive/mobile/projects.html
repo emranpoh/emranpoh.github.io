@@ -1,6 +1,6 @@
 <div class="mobile-projects mobile-section" id="projects">
     <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
-        <h2 style="margin-bottom: 0; font-size: 1rem; font-weight: normal; text-transform: lowercase;">projects</h2>
+        <h2 class="type-section" style="margin-bottom: 0;">projects</h2>
         <div style="display: flex; gap: 0.5rem;">
             {% assign sorted_projects = site.data.projects | sort: "start-year" | reverse %}
             {% for project in sorted_projects %}

@@ -1,0 +1,126 @@
+// Heading styles — imported last so they win over stray font rules in other modules
+
+// ── Display (Satoshi bold) ───────────────────────────────────────
+h1,
+.type-display,
+.intro-name,
+.intro-header-name,
+.profile-name,
+.project-header h1,
+.publication-header h1,
+.publication-detail .pub-header .pub-title {
+  @include type-display;
+}
+
+.intro-name {
+  font-size: $text-xl;
+  line-height: $leading-snug;
+}
+
+.intro-name-above .intro-name {
+  font-size: $text-3xl;
+}
+
+@include mobile {
+  .profile-name {
+    font-size: $text-2xl;
+  }
+
+  .intro-name {
+    font-size: $text-xl;
+  }
+}
+
+@include tablet-up {
+  .intro-header-name {
+    font-size: $text-3xl;
+  }
+}
+
+// ── Section (Satoshi bold) ───────────────────────────────────────
+h2,
+.type-section,
+[class$="-section-container"] > .intro-block > h2,
+.selected-works-container > .intro-block > h2,
+.publications-subsection-title,
+.research-in-progress-heading,
+.selected-works-header,
+.work-list-title,
+.section-title,
+.highlights-title,
+.mobile-projects-section h2,
+.mobile-publications-section h2,
+.mobile-experience-section h2,
+.mobile-projects h2,
+.mobile-publications h2,
+.mobile-experience h2,
+.experience-page-content .intro-block > h2,
+.publication-detail .related-work-heading {
+  @include type-section;
+  margin: 0 0 0.75rem;
+}
+
+// CV uses uppercase section labels
+.cv-section-title {
+  @include type-section;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 1rem;
+}
+
+.publication-detail .related-work-heading {
+  font-size: $text-sm;
+  color: #6b7280;
+  letter-spacing: 0.04em;
+}
+
+// Subtitles sit under display titles — Synonym body, not section headings
+h2.project-subtitle {
+  @include type-body-sm;
+  font-style: normal;
+  text-transform: none;
+  color: #4b5563;
+  margin-bottom: 1rem;
+}
+
+// Subsection headings — Satoshi bold
+h3 {
+  font-family: $font-sans;
+  font-size: $text-lg;
+  font-weight: $weight-bold;
+  line-height: $leading-snug;
+  color: #1d1d1d;
+}
+
+h4, h5, h6 {
+  font-family: $font-sans;
+  font-size: $text-base;
+  font-weight: $weight-bold;
+  line-height: $leading-normal;
+  color: #1d1d1d;
+}
+
+.project-content h2,
+.project-overview h2,
+.publication-content h2 {
+  @include type-section;
+  margin: 2rem 0 1rem;
+}
+
+.project-content h3,
+.publication-content h3 {
+  font-family: $font-sans;
+  font-size: $text-lg;
+  font-weight: $weight-bold;
+  margin: 1.5rem 0 1rem;
+  color: #1d1d1d;
+}
+
+// Teaching course titles — Satoshi bold card headings
+.teaching-course {
+  font-family: $font-sans;
+  font-size: $text-xl;
+  font-weight: $weight-bold;
+  line-height: $leading-snug;
+  color: #1d1d1d;
+}

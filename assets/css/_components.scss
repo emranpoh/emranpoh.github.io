@@ -126,7 +126,8 @@
 /* Buttons - Desktop */
 @include tablet-up {
   .filter-btn, .works-nav-button {
-    font-family: 'EB Garamond', serif !important;
+    @include type-body-sm;
+    font-family: $font-sans !important;
     padding: 8px 16px;
     background-color: #dad7d7;
     border: none;

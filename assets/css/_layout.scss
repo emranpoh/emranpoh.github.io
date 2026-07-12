@@ -71,14 +71,9 @@ body.layout-sidebar .main-content {
   .content {
     width: 100%;
 
-    h1 {
-      font-size: 31px;
-      margin-bottom: 20px;
-      line-height: 1.2;
-    }
-
+    h1,
     h2 {
-      font-size: 27px;
+      // Typography in _headings.scss
     }
 
     p {
@@ -408,8 +403,7 @@ section {
 }
 
 .news-section-container .news-meta {
-  font-size: 0.75rem;
-  color: #888;
+  @include type-meta;
 }
 
 .news-section-container .news-meta .news-category::before {
@@ -417,9 +411,8 @@ section {
 }
 
 .news-section-container .news-text {
-  font-size: 0.875rem;
-  line-height: 1.4;
-  color: #333;
+  @include type-body-sm;
+  line-height: $leading-snug;
 }
 
 .news-section-container .news-text p {
@@ -540,8 +533,7 @@ section {
 }
 
 .service-section-container .service-meta {
-  font-size: 0.75rem;
-  color: #888;
+  @include type-meta;
 }
 
 .service-section-container .service-meta .service-venue::before {
@@ -549,8 +541,8 @@ section {
 }
 
 .service-section-container .service-text {
-  font-size: 1rem;
-  line-height: 1.4;
+  @include type-body-sm;
+  line-height: $leading-snug;
 }
 
 .service-section-container .service-text a {
@@ -610,8 +602,7 @@ section {
 }
 
 .grants-section-container .grant-meta {
-  font-size: 0.75rem;
-  color: #888;
+  @include type-meta;
 }
 
 .grants-section-container .grant-meta .grant-source::before {
@@ -619,13 +610,13 @@ section {
 }
 
 .grants-section-container .grant-text {
-  font-size: 1rem;
-  line-height: 1.4;
+  @include type-body-sm;
+  line-height: $leading-snug;
 }
 
 .grants-section-container .grant-description {
+  @include type-body-sm;
   color: #666;
-  font-size: 0.9375rem;
 }
 
 .grants-section-container .grant-text a {
@@ -682,16 +673,7 @@ section {
   object-fit: contain;
 }
 
-/* Section headers - same size as intro text, bolder (exclude publications filter line) */
-.news-section-container .intro-block > p,
-.publications-section-container .intro-block > p:not(.publications-intro-line),
-.service-section-container .intro-block > p,
-.grants-section-container .intro-block > p,
-.talks-section-container .intro-block > p,
-.selected-works-container .intro-block > p {
-  font-size: 1.1rem;
-  font-weight: 600;
-}
+/* Section headers — typography in _headings.scss */
 
 /* Hide citation text on publication cards (all breakpoints) */
 .work-citation,
@@ -752,11 +734,10 @@ section {
 
 /* Typography shared with .research-in-progress-heading in _intro.scss */
 
-/* Publications intro line: match intro font (1rem, font-weight 350, line-height 1.5) */
+/* Publications intro line: body copy with inline filters */
 .publications-section-container .intro-block > p.publications-intro-line,
 .publications-intro-line {
-  font-size: 1rem !important;
-  line-height: 1.5 !important;
+  @include type-body;
 }
 
 /* Publications page only: extra space beneath intro sentence */
@@ -1273,7 +1254,7 @@ section {
   body.page-works .works-masonry-grid .work-description {
     display: block !important;
     font-size: 1rem;
-    font-weight: 350;
+    font-weight: $weight-normal;
     color: #666;
     line-height: 1.5;
     margin: 0.25rem 0 0;
@@ -1287,7 +1268,7 @@ section {
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 1rem;
-    font-weight: 350;
+    font-weight: $weight-normal;
     color: #333;
     line-height: 1.5;
     margin: 0;
@@ -1401,7 +1382,7 @@ section {
   body.page-works .works-masonry-grid .work-description {
     display: block !important;
     font-size: 1rem;
-    font-weight: 350;
+    font-weight: $weight-normal;
     color: #666;
     line-height: 1.5;
     margin: 0.25rem 0 0;
@@ -1415,7 +1396,7 @@ section {
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 1rem;
-    font-weight: 350;
+    font-weight: $weight-normal;
     color: #333;
     line-height: 1.5;
     margin: 0;
@@ -1496,10 +1477,7 @@ section {
   }
   
   .work-list-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin: 0 0 1rem 0;
-    color: #333;
+    // Typography in _headings.scss
   }
   
   .work-list {

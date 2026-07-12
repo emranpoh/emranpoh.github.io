@@ -5,7 +5,7 @@
 {% assign items = site.data.news.news_items | sort: 'date' | reverse %}
 
 <section class="recent-highlights" aria-labelledby="recent-highlights-heading">
-  <h2 id="recent-highlights-heading" class="highlights-title">recent highlights</h2>
+  <h2 id="recent-highlights-heading" class="highlights-title type-section">recent highlights</h2>
   <ul class="highlights-list">
     {% for item in items limit: max %}
       {% assign d = item.date | date: '%b %Y' | downcase %}

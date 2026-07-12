@@ -28,7 +28,7 @@
 
   {% if cv.education and cv.education.size > 0 %}
   <section class="cv-section" id="education">
-    <h2 class="cv-section-title">Education</h2>
+    <h2 class="cv-section-title type-section">Education</h2>
     {% for item in cv.education %}
     <div class="cv-item">
       <div class="cv-item-header">
@@ -47,7 +47,7 @@
 
   {% if cv.professional and cv.professional.size > 0 %}
   <section class="cv-section" id="experience">
-    <h2 class="cv-section-title">Experience</h2>
+    <h2 class="cv-section-title type-section">Experience</h2>
     {% for item in cv.professional %}
     <div class="cv-item">
       <div class="cv-item-header">
@@ -78,7 +78,7 @@
   {% assign cv_pubs = site.data.pubs | where_exp: "pub", "pub.authors contains 'Emran Poh'" | where_exp: "pub", "pub.status != 'under review'" | where_exp: "pub", "pub.status != 'submitted'" | sort: "sort_key" | reverse %}
   {% if cv_pubs.size > 0 %}
   <section class="cv-section" id="publications">
-    <h2 class="cv-section-title">Publications</h2>
+    <h2 class="cv-section-title type-section">Publications</h2>
     {% for pub in cv_pubs %}
     <div class="cv-item cv-item-compact cv-pub">
       <div class="cv-pub-authors" data-highlight-name="Emran Poh">{{ pub.authors }}</div>
@@ -94,7 +94,7 @@
   {% assign cv_presentations = site.data.presentations.presentations | sort: "date" | reverse %}
   {% if cv_presentations.size > 0 %}
   <section class="cv-section" id="presentations-talks">
-    <h2 class="cv-section-title">Presentations & Talks</h2>
+    <h2 class="cv-section-title type-section">Presentations & Talks</h2>
     {% for pres in cv_presentations %}
     <div class="cv-item cv-item-compact">
       <div class="cv-item-header">
@@ -110,7 +110,7 @@
   {% if cv.mentoring_interns and cv.mentoring_interns.size > 0 %}
   {% assign sorted_mentoring = cv.mentoring_interns | sort: "start_year" | reverse %}
   <section class="cv-section" id="mentoring-interns">
-    <h2 class="cv-section-title">Mentoring & Interns</h2>
+    <h2 class="cv-section-title type-section">Mentoring & Interns</h2>
     {% for item in sorted_mentoring %}
     <div class="cv-item cv-item-compact">
       <div class="cv-item-header">
@@ -125,7 +125,7 @@
 
   {% if cv.teaching and cv.teaching.size > 0 %}
   <section class="cv-section" id="teaching">
-    <h2 class="cv-section-title">Teaching</h2>
+    <h2 class="cv-section-title type-section">Teaching</h2>
     {% for item in cv.teaching %}
     <div class="cv-item">
       <div class="cv-item-header">
@@ -140,7 +140,7 @@
 
   {% if cv.service and cv.service.size > 0 %}
   <section class="cv-section" id="service">
-    <h2 class="cv-section-title">Service</h2>
+    <h2 class="cv-section-title type-section">Service</h2>
     {% assign reviewer_orgs = "" | split: "" %}
     {% for item in cv.service %}
       {% if item.title == "External Reviewer" %}
@@ -179,7 +179,7 @@
 
   {% if cv.membership and cv.membership.size > 0 %}
   <section class="cv-section" id="membership">
-    <h2 class="cv-section-title">Membership</h2>
+    <h2 class="cv-section-title type-section">Membership</h2>
     {% for item in cv.membership %}
     <div class="cv-item cv-item-compact">
       <div class="cv-item-header">
@@ -194,7 +194,7 @@
   {% if cv.scholarships and cv.scholarships.size > 0 %}
   {% assign sorted_scholarships = cv.scholarships | sort: "year" | reverse %}
   <section class="cv-section" id="scholarships-awards">
-    <h2 class="cv-section-title">Scholarships & Awards</h2>
+    <h2 class="cv-section-title type-section">Scholarships & Awards</h2>
     {% for item in sorted_scholarships %}
     <div class="cv-item cv-item-compact">
       <div class="cv-item-header">
@@ -209,14 +209,14 @@
 
   {% if cv.skills and cv.skills.size > 0 %}
   <section class="cv-section" id="skills">
-    <h2 class="cv-section-title">Skills</h2>
+    <h2 class="cv-section-title type-section">Skills</h2>
     <p class="cv-skills">{{ cv.skills | join: ", " }}</p>
   </section>
   {% endif %}
 
   {% if cv.languages and cv.languages.size > 0 %}
   <section class="cv-section" id="languages">
-    <h2 class="cv-section-title">Languages</h2>
+    <h2 class="cv-section-title type-section">Languages</h2>
     <ul class="cv-languages">
       {% for lang in cv.languages %}
       <li>{{ lang.language }} — {{ lang.speaking_fluency }} (spoken){% if lang.writing_fluency and lang.writing_fluency != "None" and lang.writing_fluency != "none" %}, {{ lang.writing_fluency }} (written){% endif %}</li>

@@ -9,3 +9,6 @@ node_modules/
 
 # CV LaTeX files
 cv/
+
+# Local font source drops (deployed copies live in assets/fonts/)
+_in/

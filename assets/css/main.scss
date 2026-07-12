@@ -2,6 +2,8 @@
 ---
 
 @import "variables";
+@import "fonts";
+@import "typography";
 
 // Import all CSS modules
 @import "base";
@@ -19,16 +21,17 @@
 @import "experience";
 @import "masonry";
 @import "research-theme";
+@import "headings";
 
 // Additional styles that don't fit into modules
 // Desktop hello-text styles
 @include tablet-up {
   .hello-text {
+    @include type-body;
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    font-size: 20px !important;
 
     a {
       user-select: text;
@@ -38,12 +41,9 @@
       cursor: crosshair;
     }
 
-    .emoji {
-      font-size: 20px;
-    }
-
+    .emoji,
     ul {
-      font-size: 20px;
+      font-size: inherit;
     }
   }
 }
@@ -51,10 +51,10 @@
 // Mobile hello-text styles
 @include mobile {
   .hello-text {
-    font-size: 14px !important;
+    font-size: $text-sm !important;
 
     .emoji {
-      font-size: 14px;
+      font-size: inherit;
     }
   }
 }

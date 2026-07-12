@@ -22,12 +22,12 @@
 <section class="publications-section-container{% if include.selected_only %} publications-selected-only{% endif %}" aria-labelledby="publications-heading">
   {% if include.selected_only %}
   <div class="intro-block publications-intro-block" style="margin-bottom: 1rem; text-align: left;">
-    <p id="publications-heading" style="margin: 0;">selected publications</p>
+    <h2 id="publications-heading" class="publications-subsection-title type-section">selected publications</h2>
   </div>
   {% else %}
   <div class="publications-split-sections">
     <div class="publications-subsection">
-      <h2 id="publications-heading" class="publications-subsection-title">selected publications</h2>
+      <h2 id="publications-heading" class="publications-subsection-title type-section">selected publications</h2>
       <div class="publications-grid-wrapper">
         <div class="publications-grid publications-grid-horizontal" id="publications-grid">
           {% for pub in pubs_main %}
@@ -37,7 +37,7 @@
       </div>
     </div>
     <div class="publications-subsection">
-      <h2 class="publications-subsection-title">position, workshop, and poster papers</h2>
+      <h2 class="publications-subsection-title type-section">position, workshop, and poster papers</h2>
       <div class="publications-grid-wrapper">
         <div class="publications-grid publications-grid-horizontal" id="publications-grid-workshop">
           {% for pub in pubs_workshop %}

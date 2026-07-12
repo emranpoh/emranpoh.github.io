@@ -5,10 +5,7 @@
 @include tablet-up {
   body.layout-masonry {
     .work-list-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin: 0 0 1rem 0;
-      color: #333;
+      // Typography in _headings.scss
     }
 
     .work-list {

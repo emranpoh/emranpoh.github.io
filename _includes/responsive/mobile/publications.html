@@ -1,6 +1,6 @@
 <div class="mobile-publications mobile-section" id="publications">
     <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
-        <h2 style="margin-bottom: 0; font-size: 1rem; font-weight: normal; text-transform: lowercase;">research</h2>
+        <h2 class="type-section" style="margin-bottom: 0;">research</h2>
         <div style="display: flex; gap: 0.5rem;">
             {% assign visible_pubs = site.data.pubs | where_exp: "pub", "pub.authors contains 'Emran Poh'" | where_exp: "pub", "pub.status != 'under review'" | where_exp: "pub", "pub.status != 'submitted'" | sort: "sort_key" | reverse %}
             {% for pub in visible_pubs %}

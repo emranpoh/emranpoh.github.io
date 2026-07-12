@@ -11,11 +11,7 @@
   }
 
   .project-header h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    line-height: 1.2;
     margin-bottom: 1rem;
-    color: #111827;
   }
 
   .project-subtitle {
@@ -53,10 +49,7 @@
   }
 
   .project-overview h2 {
-    font-size: 1.5rem;
-    font-weight: 600;
     margin-bottom: 1rem;
-    color: #111827;
   }
 
   .project-overview p {
@@ -76,17 +69,11 @@
   }
 
   .project-content h2 {
-    font-size: 1.875rem;
-    font-weight: 600;
     margin: 2rem 0 1rem;
-    color: #111827;
   }
 
   .project-content h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
     margin: 1.5rem 0 1rem;
-    color: #111827;
   }
 
   .project-content ul, 
@@ -161,7 +148,7 @@
 
 @include mobile {
   .project-header h1 {
-    font-size: 2rem;
+    // Typography in _headings.scss
   }
   
   .project-subtitle {
@@ -172,12 +159,9 @@
     font-size: 1rem;
   }
   
-  .project-content h2 {
-    font-size: 1.5rem;
-  }
-  
+  .project-content h2,
   .project-content h3 {
-    font-size: 1.25rem;
+    // Typography in _headings.scss
   }
   
   .link-buttons {

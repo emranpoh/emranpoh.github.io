@@ -1,0 +1,125 @@
+// Typography system
+//
+// Roles:
+//   Display  — Satoshi bold, page name
+//   Section  — Satoshi bold, section headings (lowercase)
+//   Body     — Synonym regular, paragraphs & lists
+//   Body-sm  — Synonym regular, secondary copy & card text
+//   Meta     — Synonym regular, dates & captions
+//   Label    — Satoshi medium, tags & UI controls
+//   Mono     — Geist Mono, code only
+
+$text-xs:   0.75rem;
+$text-sm:   0.875rem;
+$text-base: 1rem;
+$text-lg:   1.125rem;
+$text-xl:   1.25rem;
+$text-2xl:  1.5rem;
+$text-3xl:  2rem;
+
+$weight-normal: 400;
+$weight-medium: 500;
+$weight-semibold: 600;
+$weight-bold: 700;
+
+$leading-tight: 1.25;
+$leading-snug: 1.35;
+$leading-normal: 1.5;
+
+$font-mono: 'Geist Mono', ui-monospace, monospace;
+
+@mixin type-display {
+  font-family: $font-sans;
+  font-size: $text-3xl;
+  font-weight: $weight-bold;
+  line-height: $leading-tight;
+  letter-spacing: -0.02em;
+  color: #1d1d1d;
+}
+
+@mixin type-section {
+  font-family: $font-sans;
+  font-size: $text-xl;
+  font-weight: $weight-bold;
+  line-height: $leading-snug;
+  color: #1d1d1d;
+  text-transform: lowercase;
+}
+
+@mixin type-body {
+  font-family: $font-body;
+  font-size: $text-base;
+  font-weight: $weight-normal;
+  line-height: $leading-normal;
+  color: #333;
+}
+
+@mixin type-body-sm {
+  font-family: $font-body;
+  font-size: $text-sm;
+  font-weight: $weight-normal;
+  line-height: $leading-normal;
+  color: #333;
+}
+
+@mixin type-meta {
+  font-family: $font-body;
+  font-size: $text-xs;
+  font-weight: $weight-normal;
+  line-height: $leading-normal;
+  color: #888;
+}
+
+@mixin type-label {
+  font-family: $font-sans;
+  font-size: $text-xs;
+  font-weight: $weight-medium;
+  line-height: $leading-normal;
+}
+
+// Utility classes (optional in markup)
+.type-display { @include type-display; }
+.type-section { @include type-section; }
+.type-body { @include type-body; }
+.type-body-sm { @include type-body-sm; }
+.type-meta { @include type-meta; }
+.type-label { @include type-label; }
+.type-mono { font-family: $font-mono; }
+
+// Section & display heading styles live in _headings.scss (imported last)
+
+// Work card typography — Synonym body; title same weight as content
+.work-title-below {
+  @include type-body-sm;
+  line-height: $leading-snug;
+  color: #1d1d1d;
+
+  .work-title-text {
+    font-weight: $weight-normal;
+  }
+
+  .work-title-subtitle,
+  .work-description,
+  .work-authors-below,
+  .work-tagline,
+  .work-pub-abstract {
+    @include type-body-sm;
+    color: #666;
+  }
+
+  .work-citation,
+  .work-role,
+  .work-location-below {
+    @include type-meta;
+    font-style: italic;
+  }
+
+  .work-doi-btn,
+  .work-doi-pending,
+  .work-bib-btn,
+  .work-pdf-btn,
+  .subject-tag {
+    @include type-label;
+    text-transform: uppercase;
+  }
+}
