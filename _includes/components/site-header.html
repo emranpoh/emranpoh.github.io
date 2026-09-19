@@ -1,0 +1,286 @@
+<header class="site-header" id="site-header">
+  <div class="site-header-inner">
+    <div class="site-header-left">
+      <a href="{{ '/' | relative_url }}" class="site-logo" aria-label="{{ site.title }} — home">
+        <span class="site-logo-mark">{{ site.title }}</span>
+      </a>
+    </div>
+
+    <div class="site-header-right">
+      <nav class="site-header-icons" aria-label="Quick links">
+        <a href="https://www.dropbox.com/scl/fi/xfo54s6kqvcm4xc50murf/emran-cv.pdf?rlkey=xfrgl82y00ojdcz8qd9hwkt1q&dl=0" target="_blank" rel="noopener noreferrer" class="site-cv-link" aria-label="CV (PDF)">cv</a>
+        <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener noreferrer" class="site-icon-link" aria-label="LinkedIn">
+          {% include icon.html name="linkedin" %}
+        </a>
+        <a href="https://scholar.google.com/citations?user={{ site.scholar_id }}" target="_blank" rel="noopener noreferrer" class="site-icon-link site-icon-link-img" aria-label="Google Scholar">
+          <img src="{{ '/assets/images/scholar.svg' | relative_url }}" alt="" class="site-icon-img">
+        </a>
+        {% if site.location %}
+        <span class="site-location" aria-label="Location: {{ site.location }}">
+          <svg class="site-location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/></svg>
+          <span class="site-location-text">{{ site.location }}</span>
+        </span>
+        {% endif %}
+      </nav>
+    </div>
+  </div>
+</header>
+<div class="site-header-spacer" id="site-header-spacer" aria-hidden="true"></div>
+
+<style>
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.site-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  font-family: 'Satoshi', system-ui, sans-serif;
+}
+
+.site-header-left {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Placeholder logo, top left */
+.site-logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: crosshair;
+  flex-shrink: 0;
+}
+
+.site-logo-mark {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: #222;
+  text-transform: lowercase;
+}
+
+/* Search bar, beside logo */
+.site-search {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 18rem;
+  color: #999;
+}
+
+.site-search-icon {
+  width: 0.9375rem;
+  height: 0.9375rem;
+  flex-shrink: 0;
+}
+
+.site-search-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 0.8125rem;
+  color: #222;
+}
+
+.site-search-input::placeholder {
+  color: #aaa;
+}
+
+/* Location, in the right icon cluster */
+.site-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #666;
+}
+
+.site-location-icon {
+  width: 0.875rem;
+  height: 0.875rem;
+  flex-shrink: 0;
+}
+
+.site-location-text {
+  font-size: 0.8125rem;
+  text-transform: lowercase;
+}
+
+.site-header-right {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.125rem;
+}
+
+/* Quick-link icons, beside the menu button */
+.site-header-icons {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.site-icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #444;
+  text-decoration: none;
+  cursor: crosshair;
+  transition: color 0.2s, opacity 0.2s;
+}
+
+.site-cv-link {
+  display: inline-flex;
+  align-items: center;
+  font-family: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: #444;
+  text-decoration: none;
+  text-transform: lowercase;
+  cursor: crosshair;
+  transition: color 0.2s;
+}
+
+.site-cv-link:hover {
+  color: #000;
+}
+
+.site-icon-link .icon {
+  display: inline-flex;
+  font-size: 1.0625rem;
+}
+
+.site-icon-link:hover,
+.site-icon-link.active {
+  color: #000;
+}
+
+.site-icon-img {
+  width: 1.0625rem;
+  height: 1.0625rem;
+  display: block;
+  opacity: 0.75;
+  transition: opacity 0.2s;
+}
+
+.site-icon-link:hover .site-icon-img,
+.site-icon-link.active .site-icon-img {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .site-header-inner {
+    padding: 0.625rem 1rem;
+  }
+  .site-logo-mark {
+    font-size: 0.8125rem;
+  }
+  .site-header-left {
+    gap: 0.75rem;
+  }
+  .site-search {
+    max-width: none;
+  }
+  .site-location-text {
+    display: none;
+  }
+  .site-header-right {
+    gap: 0.75rem;
+  }
+  .site-header-icons {
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-search {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-location-text {
+    display: none;
+  }
+  .site-header-icons {
+    gap: 0.625rem;
+  }
+}
+</style>
+
+<script>
+(function () {
+  var header = document.getElementById('site-header');
+  var spacer = document.getElementById('site-header-spacer');
+  if (header && spacer) {
+    var syncSpacerHeight = function () {
+      spacer.style.height = header.offsetHeight + 'px';
+    };
+    syncSpacerHeight();
+    window.addEventListener('resize', syncSpacerHeight);
+    if (window.ResizeObserver) {
+      new ResizeObserver(syncSpacerHeight).observe(header);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var logoMark = document.querySelector('.site-logo-mark');
+    var labeledSections = document.querySelectorAll('.gallery-strip[data-header-label]');
+    if (!logoMark || !labeledSections.length) return;
+
+    var baseLogoText = logoMark.textContent;
+    var pageLabel = document.body.getAttribute('data-header-page-label');
+    var pageLogoText = pageLabel ? baseLogoText + ' / ' + pageLabel : baseLogoText;
+    var updateLogoText = function () {
+      if (window.innerWidth <= 768) {
+        logoMark.textContent = baseLogoText;
+        return;
+      }
+      var headerHeight = header ? header.offsetHeight : 0;
+      var activeLabel = null;
+      labeledSections.forEach(function (section) {
+        var rect = section.getBoundingClientRect();
+        if (rect.top <= headerHeight + 10 && rect.bottom > headerHeight + 10) {
+          activeLabel = section.getAttribute('data-header-label');
+        }
+      });
+      logoMark.textContent = activeLabel ? (baseLogoText + ' / ' + activeLabel) : pageLogoText;
+    };
+    updateLogoText();
+    window.addEventListener('scroll', updateLogoText, { passive: true });
+    window.addEventListener('resize', updateLogoText);
+  });
+
+  var searchInput = document.getElementById('site-search-input');
+  if (searchInput) {
+    searchInput.addEventListener('input', function () {
+      var query = searchInput.value.trim().toLowerCase();
+      var tiles = document.querySelectorAll('.gallery-strip-tile');
+      tiles.forEach(function (tile) {
+        var title = (tile.getAttribute('data-gallery-title') || '').toLowerCase();
+        tile.style.display = !query || title.indexOf(query) !== -1 ? '' : 'none';
+      });
+    });
+  }
+
+})();
+</script>

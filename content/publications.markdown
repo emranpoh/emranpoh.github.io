@@ -8,16 +8,9 @@ description: "CS PhD student at SMU-HAI Lab. Research publications and projects 
 
 {% include components/intro.html research_page=true %}
 
-{% include components/recent-highlights.html limit=5 %}
+{% include components/gallery-strip.html %}
 
-<div class="publications-section-wrapper publications-page selected-pubs-block">
-  {% include components/publications-section.html selected_only=true %}
-</div>
+{% include components/works-strip.html %}
 
-<hr class="intro-publications-divider" aria-hidden="true">
+{% include components/gallery-strip-shell.html %}
 
-{% include components/research-in-progress.html %}
-
-<div class="publications-section-wrapper publications-page">
-  {% include components/publications-section.html exclude_institution="immersification" %}
-</div>

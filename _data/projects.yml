@@ -107,3 +107,40 @@
   modal_link_label: "CS4240 Interaction Design for Virtual and Augmented Reality"
   work-tags:
     - "Teaching"
+
+- title: "Professional Certificate in User Interface and Interaction Design"
+  subtitle: "Graduate Teaching Assistant, with Zhao Shengdong"
+  label: "NUS"
+  year: 2023
+  start-year: 2023
+  end-year: 2023
+  role: "Graduate Teaching Assistant"
+  description: "Assisted and conducted a six-day professional certification course in user interface and interaction design to a group of 20 industry professionals, under Zhao Shengdong."
+  work-tags:
+    - "Teaching"
+
+- title: "CS3240 Interaction Design"
+  subtitle: "Graduate Teaching Assistant, with Zhao Shengdong"
+  label: "NUS"
+  year: 2023
+  start-year: 2023
+  end-year: 2023
+  role: "Graduate Teaching Assistant"
+  description: "Assisted with tutorials and project supervision for the undergraduate interaction design course, under Zhao Shengdong."
+  tags:
+    - name: "web"
+      type: "web"
+      url: "https://nusmods.com/courses/CS3240/interaction-design"
+  work-tags:
+    - "Teaching"
+
+- title: "LaTeX Crash Course"
+  subtitle: "Instructor, Center for Immersification, SIT"
+  label: "SIT"
+  year: 2021
+  start-year: 2021
+  end-year: 2021
+  role: "Instructor"
+  description: "Delivered an informative one-day crash course on LaTeX to fellow lab researchers and faculty members at the Center for Immersification, Singapore Institute of Technology."
+  work-tags:
+    - "Teaching"

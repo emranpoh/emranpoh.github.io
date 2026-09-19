@@ -7,6 +7,47 @@ settings:
   sort_order: "newest_first"  # Options: newest_first, oldest_first
 
 news_items:
+  - id: news-017
+    title: "at DIS 2026 in Singapore for Pei-Hua and Tianyi's papers"
+    date: "2026-06-01"
+    category: "Conference"
+    location: "Singapore, Singapore"
+    tags: ["dis", "conference", "hci", "travel"]
+    featured: true
+    type: "conference"
+    conference: "DIS 2026"
+    institution: "acm"
+    summary: "At DIS 2026 in Singapore, where Pei-Hua and Tianyi are presenting our two papers. Nice that it's local this time."
+    content: |
+      At DIS 2026 in Singapore for Pei-Hua and Tianyi's papers. Nice that it's local this time.
+
+  - id: news-016
+    title: "off to CHI 2026 in Barcelona to present our paper 🇪🇸"
+    date: "2026-04-13"
+    category: "Conference"
+    location: "Barcelona, Spain"
+    tags: ["chi", "conference", "hci", "travel"]
+    featured: true
+    type: "conference"
+    conference: "CHI 2026"
+    institution: "acm"
+    summary: "Heading to Barcelona for CHI 2026 to present 'Show it, Don't Just Say It' in person."
+    content: |
+      Off to CHI 2026 in Barcelona, presenting our paper 'Show it, Don't Just Say It' in person. Excited to be back at CHI.
+
+  - id: news-015
+    title: "Two of our papers got into DIS 2026, led by Pei-Hua and Tianyi 🎉"
+    date: "2026-03-01"
+    category: "Publication"
+    location: "Singapore, Singapore"
+    tags: ["dis", "publication", "hci", "ai-mediated communication"]
+    featured: true
+    type: "publication"
+    institution: "acm"
+    summary: "Stoked — two papers I'm on got into DIS 2026, one led by Pei-Hua Tsai and one by Tianyi Zhang."
+    content: |
+      Great news — two papers I'm a co-author on got into DIS 2026: "Not Too Early, Not All at Once", led by Pei-Hua Tsai, and "Grandpa, Can You Speak Nicer?", led by Tianyi Zhang. Really happy for both of them, proud to be part of these.
+
   - id: news-013
     title: "Paper accepted to CHI 2026 Workshop: 'When Not to Help: A Human-Teaching Lens on AI Tutoring'"
     date: "2026-02-24"
@@ -21,7 +62,7 @@ news_items:
       Paper accepted to the CHI 2026 workshop on Understanding and Engaging Critical Resistance to AI in Education. We draw on human-teaching literature to think about when AI tutoring systems should hold back from helping — and why that matters for learning.
 
   - id: news-007
-    title: "Helping run [Future CS Education Workshop 2.0](https://futuredu.student.ai4sg.org/home) — on the organising team"
+    title: "Helping run [Future CS Education Workshop 2.0](https://futuredu.student.ai4sg.org/home), on the organising team"
     date: "2026-01-25"
     category: "Workshop"
     tags: ["nus", "google", "workshop", "cs education", "organising"]
@@ -73,6 +114,18 @@ news_items:
     content: |
       Student volunteered at ICHEC 2025 in November. Helped run things and caught some talks — good to be part of it.
 
+  - id: news-014
+    title: "Got the Presidential Doctoral Fellowship"
+    date: "2026-08-01"
+    category: "Education"
+    tags: ["smu", "fellowship", "phd"]
+    featured: true
+    type: "education"
+    institution: "smu"
+    summary: "Got awarded the Presidential Doctoral Fellowship at SMU — still pretty stoked about it."
+    content: |
+      Got awarded the Presidential Doctoral Fellowship at SMU. Still pretty stoked about it.
+
   - id: news-004
     title: "Went to National Yang Ming Chiao Tung University (NYCU) in Hsinchu, Taiwan for an HCI meetup with friends"
     date: "2025-08-20"
@@ -117,7 +170,7 @@ news_items:
       Got in — I'll be starting my PhD in Computer Science at SMU (SCIS) in August 2025 with a full scholarship, working with Li Jiannan. Really looking forward to diving deeper into human-agent interaction and the stuff I care about.
 
   - id: news-001
-    title: "First time at CHI — Yokohama 2025 🇯🇵"
+    title: "First time at CHI, Yokohama 2025 🇯🇵"
     date: "2025-04-20"
     category: "Conference"
     location: "Yokohama, Japan"
@@ -133,7 +186,7 @@ news_items:
       First time at CHI, and it was in Yokohama. Great to finally be there in person, see the work everyone's doing, and meet folks from the community.
 
   - id: news-008
-    title: "Hello World — created this website in Jan 2023"
+    title: "Hello World, created this website in Jan 2023"
     date: "2023-01-01"
     category: "Personal"
     tags: ["website", "hello world"]
@@ -156,7 +209,7 @@ news_items:
       Graduated from NUS with a Master of Computing in July 2024.
 
   - id: news-010
-    title: "Gave a talk on [Emptiness, Isolation, Death, Hope — parallels from Death Stranding](/projects/death-stranding/) at NUS-HCI Lab"
+    title: "Gave a talk on [Emptiness, Isolation, Death, Hope: parallels from Death Stranding](/projects/death-stranding/) at NUS-HCI Lab"
     date: "2024-01-24"
     category: "Talk"
     tags: ["talk", "death-stranding", "nus-hci"]

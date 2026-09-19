@@ -1,44 +1,83 @@
 - name: "Emran Poh"
   url: "https://emranpoh.github.io"
   affiliation: "Singapore Management University"
+  photo: "/assets/images/authors/emran-poh.webp"
   is_primary: true
 
 - name: "Anthony Tang"
   url: "https://hcitang.github.io/"
   affiliation: "Singapore Management University"
+  photo: "/assets/images/authors/anthony-tang.webp"
 
 - name: "Jeannie Lee"
   url: "https://www.singaporetech.edu.sg/directory/faculty/jeannie-lee"
   affiliation: "Singapore Institute of Technology"
+  photo: "/assets/images/authors/jeannie-lee.webp"
 
 - name: "Shengdong Zhao"
   url: "https://shengdongzhao.com/"
   affiliation: "City University of Hong Kong"
+  photo: "/assets/images/authors/shengdong-zhao.webp"
 
 - name: "Kyrin Liong"
   url: "https://www.singaporetech.edu.sg/directory/faculty/kyrin-liong-yushan"
   affiliation: "Singapore Institute of Technology"
+  photo: "/assets/images/authors/kyrin-liong.webp"
 
 - name: "Adriel Yeo"
   url: "https://scholar.google.com/citations?user=TBpf5TUAAAAJ&hl=en"
   affiliation: "Singapore Institute of Technology"
+  photo: "/assets/images/authors/adriel-yeo.webp"
 
 - name: "B. Kwok"
   url: "https://www.linkedin.com/in/benjamin-kwok/"
   affiliation: "Singapore Institute of Technology"
+  photo: "/assets/images/authors/b-kwok.webp"
 
 - name: "Z. F. Wong"
   url: "https://www.linkedin.com/in/wong-zi-feng/?originalSubdomain=sg"
   affiliation: "Singapore Institute of Technology"
+  photo: "/assets/images/authors/z-f-wong.webp"
 
 - name: "R. Chan"
   url: "https://www.singaporetech.edu.sg/directory/faculty/raymond-chan"
   affiliation: "Singapore Institute of Technology"
+  photo: "/assets/images/authors/raymond-chan.webp"
 
 - name: "A. Tan"
   url: "https://www.singaporetech.edu.sg/directory/faculty/alfred-tan"
   affiliation: "Singapore Institute of Technology"
+  photo: "/assets/images/authors/alfred-tan.webp"
 
 - name: "V. Balachandran"
   url: "https://www.vivekb.info/"
   affiliation: "Singapore Institute of Technology"
+  photo: "/assets/images/authors/vivek-balachandran.webp"
+
+- name: "Pei-Hua Tsai"
+  affiliation: "National Yang Ming Chiao Tung University"
+  photo: "/assets/images/authors/pei-hua-tsai.webp"
+
+- name: "Tianyi Zhang"
+  affiliation: "Singapore Management University"
+  photo: "/assets/images/authors/tianyi-zhang.webp"
+
+- name: "Yueyue Hou"
+  affiliation: "Singapore Management University"
+  photo: "/assets/images/authors/yueyue-hou.webp"
+
+- name: "Yi-Chieh Lee"
+  affiliation: "National University of Singapore"
+  photo: "/assets/images/authors/yi-chieh-lee.webp"
+
+- name: "Renwen Zhang"
+  affiliation: "Nanyang Technological University"
+  photo: "/assets/images/authors/renwen-zhang.webp"
+
+- name: "Jiannan Li"
+  affiliation: "Singapore Management University"
+  photo: "/assets/images/authors/jiannan-li.webp"
+
+- name: "Yung-Ju Chang"
+  affiliation: "National Yang Ming Chiao Tung University"
+  photo: "/assets/images/authors/yung-ju-chang.webp"

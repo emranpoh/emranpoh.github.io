@@ -18,7 +18,7 @@
     }
   </script>
 </head>
-<body class="layout-sidebar{% if page.url == '/404.html' %} page-error{% endif %}{% if page.id == 'landing' %} page-landing{% endif %}{% if page.id == 'works' %} page-works{% endif %}{% if page.id == 'research' %} page-research{% endif %}{% if page.id == 'cv' %} page-cv{% endif %}">
+<body class="layout-sidebar{% if page.url == '/404.html' %} page-error{% endif %}{% if page.id == 'landing' %} page-landing{% endif %}{% if page.id == 'research' %} page-research{% endif %}">
   <a href="#main-content" class="skip-link">Skip to main content</a>
   {% unless page.id == 'landing' %}
   <!-- Scroll progress indicator -->
@@ -26,12 +26,9 @@
     <div class="scroll-progress-fill" id="scroll-progress-fill" aria-hidden="true"></div>
   </div>
   {% endunless %}
-  {% unless page.id == 'landing' %}
-  {% include components/sidebar.html %}
-  {% endunless %}
+  {% include components/site-header.html %}
   <div class="desktop-wrapper">
     
-    {% unless page.id == 'works' %}
     {% if page.id == 'research' %}
     <main class="content content-research research-two-column" id="main-content" role="main">
       <div class="research-column research-column-intro">
@@ -51,17 +48,9 @@
         {{ content }}
       </div>
     </main>
-
-    <!-- Publications Section - Full Width Below Columns (home + profile pages; thumbnails from pubs.yml) -->
-    {% if page.id == 'emran' or page.title == 'Emran Poh' %}
-    <div class="publications-section-wrapper landing-publications-below-fold">
-      {% include components/publications-section.html selected_only=true %}
-    </div>
     {% endif %}
-    {% endif %}
-    {% endunless %}
 
-    <!-- Talks + Presentations Section (emran only; works uses combined masonry) -->
+    <!-- Talks + Presentations Section (emran only) -->
     {% if page.id != 'landing' %}
       {% if page.id == 'emran' or page.title == 'Emran Poh' %}
     <div class="talks-section-wrapper">
@@ -70,12 +59,8 @@
       {% endif %}
     {% endif %}
     
-    <!-- Selected Works Section (emran/landing) OR Combined Masonry (works page) -->
-    {% if page.id == 'works' %}
-    <div class="works-masonry-wrapper" id="main-content" role="main">
-      {% include components/works-masonry.html %}
-    </div>
-    {% elsif page.id != 'landing' %}
+    <!-- Selected Works Section (emran/landing) -->
+    {% if page.id != 'landing' %}
       {% if page.id == 'emran' or page.title == 'Emran Poh' %}
     <div class="selected-works-wrapper">
       {% include components/selected-works.html %}
@@ -90,9 +75,7 @@
     {% endunless %}
   </div>
   
-  {% if page.id == 'works' %}
-  {% include components/work-detail-modal.html %}
-  {% elsif page.id != 'landing' %}
+  {% if page.id != 'landing' %}
     {% if page.id == 'emran' or page.title == 'Emran Poh' %}
   {% include components/work-detail-modal.html %}
     {% endif %}

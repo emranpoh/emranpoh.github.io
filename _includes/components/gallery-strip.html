@@ -1,0 +1,56 @@
+{% comment %} All of Emran's publications, are.na-style grid of tiles with a click-to-open overlay. {% endcomment %}
+{% assign gallery_pubs_all = site.data.pubs | where_exp: "pub", "pub.authors contains 'Emran Poh'" | where_exp: "pub", "pub.status != 'under review'" | where_exp: "pub", "pub.status != 'submitted'" %}
+{% assign first_authored = '' | split: ',' %}
+{% assign co_authored = '' | split: ',' %}
+{% for pub in gallery_pubs_all %}
+  {% assign pub_first_author = pub.authors | slice: 0, 9 %}
+  {% if pub.authors and pub.authors != '' and pub_first_author == 'Emran Poh' %}
+    {% assign first_authored = first_authored | push: pub %}
+  {% else %}
+    {% assign co_authored = co_authored | push: pub %}
+  {% endif %}
+{% endfor %}
+
+{% comment %} Primary sort: first-authored work before co-authored. Secondary sort: date descending, with original file order preserved for same-date ties. {% endcomment %}
+{% assign gallery_pubs = '' | split: ',' %}
+{% for author_bucket in (1..2) %}
+  {% case author_bucket %}
+    {% when 1 %}{% assign bucket_items = first_authored %}
+    {% when 2 %}{% assign bucket_items = co_authored %}
+  {% endcase %}
+  {% assign bucket_groups = bucket_items | group_by: 'sort_key' %}
+  {% assign bucket_groups = bucket_groups | sort: 'name' %}
+  {% for group in bucket_groups reversed %}
+    {% assign gallery_pubs = gallery_pubs | concat: group.items %}
+  {% endfor %}
+{% endfor %}
+
+{% assign known_pub_urls = site.pages | map: 'url' %}
+
+{% if gallery_pubs.size > 0 %}
+<section class="gallery-strip" aria-label="All publications" data-header-label="paps-n-pubs">
+  <h2 id="publications-heading" class="publications-subsection-title type-section">papers and publications</h2>
+  <div class="gallery-strip-grid">
+    {% for pub in gallery_pubs %}
+      {% assign pub_url_with_slash = pub.url | append: '/' %}
+      {% if pub.url and known_pub_urls contains pub_url_with_slash %}
+        {% assign pub_href = pub.url | relative_url %}
+      {% else %}
+        {% assign pub_href = '' %}
+      {% endif %}
+      {% if pub.image and pub.image != '' %}
+        {% assign pub_image = '/assets/images/projects/' | append: pub.image | relative_url %}
+      {% else %}
+        {% assign pub_image = '' %}
+      {% endif %}
+      {% if pub.thumbnail and pub.thumbnail != '' %}
+        {% assign pub_thumbnail = '/assets/images/projects/' | append: pub.thumbnail | relative_url %}
+      {% else %}
+        {% assign pub_thumbnail = '' %}
+      {% endif %}
+      {% assign pub_venue = pub.venue_short | default: pub.venue %}
+      {% include components/gallery-strip-tile.html image=pub_image thumbnail=pub_thumbnail image_natural=pub.image_natural image_caption=pub.image_caption title=pub.title title_short=pub.title_short venue=pub_venue venue_detail=pub.workshop_name abstract=pub.abstract_short citation=pub.citation authors=pub.authors links=pub.tags url=pub_href %}
+    {% endfor %}
+  </div>
+</section>
+{% endif %}

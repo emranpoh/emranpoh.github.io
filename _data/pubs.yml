@@ -5,17 +5,25 @@
   venue: "2026 ACM Conference on Designing Interactive Systems (DIS '26)"
   venue_short: "DIS 26 Papers"
   year: 2026
-  sort_key: "202607"
-  status: "accepted"
-  doi_status: "in progress"
+  sort_key: "202606"
+  status: "published"
   institution: "smuhci"
-  image: ""
+  image: "not-too-early.webp"
+  image_caption: "Figure 1: AI mediation provocations for the pacing scenario, varied by perspective (user behavior vs. partner experience) and delivery mode (public vs. private)"
   is-selected: false
   emoji: "💬"
   url: "/research/not-too-early-ai-mediated-self-disclosure"
+  doi: "10.1145/3800645.3812961"
   bib: ""
+  tags:
+    - name: "doi"
+      url: "https://doi.org/10.1145/3800645.3812961"
+    - name: "repository"
+      url: "https://ink.library.smu.edu.sg/sis_research/11137"
   abstract: ""
   abstract_short: "We study design tensions when AI systems mediate self-disclosure in online dating, focusing on pacing and initiation so technology supports rather than rushes intimacy. The work reframes timing and granularity of automated prompts as core interaction design problems for relationship-seeking contexts."
+  citation: |
+    Pei-Hua Tsai, Tianyi Zhang, Emran Poh, Anthony Tang, and Yung-Ju Chang. 2026. Not Too Early, Not All at Once: Design Tensions in AI-Mediated Self-Disclosure in Online Dating. In Designing Interactive Systems Conference (DIS '26), June 13–17, 2026, Singapore, Singapore. ACM, New York, NY, USA. https://doi.org/10.1145/3800645.3812961
   work-tags:
     - "Research"
     - "Paper"
@@ -32,17 +40,25 @@
   venue: "2026 ACM Conference on Designing Interactive Systems (DIS '26)"
   venue_short: "DIS 26 Papers"
   year: 2026
-  sort_key: "202607"
-  status: "accepted"
-  doi_status: "in progress"
+  sort_key: "202606"
+  status: "published"
   institution: "smuhci"
   image: "intergen.webp"
+  image_caption: "Four envisioned chatbot roles for mediating intergenerational communication conflicts"
   is-selected: false
   emoji: "👴"
   url: "/research/grandpa-speak-nicer-chatbot"
+  doi: "10.1145/3800645.3813010"
   bib: ""
+  tags:
+    - name: "doi"
+      url: "https://doi.org/10.1145/3800645.3813010"
+    - name: "repository"
+      url: "https://ink.library.smu.edu.sg/sis_research/11133"
   abstract: ""
   abstract_short: "We examine how families envision chatbots intervening in intergenerational conflict and the roles, risks, and etiquette those visions imply. Findings highlight design tensions between mediation, respect, and autonomy when conversational agents enter sensitive family talk."
+  citation: |
+    Tianyi Zhang, Emran Poh, Yueyue Hou, Yi-Chieh Lee, Renwen Zhang, Jiannan Li, and Anthony Tang. 2026. "Grandpa, Can You Speak Nicer?": Envisioned Chatbot Roles and Design Tensions in Intergenerational Communication Conflicts. In Designing Interactive Systems Conference (DIS '26), June 13–17, 2026, Singapore, Singapore. ACM, New York, NY, USA. https://doi.org/10.1145/3800645.3813010
   work-tags:
     - "Research"
     - "Paper"
@@ -68,6 +84,7 @@
     total: 6730
   institution: "smuhci"
   image: "showit.webp"
+  image_caption: "Sketch of the two-person study setup for evaluating software guidance instructions"
   is-selected: true
   emoji: "📝"
   url: "/research/show-it-software-guidance"
@@ -113,6 +130,8 @@
   status_note: "under revision"
   institution: "smuhci"
   image: ""
+  thumbnail: "when-not-to-help.webp"
+  image_natural: true
   is-selected: false
   emoji: "📚"
   url: "/research/when-not-to-help"
@@ -122,7 +141,8 @@
       url: "/assets/pdfs/when-not-to-help.pdf"
   abstract: "We invert the usual question about GenAI in education: rather than ask how to deploy new capabilities, we ask what role GenAI should play given what we know about effective human teaching. This position draws on an observational study of ten teacher-student pairs using speech, visual annotations, and remote screen control to teach Figma to novices. Teachers consistently showed restraint—avoiding high-precision modalities when it would undermine learning—which we interpret as pedagogical wisdom, not inefficiency. We argue this reveals a precision-agency tradeoff and digital territoriality as design constraints for GenAI tutors. We contribute empirical evidence of how teachers balance help with learner agency, methodological guidance for evaluation under authentic motivation, and implications for metrics and design process that treat restraint and friction as valid design goals."
   abstract_short: "We flip the usual question from how to ship GenAI tutors to what role they should play given how effective human teachers withhold intrusive help to protect agency. Grounded in observational Figma tutoring, we argue restraint and friction can be virtues and outline evaluation and design implications for AI systems in education."
-  citation: ""
+  citation: |
+    Emran Poh. 2026. When Not to Help: A Human-Teaching Lens on AI Tutoring. In CHI 2026 Workshop: Understanding and Engaging Critical Resistance to AI in Education, April 13–17, 2026, Barcelona, Spain.
   work-tags:
     - "Research"
     - "Paper"
@@ -145,6 +165,8 @@
   status: "accepted"
   institution: "smuhci"
   image: ""
+  thumbnail: "desire-paths-workshop.webp"
+  image_natural: true
   is-selected: false
   emoji: "🛤️"
   url: "/research/desire-paths-in-learning"
@@ -152,7 +174,8 @@
   bib: ""
   abstract: "Learners who deviate from prescribed instructional paths are not necessarily failing—they may be revealing signal about themselves, the curriculum, and the interface. Yet AI tutoring agents for software learning typically treat deviation as error to be corrected. We argue this framing is fundamentally misaligned with how learning actually unfolds. Drawing on the urban planning concept of desire paths—informal trails that emerge when pedestrians route around formal walkways—we reframe learner deviations as meaningful signals of unmet needs, prior knowledge, and curriculum gaps. We ground this argument in an empirical study of human software tutors teaching Figma, which reveals that expert tutors already read and respond to desire paths by fluidly shifting across instructional modalities—speech, visual annotation, and remote screen control—in response to learner behavior. We offer a preliminary taxonomy of deviation types, argue that the Human↔Agent↔UI triangle in learning contexts must be redesigned around negotiated path-finding rather than path enforcement, and argue that the field needs frameworks and empirical study of adaptive multimodal intervention design for tutoring systems to make this negotiation possible."
   abstract_short: "We borrow the idea of desire paths to reframe learner deviation in software training as informative signal—not error to stamp out—about needs, prior knowledge, and curriculum fit. Evidence from human Figma tutors shows experts already negotiate paths by shifting speech, annotation, and remote control rather than enforcing one rigid route."
-  citation: ""
+  citation: |
+    Emran Poh. 2026. 'Desire Paths' in AI-Guided Software Learning. In CHI 2026 Workshop: Human-AI-UI Interactions Across Modalities, April 13–17, 2026, Barcelona, Spain.
   tags:
     - name: "pdf"
       url: "/assets/pdfs/desire-paths.pdf"
@@ -178,14 +201,19 @@
   status: "published"
   institution: "nus-hci"
   image: "artefact-awareness.webp"
+  image_caption: "Alice and Bob's partially-replicated workspace, with and without headset-based awareness"
   is-selected: true
   emoji: "👥"
   url: "/research/artefact-awareness-workspaces"
   doi: "10.1109/ISMAR-Adjunct60411.2023.00019"
-  bib: ""
+  tags:
+    - name: "doi"
+      url: "https://ieeexplore.ieee.org/document/10322229"
+  bib: "@INPROCEEDINGS{10322229,\n  author={Poh, Emran and Tang, Anthony and Lee, Jeannie S. and Shengdong, Zhao},\n  booktitle={2023 IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct)}, \n  title={Supporting Artefact Awareness in Partially-Replicated Workspaces}, \n  year={2023},\n  volume={},\n  number={},\n  pages={55-59},\n  keywords={Human computer interaction;Social computing;Collaboration;X reality;Human-centered computing Collaborative and social computing theory;concepts and paradigms;H;uman-centered computing Computer supported cooperative work;Human-centered computing Computer supported cooperative work;Human-centered computing Interaction design},\n  doi={10.1109/ISMAR-Adjunct60411.2023.00019}\n}"
   abstract: "We present a system that supports artefact awareness in partially-replicated workspaces, enabling users to maintain awareness of shared objects and their states across different physical locations."
   abstract_short: "Cross-reality remote collaboration often yields partially replicated workspaces where artefacts drift out of sync across sites and collaborators lose mutual visibility of manipulations. We outline artefact awareness support so teams retain shared understanding of objects and changes despite asymmetric physical access."
-  citation: "@INPROCEEDINGS{10322229,\n  author={Poh, Emran and Tang, Anthony and Lee, Jeannie S. and Shengdong, Zhao},\n  booktitle={2023 IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct)}, \n  title={Supporting Artefact Awareness in Partially-Replicated Workspaces}, \n  year={2023},\n  volume={},\n  number={},\n  pages={55-59},\n  keywords={Human computer interaction;Social computing;Collaboration;X reality;Human-centered computing Collaborative and social computing theory;concepts and paradigms;H;uman-centered computing Computer supported cooperative work;Human-centered computing Computer supported cooperative work;Human-centered computing Interaction design},\n  doi={10.1109/ISMAR-Adjunct60411.2023.00019}\n}"
+  citation: |
+    Emran Poh, Anthony Tang, Jeannie S. Lee, and Zhao Shengdong. 2023. Supporting Artefact Awareness in Partially-Replicated Workspaces. In 2023 IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct), October 16–20, 2023, Sydney, Australia. 55–59. https://doi.org/10.1109/ISMAR-Adjunct60411.2023.00019
   work-tags:
     - "Research"
     - "Design"
@@ -212,6 +240,7 @@
   sort_key: "202309"
   status: "published"
   image: "intvrsection.webp"
+  image_caption: "Simulated signalized and unsignalized intersection scenarios with pedestrian and vehicle path overlays"
   institution: "immersification"
   emoji: "🚗"
   url: "/research/intvrsection"
@@ -229,7 +258,8 @@
   tags:
     - name: "doi"
       url: "https://dl.acm.org/doi/abs/10.1145/3581961.3610373"
-  citation: "@inproceedings{10.1145/3581961.3610373,\nauthor = {Lee, Jeannie Su Ann and Yeo, Adriel and Kwok, Benjamin Wei Jie and Wong, Zi Feng and Poh, Emran and Chan, Raymond},\ntitle = {IntVRsection: Virtual Reality Environment for Evaluating Signalized and Unsignalized Intersection Scenarios},\nyear = {2023},\nisbn = {9798400701122},\npublisher = {Association for Computing Machinery},\naddress = {New York, NY, USA},\nurl = {https://doi.org/10.1145/3581961.3610373},\ndoi = {10.1145/3581961.3610373},\nabstract = {This demo presents a virtual reality (VR) environment developed for evaluating signalized and unsignalized intersection scenarios using low cost head-mounted devices (HMD). Prior work focused on VR simulations that re-create less complex scenarios for the evaluation of different autonomous vehicle (AV) behavior and external human-machine interfaces (eHMIs). The proposed VR environment allows participants to walk across multiple road lanes, and experience and interact with high fidelity simulated traffic scenarios, including signalized and unsignalized intersections at 1:1 scale, with vehicular traffic making turns, and providing audio feedback. This simulation can be used for conducting user studies to test AV eHMIs or behavior interventions with participants.},\nbooktitle = {Adjunct Proceedings of the 15th International Conference on Automotive User Interfaces and Interactive Vehicular Applications},\npages = {300–303},\nnumpages = {4},\nkeywords = {autonomous vehicles, external human machine interface, pedestrian crossing, virtual reality},\nlocation = {Ingolstadt, Germany},\nseries = {AutomotiveUI '23 Adjunct}\n}"
+  citation: |
+    Jeannie Su Ann Lee, Adriel Yeo, Benjamin Wei Jie Kwok, Zi Feng Wong, Emran Poh, and Raymond Chan. 2023. IntVRsection: Virtual Reality Environment for Evaluating Signalized and Unsignalized Intersection Scenarios. In Adjunct Proceedings of the 15th International Conference on Automotive User Interfaces and Interactive Vehicular Applications (AutomotiveUI '23 Adjunct), September 18–21, 2023, Ingolstadt, Germany. ACM, New York, NY, USA, 300–303. https://doi.org/10.1145/3581961.3610373
   work-tags:
     - "Paper"
   subject-tags:
@@ -254,6 +284,7 @@
   sort_key: "202210"
   status: "published"
   image: "mr-fea-load-table.webp"
+  image_caption: "Mixed-reality visualization of simulated load values on an excavator arm"
   institution: "immersification"
   is-selected: false
   emoji: "🔍"
@@ -270,9 +301,10 @@
     }
   abstract: "This work explores the use of mixed reality for engineering design review, specifically focusing on the visualization and interaction with finite element analysis results in an immersive environment."
   abstract_short: "We investigate mixed reality for engineering design reviews so teams can inspect finite element analysis results immersively alongside the modeled geometry. The aim is clearer spatial grounding of stresses and deformations compared with conventional monitor-centric FEA workflows."
-  citation: "@INPROCEEDINGS{9974521,\n  author={Poh, Emran and Liong, Kyrin and Lee, Jeannie S.A.},\n  booktitle={2022 IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct)}, \n  title={Mixed Reality for Engineering Design Review Using Finite Element Analysis}, \n  year={2022},\n  volume={},\n  number={},\n  pages={657-662},\n  keywords={Visualization;Solid modeling;Absorption;Virtual environments;Mixed reality;Virtual reality;Particle measurements;Mixed Reality;Finite Element Analysis;Design Review;Engineering},\n  doi={10.1109/ISMAR-Adjunct57072.2022.00136}\n}"
+  citation: |
+    Emran Poh, Kyrin Liong, and Jeannie S. A. Lee. 2022. Mixed Reality for Engineering Design Review Using Finite Element Analysis. In 2022 IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct), October 17–21, 2022, Singapore. 657–662. https://doi.org/10.1109/ISMAR-Adjunct57072.2022.00136
   tags:
-    - name: "pdf"
+    - name: "doi"
       url: "https://ieeexplore.ieee.org/abstract/document/9974521"
   work-tags:
     - "Paper"
@@ -294,6 +326,7 @@
   status: "published"
   institution: "immersification"
   image: "mr-assembly-planning.webp"
+  image_caption: "CAD rendering of a mechanical assembly used in mixed-reality assembly planning"
   emoji: "⚙️"
   url: "/research/mr-assembly-planning"
   doi: "10.1007/978-3-031-19679-9_72"
@@ -308,9 +341,10 @@
     }
   abstract: "We present a mixed reality system for mechanical design and assembly planning, enabling users to visualize and interact with 3D models in a physical space for improved assembly understanding."
   abstract_short: "We build mixed reality tooling for design-for-manufacturing-and-assembly so planners can visualize parts and sequencing against real factory context, not only abstract VR scenes. Pilot feedback suggests practitioners find it usable and potentially cost-effective for tightening assembly plans."
-  citation: "@InProceedings{10.1007/978-3-031-19679-9_72,\nauthor=\"Poh, Emran\nand Liong, Kyrin\nand Lee, Jeannie S. A.\",\neditor=\"Stephanidis, Constantine\nand Antona, Margherita\nand Ntoa, Stavroula\nand Salvendy, Gavriel\",\ntitle=\"Mixed Reality for Mechanical Design and Assembly Planning\",\nbooktitle=\"HCI International 2022 -- Late Breaking Posters\",\nyear=\"2022\",\npublisher=\"Springer Nature Switzerland\",\naddress=\"Cham\",\npages=\"572--579\",\nabstract=\"Design for Manufacturing and Assembly (DFMA) is a crucial design stage within the heavy vehicle manufacturing process that involves optimising the order and feasibility of the parts assembly process to reduce manufacturing complexity and overall cost. Existing work has focused on conducting DFMA within virtual environments to reduce manufacturing costs, but users are less able to relate and compare physical characteristics of a virtual component with real physical objects. Therefore, a Mixed Reality (MR) application is developed for engineers to visualise and manipulate assembly parts virtually, conduct and plan out an assembly within its intended physical environment. Two pilot evaluations were conducted with both engineering professionals and non-engineers to assess effectiveness of the software for assembly planning. Usability results suggest that the application is overall usable (M=56.1, SD=7.89), and participants felt a sense of involvement in the activity (M=13.1, SD=3.3). Engineering professionals see the application as a useful and cost-effective tool for optimising their mechanical assembly designs.\",\nisbn=\"978-3-031-19679-9\"\n}"
+  citation: |
+    Emran Poh, Kyrin Liong, and Jeannie S. A. Lee. 2022. Mixed Reality for Mechanical Design and Assembly Planning. In HCI International 2022 – Late Breaking Posters, June 26–July 1, 2022. Springer Nature Switzerland, Cham, 572–579. https://doi.org/10.1007/978-3-031-19679-9_72
   tags:
-    - name: "pdf"
+    - name: "doi"
       url: "https://link.springer.com/chapter/10.1007/978-3-031-19679-9_72"
   work-tags:
     - "Paper"
@@ -337,16 +371,18 @@
   sort_key: "202107"
   status: "published"
   image: "mr-fea-load-application.webp"
+  image_caption: "AR gesture interface for applying simulated load forces on a chair frame"
   institution: "immersification"
   emoji: "📊"
   url: "/research/mr-load-application-fea"
   doi: "10.1007/978-3-030-77626-8_32"
-  bib: ""
+  bib: "@inproceedings{10.1007/978-3-030-77626-8_32,\nauthor = {Poh, Emran and Liong, Kyrin and Lee, Jeannie S. A.},\ntitle = {Mixed Reality Interface for Load Application in Finite Element Analysis},\nyear = {2021},\nisbn = {978-3-030-77625-1},\npublisher = {Springer-Verlag},\naddress = {Berlin, Heidelberg},\nurl = {https://doi.org/10.1007/978-3-030-77626-8_32},\ndoi = {10.1007/978-3-030-77626-8_32},\nbooktitle = {Social Computing and Social Media: Experience Design and Social Network Analysis        : 13th International Conference, SCSM 2021, Held as Part of the 23rd HCI International Conference, HCII 2021, Virtual Event, July 24–29, 2021, Proceedings, Part  I},\npages = {470–483},\nnumpages = {14},\nkeywords = {Finite Element Analysis, Mixed reality, Gesture, 3D user interface, Digital twin}\n}"
   abstract: "This work introduces a mixed reality interface for applying loads in finite element analysis, providing an intuitive way to interact with and visualize load applications in 3D space."
   abstract_short: "We prototype mixed-reality gestures for specifying structural loads directly on 3D models during finite element analysis, bypassing purely mouse-driven dialogs. An early evaluation contrasts point-apply, point-hold, and point-drag variants, with point-hold appearing most usable for engineer-like tasks."
-  citation: "@inproceedings{10.1007/978-3-030-77626-8_32,\nauthor = {Poh, Emran and Liong, Kyrin and Lee, Jeannie S. A.},\ntitle = {Mixed Reality Interface for Load Application in Finite Element Analysis},\nyear = {2021},\nisbn = {978-3-030-77625-1},\npublisher = {Springer-Verlag},\naddress = {Berlin, Heidelberg},\nurl = {https://doi.org/10.1007/978-3-030-77626-8_32},\ndoi = {10.1007/978-3-030-77626-8_32},\nabstract = {Finite Element Analysis (FEA) is an integral process in manufacturing design, providing assurance of quality and structural integrity of a manufactured item. FEA involves conducting rigorous stress simulations on a designed model to study its structural behaviour when under specific loading scenarios. Current FEA tools involve viewing and manipulating the 3D model displayed on a monitor screen. A Mixed Reality (MR) user interface allowing for direct manipulation and specification of loading scenarios on a designed model was developed, thus enabling design engineers to find new ways of interacting and visualising FEA results for analysis and thus reducing unnecessary prototyping costs. Three gesture interfaces were developed to allow application of load parameters on a surface of a model, namely: Point-Apply, Point-Hold, and Point-Drag. A pilot evaluation was conducted to study the suitability of each as an interface designed for engineers. Results suggest that Point-Hold is empirically the most usable interface compared to the other interfaces.},\nbooktitle = {Social Computing and Social Media: Experience Design and Social Network Analysis        : 13th International Conference, SCSM 2021, Held as Part of the 23rd HCI International Conference, HCII 2021, Virtual Event, July 24–29, 2021, Proceedings, Part  I},\npages = {470–483},\nnumpages = {14},\nkeywords = {Finite Element Analysis, Mixed reality, Gesture, 3D user interface, Digital twin}\n}"
+  citation: |
+    Emran Poh, Kyrin Liong, and Jeannie S. A. Lee. 2021. Mixed Reality Interface for Load Application in Finite Element Analysis. In Social Computing and Social Media: Experience Design and Social Network Analysis (HCII 2021), July 24–29, 2021. Springer-Verlag, Berlin, Heidelberg, 470–483. https://doi.org/10.1007/978-3-030-77626-8_32
   tags:
-    - name: "pdf"
+    - name: "doi"
       url: "https://link.springer.com/chapter/10.1007/978-3-030-77626-8_32"
   work-tags:
     - "Paper"
@@ -372,12 +408,15 @@
   year: 2021
   sort_key: "202112"
   image: "designing-with-holograms.webp"
+  image_caption: "Figure 1–2: Holographic display of large-scale bomb loader model; collision detection between holographic parts, where the active part turns red to signal collision"
   institution: "immersification"
   emoji: "🖼️"
   url: "/research/designing-with-holograms"
   bib: ""
   abstract: "We investigate the potential of holographic displays for improving design visualization, exploring how holographic technology can enhance the understanding and communication of design concepts."
   abstract_short: "We report a preliminary study on whether holographic displays can improve how designers visualize and communicate spatial concepts. Early observations motivate further work on when holograms complement versus complicate established design-review workflows."
+  citation: |
+    Emran Poh, A. Tan, V. Balachandran, Jeannie Lee, and Kyrin Liong. 2021. Designing with Holograms – A Preliminary Study on Improving Design Visualisation Through Holographic Display. In NewRIIS Research Conference (NewRIIS 2021), Singapore.
   tags:
     - name: "pdf"
       url: "/assets/pdfs/newriis.pdf"

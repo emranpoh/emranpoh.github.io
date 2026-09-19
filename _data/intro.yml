@@ -4,17 +4,21 @@ paragraphs:
 
 university: "Singapore Management University"
 
+keywords:
+  - "Human–AI Interaction"
+  - "Future of Work"
+  - "Human Agency"
+
 # Intro split: current, past
 current:
-  - "I'm a Ph.D. student at Singapore Management University, working on human-computer interaction with [Prof. Li Jiannan](https://jchrisli.github.io/) as part of the [SMU-HCI](https://smuhci.com/) community."
+  - "I'm a Ph.D. student in human-computer interaction at Singapore Management University's [SMU-HCI](https://smuhci.com/), advised by [Li Jiannan](https://jchrisli.github.io/)."
 
 past:
-  - "I completed my Master of Computing at National University of Singapore working with [Prof. Zhao Shengdong](https://shengdongzhao.com/) and [Prof. Tony Tang](https://hcitang.github.io/)."
-  - "BSc (Hons) in Computing Science from University of Glasgow under Prof. Jeannie Lee's supervision."
+  - "I hold an MComp from NUS, advised by [Zhao Shengdong](https://shengdongzhao.com/) and [Tony Tang](https://hcitang.github.io/), and a BSc (Hons) in Computing Science from University of Glasgow, under [Jeannie Lee](https://www.singaporetech.edu.sg/directory/faculty/jeannie-lee)."
 
 research:
-  - "My research sits at the intersection of human–computer interaction, instructional design, and AI systems — broadly concerned with how people learn software and how AI can support that learning without undermining the learner's own agency. I build systems, run studies, and develop frameworks around when precise guidance helps versus when it substitutes for the learner, including ideas like the **precision–agency trade-off** and **digital territoriality** in shared workspaces."
-  - "Looking ahead, I am extending this focus into **collaborative and agentic** settings: when AI agents act on behalf of people in shared workspaces, joint decision-making, and coordinated tasks. I am interested in whose preferences an agent serves, what it surfaces or obscures, and how accountability, trust, and design can help humans remain meaningfully in control as agents take on more of the work."
+  - "My research examines what happens when AI moves from supporting work to participating in it. I study how agents that interpret goals, coordinate activity, and act on people's behalf redistribute discretion across workers, teams, and systems."
+  - "I am interested in whose preferences these agents enact, what they make visible or obscure, and how they reshape judgment, responsibility, relationships, and the values through which people make sense of their work."
 
 teaching:
   - "I **teach** interaction design and programming courses, and enjoy sharing knowledge with students and professionals. I am particularly interested in AI Tutor design to enhance learning experiences through intelligent human-agent collaboration."

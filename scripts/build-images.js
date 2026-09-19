@@ -15,6 +15,7 @@ const SOURCE_DIR = path.join(__dirname, '../assets/images-source');
 const OUTPUT_DIR = path.join(__dirname, '../assets/images');
 const RASTER_EXT = new Set(['.png', '.jpg', '.jpeg']);
 const WEBP_QUALITY = 85;
+const MAX_DIMENSION = 1600; // cap width/height so we don't ship pixels no layout ever displays
 
 function formatBytes(bytes) {
   if (bytes === 0) return '0 B';
@@ -45,7 +46,15 @@ async function convertToWebp(sourcePath) {
   fs.mkdirSync(path.dirname(outPath), { recursive: true });
 
   const originalSize = fs.statSync(sourcePath).size;
-  await sharp(sourcePath).webp({ quality: WEBP_QUALITY }).toFile(outPath);
+  await sharp(sourcePath)
+    .resize({
+      width: MAX_DIMENSION,
+      height: MAX_DIMENSION,
+      fit: 'inside',
+      withoutEnlargement: true,
+    })
+    .webp({ quality: WEBP_QUALITY })
+    .toFile(outPath);
   const newSize = fs.statSync(outPath).size;
   const saved = originalSize - newSize;
   const pct = originalSize > 0 ? ((saved / originalSize) * 100).toFixed(0) : 0;

@@ -1,0 +1,78 @@
+{% comment %}
+  Single are.na-style tile for the gallery strip grid + click-to-open overlay.
+  Params: image, thumbnail, title, title_short, venue, abstract, citation, authors, links (array of {name,url}), url
+  `thumbnail` is what's shown in the grid tile. `image` is what the overlay opens (data-gallery-image) —
+  when a pub only has a PDF-derived thumbnail and no real hero image, leave `image` blank so the overlay
+  opens the PDF reader instead of the thumbnail.
+{% endcomment %}
+{% assign tile_thumbnail = include.thumbnail | default: include.image %}
+{% assign tile_venue = include.venue %}
+{% if tile_venue contains 'Papers' %}
+  {% assign tile_venue = tile_venue | remove: ' Papers' %}
+{% endif %}
+
+{% assign avatar_jsons = '' | split: ',' %}
+{% if include.authors and include.authors != '' %}
+  {% assign avatar_author_names = include.authors | replace: ', and ', ', ' | replace: ' and ', ', ' | split: ', ' %}
+  {% for avatar_author_name in avatar_author_names %}
+    {% assign avatar_author_name = avatar_author_name | strip %}
+    {% assign avatar_name_parts = avatar_author_name | split: ' ' %}
+    {% assign avatar_first = avatar_name_parts | first | slice: 0, 1 %}
+    {% assign avatar_last = avatar_name_parts | last | slice: 0, 1 %}
+    {% assign avatar_initials = avatar_first | append: avatar_last | upcase %}
+    {% assign avatar_data = nil %}
+    {% for a in site.data.authors %}
+      {% if a.name == avatar_author_name %}
+        {% assign avatar_data = a %}
+      {% endif %}
+    {% endfor %}
+    {% assign avatar_photo = '' %}
+    {% if avatar_data and avatar_data.photo %}
+      {% assign avatar_photo = avatar_data.photo | relative_url %}
+    {% endif %}
+    {% assign avatar_url = '' %}
+    {% if avatar_data and avatar_data.url %}
+      {% assign avatar_url = avatar_data.url %}
+    {% endif %}
+    {% assign avatar_is_me = false %}
+    {% if avatar_author_name == 'Emran Poh' %}
+      {% assign avatar_is_me = true %}
+    {% endif %}
+    {% capture avatar_json %}{"name":"{{ avatar_author_name | escape }}","initials":"{{ avatar_initials }}","photo":"{{ avatar_photo }}","url":"{{ avatar_url }}","isMe":{{ avatar_is_me }}}{% endcapture %}
+    {% assign avatar_jsons = avatar_jsons | push: avatar_json %}
+  {% endfor %}
+{% endif %}
+{% capture avatar_jsons_joined %}[{{ avatar_jsons | join: ',' }}]{% endcapture %}
+
+<button
+  type="button"
+  class="gallery-strip-tile"
+  data-gallery-title="{{ include.title | escape }}"
+  data-gallery-authors="{{ include.authors | escape }}"
+  data-gallery-author-avatars='{{ avatar_jsons_joined }}'
+  data-gallery-venue="{{ tile_venue | escape }}"
+  data-gallery-abstract="{{ include.abstract | escape }}"
+  data-gallery-citation="{{ include.citation | strip | escape }}"
+  data-gallery-links='{{ include.links | jsonify }}'
+  data-gallery-image="{{ include.image }}"
+  data-gallery-image-caption="{{ include.image_caption | escape }}"
+  data-gallery-url="{{ include.url }}"
+>
+  {% if tile_thumbnail and tile_thumbnail != '' %}
+    <img src="{{ tile_thumbnail }}" alt="" class="gallery-strip-thumb{% if include.image_natural %} gallery-strip-thumb-natural{% endif %}" loading="lazy">
+    <span class="gallery-strip-caption">{{ include.title_short | default: include.title }}</span>
+    {% if tile_venue and tile_venue != '' %}
+      <span class="gallery-strip-venue">{{ tile_venue }}</span>
+    {% endif %}
+  {% else %}
+    <div class="gallery-strip-thumb gallery-strip-thumb-empty">
+      <span class="gallery-strip-empty-title">{{ include.title_short | default: include.title }}</span>
+      {% if tile_venue and tile_venue != '' %}
+        <span class="gallery-strip-empty-venue">{{ tile_venue }}</span>
+      {% endif %}
+      {% if include.venue_detail and include.venue_detail != '' %}
+        <span class="gallery-strip-empty-detail">{{ include.venue_detail }}</span>
+      {% endif %}
+    </div>
+  {% endif %}
+</button>

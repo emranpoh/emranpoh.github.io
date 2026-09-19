@@ -2,43 +2,46 @@
   <div class="intro-container">
     {% if include.research_page and site.data.intro.research %}
     <header class="intro-header">
-      <div class="intro-header-photo" aria-hidden="true"></div>
-      <div class="intro-header-text">
-        <h1 class="intro-header-name type-display">{{ site.title }}</h1>
+      <div class="intro-header-left">
+        <div class="intro-header-photo" aria-hidden="true">
+          <img src="{{ '/assets/images/projects/me.webp' | relative_url }}" alt="" class="intro-header-photo-img">
+        </div>
+        <h1 class="intro-header-name">{{ site.title }}</h1>
         <p class="intro-header-role">CS PhD Student</p>
-        <p class="intro-header-affiliation">School of Computing and Information Systems · Singapore Management University</p>
         <p class="intro-header-contact">emran.poh.2025 [at] smu.edu.sg</p>
-        <nav class="intro-header-nav" aria-label="Site navigation">
-          <a href="{{ '/works' | relative_url }}"{% if page.url contains '/works' %} class="active"{% endif %}>other works</a>
-          <a href="{{ '/cv' | relative_url }}"{% if page.id == 'cv' %} class="active"{% endif %}>cv</a>
-          {% for item in site.data.chi_nav.links %}
-            <a href="{{ item.url | relative_url }}"{% if page.url contains item.url %} class="active"{% endif %}>{{ item.label }}</a>
+        {% if site.data.intro.keywords %}
+        <ul class="intro-header-keywords">
+          {% for keyword in site.data.intro.keywords %}
+          <li>{{ keyword }}</li>
           {% endfor %}
-          <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener noreferrer">linkedin</a>
-          <a href="https://scholar.google.com/citations?user={{ site.scholar_id }}" target="_blank" rel="noopener noreferrer">GScholar</a>
-        </nav>
+        </ul>
+        {% endif %}
+      </div>
+
+      <div class="intro-header-right">
+        <div class="intro-image-research-content" id="intro-prose">
+          <div class="intro-subsection intro-research-lead">
+            {% for item in site.data.intro.research %}
+            <div class="intro-subsection-item">
+              <span class="intro-subsection-item-content">{{ item | markdownify }}</span>
+            </div>
+            {% endfor %}
+          </div>
+          {% if site.data.intro.current or site.data.intro.past %}
+          {% assign intro_para_items = site.data.intro.current | concat: site.data.intro.past %}
+          <div class="intro-current-above">
+            <div class="intro-subsection-item">
+              <span class="intro-subsection-item-content">{{ intro_para_items | join: ' ' | markdownify }}</span>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+
+        <div class="intro-header-highlights" id="intro-highlights">
+          {% include components/recent-highlights.html limit=8 %}
+        </div>
       </div>
     </header>
-
-    <div class="intro-image-research-row intro-research-row-no-side">
-      <div class="intro-image-research-content">
-        {% if site.data.intro.current or site.data.intro.past %}
-        {% assign intro_para_items = site.data.intro.current | concat: site.data.intro.past %}
-        <div class="intro-current-above">
-          <div class="intro-subsection-item">
-            <span class="intro-subsection-item-content">{{ intro_para_items | join: ' ' | markdownify }}</span>
-          </div>
-        </div>
-        {% endif %}
-        <div class="intro-subsection intro-research-lead">
-          {% for item in site.data.intro.research %}
-          <div class="intro-subsection-item">
-            <span class="intro-subsection-item-content">{{ item | markdownify }}</span>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
     {% else %}
     <div class="intro-image-name-row">
       {% if site.show_profile_photo %}
@@ -120,4 +123,40 @@
     {% endunless %}
     {% endunless %}
   </div>
-</section> 
+</section>
+
+{% if include.research_page and site.data.intro.research %}
+<script>
+(function () {
+  var prose = document.getElementById('intro-prose');
+  var highlights = document.getElementById('intro-highlights');
+  var leftCol = document.querySelector('.intro-header-left');
+  if (!prose || !highlights) return;
+
+  function clampHighlights() {
+    var items = highlights.querySelectorAll('.highlights-item');
+    items.forEach(function (item) { item.style.display = ''; });
+
+    if (window.innerWidth <= 768) {
+      highlights.style.maxHeight = '';
+      return;
+    }
+
+    var available = prose.offsetHeight;
+    if (leftCol) {
+      available = Math.min(available, leftCol.offsetHeight);
+    }
+    highlights.style.maxHeight = available + 'px';
+
+    items.forEach(function (item) {
+      if (item.offsetTop + item.offsetHeight > available) {
+        item.style.display = 'none';
+      }
+    });
+  }
+
+  clampHighlights();
+  window.addEventListener('resize', clampHighlights);
+})();
+</script>
+{% endif %}

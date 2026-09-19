@@ -267,47 +267,88 @@
 }
 
 .intro-header {
-  display: grid;
-  grid-template-columns: 9rem 1fr;
-  gap: 1.75rem;
-  align-items: start;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 2.5rem;
   margin-bottom: 1.75rem;
-  max-width: 56rem;
+  max-width: 72rem;
+
+  .intro-header-right {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 3rem;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .intro-header-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    flex-shrink: 0;
+    width: 9rem;
+  }
 
   .intro-header-photo {
     width: 9rem;
     height: 9rem;
     background: #e5e7eb;
     border-radius: 0.25rem;
-    background-image: linear-gradient(135deg, #e5e7eb 25%, #d1d5db 25%, #d1d5db 50%, #e5e7eb 50%, #e5e7eb 75%, #d1d5db 75%);
-    background-size: 12px 12px;
+    overflow: hidden;
+    margin-bottom: 0.375rem;
   }
 
-  .intro-header-text {
-    display: flex;
-    flex-direction: column;
-    gap: 0.125rem;
+  .intro-header-photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .intro-header-name {
-    // Typography in _headings.scss
-    margin: 0 0 0.5rem;
+    @include type-body-sm;
+    color: #555;
+    margin: 0;
+    line-height: $leading-tight;
   }
 
   .intro-header-role,
   .intro-header-affiliation {
     @include type-body-sm;
     color: #555;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
     margin: 0;
-    line-height: $leading-normal;
+    line-height: $leading-tight;
   }
 
   .intro-header-contact {
     @include type-body-sm;
     color: #555;
+    margin: 0;
+    line-height: $leading-tight;
+    width: 9rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .intro-header-keywords {
+    list-style: none;
     margin: 0.5rem 0 0;
+    padding: 0;
+    width: 9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    li {
+      font-size: 0.6875rem;
+      line-height: $leading-tight;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
   }
 
   .intro-header-nav {
@@ -336,17 +377,52 @@
     }
   }
 
-  @media (max-width: 640px) {
-    grid-template-columns: 6rem 1fr;
+  .intro-image-research-content {
+    @include type-body-sm;
+    color: #333;
+    padding-top: 0.25rem;
+    flex: 1;
+    min-width: 0;
+
+    .intro-subsection-item-content {
+      @include type-body-sm;
+    }
+
+    .intro-current-above {
+      margin-bottom: 0.75rem;
+    }
+  }
+
+  .intro-header-highlights {
+    flex-shrink: 0;
+    width: 16rem;
+    position: relative;
+    overflow: hidden;
+
+    .recent-highlights {
+      margin: 0;
+      max-width: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
     gap: 1.25rem;
 
+    .intro-header-right {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .intro-header-highlights {
+      width: auto;
+    }
+  }
+
+  @media (max-width: 640px) {
     .intro-header-photo {
       width: 6rem;
       height: 6rem;
-    }
-
-    .intro-header-name {
-      font-size: 1.75rem;
     }
   }
 }
@@ -370,7 +446,7 @@
 
   .highlights-item {
     display: grid;
-    grid-template-columns: 5.5rem 1fr;
+    grid-template-columns: 2.25rem 1fr;
     gap: 0.75rem;
     align-items: baseline;
     font-size: 0.9375rem;
@@ -386,6 +462,10 @@
 
   .highlights-text {
     color: #333;
+
+    &::first-letter {
+      text-transform: lowercase;
+    }
 
     a {
       color: #1d1d1d;
@@ -526,7 +606,7 @@
   gap: 1rem;
 
   .intro-current-above {
-    margin-top: -0.5rem;
+    margin-top: 1.5rem;
   }
 }
 
