@@ -1,3 +1,4 @@
+---
 layout: pages/publication
 title: "Publication Title Goes Here"
 authors: "First Author, Second Author, Third Author"
@@ -7,7 +8,7 @@ year: 2026
 status: "accepted"
 doi: ""
 image: ""
-permalink: /research/publication-template/
+permalink: /research/your-publication-slug/
 tags:
   - name: "HCI"
     url: "/research/#hci"
