@@ -1,10 +1,21 @@
+- title: "London Underground"
+  image: "london-underground.webp"
+  year: 2019
+  start-year: 2019
+  end-year: 2019
+  proj-type: "other"
+  emoji: "🚇"
+  label: "PERSONAL"
+  work-tags:
+    - "Other"
+
 - title: "Be-Longing"
   image: "be-longing.webp"
   subtitle: "A site-specific, augmented reality (AR) experiential artwork"
   year: 2023
   start-year: 2023
   end-year: 2023
-  projtype: "art"
+  proj-type: "art"
   is-collab: true
   emoji: "✨"
   label: "ART INSTALLATION"
@@ -25,15 +36,23 @@
 - title: "Geylang Drip City Brand Development"
   subtitle: "Freelance Creative Consultant for Got Drip? Coffee Company"
   image: "geylang-drip-city.webp"
-  # images:
-    # - "gdc.webp"
-    # - "geylang-drip-city.webp"
-    # - "meal_3.webp"
-    # - "cold-brew-trio.webp"
+  images:
+    - image: "geylang-drip-city.webp"
+      caption: "Brand sticker and packaging design for Got Drip? Coffee Company"
+    - image: "geylang-drip-city-eoy-menu.webp"
+      caption: "End-of-year 2021 seasonal menu design"
+    - image: "geylang-drip-city-cold-brew-teaser.webp"
+      caption: "Cold brew trio teaser artwork"
+    - image: "geylang-drip-city-cny-drizzy.webp"
+      caption: "Chinese New Year promotional shoot for the Drizzy Oat Kasi bottled drinks"
+    - image: "geylang-drip-city-brutus-feature.webp"
+      caption: "Press feature in Brutus magazine (Japan)"
+    - image: "geylang-drip-city-meal.webp"
+      caption: "Sharing plates at the cafe"
   year: 2023
   start-year: 2023
   end-year: 2023
-  projtype: "art"
+  proj-type: "art"
   emoji: "🎨"
   label: "DESIGN"
   url: "/projects/geylang-drip-city"
@@ -47,7 +66,7 @@
   year: 2019
   start-year: 2019
   end-year: 2019
-  projtype: "research"
+  proj-type: "research"
   emoji: "🔔"
   label: "COURSEWORK"
   university: "NUS"
@@ -55,6 +74,17 @@
   url: "/projects/notifications-reimagined"
   work-tags:
     - "dev"
+
+- title: "me n pdf"
+  image: "me-n-pdf.webp"
+  year: 2026
+  start-year: 2026
+  end-year: 2026
+  proj-type: "other"
+  emoji: "🎓"
+  label: "PRESIDENTIAL DOCTORAL FELLOWSHIP"
+  work-tags:
+    - "Other"
 
 - title: "Minecraft Coding Camp"
   subtitle: "Educational Programming Workshop"
@@ -64,11 +94,10 @@
   year: 2024
   start-year: 2024
   end-year: 2024
-  projtype: "code"
+  proj-type: "code"
   emoji: "⛏️"
   description: "An educational coding camp using Minecraft as a platform to teach programming concepts to students. The camp combines game-based learning with hands-on coding exercises to make programming accessible and engaging to 6 students aged 10-13 over 4 days."
   url: "/projects/minecraft-coding"
-  # pdf: "/assets/images/projects/minecraft-coding-camp.webp"
   tags:
     - name: "education"
       type: "education"
@@ -84,7 +113,7 @@
   year: 2018
   start-year: 2018
   end-year: 2018
-  projtype: "code"
+  proj-type: "code"
   emoji: "🏨"
   label: "COURSEWORK"
   university: "UOG"
@@ -95,7 +124,7 @@
 
 - title: "CS4240"
   subtitle: "Interaction Design for Virtual and Augmented Reality"
-  tile_summary: "CS4240 Interaction Design for Virtual and Augmented Reality"
+  tile-summary: "CS4240 Interaction Design for Virtual and Augmented Reality"
   image: "cs4240-vr-ar.webp"
   year: 2023
   start-year: 2023
@@ -103,19 +132,28 @@
   role: "Graduate Teaching Assistant"
   description: "Graduate Teaching Assistant providing personalized guidance for 20+ students across 13 VR-based educational game projects. Led teams to win prizes at the 22nd SoC Term Project Showcase (STePS)"
   url: "/projects/cs4240-vr-ar"
-  modal_link_url: "https://nusmods.com/courses/CS4240/interaction-design-for-virtual-and-augmented-reality"
-  modal_link_label: "CS4240 Interaction Design for Virtual and Augmented Reality"
+  modal-link-url: "https://nusmods.com/courses/CS4240/interaction-design-for-virtual-and-augmented-reality"
+  modal-link-label: "CS4240 Interaction Design for Virtual and Augmented Reality"
   work-tags:
     - "Teaching"
 
 - title: "Professional Certificate in User Interface and Interaction Design"
   subtitle: "Graduate Teaching Assistant, with Zhao Shengdong"
   label: "NUS"
+  image: "prof-cert-ui-interaction-design-group-nov2023.webp"
+  images:
+    - image: "prof-cert-ui-interaction-design-group-nov2023.webp"
+      caption: "Class group photo, November 2023 run"
+    - image: "prof-cert-ui-interaction-design-group-may2023-a.webp"
+      caption: "Class group photo, May 2023 run"
+    - image: "prof-cert-ui-interaction-design-group-may2023-b.webp"
+      caption: "Class group photo, May 2023 run"
   year: 2023
   start-year: 2023
   end-year: 2023
   role: "Graduate Teaching Assistant"
   description: "Assisted and conducted a six-day professional certification course in user interface and interaction design to a group of 20 industry professionals, under Zhao Shengdong."
+  url: "/projects/professional-certificate-ui-interaction-design"
   work-tags:
     - "Teaching"
 

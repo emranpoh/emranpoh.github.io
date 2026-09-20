@@ -57,7 +57,7 @@ presentations:
       - "Project Showcase"
     
   - id: pres-004
-    title: "HCI Visit: HCI Research Gathering"
+    title: "HCI Research Gathering at NYCU"
     date: "2025-12-01"
     year: 2025
     event: "Research Presentation"
@@ -70,5 +70,22 @@ presentations:
     institution: "nycu"
     is-selected: false
     tags: []
+    work-tags:
+      - "Talk"
+
+  - id: pres-005
+    title: "Practice Talk: 'Show It, Don't Just Say It' (CHI '26)"
+    date: "2026-03-31"
+    year: 2026
+    event: "Pre-CHI Practice Talk"
+    type: "seminar"
+    location: "SMU School of Computing and Information Systems"
+    country: "Singapore"
+    description: "Practice talk for 'Show It, Don't Just Say It': The Complementary Effects of Instruction Multimodality for Software Guidance, ahead of presenting at CHI 2026."
+    link: ""
+    image: ""
+    institution: "smuhci"
+    is-selected: false
+    tags: ["chi26", "software-guidance", "practice-talk"]
     work-tags:
       - "Talk"
