@@ -24,8 +24,9 @@
     {% endif %}
     <h1 class="pub-title type-display">{{ page.title }}</h1>
     <div class="pub-meta">
-        {% if page.authors and page.authors != '' %}
-        <p class="pub-authors">{{ page.authors }}</p>
+        {% assign pub_authors = page.authors | default: pub.authors %}
+        {% if pub_authors and pub_authors != '' %}
+        <p class="pub-authors">{{ pub_authors }}</p>
         {% elsif page.date %}
         <p class="pub-meta-date"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time></p>
         {% endif %}
