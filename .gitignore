@@ -12,3 +12,9 @@ cv/
 
 # Local font source drops (deployed copies live in assets/fonts/)
 _in/
+
+# Local full-res image source drops (deployed WebP copies live in assets/images/)
+assets/images-source/
+
+# Claude Code scratch worktrees
+.claude/worktrees/

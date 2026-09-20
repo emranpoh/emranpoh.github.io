@@ -1044,23 +1044,11 @@
   .projects-section {
     display: none;
   }
-  .mobile-projects-section,
-  .mobile-publications-section,
-  .mobile-experience-section,
-  .mobile-sections{
-    display: block;
-    width: 100%;
-  }
   .introduction {
     width: 100%;
     overflow: hidden;
     margin-bottom: 1rem;
     padding-top: 0 !important;
-  }
-  .mobile-projects-section h2,
-  .mobile-publications-section h2,
-  .mobile-experience-section h2 {
-    margin-bottom: 0.5rem;
   }
   .profile-container {
     display: flex;
@@ -1171,11 +1159,6 @@
 }
 
 @include tablet-up {
-  .mobile-projects-section,
-  .mobile-publications-section,
-  .mobile-experience-section {
-    display: none;
-  }
   .introduction .mobile-hello-text,
   .introduction .mobile-title {
     display: none;
