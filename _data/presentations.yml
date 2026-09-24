@@ -50,7 +50,7 @@ presentations:
     country: "Singapore"
     description: "Project showcase to aerospace industry experts on the potential of mixed reality for complex and dangerous assembly logistics. Demonstrated how MR can improve safety and precision in high-stakes manufacturing environments."
     image: "singapore-airshow-mr.webp"
-    link: ""
+    link: "https://www.singaporetech.edu.sg/news/mixed-reality-app-sit-faculty-debuts-singapore-airshow-2022"
     institution: "singapore-airshow"
     tags: ["mixed-reality", "engineering", "fea", "demo"]
     work-tags:

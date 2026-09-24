@@ -1,10 +1,10 @@
 // Research theme styles
 :root {
-  --research-primary: #2563eb;
+  --research-primary: var(--link-color);
   --research-secondary: #1e40af;
   --research-accent: #3b82f6;
-  --research-text: #1f2937;
-  --research-background: #ffffff;
+  --research-text: var(--text-primary);
+  --research-background: var(--bg-surface);
 }
 
 // Research-specific styles
@@ -21,7 +21,7 @@
 }
 
 .research-card {
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--border-color);
   border-radius: 0.5rem;
   padding: 1.5rem;
   margin-bottom: 1rem;

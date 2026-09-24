@@ -1,0 +1,11 @@
+<script>
+  // Apply any saved theme choice before first paint to avoid a flash.
+  (function () {
+    try {
+      var saved = localStorage.getItem('colorTheme');
+      if (saved === 'light' || saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+    } catch (e) {}
+  })();
+</script>

@@ -1,0 +1,37 @@
+{% comment %}
+  Grid of items (photo / video / text) for a single event detail page.
+  Param: event — one entry from site.data.events (has .title, .location, .items[]).
+  Each item: { type: image|video|text, image, video, thumbnail, caption, title, text }
+{% endcomment %}
+{% assign event = include.event %}
+{% if event.items.size > 0 %}
+<section class="gallery-strip" aria-label="{{ event.title }}">
+  <div class="gallery-strip-grid">
+    {% for item in event.items %}
+      {% assign item_title_short = item.caption | default: event.title %}
+
+      {% case item.type %}
+
+      {% when 'video' %}
+        {% assign item_thumbnail = '' %}
+        {% if item.thumbnail and item.thumbnail != '' %}
+          {% assign item_thumbnail = '/assets/images/projects/' | append: item.thumbnail | relative_url %}
+        {% endif %}
+        {% include components/gallery-strip-tile.html thumbnail=item_thumbnail video=item.video image_caption=item.caption title=event.title title_short=item_title_short %}
+
+      {% when 'text' %}
+        {% assign item_text_venue = item.title | default: event.title %}
+        {% include components/gallery-strip-tile.html title=item_text_venue title_short=item.text venue=item_text_venue %}
+
+      {% else %}
+        {% assign item_image = '' %}
+        {% if item.image and item.image != '' %}
+          {% assign item_image = '/assets/images/projects/' | append: item.image | relative_url %}
+        {% endif %}
+        {% include components/gallery-strip-tile.html image=item_image image_caption=item.caption title=event.title title_short=item_title_short %}
+
+      {% endcase %}
+    {% endfor %}
+  </div>
+</section>
+{% endif %}

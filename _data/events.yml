@@ -1,0 +1,30 @@
+# Individual event/gallery pages (e.g. "emran poh / hci visit").
+# Each event gets its own page via content/events/<slug>.markdown (layout: masonry, slug: <slug>).
+# `header_label` drives the breadcrumb text: "emran poh / <header_label>".
+# items[].type: image | video | text
+#   image: { type: image, image: "<file in assets/images-source/projects>", caption }
+#   video: { type: video, video: "<url or /assets/videos/... path>", thumbnail: "<file>", caption }
+#   text:  { type: text, title (optional label), text }
+
+- slug: "hci-visit-nycu-2025"
+  title: "HCI Research Gathering at NYCU"
+  header_label: "hci visit"
+  date: "2025-12-01"
+  location: "National Yang Ming Chiao Tung University, Hsinchu, Taiwan"
+  description: "HCI research gathering with labs from National Yang Ming Chiao Tung University (Taiwan), Seoul National University, Hokkaido University, and SMU. Shared ongoing research work."
+  items:
+    - type: image
+      image: "nycu-hci-meetup.webp"
+      caption: "Group photo with the HCI research gathering attendees"
+    - type: image
+      image: "nycu-hci-talk-baseline.webp"
+      caption: "A researcher presenting a baseline gait sonification and head-mounted light study"
+    - type: image
+      image: "nycu-hci-talk-kids-coding.webp"
+      caption: "A talk on intent-driven programming and teaching kids to code in the age of vibe coding"
+    - type: image
+      image: "nycu-hci-computer-museum.webp"
+      caption: "Exploring a computer history museum with fellow attendees, one trying on a VR headset"
+    - type: image
+      image: "nycu-hci-talk-illustration.webp"
+      caption: "A researcher presenting an illustrated storyboard of their study"

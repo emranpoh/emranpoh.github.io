@@ -1,0 +1,55 @@
+// Theme tokens — light palette modeled on are.na (white/black, muted grays,
+// indigo accent), dark palette is an are.na-inspired equivalent since are.na
+// itself has no dark mode. Defaults to the browser/OS color-scheme, but can
+// be overridden by the header toggle, which sets [data-theme] on <html> and
+// persists the choice to localStorage (see site-header.html).
+// Only structural neutrals (page/surface backgrounds, text, borders) are
+// tokenized; saturated accent/tag colors are left as designed since bright
+// chips on a dark page read fine without per-color dark variants.
+
+:root {
+  color-scheme: light dark;
+
+  --bg-page: #ffffff;
+  --bg-surface: #ffffff;
+  --bg-surface-alt: #f7f7f7;
+  --bg-hover: #ededed;
+  --text-primary: #000000;
+  --text-secondary: rgba(0, 0, 0, 0.6);
+  --text-tertiary: #999999;
+  --border-color: #ededed;
+  --border-color-strong: #dedede;
+  --link-color: #3d46c2;
+  --shadow-color: rgba(0, 0, 0, 0.08);
+}
+
+@mixin dark-theme-vars {
+  --bg-page: #121212;
+  --bg-surface: #1a1a1a;
+  --bg-surface-alt: #202020;
+  --bg-hover: #2a2a2a;
+  --text-primary: #f2f2f2;
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --text-tertiary: #9a9a9a;
+  --border-color: #333333;
+  --border-color-strong: #444444;
+  --link-color: #7b82e0;
+  --shadow-color: rgba(0, 0, 0, 0.4);
+}
+
+// Follow the OS/browser preference by default…
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    @include dark-theme-vars;
+  }
+}
+
+// …but let an explicit toggle choice win either way.
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  @include dark-theme-vars;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}

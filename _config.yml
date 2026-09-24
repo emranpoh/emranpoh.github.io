@@ -90,7 +90,7 @@ defaults:
       path: "content/projects"
       type: "projects"
     values:
-      layout: "pages/project"
+      layout: "masonry"
   - scope:
       path: "content/research"
       type: "publications"

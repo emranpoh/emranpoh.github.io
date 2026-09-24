@@ -35,9 +35,13 @@
         {% assign talk_url = '/projects/death-stranding' %}
       {% elsif talk.id == 'pres-002' %}
         {% assign talk_url = '/projects/xr-ethics-black-mirror' %}
+      {% elsif talk.id == 'pres-004' %}
+        {% assign talk_url = '/events/hci-visit-nycu-2025' %}
       {% endif %}
       {% assign talk_url_with_slash = talk_url | append: '/' %}
-      {% if talk_url and talk_url != '' and known_project_urls contains talk_url_with_slash %}
+      {% if talk_url and talk_url != '' and talk_url contains 'http' %}
+        {% assign talk_href = talk_url %}
+      {% elsif talk_url and talk_url != '' and known_project_urls contains talk_url_with_slash %}
         {% assign talk_href = talk_url | relative_url %}
       {% else %}
         {% assign talk_href = '' %}
@@ -46,7 +50,13 @@
       {% if talk.image and talk.image != '' %}
         {% assign talk_image = '/assets/images/projects/' | append: talk.image | relative_url %}
       {% endif %}
-      {% include components/gallery-strip-tile.html image=talk_image title=talk.title title_short=talk.title venue='Talk' abstract=talk.description url=talk_href %}
+      {% assign talk_event_count = 0 %}
+      {% if talk_url contains '/events/' %}
+        {% assign talk_event_slug = talk_url | split: '/events/' | last %}
+        {% assign talk_event = site.data.events | where: 'slug', talk_event_slug | first %}
+        {% assign talk_event_count = talk_event.items.size | default: 0 %}
+      {% endif %}
+      {% include components/gallery-strip-tile.html image=talk_image title=talk.title title_short=talk.title abstract=talk.description url=talk_href count=talk_event_count %}
     {% endfor %}
   </div>
 </section>
@@ -82,7 +92,8 @@
           {% else %}
             {% assign project_href = '' %}
           {% endif %}
-          {% include components/gallery-strip-tile.html image=project_image title=project.title title_short=project.title venue=project.label abstract=project_abstract links=project.tags url=project_href %}
+          {% assign project_count = project.images.size | default: 0 %}
+          {% include components/gallery-strip-tile.html image=project_image title=project.title title_short=project.title abstract=project_abstract links=project.tags url=project_href count=project_count %}
         {% endif %}
       {% endfor %}
     {% endfor %}
@@ -121,7 +132,8 @@
           {% else %}
             {% assign project_href = '' %}
           {% endif %}
-          {% include components/gallery-strip-tile.html image=project_image title=project.title title_short=project.title venue=project.label abstract=project_abstract links=project.tags url=project_href %}
+          {% assign project_count = project.images.size | default: 0 %}
+          {% include components/gallery-strip-tile.html image=project_image title=project.title title_short=project.title abstract=project_abstract links=project.tags url=project_href count=project_count %}
         {% endif %}
       {% endfor %}
     {% endfor %}

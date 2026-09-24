@@ -1,5 +1,5 @@
 ---
-layout: pages/default
+layout: masonry
 ---
 
 {% assign current_url = page.permalink | default: page.url %}
@@ -14,50 +14,111 @@ layout: pages/default
 {% endfor %}
 
 <article class="publication-detail">
-  {% include partials/pub-header.html pub=matched_pub %}
+  {% assign pub_authors = page.authors | default: matched_pub.authors %}
+  {% assign pub_venue_short = page.venue_short | default: matched_pub.venue_short %}
+  {% assign pub_workshop = page.workshop_name | default: matched_pub.workshop_name %}
+  {% assign pub_year = page.year | default: matched_pub.year %}
+  {% capture pub_venue_line %}{{ pub_venue_short }}{% if pub_workshop and pub_workshop != '' %}: {{ pub_workshop }}{% endif %}{% endcapture %}
+  {% assign pub_venue_line = pub_venue_line | strip %}
+  {% capture pub_meta %}{% if pub_authors and pub_authors != '' %}{{ pub_authors }}{% endif %}{% if pub_venue_line != '' %} · {{ pub_venue_line }}{% endif %}{% if pub_year %} · {{ pub_year }}{% endif %}{% endcapture %}
+  {% assign pub_meta = pub_meta | strip %}
+  {% include components/detail-page-header.html title=page.title meta=pub_meta %}
 
-  <hr class="publication-divider">
-  {% assign pub_image = page.image | default: matched_pub.image %}
-  {% if pub_image and pub_image != '' %}
-  <div class="publication-image">
-      <img src="{{ '/assets/images/projects/' | append: pub_image | relative_url }}" 
-              alt="{{ page.title }}" 
-              class="publication-image__img" loading="lazy">
-  </div>
-  {% else %}
-  <div class="publication-image publication-hero-placeholder-wrap">
-    {% include placeholder-hero.svg %}
+  {% assign pub_status = page.status | default: matched_pub.status %}
+  {% capture pub_status_tags %}
+    {% if pub_status == "under review" or pub_status == "submitted" %}
+    <span class="pub-tag pub-tag-status">Under Review</span>
+    {% endif %}
+    {% if pub_status == "conditionally accepted" %}
+    <span class="pub-tag pub-tag-conditionally-accepted">Conditionally Accepted</span>
+    {% endif %}
+    {% capture pub_acceptance_compact %}
+    {% include partials/pub-acceptance-render.html work=matched_pub acceptance_override=page.acceptance %}
+    {% endcapture %}
+    {% assign pub_acceptance_compact = pub_acceptance_compact | strip %}
+    {% if pub_acceptance_compact != '' %}
+    {% capture pub_acceptance_tip %}
+    {% include partials/pub-acceptance-render.html work=matched_pub acceptance_override=page.acceptance format='title' %}
+    {% endcapture %}
+    <span class="pub-tag pub-tag-acceptance-rate" title="{{ pub_acceptance_tip | strip | replace: '"', '&#34;' }}">{{ pub_acceptance_compact }}</span>
+    {% endif %}
+    {% include partials/pub-doi-tag.html work=matched_pub page_doi=page.doi variant='header' %}
+  {% endcapture %}
+  {% assign pub_status_tags = pub_status_tags | strip %}
+  {% if pub_status_tags != '' %}
+  <div class="pub-tags detail-header-tags">
+    {{ pub_status_tags }}
   </div>
   {% endif %}
 
-  <div class="publication-body">
-    <aside class="publication-sidebar">
-      {% if matched_pub and matched_pub.tags %}
-        {% for tag in matched_pub.tags %}
-          {% if tag.name == "pdf" and tag.url %}
-          <a href="{% if tag.url contains 'http' %}{{ tag.url }}{% else %}{{ tag.url | relative_url }}{% endif %}" target="_blank" rel="noopener noreferrer" class="pub-preprint-btn">view preprint</a>
-          {% endif %}
-          {% if tag.name == "program" and tag.url %}
-          <a href="{{ tag.url }}" target="_blank" rel="noopener noreferrer" class="pub-preprint-btn">view program</a>
-          {% endif %}
-        {% endfor %}
+  <hr class="publication-divider">
+
+  {% assign pub_image = page.image | default: matched_pub.image %}
+  {% assign pub_abstract = matched_pub.abstract %}
+  {% assign pub_pdf_url = nil %}
+  {% assign pub_program_url = nil %}
+  {% if matched_pub and matched_pub.tags %}
+    {% for tag in matched_pub.tags %}
+      {% if tag.name == "pdf" and tag.url %}
+        {% assign pub_pdf_url = tag.url %}
       {% endif %}
+      {% if tag.name == "program" and tag.url %}
+        {% assign pub_program_url = tag.url %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+  {% assign pub_doi_href = nil %}
+  {% if matched_pub and matched_pub.tags %}
+    {% for tag in matched_pub.tags %}
+      {% if pub_doi_href == nil and tag.name == 'doi' and tag.url %}
+        {% assign pub_doi_href = tag.url %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+  {% assign pub_doi_value = page.doi | default: matched_pub.doi %}
+  {% if pub_doi_href == nil and pub_doi_value and pub_doi_value != '' %}
+    {% capture pub_doi_href %}https://doi.org/{{ pub_doi_value }}{% endcapture %}
+  {% endif %}
+
+  <section class="gallery-strip" aria-label="{{ page.title }}">
+    <div class="gallery-strip-grid">
+      {% if pub_image and pub_image != '' %}
+        {% assign pub_image_url = '/assets/images/projects/' | append: pub_image | relative_url %}
+        {% include components/gallery-strip-tile.html image=pub_image_url title=page.title title_short=page.title %}
+      {% endif %}
+      {% if pub_abstract and pub_abstract != '' %}
+        {% include components/gallery-strip-tile.html title=page.title title_short=pub_abstract venue="abstract" %}
+      {% endif %}
+      {% if pub_pdf_url %}
+        {% assign pub_pdf_href = pub_pdf_url %}
+        {% unless pub_pdf_url contains 'http' %}{% assign pub_pdf_href = pub_pdf_url | relative_url %}{% endunless %}
+        {% include components/gallery-strip-tile.html title=page.title title_short="view preprint" link=pub_pdf_href %}
+      {% endif %}
+      {% if pub_program_url %}
+        {% include components/gallery-strip-tile.html title=page.title title_short="view program" link=pub_program_url %}
+      {% endif %}
+      {% if pub_doi_href %}
+        {% include components/gallery-strip-tile.html title=page.title title_short="DOI" link=pub_doi_href %}
+      {% endif %}
+    </div>
+  </section>
+
+  <div class="publication-body">
+    <div class="publication-main">
+      <div class="publication-content">
+        {{ content }}
+      </div>
+    </div>
+    <aside class="publication-sidebar">
       <button type="button" class="pub-copy-bib-btn" aria-label="Copy BibTeX">copy bibtex</button>
       {% assign bib_content = page.bib | default: matched_pub.bib %}
       {% if bib_content %}
       <span class="pub-bib-data" aria-hidden="true">{{ bib_content }}</span>
       {% endif %}
     </aside>
-    <div class="publication-main">
-      <div class="publication-content">
-        {% if matched_pub and matched_pub.abstract %}
-        <p class="publication-abstract">{{ matched_pub.abstract }}</p>
-        {% endif %}
-
-        {{ content }}
-      </div>
-    </div>
   </div>
+
+  {% include components/gallery-strip-shell.html %}
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {

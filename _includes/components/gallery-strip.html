@@ -49,7 +49,7 @@
         {% assign pub_thumbnail = '' %}
       {% endif %}
       {% assign pub_venue = pub.venue_short | default: pub.venue %}
-      {% include components/gallery-strip-tile.html image=pub_image thumbnail=pub_thumbnail image_natural=pub.image_natural image_caption=pub.image_caption title=pub.title title_short=pub.title_short venue=pub_venue venue_detail=pub.workshop_name abstract=pub.abstract_short citation=pub.citation authors=pub.authors links=pub.tags url=pub_href %}
+      {% include components/gallery-strip-tile.html image=pub_image thumbnail=pub_thumbnail image_natural=pub.image_natural image_caption=pub.image_caption title=pub.title title_short=pub.title_short venue=pub_venue venue_detail=pub.workshop_name abstract=pub.abstract_short citation=pub.citation authors=pub.authors links=pub.tags url=pub_href open_page=true %}
     {% endfor %}
   </div>
 </section>

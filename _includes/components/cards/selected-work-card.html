@@ -104,8 +104,8 @@
 {% if include.work.image and include.work.image != '' %}
   {% assign modal_image = '/assets/images/projects/' | append: include.work.image | relative_url %}
 {% endif %}
-{% assign modal_link_url = include.work.modal_link_url | default: work_url %}
-{% assign modal_link_label = include.work.modal_link_label | default: 'View' | escape %}
+{% assign modal_link_url = include.work.modal-link-url | default: work_url %}
+{% assign modal_link_label = include.work.modal-link-label | default: 'View' | escape %}
 
 {% assign pub_cite_key = '' %}
 {% if include.type == 'pub' and include.show_pub_cite %}
@@ -155,7 +155,7 @@
       </div>
       {% endif %}
       <div class="work-title-below">
-        <div class="work-tile-summary" aria-hidden="true">{% if include.work.tile_summary %}{{ include.work.tile_summary }}{% elsif include.type == 'pub' and include.work.title_short %}{{ include.work.title_short }}{% else %}{{ include.work.title }}{% endif %}</div>
+        <div class="work-tile-summary" aria-hidden="true">{% if include.work.tile-summary %}{{ include.work.tile-summary }}{% elsif include.type == 'pub' and include.work.title_short %}{{ include.work.title_short }}{% else %}{{ include.work.title }}{% endif %}</div>
         {% if include.type == 'pub' %}
         {% if pub_page_href %}
         <a href="{{ pub_page_href }}" class="work-title-text work-pub-page-link">{{ include.work.title }}</a>
@@ -293,7 +293,7 @@
         {% endif %}
       </div>
       <div class="work-title-below">
-        <div class="work-tile-summary" aria-hidden="true">{% if include.work.tile_summary %}{{ include.work.tile_summary }}{% else %}{{ include.work.title }}{% endif %}</div>
+        <div class="work-tile-summary" aria-hidden="true">{% if include.work.tile-summary %}{{ include.work.tile-summary }}{% else %}{{ include.work.title }}{% endif %}</div>
         <div class="work-title-text">{{ include.work.title }}</div>
         {% if include.work.description %}
           <div class="work-description">{{ include.work.description }}</div>
@@ -332,7 +332,7 @@
         {% endif %}
       </div>
       <div class="work-title-below">
-        <div class="work-tile-summary" aria-hidden="true">{% if include.work.tile_summary %}{{ include.work.tile_summary }}{% else %}{{ include.work.title }}{% endif %}</div>
+        <div class="work-tile-summary" aria-hidden="true">{% if include.work.tile-summary %}{{ include.work.tile-summary }}{% else %}{{ include.work.title }}{% endif %}</div>
         <div class="work-title-text">{{ include.work.title }}</div>
         {% if include.work.description %}
           <div class="work-description">{{ include.work.description }}</div>

@@ -8,18 +8,18 @@
       {% endif %}
     >
       <span class="project-type-tag tag-overlay">
-        {% if project.projtype == 'pub'%}
+        {% if project.proj-type == 'pub'%}
           pdf
-        {% elsif project.projtype == 'presentation'%}
+        {% elsif project.proj-type == 'presentation'%}
           🗣️
-        {% elsif project.projtype == 'art'%}
+        {% elsif project.proj-type == 'art'%}
           🖼️
-        {% elsif project.projtype == 'research'%}
+        {% elsif project.proj-type == 'research'%}
           🧪
-        {% elsif project.projtype == 'blog'%}
+        {% elsif project.proj-type == 'blog'%}
           {% include icon.html name="pencil" %}
         {% else %}
-          {{ project.projtype }}
+          {{ project.proj-type }}
         {% endif %}
       </span>
     </div>

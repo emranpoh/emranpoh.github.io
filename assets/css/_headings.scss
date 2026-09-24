@@ -70,7 +70,7 @@ h2,
 
 .publication-detail .related-work-heading {
   font-size: $text-sm;
-  color: #6b7280;
+  color: var(--text-secondary);
   letter-spacing: 0.04em;
 }
 
@@ -79,7 +79,7 @@ h2.project-subtitle {
   @include type-body-sm;
   font-style: normal;
   text-transform: none;
-  color: #4b5563;
+  color: var(--text-secondary);
   margin-bottom: 1rem;
 }
 
@@ -89,7 +89,7 @@ h3 {
   font-size: $text-lg;
   font-weight: $weight-bold;
   line-height: $leading-snug;
-  color: #1d1d1d;
+  color: var(--text-primary);
 }
 
 h4, h5, h6 {
@@ -97,7 +97,7 @@ h4, h5, h6 {
   font-size: $text-base;
   font-weight: $weight-bold;
   line-height: $leading-normal;
-  color: #1d1d1d;
+  color: var(--text-primary);
 }
 
 .project-content h2,
@@ -113,7 +113,7 @@ h4, h5, h6 {
   font-size: $text-lg;
   font-weight: $weight-bold;
   margin: 1.5rem 0 1rem;
-  color: #1d1d1d;
+  color: var(--text-primary);
 }
 
 // Teaching course titles — Satoshi bold card headings
@@ -122,5 +122,5 @@ h4, h5, h6 {
   font-size: $text-xl;
   font-weight: $weight-bold;
   line-height: $leading-snug;
-  color: #1d1d1d;
+  color: var(--text-primary);
 }

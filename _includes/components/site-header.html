@@ -8,6 +8,10 @@
 
     <div class="site-header-right">
       <nav class="site-header-icons" aria-label="Quick links">
+        <button type="button" class="site-theme-toggle" id="site-theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+          <svg class="site-theme-icon site-theme-icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="site-theme-icon site-theme-icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        </button>
         <a href="https://www.dropbox.com/scl/fi/xfo54s6kqvcm4xc50murf/emran-cv.pdf?rlkey=xfrgl82y00ojdcz8qd9hwkt1q&dl=0" target="_blank" rel="noopener noreferrer" class="site-cv-link" aria-label="CV (PDF)">cv</a>
         <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener noreferrer" class="site-icon-link" aria-label="LinkedIn">
           {% include icon.html name="linkedin" %}
@@ -35,8 +39,8 @@
   right: 0;
   z-index: 100;
   width: 100%;
-  background: #fff;
-  border-bottom: 1px solid #eee;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .site-header-inner {
@@ -68,7 +72,7 @@
   font-size: 0.9375rem;
   font-weight: 600;
   letter-spacing: 0.01em;
-  color: #222;
+  color: var(--text-primary);
   text-transform: lowercase;
 }
 
@@ -79,7 +83,7 @@
   gap: 0.5rem;
   width: 100%;
   max-width: 18rem;
-  color: #999;
+  color: var(--text-tertiary);
 }
 
 .site-search-icon {
@@ -95,11 +99,11 @@
   background: transparent;
   font-family: inherit;
   font-size: 0.8125rem;
-  color: #222;
+  color: var(--text-primary);
 }
 
 .site-search-input::placeholder {
-  color: #aaa;
+  color: var(--text-tertiary);
 }
 
 /* Location, in the right icon cluster */
@@ -107,7 +111,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
-  color: #666;
+  color: var(--text-secondary);
 }
 
 .site-location-icon {
@@ -140,10 +144,54 @@
   justify-content: center;
   width: 1.25rem;
   height: 1.25rem;
-  color: #444;
+  color: var(--text-secondary);
   text-decoration: none;
   cursor: crosshair;
   transition: color 0.2s, opacity 0.2s;
+}
+
+.site-theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: crosshair;
+  transition: color 0.2s;
+}
+
+.site-theme-toggle:hover {
+  color: var(--text-primary);
+}
+
+.site-theme-icon {
+  width: 1.0625rem;
+  height: 1.0625rem;
+}
+
+.site-theme-icon-moon {
+  display: none;
+}
+
+:root[data-theme="dark"] .site-theme-icon-sun {
+  display: none;
+}
+
+:root[data-theme="dark"] .site-theme-icon-moon {
+  display: block;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .site-theme-icon-sun {
+    display: none;
+  }
+  :root:not([data-theme="light"]) .site-theme-icon-moon {
+    display: block;
+  }
 }
 
 .site-cv-link {
@@ -153,7 +201,7 @@
   font-size: 0.8125rem;
   font-weight: 600;
   letter-spacing: 0.01em;
-  color: #444;
+  color: var(--text-secondary);
   text-decoration: none;
   text-transform: lowercase;
   cursor: crosshair;
@@ -161,7 +209,7 @@
 }
 
 .site-cv-link:hover {
-  color: #000;
+  color: var(--text-primary);
 }
 
 .site-icon-link .icon {
@@ -171,7 +219,7 @@
 
 .site-icon-link:hover,
 .site-icon-link.active {
-  color: #000;
+  color: var(--text-primary);
 }
 
 .site-icon-img {
@@ -245,10 +293,10 @@
   document.addEventListener('DOMContentLoaded', function () {
     var logoMark = document.querySelector('.site-logo-mark');
     var labeledSections = document.querySelectorAll('.gallery-strip[data-header-label]');
-    if (!logoMark || !labeledSections.length) return;
+    var pageLabel = document.body.getAttribute('data-header-page-label');
+    if (!logoMark || (!labeledSections.length && !pageLabel)) return;
 
     var baseLogoText = logoMark.textContent;
-    var pageLabel = document.body.getAttribute('data-header-page-label');
     var pageLogoText = pageLabel ? baseLogoText + ' / ' + pageLabel : baseLogoText;
     var updateLogoText = function () {
       if (window.innerWidth <= 768) {
@@ -269,6 +317,22 @@
     window.addEventListener('scroll', updateLogoText, { passive: true });
     window.addEventListener('resize', updateLogoText);
   });
+
+  var themeToggle = document.getElementById('site-theme-toggle');
+  if (themeToggle) {
+    var systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var isDark = function () {
+      var explicit = document.documentElement.getAttribute('data-theme');
+      return explicit ? explicit === 'dark' : systemPrefersDark;
+    };
+    themeToggle.setAttribute('aria-pressed', String(isDark()));
+    themeToggle.addEventListener('click', function () {
+      var next = isDark() ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('colorTheme', next); } catch (e) {}
+      themeToggle.setAttribute('aria-pressed', String(next === 'dark'));
+    });
+  }
 
   var searchInput = document.getElementById('site-search-input');
   if (searchInput) {

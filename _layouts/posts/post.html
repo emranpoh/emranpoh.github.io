@@ -3,7 +3,9 @@ layout: pages/default
 ---
 
 <article class="publication-detail">
-  {% include partials/pub-header.html pub=nil %}
+  {% capture post_meta %}{% if page.date %}{{ page.date | date: "%-d %B %Y" }}{% endif %}{% endcapture %}
+  {% assign post_meta = post_meta | strip %}
+  {% include components/detail-page-header.html title=page.title meta=post_meta description=page.description %}
 
   {% if page.backlinks and page.backlinks.size > 0 or page.backlink_url and page.backlink_label %}
   <hr class="publication-divider">

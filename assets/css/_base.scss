@@ -43,8 +43,8 @@ a, button, [role="button"], input[type="submit"], input[type="button"] {
 body {
   @include type-body;
   line-height: 1.6;
-  color: #1d1d1d;
-  background-color: #f6f6f6;
+  color: var(--text-primary);
+  background-color: var(--bg-page);
   margin: 0 auto;
   height: 100vh;
   scroll-behavior: smooth;
@@ -83,20 +83,20 @@ body {
 .tracking-wide { letter-spacing: 0.025em; }
 
 /* Colors */
-.bg-white { background-color: #ffffff; }
-.bg-gray-50 { background-color: #f9fafb; }
-.bg-gray-100 { background-color: #f3f4f6; }
-.bg-gray-200 { background-color: #e5e7eb; }
-.bg-gray-300 { background-color: #d1d5db; }
-.bg-gray-400 { background-color: #9ca3af; }
+.bg-white { background-color: var(--bg-surface); }
+.bg-gray-50 { background-color: var(--bg-surface-alt); }
+.bg-gray-100 { background-color: var(--bg-hover); }
+.bg-gray-200 { background-color: var(--border-color); }
+.bg-gray-300 { background-color: var(--border-color-strong); }
+.bg-gray-400 { background-color: var(--text-tertiary); }
 .bg-red-400 { background-color: #f87171; }
 .bg-blue-400 { background-color: #60a5fa; }
 .text-white { color: #ffffff; }
-.text-gray-600 { color: #4b5563; }
-.text-gray-700 { color: #374151; }
-.text-gray-800 { color: #1f2937; }
-.text-gray-900 { color: #111827; }
-.border-gray-100 { border-color: #f3f4f6; }
+.text-gray-600 { color: var(--text-secondary); }
+.text-gray-700 { color: var(--text-secondary); }
+.text-gray-800 { color: var(--text-primary); }
+.text-gray-900 { color: var(--text-primary); }
+.border-gray-100 { border-color: var(--bg-hover); }
 .border-t { border-top-width: 1px; }
 
 /* Effects */

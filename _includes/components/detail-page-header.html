@@ -1,0 +1,9 @@
+{% comment %}
+  Shared header for detail pages (events, projects): title + optional meta line + optional description.
+  Params: title, meta, description
+{% endcomment %}
+<div class="detail-header">
+  <h1 class="detail-title">{{ include.title }}</h1>
+  {% if include.meta and include.meta != '' %}<p class="detail-meta">{{ include.meta }}</p>{% endif %}
+  {% if include.description and include.description != '' %}<p class="detail-description">{{ include.description }}</p>{% endif %}
+</div>

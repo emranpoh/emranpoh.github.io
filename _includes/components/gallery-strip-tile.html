@@ -1,9 +1,10 @@
 {% comment %}
   Single are.na-style tile for the gallery strip grid + click-to-open overlay.
-  Params: image, thumbnail, title, title_short, venue, abstract, citation, authors, links (array of {name,url}), url
+  Params: image, thumbnail, video, title, title_short, venue, abstract, citation, authors, links (array of {name,url}), url
   `thumbnail` is what's shown in the grid tile. `image` is what the overlay opens (data-gallery-image) —
   when a pub only has a PDF-derived thumbnail and no real hero image, leave `image` blank so the overlay
-  opens the PDF reader instead of the thumbnail.
+  opens the PDF reader instead of the thumbnail. `video` opens a <video> player in the overlay instead
+  (takes priority over image/pdf); pass `thumbnail` too for the grid tile's static preview image.
 {% endcomment %}
 {% assign tile_thumbnail = include.thumbnail | default: include.image %}
 {% assign tile_venue = include.venue %}
@@ -56,10 +57,28 @@
   data-gallery-links='{{ include.links | jsonify }}'
   data-gallery-image="{{ include.image }}"
   data-gallery-image-caption="{{ include.image_caption | escape }}"
+  data-gallery-video="{{ include.video }}"
   data-gallery-url="{{ include.url }}"
+  data-gallery-count="{{ include.count }}"
+  data-gallery-open-page="{{ include.open_page }}"
+  data-gallery-link="{{ include.link }}"
 >
+  {% if include.link and include.link != '' %}
+    <span class="gallery-strip-link-badge" aria-hidden="true">{% include icon.html name="external-link-alt" %}</span>
+  {% endif %}
   {% if tile_thumbnail and tile_thumbnail != '' %}
     <img src="{{ tile_thumbnail }}" alt="" class="gallery-strip-thumb{% if include.image_natural %} gallery-strip-thumb-natural{% endif %}" loading="lazy">
+    {% if include.video and include.video != '' %}
+      <span class="gallery-strip-play-badge" aria-hidden="true">▶</span>
+    {% endif %}
+    {% if include.count and include.count > 1 %}
+      <span class="gallery-strip-count-badge" aria-hidden="true">
+        {{ include.count }}
+        <svg class="gallery-strip-count-icon" viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0.75" y="0.75" width="12.5" height="18.5" rx="3.25" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+      </span>
+    {% endif %}
     <span class="gallery-strip-caption">{{ include.title_short | default: include.title }}</span>
     {% if tile_venue and tile_venue != '' %}
       <span class="gallery-strip-venue">{{ tile_venue }}</span>

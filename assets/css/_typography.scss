@@ -34,7 +34,7 @@ $font-mono: 'Geist Mono', ui-monospace, monospace;
   font-weight: $weight-bold;
   line-height: $leading-tight;
   letter-spacing: -0.02em;
-  color: #1d1d1d;
+  color: var(--text-primary);
 }
 
 @mixin type-section {
@@ -42,7 +42,7 @@ $font-mono: 'Geist Mono', ui-monospace, monospace;
   font-size: $text-xl;
   font-weight: $weight-bold;
   line-height: $leading-snug;
-  color: #1d1d1d;
+  color: var(--text-primary);
   text-transform: lowercase;
 }
 
@@ -51,7 +51,7 @@ $font-mono: 'Geist Mono', ui-monospace, monospace;
   font-size: $text-base;
   font-weight: $weight-normal;
   line-height: $leading-normal;
-  color: #333;
+  color: var(--text-secondary);
 }
 
 @mixin type-body-sm {
@@ -59,7 +59,7 @@ $font-mono: 'Geist Mono', ui-monospace, monospace;
   font-size: $text-sm;
   font-weight: $weight-normal;
   line-height: $leading-normal;
-  color: #333;
+  color: var(--text-secondary);
 }
 
 @mixin type-meta {
@@ -67,7 +67,7 @@ $font-mono: 'Geist Mono', ui-monospace, monospace;
   font-size: $text-xs;
   font-weight: $weight-normal;
   line-height: $leading-normal;
-  color: #888;
+  color: var(--text-tertiary);
 }
 
 @mixin type-label {
@@ -92,7 +92,7 @@ $font-mono: 'Geist Mono', ui-monospace, monospace;
 .work-title-below {
   @include type-body-sm;
   line-height: $leading-snug;
-  color: #1d1d1d;
+  color: var(--text-primary);
 
   .work-title-text {
     font-weight: $weight-normal;
@@ -104,7 +104,7 @@ $font-mono: 'Geist Mono', ui-monospace, monospace;
   .work-tagline,
   .work-pub-abstract {
     @include type-body-sm;
-    color: #666;
+    color: var(--text-secondary);
   }
 
   .work-citation,
