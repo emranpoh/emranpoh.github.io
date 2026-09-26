@@ -9,4 +9,3 @@ tags:
     url: "/research/#xr"
 ---
 
-Using Cross Reality (CR) approaches for remote collaboration will often result in partially-replicated workspaces. Here, workspace artefacts are not equally accessible—i.e. a physical artefact may only be manipulated by one collaborator—and in general, the artefacts become desynchronised over time. In this paper, we introduce a framework for artefact awareness that can help collaborators maintain an understanding of each others' manipulations with workspace artefacts. We illustrate our design explorations through sketches, and outline how we aim to study the effectiveness and utility of artefact awareness in cross reality remote collaboration. In our work, we expect to show that effectively supporting artefact awareness will help make cross-reality remote collaboration smoother.
