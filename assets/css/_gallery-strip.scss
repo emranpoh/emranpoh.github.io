@@ -316,6 +316,10 @@
   color: var(--text-primary);
 }
 
+.gallery-strip-empty-detail-sub {
+  margin-top: 0.125rem;
+}
+
 .gallery-strip-tile:hover .gallery-strip-empty-title {
   color: var(--text-secondary);
 }

@@ -95,6 +95,9 @@
       {% if include.venue_detail and include.venue_detail != '' %}
         <span class="gallery-strip-empty-detail">{{ include.venue_detail }}</span>
       {% endif %}
+      {% if include.venue_detail_sub and include.venue_detail_sub != '' %}
+        <span class="gallery-strip-empty-detail gallery-strip-empty-detail-sub">{{ include.venue_detail_sub }}</span>
+      {% endif %}
     </div>
   {% endif %}
 </button>

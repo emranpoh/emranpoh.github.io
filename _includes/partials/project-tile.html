@@ -13,4 +13,8 @@
 {% endif %}
 {% assign project_count = p.images.size | default: 0 %}
 {% assign project_title_short = p.title_short | default: p.title %}
-{% include components/gallery-strip-tile.html image=project_image title=p.title title_short=project_title_short abstract=project_abstract links=p.tags url=project_href count=project_count %}
+{% assign project_detail_parts = '' | split: ',' %}
+{% if p.label %}{% assign project_detail_parts = project_detail_parts | push: p.label %}{% endif %}
+{% if p.year %}{% assign project_detail_parts = project_detail_parts | push: p.year %}{% endif %}
+{% assign project_detail_sub = project_detail_parts | join: ' · ' %}
+{% include components/gallery-strip-tile.html image=project_image title=p.title title_short=project_title_short abstract=project_abstract links=p.tags url=project_href count=project_count venue_detail=p.role venue_detail_sub=project_detail_sub %}

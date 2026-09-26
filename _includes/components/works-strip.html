@@ -49,7 +49,7 @@
       {% if talk.image and talk.image != '' %}
         {% assign talk_image = '/assets/images/projects/' | append: talk.image | relative_url %}
       {% endif %}
-      {% include components/gallery-strip-tile.html image=talk_image title=talk.title title_short=talk.title abstract=talk.description url=talk_href %}
+      {% include components/gallery-strip-tile.html image=talk_image title=talk.title title_short=talk.title abstract=talk.description url=talk_href venue_detail=talk.event venue_detail_sub=talk.year %}
     {% endfor %}
   </div>
 </section>
