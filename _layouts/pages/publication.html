@@ -80,6 +80,21 @@ layout: masonry
     {% capture pub_doi_href %}https://doi.org/{{ pub_doi_value }}{% endcapture %}
   {% endif %}
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": {{ page.title | jsonify }},
+    "url": "{{ site.url }}{{ page.url }}",
+    {% if pub_authors and pub_authors != '' %}"author": [{% assign pub_author_list = pub_authors | split: ',' %}{% for a in pub_author_list %}{ "@type": "Person", "name": {{ a | strip | jsonify }} }{% unless forloop.last %},{% endunless %}{% endfor %}],{% endif %}
+    {% if pub_year %}"datePublished": "{{ pub_year }}",{% endif %}
+    {% if pub_venue_line != '' %}"publisher": { "@type": "Organization", "name": {{ pub_venue_line | jsonify }} },{% endif %}
+    {% if pub_abstract and pub_abstract != '' %}"abstract": {{ pub_abstract | jsonify }},{% endif %}
+    {% if pub_doi_value and pub_doi_value != '' %}"identifier": "https://doi.org/{{ pub_doi_value }}",{% endif %}
+    "isPartOf": { "@type": "Person", "name": "{{ site.author }}", "url": "{{ site.url }}{{ site.baseurl }}/" }
+  }
+  </script>
+
   <section class="gallery-strip" aria-label="{{ page.title }}">
     <div class="gallery-strip-grid">
       {% if pub_image and pub_image != '' %}

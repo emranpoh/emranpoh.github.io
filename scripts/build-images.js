@@ -5,6 +5,17 @@
  *
  * Originals live in images-source/ (excluded from Jekyll). Only WebP + SVG +
  * generated favicon PNGs are deployed under assets/images/.
+ *
+ * Nightshade test workflow: run a source image through the Nightshade app
+ * (https://nightshade.cs.uchicago.edu/), then drop the exported file into
+ * assets/images-nightshade/ at the SAME relative path as its original in
+ * assets/images-source/ (e.g. assets/images-nightshade/projects/foo.png
+ * for assets/images-source/projects/foo.png). Running this script converts
+ * it into .nightshade-preview/ (same relative path, as .webp) — a
+ * gitignored, Jekyll-ignored (dot-prefixed) scratch folder — so you can
+ * open it side by side with the live assets/images/ version and compare
+ * quality before deciding whether to promote it (i.e. replace the file in
+ * assets/images-source/ with the Nightshade version and rebuild normally).
  */
 
 const sharp = require('sharp');
@@ -13,6 +24,8 @@ const path = require('path');
 
 const SOURCE_DIR = path.join(__dirname, '../assets/images-source');
 const OUTPUT_DIR = path.join(__dirname, '../assets/images');
+const NIGHTSHADE_SOURCE_DIR = path.join(__dirname, '../assets/images-nightshade');
+const NIGHTSHADE_PREVIEW_DIR = path.join(__dirname, '../.nightshade-preview');
 const RASTER_EXT = new Set(['.png', '.jpg', '.jpeg']);
 const WEBP_QUALITY = 85;
 const MAX_DIMENSION = 1600; // cap width/height so we don't ship pixels no layout ever displays
@@ -37,13 +50,13 @@ function walkFiles(dir, files = []) {
   return files;
 }
 
-async function convertToWebp(sourcePath) {
+async function convertToWebp(sourcePath, sourceDir = SOURCE_DIR, outputDir = OUTPUT_DIR) {
   const ext = path.extname(sourcePath).toLowerCase();
   if (!RASTER_EXT.has(ext)) return null;
 
-  const relative = path.relative(SOURCE_DIR, sourcePath);
+  const relative = path.relative(sourceDir, sourcePath);
   const outRelative = relative.replace(/\.(png|jpe?g)$/i, '.webp');
-  const outPath = path.join(OUTPUT_DIR, outRelative);
+  const outPath = path.join(outputDir, outRelative);
 
   fs.mkdirSync(path.dirname(outPath), { recursive: true });
 
@@ -89,6 +102,8 @@ async function generateFavicons() {
     { name: 'favicon-16x16.png', size: 16 },
     { name: 'favicon-32x32.png', size: 32 },
     { name: 'apple-touch-icon.png', size: 180 },
+    { name: 'icon-192.png', size: 192 },
+    { name: 'icon-512.png', size: 512 },
   ];
 
   for (const { name, size } of sizes) {
@@ -136,6 +151,20 @@ async function main() {
     );
   }
   console.log('='.repeat(50));
+
+  const nightshadeSources = walkFiles(NIGHTSHADE_SOURCE_DIR);
+  if (nightshadeSources.length > 0) {
+    console.log(`\n🌑 Building Nightshade preview(s)…`);
+    console.log(`   Source: ${NIGHTSHADE_SOURCE_DIR}`);
+    console.log(`   Output: ${NIGHTSHADE_PREVIEW_DIR}\n`);
+    for (const file of nightshadeSources) {
+      await convertToWebp(file, NIGHTSHADE_SOURCE_DIR, NIGHTSHADE_PREVIEW_DIR);
+    }
+    console.log(
+      '\n   Not published — compare each file above against its ' +
+        'assets/images/ counterpart, then decide whether to promote it.'
+    );
+  }
 }
 
 main().catch((err) => {

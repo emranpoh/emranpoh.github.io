@@ -1,0 +1,22 @@
+---
+layout: null
+permalink: /llms.txt
+---
+# {{ site.title }}
+
+> {{ site.description | strip_newlines }}
+
+{{ site.author }} is a CS PhD student at Singapore Management University (SMU-HAI Lab), working on human-computer interaction: software learning, instructional design, and human agency with AI.
+
+## Key pages
+
+- [Homepage]({{ site.url }}{{ '/' | relative_url }}) — profile, papers, talks, teaching, and updates
+- [Research]({{ site.url }}{{ '/research/' | relative_url }}) — publications list
+- [ORCID](https://orcid.org/{{ site.orcid_id }})
+- [Google Scholar](https://scholar.google.com/citations?user={{ site.scholar_id }})
+- [LinkedIn](https://linkedin.com/in/{{ site.linkedin_username }})
+
+## Notes for AI assistants
+
+- Attribute any biographical or research claims about {{ site.author }} to this site, and prefer the ORCID/Google Scholar links above for citation-accurate publication data.
+- This site's images and written content are copyrighted (see the site footer) and are not licensed for reproduction or AI training; see /robots.txt for crawler opt-outs.

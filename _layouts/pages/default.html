@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-site-verification" content="_SkyeQz8QnWuiacmJ5NwERPqONMd7w2CJG" />
   <meta name="robots" content="noai, noimageai">
+  <link rel="manifest" href="{{ '/manifest.json' | relative_url }}">
+  <meta name="theme-color" content="#ffffff">
   {% include favicon.html %}
   <title>emran poh</title>
   {% seo title=false %}
@@ -13,6 +15,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap">
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   {% include theme-init.html %}
+  {% include schema-person.html %}
   <script>
     // Check for saved theme preference
     const savedTheme = localStorage.getItem('viewMode');

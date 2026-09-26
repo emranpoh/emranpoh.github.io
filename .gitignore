@@ -16,6 +16,14 @@ _in/
 # Local full-res image source drops (deployed WebP copies live in assets/images/)
 assets/images-source/
 
+# Nightshade-protected test exports, and their converted previews.
+# Not published anywhere — see scripts/build-images.js for the workflow.
+assets/images-nightshade/
+.nightshade-preview/
+
+# Staging folder of originals queued up to run through Nightshade manually.
+nightshade-todo/
+
 # Claude Code scratch worktrees
 .claude/worktrees/
 

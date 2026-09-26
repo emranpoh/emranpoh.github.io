@@ -1,0 +1,16 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ site.author }}",
+  "url": "{{ site.url }}{{ site.baseurl }}/",
+  "jobTitle": "{{ site.description | split: '—' | first | strip }}",
+  "image": "{{ site.url }}{{ site.profile_image | relative_url }}",
+  "sameAs": [
+    "https://linkedin.com/in/{{ site.linkedin_username }}",
+    "https://scholar.google.com/citations?user={{ site.scholar_id }}"{% if site.orcid_id %},
+    "https://orcid.org/{{ site.orcid_id }}"{% endif %}{% if site.github_username %},
+    "https://github.com/{{ site.github_username }}"{% endif %}
+  ]
+}
+</script>
