@@ -164,3 +164,9 @@
     - type: image
       image: "dis-2026-banner.webp"
       caption: "By the DIS 2026 banner"
+    - type: image
+      image: "dis-2026-closing-ceremony.webp"
+      caption: "On stage at the DIS 2026 closing ceremony"
+    - type: image
+      image: "dis-2026-mealtime.webp"
+      caption: "Mealtime with fellow attendees"
