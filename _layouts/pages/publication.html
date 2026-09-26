@@ -34,8 +34,6 @@ layout: masonry
   {% endcapture %}
   {% assign pub_acceptance_tip = pub_acceptance_tip | strip %}
 
-  <hr class="publication-divider">
-
   {% assign pub_image = page.image | default: matched_pub.image %}
   {% assign pub_abstract = matched_pub.abstract %}
   {% assign pub_pdf_url = nil %}
