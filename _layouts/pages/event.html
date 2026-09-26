@@ -11,7 +11,7 @@ layout: masonry
   {% assign event_date = event_date | strip %}
 
   <div class="detail-meta-row">
-    {% include components/meta-table.html date=event_date location=event.location %}
+    {% include components/meta-table.html date=event_date location=event.location link_label="website" link_url=event.link %}
     {% if event.description and event.description != '' %}
     <p class="detail-meta-text">{{ event.description }}</p>
     {% endif %}

@@ -40,6 +40,12 @@
     {% endif %}
   </div>
   {% endif %}
+  {% if include.link_url and include.link_url != '' %}
+  <div class="meta-table-row">
+    <span class="meta-table-label">{{ include.link_label | default: "link" }}</span>
+    <a href="{{ include.link_url }}" class="meta-table-value meta-table-link" target="_blank" rel="noopener noreferrer">visit ↗</a>
+  </div>
+  {% endif %}
 {% endcapture %}
 {% assign meta_table_rows = meta_table_rows | strip %}
 {% if meta_table_rows != '' %}
