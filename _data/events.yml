@@ -6,6 +6,21 @@
 #   video: { type: video, video: "<url or /assets/videos/... path>", thumbnail: "<file>", caption }
 #   text:  { type: text, title (optional label), text }
 
+- slug: "chi-2025"
+  title: "CHI 2025"
+  header_label: "chi 2025"
+  date: "2025-04-26"
+  date_end: "2025-05-01"
+  location: "Yokohama, Japan"
+  description: "Attended CHI 2025 in Yokohama — my first CHI. Talks, demos, and meeting a lot of the HCI community."
+  items:
+    - type: image
+      image: "chi-2025-yokohama.webp"
+      caption: "Group photo by the CHI 2025 welcome signage"
+    - type: image
+      image: "chi-2025-calligraphy-banner-group-photo.webp"
+      caption: "Group photo by the CHI 2025 calligraphy banner"
+
 - slug: "ismar-2022"
   title: "ISMAR 2022"
   header_label: "ismar 2022"
@@ -42,8 +57,8 @@
       caption: "My 1st CHI — badge, ribbons, and the CHI '26 program"
 
 - slug: "pre-chi-utokyo-2025"
-  title: "Pre-CHI Workshop at the University of Tokyo"
-  header_label: "pre-chi workshop"
+  title: "Pre-CHI @ UTokyo"
+  header_label: "pre-chi @ utokyo"
   date: "2025-04-25"
   location: "IIS, University of Tokyo, Japan"
   description: "Attended the pre-CHI workshop hosted by Professor Koji Yatani's lab at the Institute of Industrial Science, University of Tokyo, ahead of CHI 2025 in Yokohama."
@@ -163,8 +178,8 @@
       caption: "A rocky shallow area marker out on the water"
 
 - slug: "future-cs-education-workshop-2"
-  title: "Future CS Education Workshop 2.0"
-  header_label: "future cs education workshop 2.0"
+  title: "Future of CS Edu (Student/Industry)"
+  header_label: "future of cs edu (student/industry)"
   date: "2026-01-25"
   location: "National University of Singapore, Singapore"
   description: "Organised and facilitated the Future CS Education Workshop 2.0 at NUS, where participants mapped out how AI is changing the way they learn computer science."
@@ -206,8 +221,8 @@
       caption: "Working from a staircase between sessions"
 
 - slug: "nus-google-workshop-2025"
-  title: "NUS-Google Workshop: Future of SW, CS Education and Curriculum"
-  header_label: "nus-google workshop"
+  title: "Future of CS Edu (Faculty)"
+  header_label: "future of cs edu (faculty)"
   date: "2025-11-07"
   location: "National University of Singapore, Singapore"
   description: "Participated in the NUS-Google workshop on the future of software, CS education and curriculum at NUS."

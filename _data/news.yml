@@ -237,7 +237,7 @@ news_items:
       Got in — I'll be starting my PhD in Computer Science at SMU (SCIS) in August 2025 with a full scholarship, working with Li Jiannan. Really looking forward to diving deeper into human-agent interaction and the stuff I care about.
 
   - id: news-001
-    title: "First time at CHI, Yokohama 2025 🇯🇵"
+    title: "First time at [CHI, Yokohama 2025](/events/chi-2025/) 🇯🇵"
     date: "2025-04-20"
     category: "Conference"
     location: "Yokohama, Japan"

@@ -1,0 +1,9 @@
+---
+layout: pages/event
+title: "CHI 2025"
+id: chi-2025
+slug: chi-2025
+header_label: "chi 2025"
+permalink: /events/chi-2025/
+description: "Attended CHI 2025 in Yokohama — my first CHI. Talks, demos, and meeting a lot of the HCI community."
+---

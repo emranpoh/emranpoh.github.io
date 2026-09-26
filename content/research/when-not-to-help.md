@@ -8,5 +8,3 @@ tags:
   - name: "AI"
     url: "/research/#ai"
 ---
-
-This paper had many concerns that were not included in the study.

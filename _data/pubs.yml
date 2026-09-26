@@ -144,6 +144,13 @@
   image: ""
   thumbnail: "when-not-to-help.webp"
   image_natural: true
+  extra_images:
+    - image: "when-not-to-help-workshop-agenda-talk.webp"
+      caption: "Presenting the workshop agenda at 'Understanding and Engaging Critical Resistance to AI in Education'"
+    - image: "when-not-to-help-workshop-crowd-onepager.webp"
+      caption: "Attendees reviewing the workshop's one-pager discussion prompt"
+    - image: "when-not-to-help-workshop-packet.webp"
+      caption: "Workshop session packet outlining discussion questions for critical resistance to AI in education"
   is-selected: false
   emoji: "📚"
   url: "/research/when-not-to-help"
@@ -180,6 +187,11 @@
   image: ""
   thumbnail: "desire-paths-workshop.webp"
   image_natural: true
+  extra_images:
+    - image: "chi-workshop-human-ai-ui-opening-talk.webp"
+      caption: "Opening remarks at the CHI 2026 Human-AI-UI Interactions Across Modalities workshop"
+    - image: "chi-workshop-human-ai-ui-group-photo.webp"
+      caption: "Group photo from the CHI 2026 Workshop: Human-AI-UI Interactions Across Modalities"
   is-selected: false
   emoji: "🛤️"
   url: "/research/desire-paths-in-learning"
