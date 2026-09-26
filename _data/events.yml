@@ -76,6 +76,20 @@
       image: "apple-hig-swiftui-2026-mirror-selfie.webp"
       caption: "A reflected selfie during the workshop"
 
+- slug: "presidential-doctoral-fellowship-2026"
+  title: "Presidential Doctoral Fellowship"
+  header_label: "presidential doctoral fellowship"
+  date: "2026-08-21"
+  location: "Singapore Management University, Singapore"
+  description: "Received the Presidential Doctoral Fellowship from SMU's College of Graduate Research Studies, recognising outstanding research achievements in the PhD in Computer Science programme."
+  items:
+    - type: image
+      image: "presidential-doctoral-fellowship-2026-ceremony.webp"
+      caption: "On stage at the Presidential Doctoral Fellowship Awards ceremony"
+    - type: image
+      image: "presidential-doctoral-fellowship-2026-certificate.webp"
+      caption: "With the Presidential Doctoral Fellowship certificate"
+
 - slug: "1-star-kayak-award"
   title: "1-Star Kayak Award"
   header_label: "1-star kayak award"
