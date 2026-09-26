@@ -6,6 +6,29 @@
 #   video: { type: video, video: "<url or /assets/videos/... path>", thumbnail: "<file>", caption }
 #   text:  { type: text, title (optional label), text }
 
+- slug: "pre-chi-utokyo-2025"
+  title: "Pre-CHI Workshop at the University of Tokyo"
+  header_label: "pre-chi workshop"
+  date: "2025-04-25"
+  location: "IIS, University of Tokyo, Japan"
+  description: "Attended the pre-CHI workshop hosted by Professor Koji Yatani's lab at the Institute of Industrial Science, University of Tokyo, ahead of CHI 2025 in Yokohama."
+  items:
+    - type: image
+      image: "pre-chi-utokyo-2025-campus.webp"
+      caption: "The University of Tokyo campus"
+    - type: image
+      image: "pre-chi-utokyo-2025-talk-coproducing-parenting.webp"
+      caption: "Ya-Fang Lin (Penn State) presenting \"Coproducing Parenting: Exploring Technology for New Parents' Collaboration and Closeness\""
+    - type: image
+      image: "pre-chi-utokyo-2025-talk-ai-game-experiences.webp"
+      caption: "Minji Kim presenting \"Designing Next Generation of AI-powered Game Experiences\""
+    - type: image
+      image: "pre-chi-utokyo-2025-talk-bridging-the-gap.webp"
+      caption: "HyunA Seo (Seoul National University) presenting \"Bridging the Gap: Mixed Reality Interactions for Seamless Blending of Virtual and Physical Interactions\""
+    - type: image
+      image: "pre-chi-utokyo-2025-talk-digital-mental-health.webp"
+      caption: "Bruna Oewel (UC Irvine) presenting \"Designing for Engagement: Tailoring Therapy Activities in Digital Mental Health\""
+
 - slug: "1-star-kayak-award"
   title: "1-Star Kayak Award"
   header_label: "1-star kayak award"
