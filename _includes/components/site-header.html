@@ -2,7 +2,7 @@
   <div class="site-header-inner">
     <div class="site-header-left">
       <a href="{{ '/' | relative_url }}" class="site-logo" aria-label="{{ site.title }} — home">
-        <span class="site-logo-mark">{{ site.title }}</span>
+        <img src="{{ '/assets/images/contact.webp' | relative_url }}" alt="" class="site-logo-mark-img">
       </a>
     </div>
 
@@ -73,12 +73,21 @@
   flex-shrink: 0;
 }
 
-.site-logo-mark {
-  font-size: 0.9375rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  color: var(--text-primary);
-  text-transform: lowercase;
+.site-logo-mark-img {
+  display: block;
+  height: 1.75rem;
+  width: auto;
+  transition: filter 0.2s;
+}
+
+:root[data-theme="dark"] .site-logo-mark-img {
+  filter: invert(1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .site-logo-mark-img {
+    filter: invert(1);
+  }
 }
 
 /* Search bar, beside logo */
@@ -231,9 +240,6 @@
   .site-header-inner {
     padding: 0.625rem 1rem;
   }
-  .site-logo-mark {
-    font-size: 0.8125rem;
-  }
   .site-header-left {
     gap: 0.75rem;
   }
@@ -281,34 +287,6 @@
       new ResizeObserver(syncSpacerHeight).observe(header);
     }
   }
-
-  document.addEventListener('DOMContentLoaded', function () {
-    var logoMark = document.querySelector('.site-logo-mark');
-    var labeledSections = document.querySelectorAll('.gallery-strip[data-header-label]');
-    var pageLabel = document.body.getAttribute('data-header-page-label');
-    if (!logoMark || (!labeledSections.length && !pageLabel)) return;
-
-    var baseLogoText = logoMark.textContent;
-    var pageLogoText = pageLabel ? baseLogoText + ' / ' + pageLabel : baseLogoText;
-    var updateLogoText = function () {
-      if (window.innerWidth <= 768) {
-        logoMark.textContent = baseLogoText;
-        return;
-      }
-      var headerHeight = header ? header.offsetHeight : 0;
-      var activeLabel = null;
-      labeledSections.forEach(function (section) {
-        var rect = section.getBoundingClientRect();
-        if (rect.top <= headerHeight + 10 && rect.bottom > headerHeight + 10) {
-          activeLabel = section.getAttribute('data-header-label');
-        }
-      });
-      logoMark.textContent = activeLabel ? (baseLogoText + ' / ' + activeLabel) : pageLogoText;
-    };
-    updateLogoText();
-    window.addEventListener('scroll', updateLogoText, { passive: true });
-    window.addEventListener('resize', updateLogoText);
-  });
 
   var themeToggle = document.getElementById('site-theme-toggle');
   if (themeToggle) {

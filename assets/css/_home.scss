@@ -497,15 +497,12 @@
   font-size: 0.6875rem;
   text-transform: lowercase;
   opacity: 0;
-  transform: translateY(0.25rem);
-  transition: opacity 0.2s ease, transform 0.2s ease;
   pointer-events: none;
 }
 
 .work-image:hover .work-view-badge,
 .work-image:focus-visible .work-view-badge {
   opacity: 1;
-  transform: translateY(0);
 }
 
 .work-image {

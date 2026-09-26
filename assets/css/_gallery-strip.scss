@@ -42,15 +42,12 @@
   font-size: 0.6875rem;
   text-transform: lowercase;
   opacity: 0;
-  transform: translateY(0.25rem);
-  transition: opacity 0.15s, transform 0.15s;
   pointer-events: none;
 }
 
 .gallery-strip-tile:hover .gallery-strip-hover-badge,
 .gallery-strip-tile:focus-visible .gallery-strip-hover-badge {
   opacity: 1;
-  transform: translateY(0);
 }
 
 .gallery-strip-play-badge {
