@@ -35,7 +35,6 @@
   bottom: 0.5rem;
   left: 0.5rem;
   padding: 0.1875rem 0.5rem;
-  border-radius: 1rem;
   background: rgba(0, 0, 0, 0.55);
   color: #fff;
   font-family: 'Geist Mono', ui-monospace, monospace;
@@ -74,7 +73,6 @@
   align-items: center;
   gap: 0.25rem;
   padding: 0.1875rem 0.5rem;
-  border-radius: 1rem;
   background: rgba(0, 0, 0, 0.55);
   color: #fff;
   font-family: 'Geist Mono', ui-monospace, monospace;
@@ -100,8 +98,8 @@
 }
 
 .gallery-strip-count-icon {
-  width: 0.625rem;
-  height: 0.875rem;
+  width: 0.75rem;
+  height: 0.75rem;
   flex-shrink: 0;
 }
 
