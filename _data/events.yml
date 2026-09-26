@@ -43,6 +43,17 @@
       image: "nycu-hci-talk-illustration.webp"
       caption: "A researcher presenting an illustrated storyboard of their study"
 
+- slug: "nus-google-workshop-2025"
+  title: "NUS-Google Workshop: Future of SW, CS Education and Curriculum"
+  header_label: "nus-google workshop"
+  date: "2025-11-07"
+  location: "National University of Singapore, Singapore"
+  description: "Participated in the NUS-Google workshop on the future of software, CS education and curriculum at NUS."
+  items:
+    - type: image
+      image: "nus-google-workshop-2025-group-photo.webp"
+      caption: "Group photo with workshop participants"
+
 - slug: "ichec-2025"
   title: "International Conference on Human-Engaged Computing 2025"
   header_label: "ichec"
