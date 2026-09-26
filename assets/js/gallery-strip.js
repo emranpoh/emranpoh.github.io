@@ -28,7 +28,34 @@
   var copyBtn = document.getElementById('gallery-overlay-copy-btn');
   var resizeHandle = document.getElementById('gallery-overlay-resize-handle');
   var overlayContent = overlay ? overlay.querySelector('.gallery-overlay-content') : null;
+  var seriesPrevBtn = document.getElementById('gallery-overlay-series-prev');
+  var seriesNextBtn = document.getElementById('gallery-overlay-series-next');
   if (!overlay) return;
+
+  var seriesTiles = [];
+  var seriesIndex = -1;
+
+  function tileHasContent(tile) {
+    return !!(tile.getAttribute('data-gallery-image') || tile.getAttribute('data-gallery-video') || tile.getAttribute('data-gallery-url'));
+  }
+
+  function updateSeriesNav() {
+    if (seriesTiles.length > 1) {
+      seriesPrevBtn.classList.remove('is-hidden');
+      seriesNextBtn.classList.remove('is-hidden');
+      seriesPrevBtn.disabled = seriesIndex <= 0;
+      seriesNextBtn.disabled = seriesIndex >= seriesTiles.length - 1;
+    } else {
+      seriesPrevBtn.classList.add('is-hidden');
+      seriesNextBtn.classList.add('is-hidden');
+    }
+  }
+
+  function stepSeries(delta) {
+    var next = seriesIndex + delta;
+    if (next < 0 || next >= seriesTiles.length) return;
+    openOverlay(seriesTiles[next]);
+  }
 
   if (resizeHandle && overlayContent) {
     var MIN_BODY_PCT = 20;
@@ -175,6 +202,11 @@
   }
 
   function openOverlay(tile) {
+    var grid = tile.closest('.gallery-strip-grid');
+    seriesTiles = grid ? Array.prototype.filter.call(grid.querySelectorAll('.gallery-strip-tile'), tileHasContent) : [];
+    seriesIndex = seriesTiles.indexOf(tile);
+    updateSeriesNav();
+
     var imgSrc = tile.getAttribute('data-gallery-image');
     var videoSrc = tile.getAttribute('data-gallery-video');
     var tileTitleForAlt = tile.getAttribute('data-gallery-title') || '';
@@ -326,9 +358,21 @@
     });
   });
 
+  seriesPrevBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    stepSeries(-1);
+  });
+  seriesNextBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    stepSeries(1);
+  });
+
   backdrop.addEventListener('click', closeOverlay);
   closeBtn.addEventListener('click', closeOverlay);
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') closeOverlay();
+    if (!overlay.classList.contains('is-open')) return;
+    if (e.key === 'ArrowLeft') stepSeries(-1);
+    if (e.key === 'ArrowRight') stepSeries(1);
   });
 })();
