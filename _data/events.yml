@@ -28,3 +28,41 @@
     - type: image
       image: "nycu-hci-talk-illustration.webp"
       caption: "A researcher presenting an illustrated storyboard of their study"
+
+- slug: "ichec-2025"
+  title: "International Conference on Human-Engaged Computing 2025"
+  header_label: "ichec"
+  date: "2025-11-23"
+  location: "Singapore Management University, Singapore"
+  description: "Attended ICHEC 2025 at SMU, catching poster sessions and talks alongside fellow researchers."
+  items:
+    - type: image
+      image: "ichec-2025-poster-session.webp"
+      caption: "Checking out a poster on virtual hand rehabilitation and a VR visitation study"
+    - type: image
+      image: "ichec-2025-closing-talk.webp"
+      caption: "Closing talk with conference stats: 63 standard registrations, 100 student registrations, 24 student volunteers"
+    - type: image
+      image: "ichec-2025-group-selfie.webp"
+      caption: "Group selfie with fellow attendees in the auditorium"
+
+- slug: "dis-2026"
+  title: "DIS 2026"
+  header_label: "dis 2026"
+  date: "2026-06-13"
+  date_end: "2026-06-17"
+  location: "Singapore Management University, Singapore"
+  description: "At DIS 2026 in Singapore for Pei-Hua and Tianyi's papers — nice that it was local this time."
+  items:
+    - type: image
+      image: "dis-2026-group-photo.webp"
+      caption: "Group photo by the DIS 2026 banner"
+    - type: image
+      image: "dis-2026-tianyi-talk.webp"
+      caption: "Tianyi presenting \"Grandpa, Can You Speak Nicer?\": Envisioned Chatbot Roles and Design Tensions in Intergenerational Communication Conflicts"
+    - type: image
+      image: "dis-2026-peihua-talk.webp"
+      caption: "Pei-Hua presenting \"Not Too Early, Not All at Once\": Design Tensions in AI-Mediated Self-Disclosure in Online Dating"
+    - type: image
+      image: "dis-2026-design-exhibition.webp"
+      caption: "Speculative design objects at the DIS exhibition"

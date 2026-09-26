@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-site-verification" content="_SkyeQz8QnWuiacmJ5NwERPqONMd7w2CJG" />
+  <meta name="robots" content="noai, noimageai">
   {% include favicon.html %}
   <title>emran poh</title>
   {% seo title=false %}
@@ -72,7 +73,7 @@
     
     {% unless page.id == 'landing' %}
     <footer class="footer" role="contentinfo">
-      <p>&copy; {{ 'now' | date: '%Y' }} {{ site.title | downcase }}</p>
+      <p>&copy; {{ 'now' | date: '%Y' }} {{ site.title | downcase }}. All rights reserved.</p>
     </footer>
     {% endunless %}
   </div>

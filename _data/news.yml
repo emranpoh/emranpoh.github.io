@@ -8,8 +8,8 @@ settings:
 
 news_items:
   - id: news-017
-    title: "at DIS 2026 in Singapore for Pei-Hua and Tianyi's papers"
-    date: "2026-06-01"
+    title: "at [DIS 2026](/events/dis-2026/) in Singapore for Pei-Hua and Tianyi's papers"
+    date: "2026-06-13"
     category: "Conference"
     location: "Singapore, Singapore"
     tags: ["dis", "conference", "hci", "travel"]
@@ -103,8 +103,8 @@ news_items:
       Volunteered at the NUS-Google workshop at NUS SoC — two days of talks and workshops on the future of CS education in the AI era. Good to be part of it.
 
   - id: news-012
-    title: "Student volunteered at ICHEC 2025 in November"
-    date: "2025-11-01"
+    title: "Student volunteered at [ICHEC 2025](/events/ichec-2025/) in November"
+    date: "2025-11-23"
     category: "Conference"
     tags: ["ichec", "volunteer", "conference", "hci"]
     featured: true

@@ -16,6 +16,8 @@ const OUTPUT_DIR = path.join(__dirname, '../assets/images');
 const RASTER_EXT = new Set(['.png', '.jpg', '.jpeg']);
 const WEBP_QUALITY = 85;
 const MAX_DIMENSION = 1600; // cap width/height so we don't ship pixels no layout ever displays
+const COPYRIGHT_HOLDER = 'Emran Poh';
+const COPYRIGHT_NOTICE = `© ${new Date().getFullYear()} ${COPYRIGHT_HOLDER}. All rights reserved.`;
 
 function formatBytes(bytes) {
   if (bytes === 0) return '0 B';
@@ -52,6 +54,14 @@ async function convertToWebp(sourcePath) {
       height: MAX_DIMENSION,
       fit: 'inside',
       withoutEnlargement: true,
+    })
+    .withMetadata({
+      exif: {
+        IFD0: {
+          Copyright: COPYRIGHT_NOTICE,
+          Artist: COPYRIGHT_HOLDER,
+        },
+      },
     })
     .webp({ quality: WEBP_QUALITY })
     .toFile(outPath);
