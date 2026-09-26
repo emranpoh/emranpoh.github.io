@@ -148,7 +148,7 @@
   justify-content: space-between;
   gap: 1rem;
   padding: 0.4rem 0;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid color-mix(in srgb, var(--border-color) 40%, transparent);
   font-family: 'Geist Mono', ui-monospace, monospace;
   font-size: 0.75rem;
 }
