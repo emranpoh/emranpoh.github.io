@@ -68,3 +68,20 @@ presentations:
     tags: ["chi26", "software-guidance", "practice-talk"]
     work-tags:
       - "Talk"
+
+  - id: pres-006
+    title: "\"Show It, Don't Just Say It\" (CHI '26)"
+    date: "2026-06-18"
+    year: 2026
+    event: "SG HCI Meetup 2026 & HRI Workshop 2026"
+    type: "talk"
+    location: "SMU School of Computing and Information Systems"
+    country: "Singapore"
+    description: "Presented \"Show It, Don't Just Say It\": The Complementary Effects of Instruction Multimodality for Software Guidance, at the fourth Singapore HCI Meetup, combined with the HRI Workshop 2026."
+    link: "/events/sghci-hri-meetup-2026"
+    image: "sghci-hri-2026-talk-show-it.webp"
+    institution: "smuhci"
+    is-selected: false
+    tags: ["chi26", "software-guidance", "talk"]
+    work-tags:
+      - "Talk"

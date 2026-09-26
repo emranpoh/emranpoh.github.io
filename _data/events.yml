@@ -29,6 +29,30 @@
       image: "pre-chi-utokyo-2025-talk-digital-mental-health.webp"
       caption: "Bruna Oewel (UC Irvine) presenting \"Designing for Engagement: Tailoring Therapy Activities in Digital Mental Health\""
 
+- slug: "sghci-hri-meetup-2026"
+  title: "SG HCI Meetup 2026 & HRI Workshop 2026"
+  header_label: "sg hci meetup & hri workshop"
+  date: "2026-06-18"
+  location: "Singapore Management University, Singapore"
+  description: "The fourth Singapore HCI Meetup, combined with the HRI Workshop 2026, hosted by SMU SCIS with over 70 attendees. Presented \"Show It, Don't Just Say It\" (CHI '26) and caught keynotes and posters from the HCI/HRI community, including DIS 2026 presenters."
+  link: "https://smuhci.com/blog/blog/sg-hci-meetup-2026-hri-workshop-2026"
+  items:
+    - type: image
+      image: "sghci-hri-2026-talk-show-it.webp"
+      caption: "Presenting \"Show It, Don't Just Say It\" (CHI '26)"
+    - type: image
+      image: "sghci-hri-2026-poster-ai-intervention.webp"
+      caption: "Tianyi Zhang presenting \"Designing Context-Aware AI Intervention for Interpersonal Communication\""
+    - type: image
+      image: "sghci-hri-2026-poster-spatial-guidance.webp"
+      caption: "A poster on phase-aware 3D spatial guidance for blind and low-vision users"
+    - type: image
+      image: "sghci-hri-2026-poster-session-crowd.webp"
+      caption: "The poster session in full swing"
+    - type: image
+      image: "sghci-hri-2026-demo-wearable-sensor.webp"
+      caption: "A demo of a wearable sensor for tracking exercise form"
+
 - slug: "1-star-kayak-award"
   title: "1-Star Kayak Award"
   header_label: "1-star kayak award"
