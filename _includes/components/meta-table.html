@@ -12,6 +12,9 @@
   {% if include.status and include.status != '' %}
   <div class="meta-table-row"><span class="meta-table-label">status</span><span class="meta-table-value">{{ include.status }}</span></div>
   {% endif %}
+  {% if include.acceptance and include.acceptance != '' %}
+  <div class="meta-table-row"><span class="meta-table-label">acceptance</span><span class="meta-table-value" title="{{ include.acceptance_title | strip | replace: '"', '&#34;' }}">{{ include.acceptance }}</span></div>
+  {% endif %}
   {% if include.doi_value and include.doi_value != '' %}
   <div class="meta-table-row">
     <span class="meta-table-label">doi</span>

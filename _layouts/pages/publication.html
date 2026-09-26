@@ -25,31 +25,14 @@ layout: masonry
   {% include components/detail-page-header.html title=page.title meta=pub_meta %}
 
   {% assign pub_status = page.status | default: matched_pub.status %}
-  {% capture pub_status_tags %}
-    {% if pub_status == "under review" or pub_status == "submitted" %}
-    <span class="pub-tag pub-tag-status">Under Review</span>
-    {% endif %}
-    {% if pub_status == "conditionally accepted" %}
-    <span class="pub-tag pub-tag-conditionally-accepted">Conditionally Accepted</span>
-    {% endif %}
-    {% capture pub_acceptance_compact %}
-    {% include partials/pub-acceptance-render.html work=matched_pub acceptance_override=page.acceptance %}
-    {% endcapture %}
-    {% assign pub_acceptance_compact = pub_acceptance_compact | strip %}
-    {% if pub_acceptance_compact != '' %}
-    {% capture pub_acceptance_tip %}
-    {% include partials/pub-acceptance-render.html work=matched_pub acceptance_override=page.acceptance format='title' %}
-    {% endcapture %}
-    <span class="pub-tag pub-tag-acceptance-rate" title="{{ pub_acceptance_tip | strip | replace: '"', '&#34;' }}">{{ pub_acceptance_compact }}</span>
-    {% endif %}
-    {% include partials/pub-doi-tag.html work=matched_pub page_doi=page.doi variant='header' %}
+  {% capture pub_acceptance_compact %}
+  {% include partials/pub-acceptance-render.html work=matched_pub acceptance_override=page.acceptance %}
   {% endcapture %}
-  {% assign pub_status_tags = pub_status_tags | strip %}
-  {% if pub_status_tags != '' %}
-  <div class="pub-tags detail-header-tags">
-    {{ pub_status_tags }}
-  </div>
-  {% endif %}
+  {% assign pub_acceptance_compact = pub_acceptance_compact | strip %}
+  {% capture pub_acceptance_tip %}
+  {% include partials/pub-acceptance-render.html work=matched_pub acceptance_override=page.acceptance format='title' %}
+  {% endcapture %}
+  {% assign pub_acceptance_tip = pub_acceptance_tip | strip %}
 
   <hr class="publication-divider">
 
@@ -80,7 +63,7 @@ layout: masonry
     {% capture pub_doi_href %}https://doi.org/{{ pub_doi_value }}{% endcapture %}
   {% endif %}
 
-  {% include components/meta-table.html venue=pub_venue_line year=pub_year status=pub_status doi_value=pub_doi_value doi_url=pub_doi_href %}
+  {% include components/meta-table.html venue=pub_venue_line year=pub_year status=pub_status acceptance=pub_acceptance_compact acceptance_title=pub_acceptance_tip doi_value=pub_doi_value doi_url=pub_doi_href %}
 
   <script type="application/ld+json">
   {
