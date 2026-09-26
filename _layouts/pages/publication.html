@@ -157,24 +157,4 @@ layout: masonry
     });
   </script>
 
-  {% if matched_pub %}
-  {% assign pub_subject_tags = matched_pub["subject-tags"] %}
-  {% assign pub_keywords = matched_pub.keywords %}
-  {% endif %}
-  {% if matched_pub and pub_subject_tags or matched_pub and pub_keywords %}
-  <section class="publication-keywords">
-    <div class="pub-tags pub-keywords">
-      {% if pub_subject_tags %}
-        {% for tag in pub_subject_tags %}
-        <span class="pub-tag">{{ tag }}</span>
-        {% endfor %}
-      {% endif %}
-      {% if pub_keywords %}
-        {% for kw in pub_keywords %}
-        <span class="pub-tag">{{ kw }}</span>
-        {% endfor %}
-      {% endif %}
-    </div>
-  </section>
-  {% endif %}
 </article>

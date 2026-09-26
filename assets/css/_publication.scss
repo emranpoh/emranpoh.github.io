@@ -97,27 +97,6 @@
   margin: 0 0 1.5rem;
 }
 
-// Keywords: match pub list (.work-venue-tags .subject-tag)
-.publication-detail .pub-keywords {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 0.75rem;
-  margin-bottom: 1.5rem;
-}
-
-.publication-detail .pub-keywords .pub-tag {
-  display: inline-flex;
-  align-items: center;
-  background: transparent;
-  color: var(--text-secondary);
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  border: 1px solid var(--border-color-strong);
-  font-size: 0.875rem;
-  cursor: default;
-}
-
 .publication-detail pre,
 .publication-detail pre code {
   font-size: 0.8rem;
@@ -423,11 +402,6 @@
 
   .publication-content h3 {
     margin: 1.25rem 0 0.5rem;
-  }
-
-  .publication-detail .pub-keywords {
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
   }
 
   .publication-detail pre {
