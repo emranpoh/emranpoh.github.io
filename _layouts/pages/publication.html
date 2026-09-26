@@ -95,9 +95,6 @@ layout: masonry
       {% if pub_program_url %}
         {% include components/gallery-strip-tile.html title=page.title title_short="view program" link=pub_program_url %}
       {% endif %}
-      {% if pub_doi_href %}
-        {% include components/gallery-strip-tile.html title=page.title title_short="DOI" link=pub_doi_href %}
-      {% endif %}
       {% if page.related %}
         {% for rel in page.related %}
           {% assign rel_thumbnail = '' %}
@@ -110,51 +107,10 @@ layout: masonry
     </div>
   </section>
 
-  <div class="publication-body">
-    <div class="publication-main">
-      <div class="publication-content">
-        {{ content }}
-      </div>
-    </div>
-    <aside class="publication-sidebar">
-      <button type="button" class="pub-copy-bib-btn" aria-label="Copy BibTeX">copy bibtex</button>
-      {% assign bib_content = page.bib | default: matched_pub.bib %}
-      {% if bib_content %}
-      <span class="pub-bib-data" aria-hidden="true">{{ bib_content }}</span>
-      {% endif %}
-    </aside>
+  <div class="publication-content">
+    {{ content }}
   </div>
 
   {% include components/gallery-strip-shell.html %}
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      document.querySelector('.pub-copy-bib-btn')?.addEventListener('click', function() {
-        var text = null;
-        var dataEl = document.querySelector('.pub-bib-data');
-        if (dataEl) { text = dataEl.textContent.trim(); }
-        if (!text) {
-          var code = document.querySelector('.publication-detail pre code.language-bibtex, .publication-detail pre code[class*="bibtex"]');
-          if (code) { text = code.textContent.trim(); }
-        }
-        if (!text) {
-          var pres = document.querySelectorAll('.publication-detail pre');
-          for (var i = 0; i < pres.length; i++) {
-            var block = pres[i].querySelector('code') || pres[i];
-            var t = block.textContent.trim();
-            if (t && /^@\w+\s*\{/.test(t)) { text = t; break; }
-          }
-        }
-        if (!text) return;
-        navigator.clipboard.writeText(text).then(function() {
-          var btn = document.querySelector('.pub-copy-bib-btn');
-          var original = btn.textContent;
-          btn.textContent = 'Copied!';
-          btn.setAttribute('aria-label', 'Copied to clipboard');
-          setTimeout(function() { btn.textContent = original; btn.setAttribute('aria-label', 'Copy BibTeX'); }, 1500);
-        });
-      });
-    });
-  </script>
 
 </article>

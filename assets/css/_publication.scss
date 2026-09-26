@@ -58,35 +58,8 @@
   color: var(--text-secondary);
 }
 
-.publication-body {
-  display: flex;
-  gap: 2rem;
-  align-items: flex-start;
+.publication-content {
   max-width: 800px;
-}
-
-.publication-sidebar {
-  flex: 0 0 auto;
-  width: 120px;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.pub-bib-data {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
-}
-
-.publication-main {
-  flex: 1;
-  min-width: 0;
 }
 
 .publication-abstract {
@@ -198,33 +171,6 @@
   .content-block {
     max-width: 1200px;
     margin: 0 auto;
-  }
-
-  .publication-detail .pub-preprint-btn,
-  .publication-detail .pub-copy-bib-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35em;
-    font-size: 1rem;
-    color: var(--text-secondary) !important;
-    text-decoration: none;
-    font-family: inherit;
-    transition: color 0.2s ease;
-    background: none;
-    border: none;
-    padding: 0;
-  }
-
-  .publication-detail .pub-preprint-btn:hover {
-    color: var(--link-color) !important;
-  }
-
-  .publication-detail .pub-copy-bib-btn:hover {
-    color: var(--text-secondary) !important;
-  }
-
-  .publication-detail .pub-copy-bib-btn {
-    text-align: left;
   }
 
   .publication-divider {
@@ -340,51 +286,6 @@
     max-width: 100%;
     height: auto;
     border-radius: 8px;
-  }
-
-  .publication-body {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .publication-sidebar {
-    width: 100%;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .publication-detail .pub-preprint-btn,
-  .publication-detail .pub-copy-bib-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35em;
-    font-size: 0.9375rem;
-    color: var(--text-secondary) !important;
-    text-decoration: none;
-    font-family: inherit;
-    background: none;
-    border: none;
-    padding: 0.5rem 0;
-    transition: color 0.2s ease;
-  }
-
-  .publication-detail .pub-preprint-btn:hover {
-    color: var(--link-color) !important;
-  }
-
-  .publication-detail .pub-copy-bib-btn:hover {
-    color: var(--text-secondary) !important;
-  }
-
-  .publication-detail .pub-preprint-btn + .pub-copy-bib-btn::before {
-    content: " · ";
-    margin-right: 0.25rem;
-    color: var(--text-secondary);
-  }
-
-  .publication-detail .pub-copy-bib-btn {
-    text-align: left;
   }
 
   .publication-content {
