@@ -53,6 +53,29 @@
       image: "sghci-hri-2026-demo-wearable-sensor.webp"
       caption: "A demo of a wearable sensor for tracking exercise form"
 
+- slug: "apple-hig-swiftui-2026"
+  title: "Apple Human Interface Guidelines and SwiftUI Workshop"
+  header_label: "apple hig & swiftui workshop"
+  date: "2026-06-16"
+  location: "Apple Developer Center, Singapore"
+  description: "A workshop on Apple's Human Interface Guidelines and SwiftUI at the Apple Developer Center in Singapore, held during DIS 2026 week."
+  items:
+    - type: image
+      image: "apple-hig-swiftui-2026-talk.webp"
+      caption: "A speaker on \"starting with the person\" before shaping the interface"
+    - type: image
+      image: "apple-hig-swiftui-2026-hig-slide.webp"
+      caption: "A slide introducing the Human Interface Guidelines"
+    - type: image
+      image: "apple-hig-swiftui-2026-ipad-coding.webp"
+      caption: "Building a SwiftUI name card app on an iPad during the workshop"
+    - type: image
+      image: "apple-hig-swiftui-2026-selfie.webp"
+      caption: "By the Apple Developer Center sign"
+    - type: image
+      image: "apple-hig-swiftui-2026-mirror-selfie.webp"
+      caption: "A reflected selfie during the workshop"
+
 - slug: "1-star-kayak-award"
   title: "1-Star Kayak Award"
   header_label: "1-star kayak award"
