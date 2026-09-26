@@ -79,6 +79,9 @@
     - type: image
       image: "nycu-hci-talk-illustration.webp"
       caption: "A researcher presenting an illustrated storyboard of their study"
+    - type: image
+      image: "nycu-hci-laptop-stairs.webp"
+      caption: "Working from a staircase between sessions"
 
 - slug: "nus-google-workshop-2025"
   title: "NUS-Google Workshop: Future of SW, CS Education and Curriculum"
