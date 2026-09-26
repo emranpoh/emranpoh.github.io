@@ -1,0 +1,15 @@
+{% assign p = include.project %}
+{% assign project_image = '' %}
+{% if p.image and p.image != '' %}
+  {% assign project_image = '/assets/images/projects/' | append: p.image | relative_url %}
+{% endif %}
+{% assign project_abstract = p.description | default: p.subtitle %}
+{% assign project_href = '' %}
+{% if p.url %}
+  {% assign project_url_with_slash = p.url | append: '/' %}
+  {% if include.known_page_urls contains project_url_with_slash %}
+    {% assign project_href = p.url | relative_url %}
+  {% endif %}
+{% endif %}
+{% assign project_count = p.images.size | default: 0 %}
+{% include components/gallery-strip-tile.html image=project_image title=p.title title_short=p.title abstract=project_abstract links=p.tags url=project_href count=project_count %}

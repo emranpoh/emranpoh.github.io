@@ -1,62 +1,55 @@
-{% comment %} Other works — same are.na-style gallery-strip grid as publications, split into talks / teaching / other sections. {% endcomment %}
-{% assign sorted_talks = site.data.presentations.presentations | sort: 'date' | reverse %}
-
-{% assign all_projects = '' | split: '' %}
-{% for project in site.data.projects %}
-  {% assign all_projects = all_projects | push: project %}
-{% endfor %}
-{% if site.projects %}
-  {% for project_page in site.projects %}
-    {% assign all_projects = all_projects | push: project_page %}
-  {% endfor %}
-{% endif %}
+{% comment %} Non-paper work — same are.na-style gallery-strip grid as publications, split into projects / talks / teaching / events. {% endcomment %}
+{% assign known_page_urls = site.pages | map: 'url' %}
 
 {% assign teaching_projects = '' | split: '' %}
 {% assign other_projects = '' | split: '' %}
-{% for project in all_projects %}
+{% for project in site.data.projects %}
   {% if project.work-tags contains 'Teaching' %}
     {% assign teaching_projects = teaching_projects | push: project %}
   {% else %}
     {% assign other_projects = other_projects | push: project %}
   {% endif %}
 {% endfor %}
+{% assign other_projects = other_projects | sort: 'year' | reverse %}
+{% assign teaching_projects = teaching_projects | sort: 'year' | reverse %}
 
-{% assign known_page_urls = site.pages | map: 'url' %}
-{% assign known_project_urls = known_page_urls %}
+{% assign sorted_talks = site.data.presentations.presentations | sort: 'date' | reverse %}
+{% assign sorted_events = site.data.events | sort: 'date' | reverse %}
+
+{% comment %} ===================== Projects ===================== {% endcomment %}
+{% if other_projects.size > 0 %}
+<section class="gallery-strip" aria-label="Projects">
+  <h2 id="projects-heading" class="publications-subsection-title type-section">projects</h2>
+  <div class="gallery-strip-grid">
+    {% for project in other_projects %}
+      {% include partials/project-tile.html project=project known_page_urls=known_page_urls %}
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
 
 {% comment %} ===================== Talks ===================== {% endcomment %}
 {% if sorted_talks.size > 0 %}
-<section class="gallery-strip" aria-label="Talks" data-header-label="talks">
+<section class="gallery-strip" aria-label="Talks">
   <h2 id="talks-heading" class="publications-subsection-title type-section">talks</h2>
   <div class="gallery-strip-grid">
     {% for talk in sorted_talks %}
-      {% assign talk_url = talk.link | default: '' %}
-      {% if talk.id == 'pres-001' %}
-        {% assign talk_url = '/projects/death-stranding' %}
-      {% elsif talk.id == 'pres-002' %}
-        {% assign talk_url = '/projects/xr-ethics-black-mirror' %}
-      {% elsif talk.id == 'pres-004' %}
-        {% assign talk_url = '/events/hci-visit-nycu-2025' %}
-      {% endif %}
-      {% assign talk_url_with_slash = talk_url | append: '/' %}
-      {% if talk_url and talk_url != '' and talk_url contains 'http' %}
-        {% assign talk_href = talk_url %}
-      {% elsif talk_url and talk_url != '' and known_project_urls contains talk_url_with_slash %}
-        {% assign talk_href = talk_url | relative_url %}
-      {% else %}
-        {% assign talk_href = '' %}
+      {% assign talk_href = '' %}
+      {% if talk.link and talk.link != '' %}
+        {% if talk.link contains 'http' %}
+          {% assign talk_href = talk.link %}
+        {% else %}
+          {% assign talk_link_with_slash = talk.link | append: '/' | replace: '//', '/' %}
+          {% if known_page_urls contains talk_link_with_slash %}
+            {% assign talk_href = talk.link | relative_url %}
+          {% endif %}
+        {% endif %}
       {% endif %}
       {% assign talk_image = '' %}
       {% if talk.image and talk.image != '' %}
         {% assign talk_image = '/assets/images/projects/' | append: talk.image | relative_url %}
       {% endif %}
-      {% assign talk_event_count = 0 %}
-      {% if talk_url contains '/events/' %}
-        {% assign talk_event_slug = talk_url | split: '/events/' | last %}
-        {% assign talk_event = site.data.events | where: 'slug', talk_event_slug | first %}
-        {% assign talk_event_count = talk_event.items.size | default: 0 %}
-      {% endif %}
-      {% include components/gallery-strip-tile.html image=talk_image title=talk.title title_short=talk.title abstract=talk.description url=talk_href count=talk_event_count %}
+      {% include components/gallery-strip-tile.html image=talk_image title=talk.title title_short=talk.title abstract=talk.description url=talk_href %}
     {% endfor %}
   </div>
 </section>
@@ -64,78 +57,30 @@
 
 {% comment %} ===================== Teaching ===================== {% endcomment %}
 {% if teaching_projects.size > 0 %}
-{% assign teaching_years = '' | split: '' %}
-{% for project in teaching_projects %}
-  {% assign py = project.year | default: project.start-year | default: project.end-year | default: 0 | append: '' %}
-  {% unless teaching_years contains py %}
-    {% assign teaching_years = teaching_years | push: py %}
-  {% endunless %}
-{% endfor %}
-{% assign teaching_years = teaching_years | sort | reverse %}
-
-<section class="gallery-strip" aria-label="Teaching" data-header-label="teaching">
+<section class="gallery-strip" aria-label="Teaching">
   <h2 id="teaching-heading" class="publications-subsection-title type-section">teaching</h2>
   <div class="gallery-strip-grid">
-    {% for year_str in teaching_years %}
-      {% assign year_num = year_str | plus: 0 %}
-      {% for project in teaching_projects %}
-        {% assign proj_year = project.year | default: project.start-year | default: project.end-year | default: 0 | plus: 0 %}
-        {% if proj_year == year_num %}
-          {% assign project_image = '' %}
-          {% if project.image and project.image != '' %}
-            {% assign project_image = '/assets/images/projects/' | append: project.image | relative_url %}
-          {% endif %}
-          {% assign project_abstract = project.description | default: project.subtitle %}
-          {% assign project_url_with_slash = project.url | append: '/' %}
-          {% if project.url and known_project_urls contains project_url_with_slash %}
-            {% assign project_href = project.url | relative_url %}
-          {% else %}
-            {% assign project_href = '' %}
-          {% endif %}
-          {% assign project_count = project.images.size | default: 0 %}
-          {% include components/gallery-strip-tile.html image=project_image title=project.title title_short=project.title abstract=project_abstract links=project.tags url=project_href count=project_count %}
-        {% endif %}
-      {% endfor %}
+    {% for project in teaching_projects %}
+      {% include partials/project-tile.html project=project known_page_urls=known_page_urls %}
     {% endfor %}
   </div>
 </section>
 {% endif %}
 
-{% comment %} ===================== Other (non-teaching projects) ===================== {% endcomment %}
-{% assign other_years = '' | split: '' %}
-{% for project in other_projects %}
-  {% assign py = project.year | default: project.start-year | default: project.end-year | default: 0 | append: '' %}
-  {% unless other_years contains py %}
-    {% assign other_years = other_years | push: py %}
-  {% endunless %}
-{% endfor %}
-{% assign other_years = other_years | sort | reverse %}
-
-{% if other_years.size > 0 %}
-<section class="gallery-strip" aria-label="Other" data-header-label="other">
-  <h2 id="other-works-heading" class="publications-subsection-title type-section">other</h2>
+{% comment %} ===================== Events ===================== {% endcomment %}
+{% if sorted_events.size > 0 %}
+<section class="gallery-strip" aria-label="Events">
+  <h2 id="events-heading" class="publications-subsection-title type-section">events</h2>
   <div class="gallery-strip-grid">
-    {% for year_str in other_years %}
-      {% assign year_num = year_str | plus: 0 %}
-
-      {% for project in other_projects %}
-        {% assign proj_year = project.year | default: project.start-year | default: project.end-year | default: 0 | plus: 0 %}
-        {% if proj_year == year_num %}
-          {% assign project_image = '' %}
-          {% if project.image and project.image != '' %}
-            {% assign project_image = '/assets/images/projects/' | append: project.image | relative_url %}
-          {% endif %}
-          {% assign project_abstract = project.description | default: project.subtitle %}
-          {% assign project_url_with_slash = project.url | append: '/' %}
-          {% if project.url and known_project_urls contains project_url_with_slash %}
-            {% assign project_href = project.url | relative_url %}
-          {% else %}
-            {% assign project_href = '' %}
-          {% endif %}
-          {% assign project_count = project.images.size | default: 0 %}
-          {% include components/gallery-strip-tile.html image=project_image title=project.title title_short=project.title abstract=project_abstract links=project.tags url=project_href count=project_count %}
-        {% endif %}
-      {% endfor %}
+    {% for event in sorted_events %}
+      {% assign event_image = '' %}
+      {% assign event_first_image = event.items | where: 'type', 'image' | first %}
+      {% if event_first_image %}
+        {% assign event_image = '/assets/images/projects/' | append: event_first_image.image | relative_url %}
+      {% endif %}
+      {% assign event_href = '/events/' | append: event.slug | append: '/' | relative_url %}
+      {% assign event_count = event.items.size | default: 0 %}
+      {% include components/gallery-strip-tile.html image=event_image title=event.title title_short=event.title abstract=event.description url=event_href count=event_count %}
     {% endfor %}
   </div>
 </section>

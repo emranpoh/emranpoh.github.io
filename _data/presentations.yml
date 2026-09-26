@@ -52,23 +52,6 @@ presentations:
     work-tags:
       - "Project Showcase"
     
-  - id: pres-004
-    title: "HCI Research Gathering at NYCU"
-    date: "2025-12-01"
-    year: 2025
-    event: "Research Presentation"
-    type: "seminar"
-    location: "National Yang Ming Chiao Tung University, Hsinchu"
-    country: "Taiwan"
-    description: "HCI research gathering with labs from National Yang Ming Chiao Tung University (Taiwan), Seoul National University, Hokkaido University, and SMU. Shared ongoing research work."
-    link: ""
-    image: "nycu-hci-meetup.webp"
-    institution: "nycu"
-    is-selected: false
-    tags: []
-    work-tags:
-      - "Talk"
-
   - id: pres-005
     title: "Practice Talk: 'Show It, Don't Just Say It' (CHI '26)"
     date: "2026-03-31"
