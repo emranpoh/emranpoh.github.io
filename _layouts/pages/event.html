@@ -7,7 +7,25 @@ layout: masonry
 {% if event %}
   {% include components/detail-page-header.html title=event.title %}
 
-  {% capture event_date %}{% if event.date %}{{ event.date | date: "%-d" }}{% if event.date_end %}–{{ event.date_end | date: "%-d" }}{% endif %} {{ event.date | date: "%B %Y" }}{% endif %}{% endcapture %}
+  {% capture event_date %}
+    {% if event.date %}
+      {% if event.date_end %}
+        {% assign event_start_month = event.date | date: "%B" %}
+        {% assign event_end_month = event.date_end | date: "%B" %}
+        {% assign event_start_year = event.date | date: "%Y" %}
+        {% assign event_end_year = event.date_end | date: "%Y" %}
+        {% if event_start_year != event_end_year %}
+          {{ event.date | date: "%-d %B %Y" }} – {{ event.date_end | date: "%-d %B %Y" }}
+        {% elsif event_start_month != event_end_month %}
+          {{ event.date | date: "%-d %B" }} – {{ event.date_end | date: "%-d %B %Y" }}
+        {% else %}
+          {{ event.date | date: "%-d" }}–{{ event.date_end | date: "%-d" }} {{ event.date | date: "%B %Y" }}
+        {% endif %}
+      {% else %}
+        {{ event.date | date: "%-d %B %Y" }}
+      {% endif %}
+    {% endif %}
+  {% endcapture %}
   {% assign event_date = event_date | strip %}
 
   <div class="detail-meta-row">
