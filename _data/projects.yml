@@ -126,23 +126,43 @@
   work-tags:
     - "Teaching"
 
-- title: "Professional Certificate in User Interface and Interaction Design"
+- title: "Professional Certificate in User Interface and Interaction Design (November 2023)"
+  slug: "professional-certificate-ui-interaction-design-nov-2023"
+  title_short: "UI & Interaction Design Cert (Nov 2023)"
   subtitle: "Graduate Teaching Assistant, with Zhao Shengdong"
   label: "NUS"
   image: "prof-cert-ui-interaction-design-group-nov2023.webp"
   images:
     - image: "prof-cert-ui-interaction-design-group-nov2023.webp"
       caption: "Class group photo, November 2023 run"
-    - image: "prof-cert-ui-interaction-design-group-may2023-a.webp"
-      caption: "Class group photo, May 2023 run"
-    - image: "prof-cert-ui-interaction-design-group-may2023-b.webp"
-      caption: "Class group photo, May 2023 run"
+  date: "November 2023"
   year: 2023
   start-year: 2023
   end-year: 2023
   role: "Graduate Teaching Assistant"
   description: "Assisted and conducted a six-day professional certification course in user interface and interaction design to a group of 20 industry professionals, under Zhao Shengdong."
-  url: "/projects/professional-certificate-ui-interaction-design"
+  url: "/projects/professional-certificate-ui-interaction-design-nov-2023"
+  work-tags:
+    - "Teaching"
+
+- title: "Professional Certificate in User Interface and Interaction Design (May 2023)"
+  slug: "professional-certificate-ui-interaction-design-may-2023"
+  title_short: "UI & Interaction Design Cert (May 2023)"
+  subtitle: "Graduate Teaching Assistant, with Zhao Shengdong"
+  label: "NUS"
+  image: "prof-cert-ui-interaction-design-group-may2023-a.webp"
+  images:
+    - image: "prof-cert-ui-interaction-design-group-may2023-a.webp"
+      caption: "Class group photo, May 2023 run"
+    - image: "prof-cert-ui-interaction-design-group-may2023-b.webp"
+      caption: "Class group photo, May 2023 run"
+  date: "May 2023"
+  year: 2023
+  start-year: 2023
+  end-year: 2023
+  role: "Graduate Teaching Assistant"
+  description: "Assisted and conducted a six-day professional certification course in user interface and interaction design to a group of 20 industry professionals, under Zhao Shengdong."
+  url: "/projects/professional-certificate-ui-interaction-design-may-2023"
   work-tags:
     - "Teaching"
 

@@ -21,7 +21,7 @@
   {% if include.venue and include.venue != '' %}
   <div class="meta-table-row"><span class="meta-table-label">venue</span><span class="meta-table-value">{{ include.venue }}</span></div>
   {% endif %}
-  {% if include.year %}
+  {% if include.year and include.year != '' %}
   <div class="meta-table-row"><span class="meta-table-label">year</span><span class="meta-table-value">{{ include.year }}</span></div>
   {% endif %}
   {% if include.status and include.status != '' %}

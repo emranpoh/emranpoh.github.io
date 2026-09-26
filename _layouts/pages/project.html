@@ -2,18 +2,23 @@
 layout: masonry
 ---
 
-{% assign project = site.data.projects | where: 'title', page.title | first %}
+{% if page.slug %}
+  {% assign project = site.data.projects | where: 'slug', page.slug | first %}
+{% else %}
+  {% assign project = site.data.projects | where: 'title', page.title | first %}
+{% endif %}
 
 {% if project %}
   {% include components/detail-page-header.html title=project.title %}
 
   {% capture project_year %}{{ project['start-year'] | default: project.year }}{% if project['end-year'] and project['end-year'] != project['start-year'] %}–{{ project['end-year'] }}{% endif %}{% endcapture %}
   {% assign project_year = project_year | strip %}
+  {% if project.date %}{% assign project_year = '' %}{% endif %}
   {% assign project_type = project.label | downcase %}
   {% assign project_text = project.description | default: project.subtitle %}
 
   <div class="detail-meta-row">
-    {% include components/meta-table.html role=project.role year=project_year location=project.location type=project_type %}
+    {% include components/meta-table.html date=project.date role=project.role year=project_year location=project.location type=project_type %}
     {% if project_text and project_text != '' %}
     <p class="detail-meta-text">{{ project_text }}</p>
     {% endif %}

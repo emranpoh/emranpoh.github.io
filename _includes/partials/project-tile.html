@@ -12,4 +12,5 @@
   {% endif %}
 {% endif %}
 {% assign project_count = p.images.size | default: 0 %}
-{% include components/gallery-strip-tile.html image=project_image title=p.title title_short=p.title abstract=project_abstract links=p.tags url=project_href count=project_count %}
+{% assign project_title_short = p.title_short | default: p.title %}
+{% include components/gallery-strip-tile.html image=project_image title=p.title title_short=project_title_short abstract=project_abstract links=p.tags url=project_href count=project_count %}
