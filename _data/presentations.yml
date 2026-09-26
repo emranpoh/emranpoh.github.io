@@ -1,10 +1,6 @@
 # presentations.yml
 # This file contains presentation and talk entries to be displayed on your website
 
-settings:
-  max_display: 10  # Number of presentations to display on the main page
-  sort_order: "newest_first"  # Options: newest_first, oldest_first
-
 presentations:
   - id: pres-001
     title: "Emptiness, Isolation, Death: Parallels from Kojima's Death Stranding for Human Connection"
