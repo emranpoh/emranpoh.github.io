@@ -59,10 +59,10 @@ layout: masonry
     {% capture pub_doi_href %}https://doi.org/{{ pub_doi_value }}{% endcapture %}
   {% endif %}
 
-  <div class="pub-header-row">
+  <div class="detail-meta-row">
     {% include components/meta-table.html authors=pub_authors venue=pub_venue_line year=pub_year status=pub_status acceptance=pub_acceptance_compact acceptance_title=pub_acceptance_tip doi_value=pub_doi_value doi_url=pub_doi_href %}
     {% if pub_abstract and pub_abstract != '' %}
-    <p class="pub-abstract-inline">{{ pub_abstract }}</p>
+    <p class="detail-meta-text">{{ pub_abstract }}</p>
     {% endif %}
   </div>
 

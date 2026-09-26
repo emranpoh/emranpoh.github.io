@@ -1,5 +1,5 @@
 ---
-layout: masonry
+layout: pages/event
 title: "DIS 2026"
 id: dis-2026
 slug: dis-2026
@@ -7,15 +7,3 @@ header_label: "dis 2026"
 permalink: /events/dis-2026/
 description: "At DIS 2026 in Singapore for Pei-Hua and Tianyi's papers."
 ---
-
-{% assign event = site.data.events | where: 'slug', page.slug | first %}
-
-{% if event %}
-  {% capture event_meta %}{% if event.date %}{{ event.date | date: "%-d" }}{% if event.date_end %}–{{ event.date_end | date: "%-d" }}{% endif %} {{ event.date | date: "%B %Y" }}{% endif %}{% if event.date and event.location %} · {% endif %}{% if event.location %}{{ event.location }}{% endif %}{% endcapture %}
-  {% assign event_meta = event_meta | strip %}
-  {% include components/detail-page-header.html title=event.title meta=event_meta description=event.description %}
-{% endif %}
-
-{% include components/event-strip.html event=event %}
-
-{% include components/gallery-strip-shell.html %}

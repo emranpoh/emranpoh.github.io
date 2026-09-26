@@ -1,0 +1,32 @@
+---
+layout: masonry
+---
+
+{% assign project = site.data.projects | where: 'title', page.title | first %}
+
+{% if project %}
+  {% include components/detail-page-header.html title=project.title %}
+
+  {% capture project_year %}{{ project['start-year'] | default: project.year }}{% if project['end-year'] and project['end-year'] != project['start-year'] %}–{{ project['end-year'] }}{% endif %}{% endcapture %}
+  {% assign project_year = project_year | strip %}
+  {% assign project_type = project.label | downcase %}
+  {% assign project_text = project.description | default: project.subtitle %}
+
+  <div class="detail-meta-row">
+    {% include components/meta-table.html role=project.role year=project_year location=project.location type=project_type %}
+    {% if project_text and project_text != '' %}
+    <p class="detail-meta-text">{{ project_text }}</p>
+    {% endif %}
+  </div>
+
+  <section class="gallery-strip" aria-label="{{ project.title }}">
+    <div class="gallery-strip-grid">
+      {% for item in project.images %}
+        {% assign item_image = '/assets/images/projects/' | append: item.image | relative_url %}
+        {% include components/gallery-strip-tile.html image=item_image image_caption=item.caption title=project.title title_short=item.caption %}
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}
+
+{% include components/gallery-strip-shell.html %}

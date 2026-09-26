@@ -1,0 +1,23 @@
+---
+layout: masonry
+---
+
+{% assign event = site.data.events | where: 'slug', page.slug | first %}
+
+{% if event %}
+  {% include components/detail-page-header.html title=event.title %}
+
+  {% capture event_date %}{% if event.date %}{{ event.date | date: "%-d" }}{% if event.date_end %}–{{ event.date_end | date: "%-d" }}{% endif %} {{ event.date | date: "%B %Y" }}{% endif %}{% endcapture %}
+  {% assign event_date = event_date | strip %}
+
+  <div class="detail-meta-row">
+    {% include components/meta-table.html date=event_date location=event.location %}
+    {% if event.description and event.description != '' %}
+    <p class="detail-meta-text">{{ event.description }}</p>
+    {% endif %}
+  </div>
+
+  {% include components/event-strip.html event=event %}
+{% endif %}
+
+{% include components/gallery-strip-shell.html %}
