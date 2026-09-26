@@ -112,9 +112,16 @@
     - "dev"
 
 - title: "CS4240"
+  slug: "cs4240-vr-ar"
   subtitle: "Interaction Design for Virtual and Augmented Reality"
   tile-summary: "CS4240 Interaction Design for Virtual and Augmented Reality"
+  label: "NUS"
   image: "cs4240-vr-ar.webp"
+  images:
+    - image: "cs4240-vr-ar.webp"
+      caption: "Class group photo with project posters and prizes at the 22nd SoC Term Project Showcase (STePS)"
+    - image: "cs4240-vr-ar-lab-session.webp"
+      caption: "Students testing their VR projects in the lab, April 2023"
   year: 2023
   start-year: 2023
   end-year: 2023
