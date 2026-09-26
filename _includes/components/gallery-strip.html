@@ -1,5 +1,5 @@
 {% comment %} All of Emran's publications, are.na-style grid of tiles with a click-to-open overlay. {% endcomment %}
-{% assign gallery_pubs_all = site.data.pubs | where_exp: "pub", "pub.authors contains 'Emran Poh'" | where_exp: "pub", "pub.status != 'under review'" | where_exp: "pub", "pub.status != 'submitted'" %}
+{% assign gallery_pubs_all = site.data.pubs | where_exp: "pub", "pub.authors contains 'Emran Poh'" | where_exp: "pub", "pub.status != 'under review'" | where_exp: "pub", "pub.status != 'submitted'" | where_exp: "pub", "pub.venue_short != 'HCII'" | where_exp: "pub", "pub.venue_short != 'NewRIIS'" %}
 {% assign first_authored = '' | split: ',' %}
 {% assign co_authored = '' | split: ',' %}
 {% for pub in gallery_pubs_all %}
@@ -29,7 +29,7 @@
 
 {% if gallery_pubs.size > 0 %}
 <section class="gallery-strip" aria-label="All publications" data-header-label="paps-n-pubs">
-  <h2 id="publications-heading" class="publications-subsection-title type-section">papers and publications</h2>
+  <h2 id="publications-heading" class="publications-subsection-title type-section">selected papers and publications</h2>
   <div class="gallery-strip-grid">
     {% for pub in gallery_pubs %}
       {% assign pub_url_with_slash = pub.url | append: '/' %}
