@@ -27,5 +27,9 @@ nightshade-todo/
 # Claude Code scratch worktrees
 .claude/worktrees/
 
+# Local-only photo annotation tool (person tagging + captions), and its output.
+# Not part of the site; never published.
+tools/photo-annotator/
+
 # Local Chrome DevTools workspace mapping
 .well-known/appspecific/com.chrome.devtools.json
