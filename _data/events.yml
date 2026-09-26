@@ -6,6 +6,41 @@
 #   video: { type: video, video: "<url or /assets/videos/... path>", thumbnail: "<file>", caption }
 #   text:  { type: text, title (optional label), text }
 
+- slug: "ismar-2022"
+  title: "ISMAR 2022"
+  header_label: "ismar 2022"
+  date: "2022-10-17"
+  date_end: "2022-10-21"
+  location: "Singapore"
+  description: "Attended the 21st IEEE International Symposium on Mixed and Augmented Reality (ISMAR 2022) in Singapore."
+  items:
+    - type: image
+      image: "ismar-2022-opening-stage.webp"
+      caption: "Opening session on stage at ISMAR 2022"
+    - type: image
+      image: "ismar-2022-banquet.webp"
+      caption: "Conference banquet with fellow attendees"
+
+- slug: "chi-2026"
+  title: "CHI 2026"
+  header_label: "chi 2026"
+  date: "2026-04-13"
+  location: "Barcelona, Spain"
+  description: "Attended CHI 2026 in Barcelona, presenting \"Show It, Don't Just Say It\" and catching a pre-CHI workshop on critical resistance to AI in education."
+  items:
+    - type: image
+      image: "chi-2026-signage-selfie.webp"
+      caption: "Welcome to CHI 2026, Barcelona"
+    - type: image
+      image: "chi-2026-workshop-group-photo.webp"
+      caption: "Group photo from the CHI 2026 workshop on critical resistance to AI in education"
+    - type: image
+      image: "chi-2026-workshop-packet.webp"
+      caption: "Workshop packet for 'Understanding and Engaging Critical Resistance to AI in Education'"
+    - type: image
+      image: "chi-2026-badge-ribbons.webp"
+      caption: "My 1st CHI — badge, ribbons, and the CHI '26 program"
+
 - slug: "pre-chi-utokyo-2025"
   title: "Pre-CHI Workshop at the University of Tokyo"
   header_label: "pre-chi workshop"
@@ -38,8 +73,8 @@
   link: "https://smuhci.com/blog/blog/sg-hci-meetup-2026-hri-workshop-2026"
   items:
     - type: image
-      image: "sghci-hri-2026-talk-show-it.webp"
-      caption: "Presenting \"Show It, Don't Just Say It\" (CHI '26)"
+      image: "sghci-hri-2026-poster-session-crowd.webp"
+      caption: "The poster session in full swing"
     - type: image
       image: "sghci-hri-2026-poster-ai-intervention.webp"
       caption: "Tianyi Zhang presenting \"Designing Context-Aware AI Intervention for Interpersonal Communication\""
@@ -47,11 +82,11 @@
       image: "sghci-hri-2026-poster-spatial-guidance.webp"
       caption: "A poster on phase-aware 3D spatial guidance for blind and low-vision users"
     - type: image
-      image: "sghci-hri-2026-poster-session-crowd.webp"
-      caption: "The poster session in full swing"
-    - type: image
       image: "sghci-hri-2026-demo-wearable-sensor.webp"
       caption: "A demo of a wearable sensor for tracking exercise form"
+    - type: image
+      image: "sghci-hri-2026-talk-show-it.webp"
+      caption: "Presenting \"Show It, Don't Just Say It\" (CHI '26)"
 
 - slug: "pre-dis-nus-ai4sg-2026"
   title: "Pre-DIS Meetup at NUS AI4SG Lab"
@@ -107,11 +142,11 @@
   description: "Received the Presidential Doctoral Fellowship from SMU's College of Graduate Research Studies, recognising outstanding research achievements in the PhD in Computer Science programme."
   items:
     - type: image
-      image: "presidential-doctoral-fellowship-2026-ceremony.webp"
-      caption: "On stage at the Presidential Doctoral Fellowship Awards ceremony"
-    - type: image
       image: "presidential-doctoral-fellowship-2026-certificate.webp"
       caption: "With the Presidential Doctoral Fellowship certificate"
+    - type: image
+      image: "presidential-doctoral-fellowship-2026-ceremony.webp"
+      caption: "On stage at the Presidential Doctoral Fellowship Awards ceremony"
 
 - slug: "1-star-kayak-award"
   title: "1-Star Kayak Award"
@@ -140,6 +175,9 @@
     - type: image
       image: "future-cs-education-workshop-2-affinity-wall.webp"
       caption: "Participants sorting sticky notes on AI in school work, CS fundamentals and academic challenges"
+    - type: image
+      image: "future-cs-education-workshop-2-team-photo.webp"
+      caption: "With fellow organisers after the workshop"
 
 - slug: "hci-visit-nycu-2025"
   title: "HCI Research Gathering at NYCU"
@@ -186,11 +224,11 @@
   description: "Attended ICHEC 2025 at SMU, catching poster sessions and talks alongside fellow researchers."
   items:
     - type: image
-      image: "ichec-2025-poster-session.webp"
-      caption: "Checking out a poster on virtual hand rehabilitation and a VR visitation study"
-    - type: image
       image: "ichec-2025-closing-talk.webp"
       caption: "Closing talk with conference stats: 63 standard registrations, 100 student registrations, 24 student volunteers"
+    - type: image
+      image: "ichec-2025-poster-session.webp"
+      caption: "Checking out a poster on virtual hand rehabilitation and a VR visitation study"
     - type: image
       image: "ichec-2025-group-selfie.webp"
       caption: "Group selfie with fellow attendees in the auditorium"

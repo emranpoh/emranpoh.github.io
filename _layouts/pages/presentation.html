@@ -1,0 +1,23 @@
+---
+layout: masonry
+---
+
+{% assign presentation = site.data.presentations.presentations | where: 'slug', page.slug | first %}
+
+{% if presentation %}
+  {% include components/detail-page-header.html title=presentation.title %}
+
+  {% capture presentation_date %}{% if presentation.date %}{{ presentation.date | date: "%-d %B %Y" }}{% endif %}{% endcapture %}
+  {% assign presentation_date = presentation_date | strip %}
+
+  <div class="detail-meta-row">
+    {% include components/meta-table.html date=presentation_date location=presentation.location link_label="website" link_url=presentation.link %}
+    {% if presentation.description and presentation.description != '' %}
+    <p class="detail-meta-text">{{ presentation.description }}</p>
+    {% endif %}
+  </div>
+
+  {% include components/event-strip.html event=presentation %}
+{% endif %}
+
+{% include components/gallery-strip-shell.html %}

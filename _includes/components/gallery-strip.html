@@ -1,8 +1,21 @@
 {% comment %} All of Emran's publications, are.na-style grid of tiles with a click-to-open overlay. {% endcomment %}
 {% assign gallery_pubs_all = site.data.pubs | where_exp: "pub", "pub.authors contains 'Emran Poh'" | where_exp: "pub", "pub.status != 'under review'" | where_exp: "pub", "pub.status != 'submitted'" | where_exp: "pub", "pub.venue_short != 'HCII'" | where_exp: "pub", "pub.venue_short != 'NewRIIS'" %}
+
+{% comment %} Manual curation: pubs with a gallery_order sort first (ascending), then any without one fall back to first-authored-before-co-authored, sort_key descending. {% endcomment %}
+{% assign ordered_pubs = '' | split: ',' %}
+{% assign unordered_pubs = '' | split: ',' %}
+{% for pub in gallery_pubs_all %}
+  {% if pub.gallery_order %}
+    {% assign ordered_pubs = ordered_pubs | push: pub %}
+  {% else %}
+    {% assign unordered_pubs = unordered_pubs | push: pub %}
+  {% endif %}
+{% endfor %}
+{% assign ordered_pubs = ordered_pubs | sort: 'gallery_order' %}
+
 {% assign first_authored = '' | split: ',' %}
 {% assign co_authored = '' | split: ',' %}
-{% for pub in gallery_pubs_all %}
+{% for pub in unordered_pubs %}
   {% assign pub_first_author = pub.authors | slice: 0, 9 %}
   {% if pub.authors and pub.authors != '' and pub_first_author == 'Emran Poh' %}
     {% assign first_authored = first_authored | push: pub %}
@@ -11,8 +24,8 @@
   {% endif %}
 {% endfor %}
 
-{% comment %} Primary sort: first-authored work before co-authored. Secondary sort: date descending, with original file order preserved for same-date ties. {% endcomment %}
 {% assign gallery_pubs = '' | split: ',' %}
+{% assign gallery_pubs = gallery_pubs | concat: ordered_pubs %}
 {% for author_bucket in (1..2) %}
   {% case author_bucket %}
     {% when 1 %}{% assign bucket_items = first_authored %}
@@ -49,7 +62,11 @@
         {% assign pub_thumbnail = '' %}
       {% endif %}
       {% assign pub_venue = pub.venue_short | default: pub.venue %}
-      {% include components/gallery-strip-tile.html image=pub_image thumbnail=pub_thumbnail image_natural=pub.image_natural image_caption=pub.image_caption title=pub.title title_short=pub.title_short venue=pub_venue venue_detail=pub.workshop_name abstract=pub.abstract_short citation=pub.citation authors=pub.authors links=pub.tags url=pub_href open_page=true %}
+      {% assign pub_count = 0 %}
+      {% if pub.extra_images and pub.extra_images.size > 0 %}
+        {% assign pub_count = pub.extra_images.size | plus: 1 %}
+      {% endif %}
+      {% include components/gallery-strip-tile.html image=pub_image thumbnail=pub_thumbnail image_natural=pub.image_natural image_caption=pub.image_caption title=pub.title title_short=pub.title_short venue=pub_venue venue_detail=pub.workshop_name abstract=pub.abstract_short citation=pub.citation authors=pub.authors links=pub.tags url=pub_href count=pub_count open_page=true %}
     {% endfor %}
   </div>
 </section>

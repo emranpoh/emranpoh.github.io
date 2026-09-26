@@ -7,6 +7,34 @@ settings:
   sort_order: "newest_first"  # Options: newest_first, oldest_first
 
 news_items:
+  - id: news-022
+    title: "Presented 'Show it, Don't Just Say It' at the [SG HCI Meetup 2026 & HRI Workshop 2026](/events/sghci-hri-meetup-2026/)"
+    date: "2026-06-18"
+    category: "Talk"
+    location: "Singapore, Singapore"
+    tags: ["sghci", "hri", "talk", "hci"]
+    featured: true
+    type: "talk"
+    conference: "SG HCI Meetup 2026 & HRI Workshop 2026"
+    conference_link: "https://smuhci.com/blog/blog/sg-hci-meetup-2026-hri-workshop-2026"
+    institution: "smu"
+    summary: "Presented our CHI '26 paper at the combined SG HCI Meetup & HRI Workshop 2026, hosted at SMU."
+    content: |
+      Presented "Show it, Don't Just Say It" at the SG HCI Meetup 2026, combined this year with the HRI Workshop 2026. Good turnout and good to catch up with the local HCI/HRI crowd again.
+
+  - id: news-020
+    title: "Attended an [Apple Human Interface Guidelines and SwiftUI workshop](/events/apple-hig-swiftui-2026/) at the Apple Developer Center"
+    date: "2026-06-16"
+    category: "Workshop"
+    location: "Singapore, Singapore"
+    tags: ["apple", "swiftui", "workshop", "design"]
+    featured: true
+    type: "education"
+    institution: "apple"
+    summary: "A workshop on Apple's Human Interface Guidelines and SwiftUI at the Apple Developer Center in Singapore, around DIS 2026 week."
+    content: |
+      Attended a workshop on Apple's Human Interface Guidelines and SwiftUI at the Apple Developer Center in Singapore.
+
   - id: news-017
     title: "at [DIS 2026](/events/dis-2026/) in Singapore for Pei-Hua and Tianyi's papers"
     date: "2026-06-13"
@@ -21,8 +49,21 @@ news_items:
     content: |
       At DIS 2026 in Singapore for Pei-Hua and Tianyi's papers. Nice that it's local this time.
 
+  - id: news-021
+    title: "Pre-DIS meetup at [NUS AI4SG Lab](/events/pre-dis-nus-ai4sg-2026/), hosted by Asst Prof EJ Lee Yi-Chieh"
+    date: "2026-06-13"
+    category: "Conference"
+    location: "Singapore, Singapore"
+    tags: ["dis", "nus", "ai4sg", "workshop"]
+    featured: true
+    type: "conference"
+    institution: "nus"
+    summary: "Pre-DIS meetup hosted by the AI4SG Lab at NUS School of Computing, ahead of DIS 2026."
+    content: |
+      Pre-DIS meetup hosted by the AI4SG Lab at NUS School of Computing, hosted by Asst Prof EJ Lee Yi-Chieh, ahead of DIS 2026.
+
   - id: news-016
-    title: "off to CHI 2026 in Barcelona to present our paper 🇪🇸"
+    title: "off to [CHI 2026](/events/chi-2026/) in Barcelona to present our paper 🇪🇸"
     date: "2026-04-13"
     category: "Conference"
     location: "Barcelona, Spain"
@@ -62,7 +103,7 @@ news_items:
       Paper accepted to the CHI 2026 workshop on Understanding and Engaging Critical Resistance to AI in Education. We draw on human-teaching literature to think about when AI tutoring systems should hold back from helping — and why that matters for learning.
 
   - id: news-007
-    title: "Helping run [Future CS Education Workshop 2.0](https://futuredu.student.ai4sg.org/home), on the organising team"
+    title: "Helping run [Future CS Education Workshop 2.0](/events/future-cs-education-workshop-2/), on the organising team"
     date: "2026-01-25"
     category: "Workshop"
     tags: ["nus", "google", "workshop", "cs education", "organising"]
@@ -88,8 +129,20 @@ news_items:
     content: |
       Really chuffed — we got accepted to CHI 2026. Now revising and looking forward to presenting in Spain.
 
+  - id: news-019
+    title: "Earned my [1-Star Kayak Award](/events/1-star-kayak-award/) 🛶"
+    date: "2025-10-26"
+    category: "Personal"
+    location: "Singapore"
+    tags: ["kayak", "personal"]
+    featured: false
+    type: "personal"
+    summary: "Earned the 1-Star Kayak Award, paddling out on the water in Singapore."
+    content: |
+      Earned the 1-Star Kayak Award. A nice break from the usual conference-and-lab routine.
+
   - id: news-006
-    title: "Volunteered at [NUS-Google Workshop: Future of CS Education and Curriculum in the AI Era](https://futuredu.ai4sg.org/)"
+    title: "Volunteered at [NUS-Google Workshop: Future of CS Education and Curriculum in the AI Era](/events/nus-google-workshop-2025/)"
     date: "2025-11-07"
     category: "Workshop"
     tags: ["nus", "google", "workshop", "cs education", "ai"]
@@ -115,7 +168,7 @@ news_items:
       Student volunteered at ICHEC 2025 in November. Helped run things and caught some talks — good to be part of it.
 
   - id: news-014
-    title: "Got the Presidential Doctoral Fellowship"
+    title: "Got the [Presidential Doctoral Fellowship](/events/presidential-doctoral-fellowship-2026/)"
     date: "2026-08-01"
     category: "Education"
     tags: ["smu", "fellowship", "phd"]
@@ -127,7 +180,7 @@ news_items:
       Got awarded the Presidential Doctoral Fellowship at SMU. Still pretty stoked about it.
 
   - id: news-004
-    title: "Went to National Yang Ming Chiao Tung University (NYCU) in Hsinchu, Taiwan for an HCI meetup with friends"
+    title: "Went to [National Yang Ming Chiao Tung University (NYCU)](/events/hci-visit-nycu-2025/) in Hsinchu, Taiwan for an HCI meetup with friends"
     date: "2025-08-20"
     category: "Conference"
     location: "Hsinchu, Taiwan"
@@ -155,6 +208,20 @@ news_items:
     summary: "Joined the SG-HCI meetup at SMU — HCI folks from across Singapore sharing work and catching up."
     content: |
       Went to the Singapore HCI Meetup at SMU. Talks, posters, demos, and a chance to see what everyone's up to and catch up with the community.
+
+  - id: news-018
+    title: "Attended a [pre-CHI workshop at the University of Tokyo](/events/pre-chi-utokyo-2025/), hosted by Prof. Koji Yatani's lab"
+    date: "2025-04-25"
+    category: "Conference"
+    location: "Tokyo, Japan"
+    tags: ["chi", "workshop", "hci", "utokyo"]
+    featured: true
+    type: "conference"
+    conference: "Pre-CHI Workshop, University of Tokyo"
+    institution: "utokyo"
+    summary: "A pre-CHI workshop hosted by Prof. Koji Yatani's lab at the University of Tokyo, on the way to CHI 2025."
+    content: |
+      Attended a pre-CHI workshop hosted by Prof. Koji Yatani's lab at the University of Tokyo — good talks and good to see the lab before heading to CHI 2025 in Yokohama.
 
   - id: news-000
     title: "Starting my PhD at SMU (Computer Science) with a full scholarship 🎉"

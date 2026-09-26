@@ -87,6 +87,12 @@ layout: masonry
         {% assign pub_image_url = '/assets/images/projects/' | append: pub_image | relative_url %}
         {% include components/gallery-strip-tile.html image=pub_image_url title=page.title title_short=page.title %}
       {% endif %}
+      {% if matched_pub.extra_images %}
+        {% for photo in matched_pub.extra_images %}
+          {% assign photo_image_url = '/assets/images/projects/' | append: photo.image | relative_url %}
+          {% include components/gallery-strip-tile.html image=photo_image_url image_natural=true title=page.title title_short=photo.caption image_caption=photo.caption %}
+        {% endfor %}
+      {% endif %}
       {% if pub_pdf_url %}
         {% assign pub_pdf_href = pub_pdf_url %}
         {% unless pub_pdf_url contains 'http' %}{% assign pub_pdf_href = pub_pdf_url | relative_url %}{% endunless %}

@@ -1,0 +1,9 @@
+---
+layout: pages/event
+title: "CHI 2026"
+id: chi-2026
+slug: chi-2026
+header_label: "chi 2026"
+permalink: /events/chi-2026/
+description: "Attended CHI 2026 in Barcelona, presenting \"Show It, Don't Just Say It\" and catching a pre-CHI workshop on critical resistance to AI in education."
+---

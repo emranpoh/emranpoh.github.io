@@ -1,4 +1,5 @@
 - title: "Not Too Early, Not All at Once: Design Tensions in AI-Mediated Self-Disclosure in Online Dating"
+  gallery_order: 5
   title_short: "Not Too Early, Not All at Once"
   authors: "Pei-Hua Tsai, Tianyi Zhang, Emran Poh, Anthony Tang, and Yung-Ju Chang"
   type: "Full Paper"
@@ -10,6 +11,9 @@
   institution: "smuhci"
   image: "not-too-early.webp"
   image_caption: "Figure 1: AI mediation provocations for the pacing scenario, varied by perspective (user behavior vs. partner experience) and delivery mode (public vs. private)"
+  extra_images:
+    - image: "not-too-early-authors-group-photo.webp"
+      caption: "With fellow attendees at DIS 2026"
   is-selected: false
   emoji: "💬"
   url: "/research/not-too-early-ai-mediated-self-disclosure"
@@ -34,6 +38,7 @@
   tagline: ""
 
 - title: "'Grandpa, Can You Speak Nicer?': Envisioned Chatbot Roles and Design Tensions in Intergenerational Communication Conflicts"
+  gallery_order: 6
   title_short: "Grandpa, Can You Speak Nicer?"
   authors: "Tianyi Zhang, Emran Poh, Yueyue Hou, Yi-Chieh Lee, Renwen Zhang, Jiannan Li, and Anthony Tang"
   type: "Full Paper"
@@ -69,6 +74,7 @@
   tagline: ""
 
 - title: "'Show It, Don't Just Say It': The Complementary Effects of Instruction Multimodality for Software Guidance"
+  gallery_order: 1
   title_short: "Show It, Don't Just Say It"
   authors: "Emran Poh, Yueyue Hou, Tianyi Zhang, and Jiannan Li"
   type: "Full Paper"
@@ -85,6 +91,11 @@
   institution: "smuhci"
   image: "showit.webp"
   image_caption: "Sketch of the two-person study setup for evaluating software guidance instructions"
+  extra_images:
+    - image: "show-it-authors-group-photo.webp"
+      caption: "Emran, Yueyue, Tianyi, and Jiannan"
+    - image: "show-it-whiteboard-brainstorm.webp"
+      caption: "Early whiteboard brainstorm of modalities and coding scheme"
   is-selected: true
   emoji: "📝"
   url: "/research/show-it-software-guidance"
@@ -116,6 +127,7 @@
   tagline: ""
 
 - title: "When Not to Help: A Human-Teaching Lens on AI Tutoring"
+  gallery_order: 3
   title_short: "When Not to Help"
   authors: "Emran Poh"
   type: "Workshop Paper"
@@ -152,6 +164,7 @@
   tagline: ""
 
 - title: "'Desire Paths' in AI-Guided Software Learning"
+  gallery_order: 4
   title_short: "Desire Paths in AI-Guided Software Learning"
   authors: "Emran Poh"
   type: "Position Paper"
@@ -188,11 +201,12 @@
   tagline: ""
 
 - title: "Supporting Artefact Awareness for Partially-Replicated Workspaces"
+  gallery_order: 2
   title_short: "Supporting Artefact Awareness"
   authors: "Emran Poh, Anthony Tang, Jeannie Lee, and Shengdong Zhao"
   type: "Position Paper"
   venue: "2023 IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct)"
-  venue_short: "ISMAR-Adjunct"
+  venue_short: "ISMAR-Adjunct 23"
   workshop_name: "1st Joint Workshop on Cross Reality"
   location: "Sydney, Australia"
   date: "October 16–20, 2023"
@@ -202,6 +216,11 @@
   institution: "nus-hci"
   image: "artefact-awareness.webp"
   image_caption: "Alice and Bob's partially-replicated workspace, with and without headset-based awareness"
+  extra_images:
+    - image: "artefact-awareness-physical-cubes.webp"
+      caption: "Physical cube artefacts with fiducial markers, used to track manipulations in the workspace"
+    - image: "artefact-awareness-markers-setup.webp"
+      caption: "Camera rig and marker board setup for tracking artefact manipulation"
   is-selected: true
   emoji: "👥"
   url: "/research/artefact-awareness-workspaces"
@@ -229,11 +248,12 @@
   tagline: ""
 
 - title: "IntVRsection: Virtual Reality Environment for Evaluating Signalized and Unsignalized Intersection Scenarios"
+  gallery_order: 8
   title_short: "IntVRsection"
   authors: "Jeannie Lee, Adriel Yeo, B. Kwok, Z. F. Wong, Emran Poh, and R. Chan"
   type: "Demonstration"
   venue: "AutomotiveUI '23 Adjunct: Adjunct Proceedings of the 15th International Conference on Automotive User Interfaces and Interactive Vehicular Applications"
-  venue_short: "AutoUI"
+  venue_short: "AutoUI 23"
   location: "Ingolstadt, Germany"
   date: "September 18–21, 2023"
   year: 2023
@@ -273,11 +293,12 @@
   tagline: ""
 
 - title: "Mixed Reality for Engineering Design Review Using Finite Element Analysis"
+  gallery_order: 7
   title_short: "MR4FEA"
   authors: "Emran Poh, Kyrin Liong, and Jeannie Lee"
   type: "Poster"
   venue: "2022 IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct)"
-  venue_short: "ISMAR-Adjunct"
+  venue_short: "ISMAR-Adjunct 22"
   location: "Singapore"
   date: "October 17–21, 2022"
   year: 2022
@@ -285,6 +306,9 @@
   status: "published"
   image: "mr-fea-load-table.webp"
   image_caption: "Mixed-reality visualization of simulated load values on an excavator arm"
+  extra_images:
+    - image: "mr4fea-poster-session.webp"
+      caption: "At the poster session with fellow presenters at ISMAR 2022"
   institution: "immersification"
   is-selected: false
   emoji: "🔍"

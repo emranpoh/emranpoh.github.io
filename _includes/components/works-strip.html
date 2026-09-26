@@ -4,6 +4,9 @@
 {% assign teaching_projects = '' | split: '' %}
 {% assign other_projects = '' | split: '' %}
 {% for project in site.data.projects %}
+  {% if project.hidden %}
+    {% continue %}
+  {% endif %}
   {% if project.work-tags contains 'Teaching' %}
     {% assign teaching_projects = teaching_projects | push: project %}
   {% else %}
@@ -53,8 +56,13 @@
   <h2 id="talks-heading" class="publications-subsection-title type-section">talks</h2>
   <div class="gallery-strip-grid">
     {% for talk in sorted_talks %}
+      {% if talk.hidden %}
+        {% continue %}
+      {% endif %}
       {% assign talk_href = '' %}
-      {% if talk.link and talk.link != '' %}
+      {% if talk.slug and talk.slug != '' %}
+        {% assign talk_href = '/talks/' | append: talk.slug | append: '/' | relative_url %}
+      {% elsif talk.link and talk.link != '' %}
         {% if talk.link contains 'http' %}
           {% assign talk_href = talk.link %}
         {% else %}
@@ -64,11 +72,16 @@
           {% endif %}
         {% endif %}
       {% endif %}
-      {% assign talk_image = '' %}
-      {% if talk.image and talk.image != '' %}
+      {% assign talk_first_item = talk.items | where: 'type', 'image' | first %}
+      {% assign talk_count = talk.items.size | default: 0 %}
+      {% if talk_first_item %}
+        {% assign talk_image = '/assets/images/projects/' | append: talk_first_item.image | relative_url %}
+      {% elsif talk.image and talk.image != '' %}
         {% assign talk_image = '/assets/images/projects/' | append: talk.image | relative_url %}
+      {% else %}
+        {% assign talk_image = '' %}
       {% endif %}
-      {% include components/gallery-strip-tile.html image=talk_image title=talk.title title_short=talk.title abstract=talk.description url=talk_href venue_detail=talk.event venue_detail_sub=talk.year %}
+      {% include components/gallery-strip-tile.html image=talk_image title=talk.title title_short=talk.title abstract=talk.description url=talk_href count=talk_count venue_detail=talk.event venue_detail_sub=talk.year %}
     {% endfor %}
   </div>
 </section>

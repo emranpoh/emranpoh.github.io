@@ -37,7 +37,8 @@ presentations:
       - "Talk"
     
   - id: pres-003
-    title: "Mixed Reality for Design Engineering & FEA"
+    slug: "singapore-airshow-mr-2022"
+    title: "Showcase @ Singapore Airshow 2022"
     date: "2022-02-18"
     year: 2022
     event: "Project Showcase at Singapore Airshow"
@@ -45,7 +46,16 @@ presentations:
     location: "Singapore Airshow"
     country: "Singapore"
     description: "Project showcase to aerospace industry experts on the potential of mixed reality for complex and dangerous assembly logistics. Demonstrated how MR can improve safety and precision in high-stakes manufacturing environments."
-    image: "singapore-airshow-mr.webp"
+    items:
+      - type: image
+        image: "singapore-airshow-mr.webp"
+        caption: "Demoing the mixed reality FEA app at the Singapore Airshow"
+      - type: image
+        image: "singapore-airshow-mr-robot-arm.webp"
+        caption: "Hope Technik's robotic arm on display alongside the demo"
+      - type: image
+        image: "singapore-airshow-mr-group-photo.webp"
+        caption: "With the team after the showcase"
     link: "https://www.singaporetech.edu.sg/news/mixed-reality-app-sit-faculty-debuts-singapore-airshow-2022"
     institution: "singapore-airshow"
     tags: ["mixed-reality", "engineering", "fea", "demo"]
@@ -53,6 +63,7 @@ presentations:
       - "Project Showcase"
     
   - id: pres-005
+    hidden: true
     title: "Practice Talk: 'Show It, Don't Just Say It' (CHI '26)"
     date: "2026-03-31"
     year: 2026
@@ -62,7 +73,7 @@ presentations:
     country: "Singapore"
     description: "Practice talk for 'Show It, Don't Just Say It': The Complementary Effects of Instruction Multimodality for Software Guidance, ahead of presenting at CHI 2026."
     link: ""
-    image: ""
+    image: "chi26-practice-talk.webp"
     institution: "smuhci"
     is-selected: false
     tags: ["chi26", "software-guidance", "practice-talk"]
@@ -70,6 +81,7 @@ presentations:
       - "Talk"
 
   - id: pres-006
+    hidden: true
     title: "\"Show It, Don't Just Say It\" (CHI '26)"
     date: "2026-06-18"
     year: 2026
@@ -85,3 +97,37 @@ presentations:
     tags: ["chi26", "software-guidance", "talk"]
     work-tags:
       - "Talk"
+
+  - id: pres-007
+    title: "\"Show It, Don't Just Say It\" (CHI 2026)"
+    date: "2026-04-14"
+    year: 2026
+    event: "CHI 2026"
+    type: "talk"
+    location: "Barcelona, Spain"
+    country: "Spain"
+    description: "Presented \"Show It, Don't Just Say It\": The Complementary Effects of Instruction Multimodality for Software Guidance, at CHI 2026."
+    link: "/events/chi-2026"
+    image: ""
+    institution: "acm"
+    is-selected: false
+    tags: ["chi26", "software-guidance", "talk"]
+    work-tags:
+      - "Talk"
+
+  - id: pres-008
+    title: "Engineering Demo for the Institution of Engineering and Technology"
+    date: "2023-01-01"
+    year: 2023
+    event: "IET Showcase"
+    type: "showcase"
+    location: "Singapore"
+    country: "Singapore"
+    description: "Demo showcase for the Institution of Engineering and Technology (IET) in Singapore. More details to come."
+    link: ""
+    image: "iet-engineering-showcase-group-photo.webp"
+    institution: "iet"
+    is-selected: false
+    tags: ["engineering", "demo", "iet"]
+    work-tags:
+      - "Project Showcase"

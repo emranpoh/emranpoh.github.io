@@ -1,4 +1,5 @@
 - title: "London Underground"
+  hidden: true
   image: "london-underground.webp"
   year: 2019
   start-year: 2019
@@ -60,6 +61,7 @@
     - "Design"
 
 - title: "Notifications: Reimagined"
+  hidden: true
   module: "CS4249 Phenomena and Theories of Human-Computer Interaction"
   subtitle: "CS4249 Phenomena and Theories of Human-Computer Interaction. with Yash Gajaria, Ng Yu Zhong, Jasper Mai, Hyeyeon Yun"
   image: "notifications-reimagined.webp"
@@ -97,6 +99,7 @@
     - "dev"
 
 - title: "Front Office System (FOS) for Hotel Management Mobile App"
+  hidden: true
   subtitle: "UX Lead for a collective project of 20 students"
   image: "front-office-system.webp"
   year: 2018
@@ -174,6 +177,7 @@
     - "Teaching"
 
 - title: "CS3240 Interaction Design"
+  hidden: true
   subtitle: "Graduate Teaching Assistant, with Zhao Shengdong"
   label: "NUS"
   year: 2023
@@ -189,6 +193,7 @@
     - "Teaching"
 
 - title: "LaTeX Crash Course"
+  hidden: true
   subtitle: "Instructor, Center for Immersification, SIT"
   label: "SIT"
   year: 2021
