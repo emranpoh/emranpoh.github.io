@@ -16,6 +16,25 @@
 {% assign sorted_talks = site.data.presentations.presentations | sort: 'date' | reverse %}
 {% assign sorted_events = site.data.events | sort: 'date' | reverse %}
 
+{% comment %} ===================== Events ===================== {% endcomment %}
+{% if sorted_events.size > 0 %}
+<section class="gallery-strip" aria-label="Events">
+  <h2 id="events-heading" class="publications-subsection-title type-section">events</h2>
+  <div class="gallery-strip-grid">
+    {% for event in sorted_events %}
+      {% assign event_image = '' %}
+      {% assign event_first_image = event.items | where: 'type', 'image' | first %}
+      {% if event_first_image %}
+        {% assign event_image = '/assets/images/projects/' | append: event_first_image.image | relative_url %}
+      {% endif %}
+      {% assign event_href = '/events/' | append: event.slug | append: '/' | relative_url %}
+      {% assign event_count = event.items.size | default: 0 %}
+      {% include components/gallery-strip-tile.html image=event_image title=event.title title_short=event.title abstract=event.description url=event_href count=event_count %}
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
 {% comment %} ===================== Projects ===================== {% endcomment %}
 {% if other_projects.size > 0 %}
 <section class="gallery-strip" aria-label="Projects">
@@ -62,25 +81,6 @@
   <div class="gallery-strip-grid">
     {% for project in teaching_projects %}
       {% include partials/project-tile.html project=project known_page_urls=known_page_urls %}
-    {% endfor %}
-  </div>
-</section>
-{% endif %}
-
-{% comment %} ===================== Events ===================== {% endcomment %}
-{% if sorted_events.size > 0 %}
-<section class="gallery-strip" aria-label="Events">
-  <h2 id="events-heading" class="publications-subsection-title type-section">events</h2>
-  <div class="gallery-strip-grid">
-    {% for event in sorted_events %}
-      {% assign event_image = '' %}
-      {% assign event_first_image = event.items | where: 'type', 'image' | first %}
-      {% if event_first_image %}
-        {% assign event_image = '/assets/images/projects/' | append: event_first_image.image | relative_url %}
-      {% endif %}
-      {% assign event_href = '/events/' | append: event.slug | append: '/' | relative_url %}
-      {% assign event_count = event.items.size | default: 0 %}
-      {% include components/gallery-strip-tile.html image=event_image title=event.title title_short=event.title abstract=event.description url=event_href count=event_count %}
     {% endfor %}
   </div>
 </section>
