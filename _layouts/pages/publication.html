@@ -85,21 +85,21 @@ layout: masonry
     <div class="gallery-strip-grid">
       {% if pub_image and pub_image != '' %}
         {% assign pub_image_url = '/assets/images/projects/' | append: pub_image | relative_url %}
-        {% include components/gallery-strip-tile.html image=pub_image_url title=page.title title_short=page.title %}
+        {% include components/gallery-strip-tile.html image=pub_image_url image_natural=matched_pub.image_natural image_caption=matched_pub.image_caption caption_human=matched_pub.caption_human title=page.title title_short=page.title source="publication" %}
       {% endif %}
       {% if matched_pub.extra_images %}
         {% for photo in matched_pub.extra_images %}
           {% assign photo_image_url = '/assets/images/projects/' | append: photo.image | relative_url %}
-          {% include components/gallery-strip-tile.html image=photo_image_url image_natural=true title=page.title title_short=photo.caption image_caption=photo.caption %}
+          {% include components/gallery-strip-tile.html image=photo_image_url image_natural=true title=page.title title_short=photo.caption image_caption=photo.caption caption_human=photo.caption_human source="publication" %}
         {% endfor %}
       {% endif %}
       {% if pub_pdf_url %}
         {% assign pub_pdf_href = pub_pdf_url %}
         {% unless pub_pdf_url contains 'http' %}{% assign pub_pdf_href = pub_pdf_url | relative_url %}{% endunless %}
-        {% include components/gallery-strip-tile.html title=page.title title_short="view preprint" link=pub_pdf_href %}
+        {% include components/gallery-strip-tile.html title=page.title title_short="view preprint" link=pub_pdf_href source="publication" %}
       {% endif %}
       {% if pub_program_url %}
-        {% include components/gallery-strip-tile.html title=page.title title_short="view program" link=pub_program_url %}
+        {% include components/gallery-strip-tile.html title=page.title title_short="view program" link=pub_program_url source="publication" %}
       {% endif %}
       {% if page.related %}
         {% for rel in page.related %}
@@ -107,7 +107,7 @@ layout: masonry
           {% if rel.thumbnail and rel.thumbnail != '' %}
             {% assign rel_thumbnail = '/assets/images/projects/' | append: rel.thumbnail | relative_url %}
           {% endif %}
-          {% include components/gallery-strip-tile.html image=rel_thumbnail image_natural=true title=rel.title title_short=rel.title venue=rel.venue url=rel.url open_page=true %}
+          {% include components/gallery-strip-tile.html image=rel_thumbnail image_natural=true title=rel.title title_short=rel.title venue=rel.venue url=rel.url open_page=true source="publication" %}
         {% endfor %}
       {% endif %}
     </div>

@@ -28,7 +28,7 @@ layout: masonry
     <div class="gallery-strip-grid">
       {% for item in project.images %}
         {% assign item_image = '/assets/images/projects/' | append: item.image | relative_url %}
-        {% include components/gallery-strip-tile.html image=item_image image_caption=item.caption title=project.title title_short=item.caption %}
+        {% include components/gallery-strip-tile.html image=item_image image_caption=item.caption title=project.title title_short=item.caption source="project" %}
       {% endfor %}
     </div>
   </section>

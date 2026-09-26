@@ -32,7 +32,7 @@
       {% endif %}
       {% assign event_href = '/events/' | append: event.slug | append: '/' | relative_url %}
       {% assign event_count = event.items.size | default: 0 %}
-      {% include components/gallery-strip-tile.html image=event_image title=event.title title_short=event.title abstract=event.description url=event_href count=event_count %}
+      {% include components/gallery-strip-tile.html image=event_image title=event.title title_short=event.title abstract=event.description url=event_href count=event_count source="event" %}
     {% endfor %}
   </div>
 </section>
@@ -81,7 +81,7 @@
       {% else %}
         {% assign talk_image = '' %}
       {% endif %}
-      {% include components/gallery-strip-tile.html image=talk_image title=talk.title title_short=talk.title abstract=talk.description url=talk_href count=talk_count venue_detail=talk.event venue_detail_sub=talk.year %}
+      {% include components/gallery-strip-tile.html image=talk_image title=talk.title title_short=talk.title abstract=talk.description url=talk_href count=talk_count venue_detail=talk.event venue_detail_sub=talk.year source="talk" %}
     {% endfor %}
   </div>
 </section>

@@ -7,9 +7,14 @@
   var imageWrap = document.getElementById('gallery-overlay-image-wrap');
   var image = document.getElementById('gallery-overlay-image');
   var video = document.getElementById('gallery-overlay-video');
-  var imageCaption = document.getElementById('gallery-overlay-image-caption');
-  var imageCaptionText = document.getElementById('gallery-overlay-image-caption-text');
-  var imageCaptionDims = document.getElementById('gallery-overlay-image-caption-dims');
+  var imageMeta = document.getElementById('gallery-overlay-image-meta');
+  var sourceValue = document.getElementById('gallery-overlay-source-value');
+  var typeValue = document.getElementById('gallery-overlay-type-value');
+  var captionRow = document.getElementById('gallery-overlay-caption-row');
+  var captionText = document.getElementById('gallery-overlay-caption-text');
+  var captionBadge = document.getElementById('gallery-overlay-caption-badge');
+  var dimsRow = document.getElementById('gallery-overlay-dims-row');
+  var dimsValue = document.getElementById('gallery-overlay-dims-value');
   var pdfWrap = document.getElementById('gallery-overlay-pdf');
   var pdfPages = document.getElementById('gallery-overlay-pdf-pages');
   var pdfCanvas1 = document.getElementById('gallery-overlay-pdf-canvas-1');
@@ -210,7 +215,6 @@
     var imgSrc = tile.getAttribute('data-gallery-image');
     var videoSrc = tile.getAttribute('data-gallery-video');
     var tileTitleForAlt = tile.getAttribute('data-gallery-title') || '';
-    var tileImageCaption = tile.getAttribute('data-gallery-image-caption') || tileTitleForAlt;
     var linksRawForImage = tile.getAttribute('data-gallery-links');
     var linkTagsForImage = [];
     if (linksRawForImage) {
@@ -226,29 +230,42 @@
     video.load();
     imageWrap.classList.remove('no-image', 'has-pdf', 'has-video');
 
+    sourceValue.textContent = tile.getAttribute('data-gallery-source') || '';
+
+    var explicitCaption = tile.getAttribute('data-gallery-image-caption');
+    captionRow.style.display = explicitCaption ? '' : 'none';
+    captionText.textContent = explicitCaption || '';
+    var isHumanCaption = tile.getAttribute('data-gallery-caption-human') === 'true';
+    captionBadge.style.display = isHumanCaption ? 'none' : '';
+    captionText.classList.toggle('is-ai-caption', !isHumanCaption);
+    imageMeta.classList.add('is-visible');
+
     if (videoSrc) {
       image.src = '';
-      imageCaption.classList.remove('is-visible');
+      typeValue.textContent = 'video';
+      dimsRow.style.display = 'none';
       imageWrap.classList.add('has-video');
       video.src = videoSrc;
     } else if (imgSrc) {
-      imageCaptionText.textContent = tileImageCaption;
-      imageCaptionDims.textContent = '';
-      imageCaption.classList.add('is-visible');
+      typeValue.textContent = 'image';
+      dimsRow.style.display = '';
+      dimsValue.textContent = '';
       image.onload = function () {
-        imageCaptionDims.textContent = image.naturalWidth + ' × ' + image.naturalHeight;
+        dimsValue.textContent = image.naturalWidth + ' × ' + image.naturalHeight;
       };
       image.src = imgSrc;
       image.alt = tileTitleForAlt;
     } else if (pdfLink) {
       image.src = '';
-      imageCaption.classList.remove('is-visible');
+      typeValue.textContent = 'document';
+      dimsRow.style.display = 'none';
       imageWrap.classList.add('has-pdf');
       pdfPages.setAttribute('aria-label', tileTitleForAlt ? ('PDF preview: ' + tileTitleForAlt) : 'PDF preview');
       openPdf(pdfLink);
     } else {
       image.src = '';
-      imageCaption.classList.remove('is-visible');
+      typeValue.textContent = 'text';
+      dimsRow.style.display = 'none';
       imageWrap.classList.add('no-image');
     }
     title.textContent = tile.getAttribute('data-gallery-title') || '';

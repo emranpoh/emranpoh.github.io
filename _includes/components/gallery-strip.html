@@ -66,7 +66,7 @@
       {% if pub.extra_images and pub.extra_images.size > 0 %}
         {% assign pub_count = pub.extra_images.size | plus: 1 %}
       {% endif %}
-      {% include components/gallery-strip-tile.html image=pub_image thumbnail=pub_thumbnail image_natural=pub.image_natural image_caption=pub.image_caption title=pub.title title_short=pub.title_short venue=pub_venue venue_detail=pub.workshop_name abstract=pub.abstract_short citation=pub.citation authors=pub.authors links=pub.tags url=pub_href count=pub_count open_page=true %}
+      {% include components/gallery-strip-tile.html image=pub_image thumbnail=pub_thumbnail image_natural=pub.image_natural image_caption=pub.image_caption caption_human=pub.caption_human title=pub.title title_short=pub.title_short venue=pub_venue venue_detail=pub.workshop_name abstract=pub.abstract_short citation=pub.citation authors=pub.authors links=pub.tags url=pub_href count=pub_count open_page=true source="publication" %}
     {% endfor %}
   </div>
 </section>

@@ -17,18 +17,18 @@
         {% if item.thumbnail and item.thumbnail != '' %}
           {% assign item_thumbnail = '/assets/images/projects/' | append: item.thumbnail | relative_url %}
         {% endif %}
-        {% include components/gallery-strip-tile.html thumbnail=item_thumbnail video=item.video image_caption=item.caption title=event.title title_short=item_title_short %}
+        {% include components/gallery-strip-tile.html thumbnail=item_thumbnail video=item.video image_caption=item.caption caption_human=item.caption_human title=event.title title_short=item_title_short source="event" %}
 
       {% when 'text' %}
         {% assign item_text_venue = item.title | default: event.title %}
-        {% include components/gallery-strip-tile.html title=item_text_venue title_short=item.text venue=item_text_venue %}
+        {% include components/gallery-strip-tile.html title=item_text_venue title_short=item.text venue=item_text_venue source="event" %}
 
       {% else %}
         {% assign item_image = '' %}
         {% if item.image and item.image != '' %}
           {% assign item_image = '/assets/images/projects/' | append: item.image | relative_url %}
         {% endif %}
-        {% include components/gallery-strip-tile.html image=item_image image_caption=item.caption title=event.title title_short=item_title_short %}
+        {% include components/gallery-strip-tile.html image=item_image image_caption=item.caption caption_human=item.caption_human title=event.title title_short=item_title_short source="event" %}
 
       {% endcase %}
     {% endfor %}

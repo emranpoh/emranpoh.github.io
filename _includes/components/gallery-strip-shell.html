@@ -20,14 +20,31 @@
         </div>
       </div>
       <span id="gallery-overlay-placeholder" class="gallery-overlay-placeholder">no image</span>
-      <div id="gallery-overlay-image-caption" class="gallery-overlay-image-caption">
-        <span id="gallery-overlay-image-caption-text" class="gallery-overlay-image-caption-text"></span>
-        <span id="gallery-overlay-image-caption-dims" class="gallery-overlay-image-caption-dims"></span>
-      </div>
     </div>
     <div class="gallery-overlay-resize-handle" id="gallery-overlay-resize-handle" role="separator" aria-orientation="vertical" aria-label="Resize image and text panels"></div>
     <div class="gallery-overlay-body">
       <h2 id="gallery-overlay-title" class="gallery-overlay-title"></h2>
+      <div id="gallery-overlay-image-meta" class="meta-table gallery-overlay-image-meta">
+        <div class="meta-table-row" id="gallery-overlay-source-row">
+          <span class="meta-table-label">source</span>
+          <span class="meta-table-value" id="gallery-overlay-source-value"></span>
+        </div>
+        <div class="meta-table-row" id="gallery-overlay-type-row">
+          <span class="meta-table-label">content</span>
+          <span class="meta-table-value" id="gallery-overlay-type-value"></span>
+        </div>
+        <div class="meta-table-row gallery-overlay-caption-row" id="gallery-overlay-caption-row">
+          <span class="meta-table-label">caption</span>
+          <span class="meta-table-value gallery-overlay-caption-value">
+            <span class="gallery-overlay-caption-badge" id="gallery-overlay-caption-badge">AI</span>
+            <span id="gallery-overlay-caption-text"></span>
+          </span>
+        </div>
+        <div class="meta-table-row" id="gallery-overlay-dims-row">
+          <span class="meta-table-label">dimensions</span>
+          <span class="meta-table-value" id="gallery-overlay-dims-value"></span>
+        </div>
+      </div>
       <div id="gallery-overlay-authors" class="gallery-overlay-authors" role="list"></div>
       <p id="gallery-overlay-venue" class="gallery-overlay-venue"></p>
       <p id="gallery-overlay-abstract" class="gallery-overlay-abstract"></p>
