@@ -98,6 +98,15 @@ layout: masonry
       {% if pub_doi_href %}
         {% include components/gallery-strip-tile.html title=page.title title_short="DOI" link=pub_doi_href %}
       {% endif %}
+      {% if page.related %}
+        {% for rel in page.related %}
+          {% assign rel_thumbnail = '' %}
+          {% if rel.thumbnail and rel.thumbnail != '' %}
+            {% assign rel_thumbnail = '/assets/images/projects/' | append: rel.thumbnail | relative_url %}
+          {% endif %}
+          {% include components/gallery-strip-tile.html image=rel_thumbnail image_natural=true title=rel.title title_short=rel.title venue=rel.venue url=rel.url open_page=true %}
+        {% endfor %}
+      {% endif %}
     </div>
   </section>
 
