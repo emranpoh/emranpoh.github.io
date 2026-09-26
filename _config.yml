@@ -40,6 +40,15 @@ orcid_id: 0000-0003-4721-1916
 # twitter_username: jekyllrb
 # linkedin_username: your-linkedin-username
 
+# Analytics
+# Privacy-friendly pageview analytics. Leave domain blank to disable.
+# Plausible: sign up at plausible.io (or self-host), then set domain to your
+# site's domain exactly as registered there. GoatCounter: set provider to
+# "goatcounter" and domain to your goatcounter subdomain (e.g. "yourname").
+analytics:
+  provider: plausible
+  domain: ""
+
 # Build Settings
 theme: minima
 plugins:

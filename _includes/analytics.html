@@ -1,0 +1,7 @@
+{% if site.analytics.domain and site.analytics.domain != "" %}
+  {% if site.analytics.provider == "goatcounter" %}
+    <script data-goatcounter="https://{{ site.analytics.domain }}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  {% else %}
+    <script defer data-domain="{{ site.analytics.domain }}" src="https://plausible.io/js/script.js"></script>
+  {% endif %}
+{% endif %}

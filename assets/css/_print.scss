@@ -1,0 +1,45 @@
+@media print {
+  .skip-link,
+  .scroll-progress,
+  .site-header,
+  .footer,
+  .talks-section-wrapper,
+  .selected-works-wrapper,
+  .work-detail-modal,
+  .pub-copy-bib-btn,
+  .pub-bib-data {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  .publication-detail {
+    max-width: 100%;
+  }
+
+  .publication-body {
+    display: block;
+  }
+
+  .publication-sidebar {
+    display: none;
+  }
+
+  .publication-image {
+    max-width: 3in;
+  }
+
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    color: #444;
+  }
+}
