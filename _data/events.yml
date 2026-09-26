@@ -6,6 +6,20 @@
 #   video: { type: video, video: "<url or /assets/videos/... path>", thumbnail: "<file>", caption }
 #   text:  { type: text, title (optional label), text }
 
+- slug: "future-cs-education-workshop-2"
+  title: "Future CS Education Workshop 2.0"
+  header_label: "future cs education workshop 2.0"
+  date: "2026-01-25"
+  location: "National University of Singapore, Singapore"
+  description: "Organised and facilitated the Future CS Education Workshop 2.0 at NUS, where participants mapped out how AI is changing the way they learn computer science."
+  items:
+    - type: image
+      image: "future-cs-education-workshop-2-group-photo.webp"
+      caption: "Group photo with workshop participants in front of the affinity wall"
+    - type: image
+      image: "future-cs-education-workshop-2-affinity-wall.webp"
+      caption: "Participants sorting sticky notes on AI in school work, CS fundamentals and academic challenges"
+
 - slug: "hci-visit-nycu-2025"
   title: "HCI Research Gathering at NYCU"
   header_label: "hci visit"
