@@ -137,7 +137,7 @@
     var items = highlights.querySelectorAll('.highlights-item');
     items.forEach(function (item) { item.style.display = ''; });
 
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 1023) { // matches $bp-tablet-max in _variables.scss
       highlights.style.maxHeight = '';
       return;
     }
