@@ -1,8 +1,11 @@
 {% comment %}
   are.na-style metadata table: label left, value right-aligned, thin rule between rows.
-  Params: venue, year, status, doi_value, doi_url
+  Params: authors, venue, year, status, acceptance, acceptance_title, doi_value, doi_url
 {% endcomment %}
 {% capture meta_table_rows %}
+  {% if include.authors and include.authors != '' %}
+  <div class="meta-table-row"><span class="meta-table-label">authors</span><span class="meta-table-value">{{ include.authors }}</span></div>
+  {% endif %}
   {% if include.venue and include.venue != '' %}
   <div class="meta-table-row"><span class="meta-table-label">venue</span><span class="meta-table-value">{{ include.venue }}</span></div>
   {% endif %}
