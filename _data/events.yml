@@ -6,6 +6,20 @@
 #   video: { type: video, video: "<url or /assets/videos/... path>", thumbnail: "<file>", caption }
 #   text:  { type: text, title (optional label), text }
 
+- slug: "1-star-kayak-award"
+  title: "1-Star Kayak Award"
+  header_label: "1-star kayak award"
+  date: "2025-10-26"
+  location: "Marina Bay, Singapore"
+  description: "Earned the 1-Star Kayak Award, paddling out on Marina Bay."
+  items:
+    - type: image
+      image: "1-star-kayak-award-kayaks-dock.webp"
+      caption: "Kayaks laid out on the dock at Marina Bay, with the Marina Bay skyline behind"
+    - type: image
+      image: "1-star-kayak-award-rocky-shallow-sign.webp"
+      caption: "A rocky shallow area marker out on the water"
+
 - slug: "future-cs-education-workshop-2"
   title: "Future CS Education Workshop 2.0"
   header_label: "future cs education workshop 2.0"
