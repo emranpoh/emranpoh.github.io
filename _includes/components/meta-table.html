@@ -1,0 +1,29 @@
+{% comment %}
+  are.na-style metadata table: label left, value right-aligned, thin rule between rows.
+  Params: venue, year, status, doi_value, doi_url
+{% endcomment %}
+{% capture meta_table_rows %}
+  {% if include.venue and include.venue != '' %}
+  <div class="meta-table-row"><span class="meta-table-label">venue</span><span class="meta-table-value">{{ include.venue }}</span></div>
+  {% endif %}
+  {% if include.year %}
+  <div class="meta-table-row"><span class="meta-table-label">year</span><span class="meta-table-value">{{ include.year }}</span></div>
+  {% endif %}
+  {% if include.status and include.status != '' %}
+  <div class="meta-table-row"><span class="meta-table-label">status</span><span class="meta-table-value">{{ include.status }}</span></div>
+  {% endif %}
+  {% if include.doi_value and include.doi_value != '' %}
+  <div class="meta-table-row">
+    <span class="meta-table-label">doi</span>
+    {% if include.doi_url %}
+    <a href="{{ include.doi_url }}" class="meta-table-value meta-table-link" target="_blank" rel="noopener noreferrer">{{ include.doi_value }}</a>
+    {% else %}
+    <span class="meta-table-value">{{ include.doi_value }}</span>
+    {% endif %}
+  </div>
+  {% endif %}
+{% endcapture %}
+{% assign meta_table_rows = meta_table_rows | strip %}
+{% if meta_table_rows != '' %}
+<div class="meta-table">{{ meta_table_rows }}</div>
+{% endif %}

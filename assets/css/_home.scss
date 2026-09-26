@@ -485,6 +485,29 @@
   }
 }
 
+.work-view-badge {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  z-index: 11;
+  padding: 0.1875rem 0.5rem;
+  border-radius: 1rem;
+  background: rgba(0, 0, 0, 0.55);
+  color: var(--bg-page);
+  font-size: 0.6875rem;
+  text-transform: lowercase;
+  opacity: 0;
+  transform: translateY(0.25rem);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+.work-image:hover .work-view-badge,
+.work-image:focus-visible .work-view-badge {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .work-image {
   width: 100%;
   aspect-ratio: 1 / 1;

@@ -63,22 +63,25 @@
   data-gallery-open-page="{{ include.open_page }}"
   data-gallery-link="{{ include.link }}"
 >
-  {% if include.link and include.link != '' %}
-    <span class="gallery-strip-link-badge" aria-hidden="true">{% include icon.html name="external-link-alt" %}</span>
-  {% endif %}
   {% if tile_thumbnail and tile_thumbnail != '' %}
-    <img src="{{ tile_thumbnail }}" alt="" class="gallery-strip-thumb{% if include.image_natural %} gallery-strip-thumb-natural{% endif %}" loading="lazy">
-    {% if include.video and include.video != '' %}
-      <span class="gallery-strip-play-badge" aria-hidden="true">▶</span>
-    {% endif %}
-    {% if include.count and include.count > 1 %}
-      <span class="gallery-strip-count-badge" aria-hidden="true">
-        {{ include.count }}
-        <svg class="gallery-strip-count-icon" viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="0.75" y="0.75" width="12.5" height="18.5" rx="3.25" stroke="currentColor" stroke-width="1.5"/>
-        </svg>
-      </span>
-    {% endif %}
+    <span class="gallery-strip-media">
+      {% if include.link and include.link != '' %}
+        <span class="gallery-strip-link-badge" aria-hidden="true">{% include icon.html name="external-link-alt" %}</span>
+      {% endif %}
+      <img src="{{ tile_thumbnail }}" alt="" class="gallery-strip-thumb{% if include.image_natural %} gallery-strip-thumb-natural{% endif %}" loading="lazy">
+      {% if include.video and include.video != '' %}
+        <span class="gallery-strip-play-badge" aria-hidden="true">▶</span>
+      {% endif %}
+      {% if include.count and include.count > 1 %}
+        <span class="gallery-strip-count-badge" aria-hidden="true">
+          {{ include.count }}
+          <svg class="gallery-strip-count-icon" viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.75" y="0.75" width="12.5" height="18.5" rx="3.25" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </span>
+      {% endif %}
+      <span class="gallery-strip-hover-badge" aria-hidden="true">view →</span>
+    </span>
     <span class="gallery-strip-caption">{{ include.title_short | default: include.title }}</span>
     {% if tile_venue and tile_venue != '' %}
       <span class="gallery-strip-venue">{{ tile_venue }}</span>

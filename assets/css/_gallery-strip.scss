@@ -24,6 +24,35 @@
   outline: none;
 }
 
+.gallery-strip-media {
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-strip-hover-badge {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0.5rem;
+  padding: 0.1875rem 0.5rem;
+  border-radius: 1rem;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 0.6875rem;
+  text-transform: lowercase;
+  opacity: 0;
+  transform: translateY(0.25rem);
+  transition: opacity 0.15s, transform 0.15s;
+  pointer-events: none;
+}
+
+.gallery-strip-tile:hover .gallery-strip-hover-badge,
+.gallery-strip-tile:focus-visible .gallery-strip-hover-badge {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .gallery-strip-play-badge {
   position: absolute;
   top: 0.5rem;
@@ -79,9 +108,71 @@
   flex-shrink: 0;
 }
 
-.detail-header {
+.detail-breadcrumb {
   margin-top: 4rem;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 0.75rem;
+  text-transform: lowercase;
+}
+
+.breadcrumb-link {
+  color: var(--text-tertiary);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.breadcrumb-link:hover {
+  color: var(--text-primary);
+  text-decoration: underline;
+}
+
+.breadcrumb-sep {
+  color: var(--text-tertiary);
+  margin: 0 0.4em;
+}
+
+.breadcrumb-current {
+  color: var(--text-tertiary);
+}
+
+.detail-header {
+  margin-top: 0.75rem;
   margin-bottom: 2rem;
+}
+
+.meta-table {
+  max-width: 360px;
+  margin-bottom: 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.meta-table-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--border-color);
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 0.75rem;
+}
+
+.meta-table-label {
+  color: var(--text-tertiary);
+  text-transform: lowercase;
+}
+
+.meta-table-value {
+  color: var(--text-primary);
+  text-align: right;
+}
+
+.meta-table-link {
+  text-decoration: none;
+}
+
+.meta-table-link:hover {
+  text-decoration: underline;
 }
 
 .detail-title {

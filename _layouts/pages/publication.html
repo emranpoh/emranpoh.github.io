@@ -80,6 +80,8 @@ layout: masonry
     {% capture pub_doi_href %}https://doi.org/{{ pub_doi_value }}{% endcapture %}
   {% endif %}
 
+  {% include components/meta-table.html venue=pub_venue_line year=pub_year status=pub_status doi_value=pub_doi_value doi_url=pub_doi_href %}
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",

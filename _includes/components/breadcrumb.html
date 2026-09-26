@@ -1,0 +1,19 @@
+{% comment %}
+  Breadcrumb trail for detail pages, are.na style: "site title / section / current".
+  Params: section (label text, optional), section_url (link for section, optional), current (current page title)
+{% endcomment %}
+<nav class="detail-breadcrumb" aria-label="Breadcrumb">
+  <a href="{{ '/' | relative_url }}" class="breadcrumb-link">{{ site.title | downcase }}</a>
+  {% if include.section %}
+    <span class="breadcrumb-sep" aria-hidden="true">/</span>
+    {% if include.section_url %}
+      <a href="{{ include.section_url | relative_url }}" class="breadcrumb-link">{{ include.section }}</a>
+    {% else %}
+      <span class="breadcrumb-current">{{ include.section }}</span>
+    {% endif %}
+  {% endif %}
+  {% if include.current %}
+    <span class="breadcrumb-sep" aria-hidden="true">/</span>
+    <span class="breadcrumb-current" aria-current="page">{{ include.current }}</span>
+  {% endif %}
+</nav>

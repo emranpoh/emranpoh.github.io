@@ -2,6 +2,27 @@
   Shared header for detail pages (events, projects): title + optional meta line + optional description.
   Params: title, meta, description
 {% endcomment %}
+{% assign url_clean = page.url | remove_first: '/' %}
+{% assign url_parts = url_clean | split: '/' %}
+{% assign section_slug = url_parts[0] %}
+{% if section_slug == 'content' %}{% assign section_slug = url_parts[1] %}{% endif %}
+{% case section_slug %}
+  {% when 'projects' %}
+    {% assign section_label = 'projects' %}
+    {% assign section_anchor = '/#selected-works' %}
+  {% when 'research' %}
+    {% assign section_label = 'research' %}
+    {% assign section_anchor = '/#publications-heading' %}
+  {% when 'events' %}
+    {% assign section_label = 'events' %}
+    {% assign section_anchor = nil %}
+  {% when 'posts' %}
+    {% assign section_label = 'posts' %}
+    {% assign section_anchor = nil %}
+  {% else %}
+    {% assign section_label = nil %}
+{% endcase %}
+{% include components/breadcrumb.html section=section_label section_url=section_anchor current=include.title %}
 <div class="detail-header">
   <h1 class="detail-title">{{ include.title }}</h1>
   {% if include.meta and include.meta != '' %}<p class="detail-meta">{{ include.meta }}</p>{% endif %}

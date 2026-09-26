@@ -149,6 +149,7 @@
           <span class="work-location">{{ work_location }}</span>
         </div>
         {% endif %}
+        <span class="work-view-badge" aria-hidden="true">view →</span>
       {% if pub_page_href %}
       </a>
       {% else %}
@@ -291,6 +292,7 @@
           <span class="work-location">{{ work_location }}</span>
         </div>
         {% endif %}
+        <span class="work-view-badge" aria-hidden="true">view →</span>
       </div>
       <div class="work-title-below">
         <div class="work-tile-summary" aria-hidden="true">{% if include.work.tile-summary %}{{ include.work.tile-summary }}{% else %}{{ include.work.title }}{% endif %}</div>
@@ -330,6 +332,7 @@
           <span class="work-location">{{ work_location }}</span>
         </div>
         {% endif %}
+        <span class="work-view-badge" aria-hidden="true">view →</span>
       </div>
       <div class="work-title-below">
         <div class="work-tile-summary" aria-hidden="true">{% if include.work.tile-summary %}{{ include.work.tile-summary }}{% else %}{{ include.work.title }}{% endif %}</div>
@@ -364,6 +367,7 @@
           <span class="work-location">{{ work_location }}</span>
         </div>
         {% endif %}
+        <span class="work-view-badge" aria-hidden="true">view →</span>
         <div class="work-title-overlay">{{ include.work.title }}</div>
       </div>
     {% endif %}
