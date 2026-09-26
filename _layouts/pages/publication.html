@@ -61,7 +61,12 @@ layout: masonry
     {% capture pub_doi_href %}https://doi.org/{{ pub_doi_value }}{% endcapture %}
   {% endif %}
 
-  {% include components/meta-table.html venue=pub_venue_line year=pub_year status=pub_status acceptance=pub_acceptance_compact acceptance_title=pub_acceptance_tip doi_value=pub_doi_value doi_url=pub_doi_href %}
+  <div class="pub-header-row">
+    {% include components/meta-table.html venue=pub_venue_line year=pub_year status=pub_status acceptance=pub_acceptance_compact acceptance_title=pub_acceptance_tip doi_value=pub_doi_value doi_url=pub_doi_href %}
+    {% if pub_abstract and pub_abstract != '' %}
+    <p class="pub-abstract-inline">{{ pub_abstract }}</p>
+    {% endif %}
+  </div>
 
   <script type="application/ld+json">
   {
@@ -83,9 +88,6 @@ layout: masonry
       {% if pub_image and pub_image != '' %}
         {% assign pub_image_url = '/assets/images/projects/' | append: pub_image | relative_url %}
         {% include components/gallery-strip-tile.html image=pub_image_url title=page.title title_short=page.title %}
-      {% endif %}
-      {% if pub_abstract and pub_abstract != '' %}
-        {% include components/gallery-strip-tile.html title=page.title title_short=pub_abstract venue="abstract" %}
       {% endif %}
       {% if pub_pdf_url %}
         {% assign pub_pdf_href = pub_pdf_url %}
