@@ -53,6 +53,29 @@
       image: "sghci-hri-2026-demo-wearable-sensor.webp"
       caption: "A demo of a wearable sensor for tracking exercise form"
 
+- slug: "pre-dis-nus-ai4sg-2026"
+  title: "Pre-DIS Meetup at NUS AI4SG Lab"
+  header_label: "pre-dis nus ai4sg meetup"
+  date: "2026-06-13"
+  location: "NUS School of Computing, Singapore"
+  description: "Pre-DIS meetup hosted by the AI4SG Lab at NUS School of Computing, hosted by Asst Prof EJ Lee Yi-Chieh, ahead of DIS 2026."
+  items:
+    - type: image
+      image: "pre-dis-nus-ai4sg-2026-social-system.webp"
+      caption: "A slide on dyads, small groups, organizations and communities as social systems"
+    - type: image
+      image: "pre-dis-nus-ai4sg-2026-talk-jane-e.webp"
+      caption: "Jane I. E. (鄂小简) presenting her research"
+    - type: image
+      image: "pre-dis-nus-ai4sg-2026-talk-code-building.webp"
+      caption: "A talk touching on the CODE University of Applied Sciences building"
+    - type: image
+      image: "pre-dis-nus-ai4sg-2026-talk-phd-supervision.webp"
+      caption: "A talk on \"A Gentlewoman's Agreement: Designing Relational Frameworks for PhD Supervision\" (DRS 2026)"
+    - type: image
+      image: "pre-dis-nus-ai4sg-2026-talk-cyborg-psychology.webp"
+      caption: "Pat Pataranutaporn (MIT) presenting \"Cyborg Psychology: Inventing, Investigating, and Inspiring Human-AI Systems for Human Flourishing\""
+
 - slug: "apple-hig-swiftui-2026"
   title: "Apple Human Interface Guidelines and SwiftUI Workshop"
   header_label: "apple hig & swiftui workshop"
