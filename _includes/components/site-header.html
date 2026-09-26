@@ -16,8 +16,8 @@
         <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener noreferrer" class="site-icon-link" aria-label="LinkedIn">
           {% include icon.html name="linkedin" %}
         </a>
-        <a href="https://scholar.google.com/citations?user={{ site.scholar_id }}" target="_blank" rel="noopener noreferrer" class="site-icon-link site-icon-link-img" aria-label="Google Scholar">
-          <img src="{{ '/assets/images/scholar.svg' | relative_url }}" alt="" class="site-icon-img">
+        <a href="https://scholar.google.com/citations?user={{ site.scholar_id }}" target="_blank" rel="noopener noreferrer" class="site-icon-link" aria-label="Google Scholar">
+          {% include icon.html name="scholar" %}
         </a>
         {% if site.orcid_id %}
         <a href="https://orcid.org/{{ site.orcid_id }}" target="_blank" rel="me noopener noreferrer" class="site-icon-link" aria-label="ORCID">
@@ -225,19 +225,6 @@
 .site-icon-link:hover,
 .site-icon-link.active {
   color: var(--text-primary);
-}
-
-.site-icon-img {
-  width: 1.0625rem;
-  height: 1.0625rem;
-  display: block;
-  opacity: 0.75;
-  transition: opacity 0.2s;
-}
-
-.site-icon-link:hover .site-icon-img,
-.site-icon-link.active .site-icon-img {
-  opacity: 1;
 }
 
 @media (max-width: 768px) {
