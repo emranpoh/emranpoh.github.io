@@ -231,15 +231,3 @@ news_items:
     summary: "Talk at NUS-HCI Lab on ethics of realism in XR, via Black Mirror."
     content: |
       Gave a talk at NUS-HCI Lab — a critical commentary on the ethics of realism in XR through Netflix's Black Mirror.
-
-upcoming_events:
-  - title: "Presenting \"Show it, Don't Just Say It\" at CHI 2026 in Barcelona 🇪🇸"
-    date: "2026-04-26"
-    location: "Barcelona, Spain"
-    description: "Presenting our CHI 2026 paper at the conference."
-
-social_sharing:
-  twitter: true
-  linkedin: true
-  facebook: false
-  email: true
