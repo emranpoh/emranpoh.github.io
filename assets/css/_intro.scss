@@ -317,25 +317,22 @@
   }
 
   .intro-header-name {
-    @include type-body-sm;
+    @include type-body;
     color: var(--text-secondary);
     margin: 0;
-    line-height: $leading-tight;
   }
 
   .intro-header-role,
   .intro-header-affiliation {
-    @include type-body-sm;
+    @include type-body;
     color: var(--text-secondary);
     margin: 0;
-    line-height: $leading-tight;
   }
 
   .intro-header-contact {
-    @include type-body-sm;
+    @include type-body;
     color: var(--text-secondary);
     margin: 0;
-    line-height: $leading-tight;
     width: 100%;
     word-break: break-word;
     overflow-wrap: break-word;
@@ -388,7 +385,6 @@
   .intro-image-research-content {
     @include type-body-sm;
     color: var(--text-secondary);
-    padding-top: 0.25rem;
     flex: 1;
     min-width: 0;
 
@@ -485,7 +481,7 @@
     align-items: flex-start;
     text-align: left;
     gap: 0.1875rem;
-    font-size: 0.9375rem;
+    font-size: $text-base;
     line-height: 1.5;
   }
 

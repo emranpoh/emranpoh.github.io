@@ -1,6 +1,7 @@
 ---
 layout: masonry
 title: Emran Poh
+tab_title: "emran poh works on"
 permalink: /
 id: landing
 description: "CS PhD student at SMU-HAI Lab. Research publications and projects in human-AI interaction, HCI, and AI tutoring by Emran Poh."
