@@ -32,7 +32,8 @@
       {% endif %}
       {% assign event_href = '/events/' | append: event.slug | append: '/' | relative_url %}
       {% assign event_count = event.items.size | default: 0 %}
-      {% include components/gallery-strip-tile.html image=event_image title=event.title title_short=event.title abstract=event.description url=event_href count=event_count source="event" %}
+      {% assign event_title_short = event.title_short | default: event.title %}
+      {% include components/gallery-strip-tile.html image=event_image title=event.title title_short=event_title_short abstract=event.description url=event_href count=event_count source="event" %}
     {% endfor %}
   </div>
 </section>
