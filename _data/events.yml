@@ -171,9 +171,6 @@
   description: "Earned the 1-Star Kayak Award, paddling out on Marina Bay."
   items:
     - type: image
-      image: "1-star-kayak-award-kayaks-dock.webp"
-      caption: "Kayaks laid out on the dock at Marina Bay, with the Marina Bay skyline behind"
-    - type: image
       image: "1-star-kayak-award-rocky-shallow-sign.webp"
       caption: "A rocky shallow area marker out on the water"
 
