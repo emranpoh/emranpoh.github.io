@@ -10,6 +10,7 @@ news_items:
   - id: news-022
     title: "Presented 'Show it, Don't Just Say It' at the [SG HCI Meetup 2026 & HRI Workshop 2026](/events/sghci-hri-meetup-2026/)"
     date: "2026-06-18"
+    time: "14:30"
     category: "Talk"
     location: "Singapore, Singapore"
     tags: ["sghci", "hri", "talk", "hci"]
@@ -25,6 +26,7 @@ news_items:
   - id: news-020
     title: "Attended an [Apple Human Interface Guidelines and SwiftUI workshop](/events/apple-hig-swiftui-2026/) at the Apple Developer Center"
     date: "2026-06-16"
+    time: "10:15"
     category: "Workshop"
     location: "Singapore, Singapore"
     tags: ["apple", "swiftui", "workshop", "design"]
@@ -38,6 +40,7 @@ news_items:
   - id: news-017
     title: "at [DIS 2026](/events/dis-2026/) in Singapore for Pei-Hua and Tianyi's papers"
     date: "2026-06-13"
+    time: "09:00"
     category: "Conference"
     location: "Singapore, Singapore"
     tags: ["dis", "conference", "hci", "travel"]
@@ -52,6 +55,7 @@ news_items:
   - id: news-021
     title: "Pre-DIS meetup at [NUS AI4SG Lab](/events/pre-dis-nus-ai4sg-2026/), hosted by Asst Prof EJ Lee Yi-Chieh"
     date: "2026-06-13"
+    time: "16:00"
     category: "Conference"
     location: "Singapore, Singapore"
     tags: ["dis", "nus", "ai4sg", "workshop"]
@@ -65,6 +69,7 @@ news_items:
   - id: news-016
     title: "off to [CHI 2026](/events/chi-2026/) in Barcelona to present our paper 🇪🇸"
     date: "2026-04-13"
+    time: "07:45"
     category: "Conference"
     location: "Barcelona, Spain"
     tags: ["chi", "conference", "hci", "travel"]
@@ -79,6 +84,7 @@ news_items:
   - id: news-015
     title: "Two of our papers got into DIS 2026, led by Pei-Hua and Tianyi 🎉"
     date: "2026-03-01"
+    time: "22:10"
     category: "Publication"
     location: "Singapore, Singapore"
     tags: ["dis", "publication", "hci", "ai-mediated communication"]
@@ -92,6 +98,7 @@ news_items:
   - id: news-013
     title: "Paper accepted to CHI 2026 Workshop: 'When Not to Help: A Human-Teaching Lens on AI Tutoring'"
     date: "2026-02-24"
+    time: "23:45"
     category: "Publication"
     location: "Barcelona, Spain"
     tags: ["chi", "publication", "hci", "ai education", "workshop"]
@@ -105,6 +112,7 @@ news_items:
   - id: news-007
     title: "Helping run [Future CS Education Workshop 2.0](/events/future-cs-education-workshop-2/), on the organising team"
     date: "2026-01-25"
+    time: "09:30"
     category: "Workshop"
     tags: ["nus", "google", "workshop", "cs education", "organising"]
     featured: true
@@ -119,6 +127,7 @@ news_items:
   - id: news-005
     title: "Our paper 'Show it, Don't Just Say It' got accepted to CHI 2026 🇪🇸 🎉"
     date: "2026-01-15"
+    time: "21:05"
     category: "Publication"
     location: "Barcelona, Spain"
     tags: ["chi", "publication", "hci", "acceptance"]
@@ -132,6 +141,7 @@ news_items:
   - id: news-019
     title: "Earned my [1-Star Kayak Award](/events/1-star-kayak-award/) 🛶"
     date: "2025-10-26"
+    time: "15:20"
     category: "Personal"
     location: "Singapore"
     tags: ["kayak", "personal"]
@@ -144,6 +154,7 @@ news_items:
   - id: news-006
     title: "Volunteered at [NUS-Google Workshop: Future of CS Education and Curriculum in the AI Era](/events/nus-google-workshop-2025/)"
     date: "2025-11-07"
+    time: "09:00"
     category: "Workshop"
     tags: ["nus", "google", "workshop", "cs education", "ai"]
     featured: true
@@ -158,6 +169,7 @@ news_items:
   - id: news-012
     title: "Student volunteered at [ICHEC 2025](/events/ichec-2025/) in November"
     date: "2025-11-23"
+    time: "10:00"
     category: "Conference"
     tags: ["ichec", "volunteer", "conference", "hci"]
     featured: true
@@ -170,6 +182,7 @@ news_items:
   - id: news-014
     title: "Got the [Presidential Doctoral Fellowship](/events/presidential-doctoral-fellowship-2026/)"
     date: "2026-08-01"
+    time: "11:00"
     category: "Education"
     tags: ["smu", "fellowship", "phd"]
     featured: true
@@ -182,6 +195,7 @@ news_items:
   - id: news-004
     title: "Went to [National Yang Ming Chiao Tung University (NYCU)](/events/hci-visit-nycu-2025/) in Hsinchu, Taiwan for an HCI meetup with friends"
     date: "2025-08-20"
+    time: "14:00"
     category: "Conference"
     location: "Hsinchu, Taiwan"
     tags: ["nycu", "hci", "meetup", "taiwan"]
@@ -197,6 +211,7 @@ news_items:
   - id: news-003
     title: "Singapore HCI Meetup 2025 at SMU"
     date: "2025-04-15"
+    time: "13:30"
     category: "Conference"
     tags: ["sghci", "conference", "hci"] 
     featured: true
@@ -212,6 +227,7 @@ news_items:
   - id: news-018
     title: "Attended a [pre-CHI workshop at the University of Tokyo](/events/pre-chi-utokyo-2025/), hosted by Prof. Koji Yatani's lab"
     date: "2025-04-25"
+    time: "10:30"
     category: "Conference"
     location: "Tokyo, Japan"
     tags: ["chi", "workshop", "hci", "utokyo"]
@@ -226,6 +242,7 @@ news_items:
   - id: news-000
     title: "Starting my PhD at SMU (Computer Science) with a full scholarship 🎉"
     date: "2025-03-18"
+    time: "20:15"
     category: "Education"
     tags: ["PhD", "smu", "scholarship"]
     featured: true
@@ -239,6 +256,7 @@ news_items:
   - id: news-001
     title: "First time at [CHI, Yokohama 2025](/events/chi-2025/) 🇯🇵"
     date: "2025-04-20"
+    time: "09:15"
     category: "Conference"
     location: "Yokohama, Japan"
     tags: ["chi", "conference", "hci"]
@@ -255,6 +273,7 @@ news_items:
   - id: news-008
     title: "Hello World, created this website in Jan 2023"
     date: "2023-01-01"
+    time: "00:30"
     category: "Personal"
     tags: ["website", "hello world"]
     featured: true
@@ -266,6 +285,7 @@ news_items:
   - id: news-009
     title: "Graduated from NUS with a Master of Computing (July 2024)"
     date: "2024-07-01"
+    time: "12:00"
     category: "Education"
     tags: ["nus", "masters", "graduation"]
     featured: true
@@ -278,6 +298,7 @@ news_items:
   - id: news-010
     title: "Gave a talk on [Emptiness, Isolation, Death, Hope: parallels from Death Stranding](/projects/death-stranding/) at NUS-HCI Lab"
     date: "2024-01-24"
+    time: "15:00"
     category: "Talk"
     tags: ["talk", "death-stranding", "nus-hci"]
     featured: true
@@ -290,6 +311,7 @@ news_items:
   - id: news-011
     title: "Gave a talk on [How to Use XR for Physical Assault](/projects/xr-ethics-black-mirror) at NUS-HCI Lab"
     date: "2023-06-23"
+    time: "15:30"
     category: "Talk"
     tags: ["talk", "xr", "ethics", "black-mirror", "nus-hci"]
     featured: true
