@@ -134,6 +134,9 @@
   description: "A workshop on Apple's Human Interface Guidelines and SwiftUI at the Apple Developer Center in Singapore, held during DIS 2026 week."
   items:
     - type: image
+      image: "apple-hig-swiftui-2026-selfie.webp"
+      caption: "By the Apple Developer Center sign"
+    - type: image
       image: "apple-hig-swiftui-2026-talk.webp"
       caption: "A speaker on \"starting with the person\" before shaping the interface"
     - type: image
@@ -142,9 +145,6 @@
     - type: image
       image: "apple-hig-swiftui-2026-ipad-coding.webp"
       caption: "Building a SwiftUI name card app on an iPad during the workshop"
-    - type: image
-      image: "apple-hig-swiftui-2026-selfie.webp"
-      caption: "By the Apple Developer Center sign"
     - type: image
       image: "apple-hig-swiftui-2026-mirror-selfie.webp"
       caption: "A reflected selfie during the workshop"
