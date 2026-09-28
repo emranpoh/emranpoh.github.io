@@ -115,6 +115,23 @@ presentations:
     work-tags:
       - "Talk"
 
+  - id: pres-009
+    title: "Learning for Kids: Intent-driven Programming"
+    date: "2025-12-01"
+    year: 2025
+    event: "HCI Research Gathering at NYCU"
+    type: "talk"
+    location: "National Yang Ming Chiao Tung University"
+    country: "Taiwan"
+    description: "Talk on intent-driven programming and how to teach kids to code when vibe coding makes learning Python feel optional, at the HCI research gathering with labs from NYCU, Seoul National University, Hokkaido University and SMU."
+    link: "/events/hci-visit-nycu-2025"
+    image: "nycu-hci-talk-kids-coding.webp"
+    institution: "nycu"
+    is-selected: false
+    tags: ["intent-driven-programming", "kids-coding", "vibe-coding", "talk"]
+    work-tags:
+      - "Talk"
+
   - id: pres-008
     title: "Engineering Demo for the Institution of Engineering and Technology"
     date: "2023-01-01"
