@@ -440,16 +440,21 @@
     }
   }
 
-  // Below ~1800px the fixed photo/meta and updates columns leave the prose only
-  // a few words per line, so stack the updates under the prose instead.
+  // Below ~1800px three side-by-side columns leave the prose only a few words
+  // per line, so put name/role/keywords under the photo to free up width and
+  // keep prose and updates side by side.
   @media (min-width: $bp-desktop-min) and (max-width: 1799px) {
-    .intro-header-right {
+    .intro-header-left {
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 1rem;
+    }
+
+    .intro-header-meta {
+      width: 16rem;
     }
 
     .intro-header-highlights {
-      width: auto;
+      width: 28rem;
     }
   }
 
