@@ -440,6 +440,19 @@
     }
   }
 
+  // Below ~1800px the fixed photo/meta and updates columns leave the prose only
+  // a few words per line, so stack the updates under the prose instead.
+  @media (min-width: $bp-desktop-min) and (max-width: 1799px) {
+    .intro-header-right {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .intro-header-highlights {
+      width: auto;
+    }
+  }
+
   // Match the profile photo to the gallery tiles' minimum size on desktop,
   // and put name/role/email/keywords beside it instead of stacked below.
   @include desktop {
