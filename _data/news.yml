@@ -8,7 +8,7 @@ settings:
 
 news_items:
   - id: news-022
-    title: "Presented 'Show it, Don't Just Say It' at the [SG HCI Meetup 2026 & HRI Workshop 2026](/events/sghci-hri-meetup-2026/)"
+    title: "i presented my chi paper at the [sg hci meetup 26 & hri workshop 26](/events/sghci-hri-meetup-2026/)"
     date: "2026-06-18"
     time: "14:30"
     category: "Talk"
@@ -24,7 +24,7 @@ news_items:
       Presented "Show it, Don't Just Say It" at the SG HCI Meetup 2026, combined this year with the HRI Workshop 2026. Good turnout and good to catch up with the local HCI/HRI crowd again.
 
   - id: news-020
-    title: "Attended an [Apple Human Interface Guidelines and SwiftUI workshop](/events/apple-hig-swiftui-2026/) at the Apple Developer Center"
+    title: "went to an [apple workshop](/events/apple-hig-swiftui-2026/) at the apple dev center during dis26"
     date: "2026-06-16"
     time: "10:15"
     category: "Workshop"
@@ -38,7 +38,7 @@ news_items:
       Attended a workshop on Apple's Human Interface Guidelines and SwiftUI at the Apple Developer Center in Singapore.
 
   - id: news-017
-    title: "at [DIS 2026](/events/dis-2026/) in Singapore for Pei-Hua and Tianyi's papers"
+    title: "at [DIS 2026](/events/dis-2026/) in NUS, Singapore! for Pei-Hua and Tianyi's papers"
     date: "2026-06-13"
     time: "09:00"
     category: "Conference"
@@ -53,7 +53,7 @@ news_items:
       At DIS 2026 in Singapore for Pei-Hua and Tianyi's papers. Nice that it's local this time.
 
   - id: news-021
-    title: "Pre-DIS meetup at [NUS AI4SG Lab](/events/pre-dis-nus-ai4sg-2026/), hosted by Asst Prof EJ Lee Yi-Chieh"
+    title: "met people at the pre-DIS meetup at [NUS AI4SG Lab](/events/pre-dis-nus-ai4sg-2026/)"
     date: "2026-06-13"
     time: "16:00"
     category: "Conference"
@@ -67,7 +67,7 @@ news_items:
       Pre-DIS meetup hosted by the AI4SG Lab at NUS School of Computing, hosted by Asst Prof EJ Lee Yi-Chieh, ahead of DIS 2026.
 
   - id: news-016
-    title: "off to [CHI 2026](/events/chi-2026/) in Barcelona to present our paper 🇪🇸"
+    title: "gonna be at [CHI 2026](/events/chi-2026/) in Barcelona to present our paper 🇪🇸"
     date: "2026-04-13"
     time: "07:45"
     category: "Conference"
@@ -180,7 +180,7 @@ news_items:
       Student volunteered at ICHEC 2025 in November. Helped run things and caught some talks — good to be part of it.
 
   - id: news-014
-    title: "Got the [Presidential Doctoral Fellowship](/events/presidential-doctoral-fellowship-2026/)"
+    title: "i got me the [presidential doctoral fellowship](/events/presidential-doctoral-fellowship-2026/) for AY 26/27!"
     date: "2026-08-01"
     time: "11:00"
     category: "Education"
