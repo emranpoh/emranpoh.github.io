@@ -6,7 +6,7 @@ permalink: /llms.txt
 
 > {{ site.description | strip_newlines }}
 
-{{ site.author }} is a CS PhD student at Singapore Management University (SMU-HAI Lab), working on human-computer interaction: software learning, instructional design, and human agency with AI.
+{{ site.author }} is a CS PhD candidate at Singapore Management University (SMU-HAI Lab), working on human-computer interaction: software learning, instructional design, and human agency with AI.
 
 ## Key pages
 
